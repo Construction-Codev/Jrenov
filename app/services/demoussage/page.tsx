@@ -1,4 +1,10 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+import { getService } from "@/lib/services";
+import { serviceJsonLd } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
+import ServiceSilo from "@/components/ServiceSilo";
+import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -13,9 +19,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Nettoyage & Démoussage Toiture à Lyon (69) | Jrenov",
-  description:
-    "Artisan spécialisé dans le nettoyage, le démoussage et le traitement hydrofuge de toiture à Lyon. Élimination des mousses et lichens. Devis gratuit au 04 65 84 88 85.",
+  ...pageMetadata({
+    title: "Démoussage et nettoyage de toiture – Est lyonnais & Lyon",
+    description:
+      "Nettoyage de toiture, traitement anti-mousse et hydrofuge par Jrenov, basé à Décines-Charpieu : interventions dans l'Est lyonnais, à Lyon et dans la métropole.",
+    path: "/services/demoussage",
+  }),
 };
 
 const STEPS = [
@@ -37,7 +46,7 @@ const STEPS = [
   {
     step: "04",
     title: "Vidange & Nettoyage des Gouttières",
-    desc: "Nettoyage complet des gouttières et chéneaux pour garantir un écoulement optimal des eaux de pluie.",
+    desc: "Nettoyage complet des gouttières et chéneaux pour rétablir un bon écoulement des eaux de pluie.",
   },
 ];
 
@@ -59,9 +68,33 @@ const ADVANTAGES = [
   },
 ];
 
+const FAQ: FaqItem[] = [
+  {
+    question: "Quelle est la meilleure période pour nettoyer une toiture ?",
+    answer:
+      "Le printemps, pour éliminer les traces de l'hiver, et l'automne, après la chute des feuilles. Évitez les fortes chaleurs estivales et les périodes de gel.",
+  },
+  {
+    question: "Faut-il appliquer un hydrofuge après chaque démoussage ?",
+    answer:
+      "Ce n'est pas obligatoire : l'hydrofuge est une protection complémentaire. Appliqué après le nettoyage et le traitement fongicide, il fait glisser l'eau et retarde le retour des mousses. Il existe en version incolore ou colorée ; à Tassin-la-Demi-Lune, un hydrofuge coloré préventif a été appliqué après le nettoyage.",
+  },
+  {
+    question: "Une toiture très envahie par la mousse peut-elle encore être nettoyée ?",
+    answer:
+      "Oui, tant que les tuiles sont saines. À Tassin-la-Demi-Lune, une toiture fortement envahie a été nettoyée à pression modérée puis traitée. Si certaines tuiles sont fendues ou s'écaillent, il faut d'abord les remplacer.",
+  },
+  {
+    question: "Puis-je démousser mon toit moi-même ?",
+    answer:
+      "C'est déconseillé : le travail en hauteur expose à un risque de chute, et une pression mal réglée peut rendre les tuiles poreuses. Un couvreur adapte la pression au matériau et vérifie l'état de la couverture pendant l'intervention.",
+  },
+];
+
 export default function DemoussagePage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
+      <JsonLd data={serviceJsonLd(getService("demoussage"))} />
       
       {/* 1. Hero de la page Service */}
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -74,11 +107,11 @@ export default function DemoussagePage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Nettoyage & Démoussage de Toiture à <span className="text-amber-400">Lyon</span>
+            Nettoyage & Démoussage de Toiture dans la <span className="text-amber-400">métropole lyonnaise</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Mousses, lichens et traces noires fragilisent vos tuiles et l'étanchéité de votre toit. Jrenov réalise le nettoyage, le traitement anti-mousse et l'application d'hydrofuge sur Lyon et toute la métropole.
+            Mousses, lichens et traces noires fragilisent vos tuiles et l&apos;étanchéité de votre toit. Jrenov réalise le nettoyage, le traitement anti-mousse et l&apos;application d&apos;hydrofuge depuis Décines-Charpieu, dans l&apos;Est lyonnais, à Lyon et dans toute la métropole.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center sm:justify-start">
@@ -139,7 +172,7 @@ export default function DemoussagePage() {
               Notre Méthode
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Les 4 étapes d'un entretien de toiture réussi
+              Les 4 étapes d&apos;un entretien de toiture réussi
             </h2>
           </div>
 
@@ -174,13 +207,13 @@ export default function DemoussagePage() {
           </div>
 
           <p className="text-sm text-slate-600 leading-relaxed">
-            L'hydrofuge pénètre au cœur du matériau (tuile terre cuite, béton ou ardoise) sans bloquer sa respiration. Il rend la surface auto-nettoyante : la pluie glisse en emportant les poussières et salissures.
+            L&apos;hydrofuge pénètre au cœur du matériau (tuile terre cuite, béton ou ardoise) sans bloquer sa respiration. Il rend la surface auto-nettoyante : la pluie glisse en emportant les poussières et salissures.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs sm:text-sm text-slate-700">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Incolore : conserve l'aspect naturel des tuiles</span>
+              <span>Incolore : conserve l&apos;aspect naturel des tuiles</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -189,6 +222,12 @@ export default function DemoussagePage() {
           </div>
         </div>
       </section>
+
+      {/* Réalisations, conseils et zones d'intervention (silo services) */}
+      <ServiceSilo serviceKey="demoussage" />
+
+      {/* FAQ (FAQPage généré depuis le contenu visible) */}
+      <ServiceFaq title="Vos questions sur le démoussage" items={FAQ} />
 
       {/* 5. Banner Urgence / Devis */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
@@ -199,10 +238,10 @@ export default function DemoussagePage() {
               Toiture couverte de mousse ?
             </div>
             <h3 className="text-xl sm:text-2xl font-black">
-              Demandez votre diagnostic gratuit à Lyon
+              Demandez votre diagnostic gratuit
             </h3>
             <p className="text-slate-300 text-sm max-w-lg">
-              Nos artisans analysent l'état de vos tuiles et vous proposent un devis détaillé sans engagement sous 24h.
+              Nos artisans analysent l&apos;état de vos tuiles et vous proposent un devis détaillé et sans engagement sous 24h.
             </p>
           </div>
           <Link

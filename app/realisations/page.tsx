@@ -1,12 +1,17 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 import Image from "next/image";
 import realisations from "@/data/realisations.json";
 import { MapPin, Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Nos Réalisations & Chantiers de Toiture à Lyon | Jrenov",
-  description: "Découvrez les photos et détails de nos récents chantiers de couverture, zinguerie et isolation réalisés à Lyon et dans le Rhône.",
+  ...pageMetadata({
+    title: "Nos chantiers de toiture dans l'Est lyonnais et à Lyon",
+    description:
+      "Couverture, zinguerie, isolation, fenêtres de toit : photos et détails des chantiers menés par Jrenov depuis Décines-Charpieu, dans l'Est lyonnais et la métropole.",
+    path: "/realisations",
+  }),
 };
 
 export default function RealisationsPage() {
@@ -17,7 +22,7 @@ export default function RealisationsPage() {
           <span className="text-amber-600 font-bold text-xs uppercase tracking-wider">Savoir-faire en images</span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900">Nos dernières réalisations</h1>
           <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-            Consultez nos chantiers de réfection de toiture, zinguerie et dépannage menés à bien dans la métropole lyonnaise.
+            Consultez nos chantiers de réfection de toiture, zinguerie et dépannage menés depuis Décines-Charpieu, dans l&apos;Est lyonnais et la métropole lyonnaise.
           </p>
         </div>
 

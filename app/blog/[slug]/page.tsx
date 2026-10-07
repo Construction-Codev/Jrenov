@@ -1,7 +1,13 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import posts from "@/data/post.json";
+import ArticleContent from "@/components/ArticleContent";
+import ArticleServiceLinks from "@/components/ArticleServiceLinks";
+import JsonLd from "@/components/JsonLd";
+import { blogPostingJsonLd } from "@/lib/structured-data";
+import { frenchDateToIso } from "@/lib/content";
 import { Calendar, Clock, ArrowLeft, User } from "lucide-react";
 
 type Props = {
@@ -19,10 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
 
-  return {
-    title: `${post.title} | Blog Jrenov`,
+  return pageMetadata({
+    title: post.title,
     description: post.excerpt,
-  };
+    path: `/blog/${post.slug}`,
+    type: "article",
+  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -33,6 +41,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <article className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+      <JsonLd data={blogPostingJsonLd({ ...post, datePublished: frenchDateToIso(post.date) })} />
       <div className="max-w-3xl mx-auto bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-sm space-y-8">
         <Link href="/blog" className="inline-flex items-center gap-2 text-xs font-bold text-amber-600 hover:underline">
           <ArrowLeft className="w-4 h-4" /> Retour aux articles
@@ -47,14 +56,9 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
-          {post.content.map((paragraph, idx) => {
-            if (paragraph.startsWith("### ")) {
-              return <h2 key={idx} className="text-lg font-bold text-slate-900 pt-4">{paragraph.replace("### ", "")}</h2>;
-            }
-            return <p key={idx}>{paragraph}</p>;
-          })}
-        </div>
+        <ArticleContent blocks={post.content} />
+
+        <ArticleServiceLinks slug={post.slug} />
       </div>
     </article>
   );

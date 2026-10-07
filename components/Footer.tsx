@@ -1,23 +1,18 @@
 import Link from "next/link";
 import { Phone, MapPin, Clock, Mail, ShieldCheck } from "lucide-react";
+import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 
 const SERVICES_LINKS = [
   { label: "Rénovation de couverture", href: "/services/couverture" },
   { label: "Zinguerie & Gouttières", href: "/services/zinguerie" },
   { label: "Isolation thermique", href: "/services/isolation" },
   { label: "Nettoyage & Démoussage", href: "/services/demoussage" },
+  { label: "Recherche de fuite & urgence", href: "/services/recherche-de-fuite" },
+  { label: "Fenêtres de toit", href: "/services/fenetres-de-toit" },
 ];
 
-const TOWNS_LYON = [
-  "Lyon (tous arrondissements)",
-  "Villeurbanne",
-  "Caluire-et-Cuire",
-  "Écully",
-  "Tassin-la-Demi-Lune",
-  "Oullins",
-  "Bron",
-  "Mions & Est Lyonnais",
-];
+// Quelques pages locales mises en avant : la liste complète est sur /zones-intervention
+const FOOTER_ZONES = LOCAL_AREA_INDEX.map((area) => ({ label: area.city, href: `/${area.slug}` }));
 
 export default function Footer() {
   return (
@@ -36,7 +31,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Artisan couvreur-zingueur spécialiste de la rénovation, la réparation et l’entretien de toitures à Lyon et dans tout le Rhône (69).
+              Artisan couvreur-zingueur basé à Décines-Charpieu : rénovation, réparation et entretien de toitures dans la métropole lyonnaise et dans un rayon d&apos;environ 50 km.
             </p>
             <div className="flex items-center gap-2 text-amber-400 text-xs font-semibold">
               <ShieldCheck className="w-4 h-4" />
@@ -86,14 +81,21 @@ export default function Footer() {
 
           {/* Colonne 3 : Zone d'intervention SEO */}
           <div className="space-y-3">
-            <h3 className="text-white font-bold text-sm uppercase tracking-wider">Zone d'intervention</h3>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider">Zone d&apos;intervention</h3>
             <ul className="grid grid-cols-1 gap-1 text-xs text-slate-400">
-              {TOWNS_LYON.map((town, idx) => (
-                <li key={idx} className="flex items-center gap-1.5">
-                  <MapPin className="w-3 h-3 text-amber-500 shrink-0" />
-                  <span>{town}</span>
+              {FOOTER_ZONES.map((zone) => (
+                <li key={zone.href}>
+                  <Link href={zone.href} className="flex items-center gap-1.5 hover:text-amber-400 transition">
+                    <MapPin className="w-3 h-3 text-amber-500 shrink-0" />
+                    <span>Couvreur à {zone.label}</span>
+                  </Link>
                 </li>
               ))}
+              <li className="pt-1">
+                <Link href="/zones-intervention" className="font-semibold text-slate-300 hover:text-amber-400 transition">
+                  Toutes nos zones d&apos;intervention &rarr;
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -107,11 +109,19 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>Intervention 7j/7 en cas d'urgence</span>
+                <span>Intervention 7j/7 en cas d&apos;urgence</span>
               </div>
-              <div className="flex items-center gap-2">
+              <a href="mailto:contact@jrenov.com" className="flex items-center gap-2 hover:text-amber-400 transition">
                 <Mail className="w-4 h-4 text-amber-500 shrink-0" />
                 <span>contact@jrenov.com</span>
+              </a>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                <address className="not-italic">
+                  48 Ancien Chemin des Marais
+                  <br />
+                  69150 Décines-Charpieu
+                </address>
               </div>
             </div>
           </div>
@@ -120,7 +130,7 @@ export default function Footer() {
 
         {/* Bas du Footer & Mentions Légales */}
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Jrenov Couverture Lyon. Tous droits réservés.</p>
+          <p>© {new Date().getFullYear()} Jrenov, couvreur à Décines-Charpieu. Tous droits réservés.</p>
           <div className="flex gap-4 flex-wrap">
             <Link href="/plan-du-site" className="hover:text-slate-300 transition">
               Plan du site

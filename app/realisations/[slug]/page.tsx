@@ -1,9 +1,12 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import realisations from "@/data/realisations.json";
-import { MapPin, Calendar, Clock, ShieldCheck, ArrowLeft, Phone, CheckCircle2 } from "lucide-react";
+import { MapPin, Calendar, Clock, ShieldCheck, ArrowLeft, ArrowRight, Phone } from "lucide-react";
+import { servicesForRealisation, showsDecennialBadge } from "@/lib/service-content";
+import { localAreaForCity } from "@/lib/local-areas";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,10 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = realisations.find((p) => p.slug === slug);
   if (!project) return {};
 
-  return {
-    title: `${project.title} à ${project.city} | Jrenov Lyon`,
+  return pageMetadata({
+    title: `${project.title} à ${project.city.replace(/\s*\(\d{5}\)$/, "")}`,
     description: `${project.summary} Découvrez notre réalisation de travaux à ${project.city}. Devis et diagnostic gratuit.`,
-  };
+    path: `/realisations/${project.slug}`,
+    type: "article",
+  });
 }
 
 export default async function RealisationDetailPage({ params }: Props) {
@@ -31,6 +36,9 @@ export default async function RealisationDetailPage({ params }: Props) {
   const project = realisations.find((p) => p.slug === slug);
 
   if (!project) notFound();
+
+  const services = servicesForRealisation(project);
+  const localArea = localAreaForCity(project.city);
 
   // Filtrage de 2 projets similaires dans la même catégorie pour le maillage interne
   const relatedProjects = realisations
@@ -58,10 +66,12 @@ export default async function RealisationDetailPage({ params }: Props) {
               <span className="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full">
                 {project.category}
               </span>
-              <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                Garantie Décennale 10 ans
-              </span>
+              {showsDecennialBadge(project) && (
+                <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  Garantie Décennale 10 ans
+                </span>
+              )}
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
@@ -108,34 +118,42 @@ export default async function RealisationDetailPage({ params }: Props) {
           {/* Description détaillée des travaux */}
           <div className="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
             <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-2">
-              Détail de l'intervention
+              Détail de l&apos;intervention
             </h2>
             <p className="text-slate-600 whitespace-pre-line">
               {project.description}
             </p>
 
-            <div className="pt-2">
-              <h3 className="text-base font-bold text-slate-900 mb-3"> Points clés du chantier :</h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-600 list-none p-0">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <span>Matériaux haute qualité certifiés NF</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <span>Respect strict des normes DTU en vigueur</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <span>Protection complète du site & nettoyage fin de chantier</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <span>Contrôle d'étanchéité post-intervention</span>
-                </li>
-              </ul>
-            </div>
           </div>
+
+          {/* Pour aller plus loin : services et page locale correspondants */}
+          {(services.length > 0 || localArea) && (
+            <div className="grid sm:grid-cols-2 gap-4">
+              {services.map((service) => (
+                <Link
+                  key={service.key}
+                  href={service.href}
+                  className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 hover:border-amber-400 transition group space-y-1"
+                >
+                  <span className="text-xs text-amber-600 font-bold block">Prestation</span>
+                  <span className="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition inline-flex items-center gap-1">
+                    Découvrir notre service {service.title.toLowerCase()} <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              ))}
+              {localArea && (
+                <Link
+                  href={`/${localArea.slug}`}
+                  className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 hover:border-amber-400 transition group space-y-1"
+                >
+                  <span className="text-xs text-amber-600 font-bold block">{localArea.city}</span>
+                  <span className="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition inline-flex items-center gap-1">
+                    Voir nos interventions de couverture à {localArea.city} <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              )}
+            </div>
+          )}
 
           {/* Encart d'appel à l'action (CTA) */}
           <div className="bg-slate-950 text-white p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">

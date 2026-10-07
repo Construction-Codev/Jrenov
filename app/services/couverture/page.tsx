@@ -1,19 +1,26 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+import { getService } from "@/lib/services";
+import { serviceJsonLd } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
+import ServiceSilo from "@/components/ServiceSilo";
+import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
 import {
   ShieldCheck,
-  CheckCircle2,
   Phone,
   FileText,
   Hammer,
-  Wrench,
-  Sparkles,
   AlertTriangle,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Rénovation & Réparation de Couverture à Lyon (69) | Jrenov",
-  description: "Artisan couvreur spécialisé en réfection de toiture, pose de tuiles, ardoise et zinc à Lyon et dans le Rhône. Garantie décennale et devis gratuit au 04 65 84 88 85.",
+  ...pageMetadata({
+    title: "Rénovation et réparation de toiture dans l'Est lyonnais",
+    description:
+      "Réfection ou réparation de toiture en tuiles, ardoise ou bac acier par Jrenov, couvreur basé à Décines-Charpieu, dans l'Est lyonnais et la métropole. Devis gratuit.",
+    path: "/services/couverture",
+  }),
 };
 
 const MATERIALS = [
@@ -39,7 +46,7 @@ const PROCESS_STEPS = [
   {
     step: "01",
     title: "Diagnostic & Devis Gratuit",
-    desc: "Inspection visuelle sur place à Lyon et analyse de la charpente et de l'étanchéité.",
+    desc: "Inspection visuelle sur place et analyse de la charpente et de l'étanchéité.",
   },
   {
     step: "02",
@@ -58,9 +65,28 @@ const PROCESS_STEPS = [
   },
 ];
 
+const FAQ: FaqItem[] = [
+  {
+    question: "Faut-il réparer ou refaire entièrement sa toiture ?",
+    answer:
+      "Tout dépend de l'état général de la couverture. Quelques tuiles cassées ou un faîtage abîmé se réparent ponctuellement : à Fontaines-sur-Saône, nous avons remplacé un faîtage scellé au mortier par une pose à sec. Quand les tuiles sont devenues poreuses sur l'ensemble du toit, une réfection complète s'impose, comme à Villeurbanne sur une couverture centenaire. Le diagnostic, gratuit, permet de trancher.",
+  },
+  {
+    question: "Quels matériaux de couverture posez-vous ?",
+    answer:
+      "Tuiles en terre cuite (romanes, plates ou à emboîtement), tuiles en béton, ardoises naturelles et bac acier pour les annexes, garages ou bâtiments contemporains. Le choix dépend de la pente du toit, du style de la maison et des règles d'urbanisme locales.",
+  },
+  {
+    question: "Que faire quand une tuile est cassée ou a glissé ?",
+    answer:
+      "Ne tardez pas : par une seule tuile manquante, l'eau peut atteindre l'isolant puis la charpente. Ne montez pas sur le toit vous-même. Si de l'eau entre déjà dans la maison, appelez notre service d'urgence fuite, assuré 7j/7.",
+  },
+];
+
 export default function CouverturePage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
+      <JsonLd data={serviceJsonLd(getService("couverture"))} />
       
       {/* 1. Hero de la page Service */}
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -73,11 +99,11 @@ export default function CouverturePage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Rénovation & Réfection de Toiture à <span className="text-amber-400">Lyon</span>
+            Rénovation & Réfection de Toiture autour de <span className="text-amber-400">Décines-Charpieu</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Votre toiture présente des fuites, des tuiles cassées ou nécessite une rénovation complète ? Jrenov intervient dans toute la métropole lyonnaise pour assurer l'étanchéité et la protection pérenne de votre maison.
+            Votre toiture présente des fuites, des tuiles cassées ou nécessite une rénovation complète ? Basé à Décines-Charpieu, Jrenov intervient dans l&apos;Est lyonnais et dans toute la métropole lyonnaise pour assurer l&apos;étanchéité et la protection pérenne de votre maison.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center sm:justify-start">
@@ -108,7 +134,7 @@ export default function CouverturePage() {
             Tous types de couvertures maîtrisés
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
-            Nous sélectionnons des matériaux de haute qualité adaptés aux contraintes climatiques du Rhône et aux règles d'urbanisme de la région lyonnaise.
+            Nous sélectionnons des matériaux de haute qualité adaptés aux contraintes climatiques du Rhône et aux règles d&apos;urbanisme de la région lyonnaise.
           </p>
         </div>
 
@@ -149,6 +175,12 @@ export default function CouverturePage() {
         </div>
       </section>
 
+      {/* Réalisations, conseils et zones d'intervention (silo services) */}
+      <ServiceSilo serviceKey="couverture" />
+
+      {/* FAQ (FAQPage généré depuis le contenu visible) */}
+      <ServiceFaq title="Vos questions sur la rénovation de toiture" items={FAQ} />
+
       {/* 4. Banner Urgence / Infiltration */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
@@ -157,16 +189,16 @@ export default function CouverturePage() {
               <AlertTriangle className="w-4 h-4" />
               Dépannage Rapide
             </div>
-            <h3 className="text-xl sm:text-2xl font-black">Une fuite d'eau suite à un orage ?</h3>
+            <h3 className="text-xl sm:text-2xl font-black">Une fuite d&apos;eau suite à un orage ?</h3>
             <p className="text-slate-300 text-sm max-w-lg">
-              Nos équipes se déplacent rapidement sur Lyon et 30 km aux alentours pour bâcher votre toit et effectuer une mise hors d'eau temporaire ou définitive.
+              Depuis Décines-Charpieu, nos équipes se déplacent rapidement dans l&apos;Est lyonnais et la métropole pour bâcher votre toit et effectuer une mise hors d&apos;eau temporaire ou définitive.
             </p>
           </div>
           <a
             href="tel:0465848885"
             className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl transition shrink-0 uppercase text-xs sm:text-sm tracking-wider"
           >
-            Appel d'urgence : 04 65 84 88 85
+            Appel d&apos;urgence : 04 65 84 88 85
           </a>
         </div>
       </section>

@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
+import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
 import {
   Home,
   Droplets,
@@ -44,7 +46,14 @@ export default function DevisPage() {
     description: "",
   });
 
+  // Évite d'envoyer plusieurs fois « quote_form_start » pour une même visite du formulaire
+  const hasTrackedStart = useRef(false);
+
   const handleSelectService = (service: ServiceType) => {
+    if (!hasTrackedStart.current) {
+      hasTrackedStart.current = true;
+      trackEvent("quote_form_start", { service });
+    }
     setFormData((prev) => ({ ...prev, service }));
   };
 
@@ -57,28 +66,35 @@ export default function DevisPage() {
     setStep((prev) => prev - 1);
   };
 
+  const guard = useFormGuard();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return; // évite le double envoi
     setLoading(true);
     setErrorMessage(null);
+    const form = e.currentTarget as HTMLFormElement;
 
     try {
       const response = await fetch("/api/devis", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, ...(await guard.getGuardPayload(form)) }),
       });
 
       if (response.ok) {
+        trackEvent("quote_form_submit", { service: formData.service || undefined });
         setSubmitted(true);
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         setErrorMessage(
           errorData.error || "Une erreur est survenue lors de l'envoi."
         );
+        guard.renew(form);
       }
-    } catch (err) {
-      setErrorMessage("Une erreur réseau est survenue. Veuillez réanalyser votre connexion.");
+    } catch {
+      setErrorMessage("Une erreur réseau est survenue. Veuillez vérifier votre connexion.");
+      guard.renew(form);
     } finally {
       setLoading(false);
     }
@@ -97,7 +113,7 @@ export default function DevisPage() {
             Demande de devis en ligne
           </h1>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
-            Obtenez une estimation précise pour vos travaux de toiture à Lyon et dans le Rhône sous 24h.
+            Obtenez une estimation précise pour vos travaux de toiture dans l&apos;Est lyonnais, à Lyon et dans sa métropole sous 24h.
           </p>
         </div>
 
@@ -392,6 +408,7 @@ export default function DevisPage() {
                 </div>
               )}
 
+              <FormGuardFields />
             </form>
           </div>
         )}
@@ -408,7 +425,7 @@ export default function DevisPage() {
           </div>
           <div className="flex items-center justify-center gap-2">
             <Building2 className="w-4 h-4 text-amber-600" />
-            <span>Artisan de proximité (Lyon)</span>
+            <span>Artisan de proximité (Décines-Charpieu)</span>
           </div>
         </div>
 

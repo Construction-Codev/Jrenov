@@ -1,18 +1,62 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/Header";
 import FacebookFeed from "@/components/FacebookFeed";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import JsonLd from "@/components/JsonLd";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
+import {
+  BUSINESS,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_TITLE,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
+import { businessJsonLd, websiteJsonLd } from "@/lib/structured-data";
+import { getBreadcrumbTrails } from "@/lib/breadcrumb";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Jrenov - Couvreur Zingueur à Lyon (69) | Rénovation & Urgence Toiture",
-  description:
-    "Artisan couvreur-zingueur à Lyon et sa métropole. Travaux de couverture, recherche de fuite, isolation et nettoyage de toiture. Devis gratuit au 04 65 84 88 85.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: BUSINESS.founder }],
+  publisher: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
+  },
   verification: {
     google: "CDiAmQ2IJErLnLF6rShtnkzOSJBZguHs8_7oX9ZxyQQ",
   },
@@ -23,14 +67,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="fr"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
+        <JsonLd data={businessJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
         <Header />
-        <Breadcrumb />
+        <Breadcrumb trails={getBreadcrumbTrails()} />
         <main className="flex-1">{children}</main>
         <FacebookFeed />
         <Footer />
+        <AnalyticsEvents />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

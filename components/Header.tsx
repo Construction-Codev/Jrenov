@@ -10,6 +10,9 @@ const SERVICES = [
   { label: "Zinguerie", href: "/services/zinguerie" },
   { label: "Isolation", href: "/services/isolation" },
   { label: "Nettoyage & Démoussage", href: "/services/demoussage" },
+  { label: "Recherche de fuite", href: "/services/recherche-de-fuite" },
+  { label: "Fenêtres de toit", href: "/services/fenetres-de-toit" },
+  { label: "Toutes nos prestations", href: "/services" },
 ];
 
 const NAV_LINKS = [
@@ -31,7 +34,7 @@ export default function Header() {
           <div className="flex items-center gap-4 flex-wrap">
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-amber-500" />
-              Lyon & métropole (69)
+              Décines-Charpieu · Lyon & métropole
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-500" />
@@ -51,9 +54,10 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-16 h-16 flex items-center justify-center">
               <Image
-                src="/logo.png"
-                alt="Logo RENOV"
+                src="/logo-512.png"
+                alt="Logo Jrenov"
                 fill
+                sizes="64px"
                 className="object-contain"
                 priority
               />
@@ -63,7 +67,7 @@ export default function Header() {
                 RENOV<span className="text-amber-500">.</span>
               </span>
               <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
-                Couverture & Zinguerie Lyon
+                Couverture & Zinguerie · Est lyonnais
               </span>
             </div>
           </Link>
@@ -83,7 +87,13 @@ export default function Header() {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-semibold text-slate-700 group-hover:text-amber-600 transition-colors focus:outline-none">
+              <button
+                type="button"
+                aria-expanded={isServicesOpen}
+                aria-haspopup="true"
+                onClick={() => setIsServicesOpen((open) => !open)}
+                className="flex items-center gap-1 text-sm font-semibold text-slate-700 group-hover:text-amber-600 transition-colors focus:outline-none"
+              >
                 Services
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`} />
               </button>
@@ -146,8 +156,10 @@ export default function Header() {
           {/* Bouton Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
+            type="button"
             className="lg:hidden p-2 text-slate-700 hover:text-slate-900 focus:outline-none"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

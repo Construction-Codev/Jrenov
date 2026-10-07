@@ -1,4 +1,10 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+import { getService } from "@/lib/services";
+import { serviceJsonLd } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
+import ServiceSilo from "@/components/ServiceSilo";
+import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -13,9 +19,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Isolation Toiture & Combles à Lyon (69) | Jrenov",
-  description:
-    "Spécialiste de l'isolation thermique de toiture (Sarking, combles perdus et aménagés) à Lyon et dans le Rhône. Réduisez vos factures. Devis gratuit au 04 65 84 88 85.",
+  ...pageMetadata({
+    title: "Isolation de toiture et Sarking – métropole lyonnaise",
+    description:
+      "Sarking, combles perdus ou aménagés : Jrenov isole les toitures depuis Décines-Charpieu, dans l'Est lyonnais et la métropole de Lyon. Diagnostic et devis gratuits.",
+    path: "/services/isolation",
+  }),
 };
 
 const ISOLATION_TECHNIQUES = [
@@ -41,8 +50,8 @@ const ISOLATION_TECHNIQUES = [
 
 const ADVANTAGES = [
   {
-    title: "Jusqu'à 30% d'Économies",
-    desc: "La toiture est la première source de déperdition thermique d'une maison (environ 30%). Une bonne isolation diminue immédiatement vos factures de chauffage.",
+    title: "Moins de Pertes de Chaleur",
+    desc: "Dans une maison mal isolée, la toiture est l'une des principales sources de déperdition thermique. Une isolation adaptée limite ces pertes et les besoins de chauffage.",
     icon: TrendingDown,
   },
   {
@@ -64,9 +73,28 @@ const MATERIALS = [
   { name: "Polyuréthane / PIR", detail: "Haute performance thermique en faible épaisseur, idéal pour la méthode Sarking." },
 ];
 
+const FAQ: FaqItem[] = [
+  {
+    question: "Sarking ou isolation par l'intérieur : que choisir ?",
+    answer:
+      "Le Sarking pose l'isolant par l'extérieur, sur les chevrons : il ne réduit pas l'espace habitable et limite les ponts thermiques, mais il suppose de déposer la couverture. Il est donc surtout intéressant lors d'une réfection de toiture, comme à Caluire-et-Cuire avec 160 mm de fibre de bois. Si la couverture est en bon état, l'isolation sous rampants, par l'intérieur, évite de toucher aux tuiles.",
+  },
+  {
+    question: "Combles perdus ou combles aménagés : qu'est-ce qui change ?",
+    answer:
+      "Des combles perdus, non habitables, s'isolent par soufflage d'isolant sur le plancher : à Chassieu, nous avons soufflé 35 cm de laine de roche. Des combles aménagés s'isolent sous les rampants, en une ou deux couches croisées, avec un pare-vapeur étanche à l'air.",
+  },
+  {
+    question: "Sur quels critères choisir l'isolant ?",
+    answer:
+      "Sur la technique retenue (soufflage, rampants ou Sarking), l'épaisseur disponible, le confort d'été recherché et le budget. Les laines minérales sont économiques et incombustibles, la fibre de bois limite la surchauffe estivale, la ouate de cellulose se prête au soufflage et le polyuréthane offre une forte performance sous faible épaisseur.",
+  },
+];
+
 export default function IsolationPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
+      <JsonLd data={serviceJsonLd(getService("isolation"))} />
       
       {/* 1. Hero de la page Service */}
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -79,11 +107,11 @@ export default function IsolationPage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Isolation de Toiture & Combles à <span className="text-amber-400">Lyon</span>
+            Isolation de Toiture & Combles, de Décines-Charpieu à <span className="text-amber-400">Lyon</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Jusqu'à 30% de la chaleur s'échappe par un toit mal isolé. Jrenov vous accompagne dans la rénovation thermique de votre toiture pour améliorer votre confort thermique et réduire durablement vos factures d'énergie.
+            Dans une maison mal isolée, la toiture est l&apos;une des premières sources de pertes de chaleur. Basé à Décines-Charpieu, Jrenov vous accompagne dans la rénovation thermique de votre toiture, dans l&apos;Est lyonnais comme à Lyon, pour améliorer votre confort thermique et réduire durablement vos factures d&apos;énergie.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center sm:justify-start">
@@ -113,7 +141,7 @@ export default function IsolationPage() {
             Pourquoi Isoler ?
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
-            Les bénéfices d'une isolation thermique performante
+            Les bénéfices d&apos;une isolation thermique performante
           </h2>
         </div>
 
@@ -144,7 +172,7 @@ export default function IsolationPage() {
               Nos Solutions
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Nos méthodes d'isolation adaptées à votre habitation
+              Nos méthodes d&apos;isolation adaptées à votre habitation
             </h2>
           </div>
 
@@ -201,6 +229,12 @@ export default function IsolationPage() {
         </div>
       </section>
 
+      {/* Réalisations, conseils et zones d'intervention (silo services) */}
+      <ServiceSilo serviceKey="isolation" />
+
+      {/* FAQ (FAQPage généré depuis le contenu visible) */}
+      <ServiceFaq title="Vos questions sur l'isolation de toiture" items={FAQ} />
+
       {/* 5. Banner Diagnostic thermique */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
@@ -210,10 +244,10 @@ export default function IsolationPage() {
               Factures de chauffage trop élevées ?
             </div>
             <h3 className="text-xl sm:text-2xl font-black">
-              Demandez un bilan isolation gratuit à Lyon
+              Demandez un bilan isolation gratuit
             </h3>
             <p className="text-slate-300 text-sm max-w-lg">
-              Nos artisans se déplacent chez vous pour analyser votre toiture et définir la solution d'isolation la plus performante.
+              Nos artisans se déplacent chez vous pour analyser votre toiture et définir la solution d&apos;isolation la plus performante.
             </p>
           </div>
           <Link

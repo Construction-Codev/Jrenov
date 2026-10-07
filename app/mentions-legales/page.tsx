@@ -1,10 +1,15 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
-import { ShieldCheck, MapPin, Phone, Mail, Building2 } from "lucide-react";
+import { ShieldCheck, Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Mentions Légales | Jrenov - Couvreur Décines-Charpieu & Lyon",
-  description: "Mentions légales et informations juridiques relatives à l'entreprise Jrenov (Jason Robba), artisan couvreur à Décines-Charpieu (69).",
+  ...pageMetadata({
+    title: "Mentions légales",
+    description:
+      "Mentions légales et informations juridiques relatives à l'entreprise Jrenov (Jason Robba), artisan couvreur à Décines-Charpieu (69).",
+    path: "/mentions-legales",
+  }),
   robots: {
     index: false, // Recommandé pour éviter d'indexer les pages juridiques
     follow: true,
@@ -37,7 +42,7 @@ export default function MentionsLegalesPage() {
             <p><span className="font-bold text-slate-900">Numéro SIREN :</span> 841 721 236</p>
             <p><span className="font-bold text-slate-900">Numéro SIRET du siège :</span> 841 721 236 00013</p>
             <p><span className="font-bold text-slate-900">Code APE / NAF :</span> 43.91B (Travaux de couverture par éléments)</p>
-            <p><span className="font-bold text-slate-900">Date d'immatriculation :</span> 07/05/2018</p>
+            <p><span className="font-bold text-slate-900">Date d&apos;immatriculation :</span> 07/05/2018</p>
             <p><span className="font-bold text-slate-900">Adresse du siège social :</span> 48 Ancien Chemin des Marais, 69150 Décines-Charpieu</p>
             <p><span className="font-bold text-slate-900">Téléphone :</span> 04 65 84 88 85</p>
             <p><span className="font-bold text-slate-900">E-mail :</span> contact@jrenov.com</p>
@@ -47,7 +52,8 @@ export default function MentionsLegalesPage() {
         {/* 2. Directeur de la publication */}
         <section className="space-y-3 text-sm text-slate-700">
           <h2 className="font-bold text-slate-900 text-base">2. Directeur de la publication</h2>
-          <p>Le Directeur de la publication du site est M. Jason ROBBA, en sa qualité d'exploitant de l'entreprise individuel JRENOV.</p>
+          <p>Le Directeur de la publication du site est M. Jason ROBBA, en sa qualité d&apos;exploitant 
+            de l&apos;entreprise individuel JRENOV.</p>
         </section>
 
         {/* 3. Hébergement du site */}
@@ -67,7 +73,9 @@ export default function MentionsLegalesPage() {
             <h2>4. Assurance Professionnelle & Garantie Décennale</h2>
           </div>
           <p>
-            L'entreprise JRENOV souscrit une assurance de responsabilité civile professionnelle et une garantie décennale couvrant l'ensemble de ses travaux de couverture, zinguerie et charpente sur la région Auvergne-Rhône-Alpes.
+            L&apos;entreprise JRENOV souscrit une assurance de responsabilité civile professionnelle et une 
+            garantie décennale couvrant l&apos;ensemble de ses travaux de couverture, zinguerie et charpente 
+            sur la région Auvergne-Rhône-Alpes.
           </p>
         </section>
 
@@ -75,7 +83,10 @@ export default function MentionsLegalesPage() {
         <section className="space-y-3 text-sm text-slate-700">
           <h2 className="font-bold text-slate-900 text-base">5. Propriété intellectuelle</h2>
           <p>
-            L'ensemble des contenus (textes, images, graphismes, logo, éléments vidéos) présents sur le site <span className="font-semibold text-slate-900">Jrenov</span> est protégé par le droit d'auteur. Toute reproduction, distribution ou représentation totale ou partielle sans l'autorisation expresse de M. Jason ROBBA est strictement interdite.
+            L&apos;ensemble des contenus (textes, images, graphismes, logo, éléments vidéos) présents sur le site{" "}
+            <span className="font-semibold text-slate-900">Jrenov</span>{" "}
+            est protégé par le droit d&apos;auteur. Toute reproduction, distribution ou représentation totale 
+            ou partielle sans l&apos;autorisation expresse de M. Jason ROBBA est strictement interdite.
           </p>
         </section>
 
@@ -83,14 +94,20 @@ export default function MentionsLegalesPage() {
         <section className="space-y-3 text-sm text-slate-700">
           <h2 className="font-bold text-slate-900 text-base">6. Données personnelles</h2>
           <p>
-            Les informations recueillies via les formulaires de devis et de contact font l'objet d'un traitement informatique destiné exclusivement à la prise de rendez-vous et à la réalisation d'estimations tarifaires par l'entreprise JRENOV. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles sur simple demande par mail à <a href="mailto:contact@jrenov.com" className="text-amber-600 hover:underline">contact@jrenov.com</a>.
+            Les informations recueillies via les formulaires de devis et de contact font 
+            l&apos;objet d&apos;un traitement informatique destiné exclusivement à la prise de rendez-vous 
+            et à la réalisation d&apos;estimations tarifaires par l&apos;entreprise JRENOV. Conformément au 
+            Règlement Général sur la Protection des Données (RGPD), vous disposez d&apos;un droit d&apos;accès, 
+            de rectification et de suppression de vos données personnelles sur simple demande par mail
+            à{" "}
+            <a href="mailto:contact@jrenov.com" className="text-amber-600 hover:underline">contact@jrenov.com</a>.
           </p>
         </section>
 
         {/* Retour */}
         <div className="pt-6 border-t border-slate-100">
           <Link href="/" className="text-amber-600 hover:text-amber-700 font-bold text-sm">
-            &larr; Retour à l'accueil
+            &larr; Retour à l&apos;accueil
           </Link>
         </div>
 

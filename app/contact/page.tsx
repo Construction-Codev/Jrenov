@@ -1,30 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
+import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
+import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Send, CheckCircle2 } from "lucide-react";
-
-const COMMUNES_RHONE = [
-  "Lyon (tous arrondissements)",
-  "Villeurbanne",
-  "Caluire-et-Cuire",
-  "Écully",
-  "Tassin-la-Demi-Lune",
-  "Sainte-Foy-lès-Lyon",
-  "Oullins-Pierre-Bénite",
-  "Saint-Priest & Bron",
-];
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const guard = useFormGuard();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (loading) return; // évite le double envoi
     setLoading(true);
     setErrorMessage(null);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const body = {
       nom: formData.get("nom"),
       telephone: formData.get("telephone"),
@@ -32,6 +29,7 @@ export default function ContactPage() {
       ville: formData.get("ville"),
       sujet: formData.get("sujet"),
       message: formData.get("message"),
+      ...(await guard.getGuardPayload(form)),
     };
 
     try {
@@ -42,13 +40,17 @@ export default function ContactPage() {
       });
 
       if (response.ok) {
+        // Seul le type de demande (liste fermée) est transmis, jamais les champs saisis
+        trackEvent("contact_form_submit", { service: String(body.sujet ?? "") || undefined });
         setSubmitted(true);
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         setErrorMessage(errorData.error || "Une erreur est survenue lors de l'envoi.");
+        guard.renew(form);
       }
-    } catch (err) {
+    } catch {
       setErrorMessage("Une erreur réseau est survenue. Veuillez réessayer.");
+      guard.renew(form);
     } finally {
       setLoading(false);
     }
@@ -60,7 +62,7 @@ export default function ContactPage() {
       <section className="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
         <div className="max-w-7xl mx-auto text-center space-y-3">
           <span className="text-amber-400 font-bold text-xs uppercase tracking-wider">
-            Intervention à Lyon & dans le Rhône (69)
+            Basé à Décines-Charpieu · Lyon & métropole
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
             Contactez <span className="text-amber-400">Jrenov</span>
@@ -153,7 +155,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="sujet" className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                    Type d'intervention *
+                    Type d&apos;intervention *
                   </label>
                   <select
                     id="sujet"
@@ -185,6 +187,8 @@ export default function ContactPage() {
                   />
                 </div>
 
+                <FormGuardFields />
+
                 <button
                   type="submit"
                   disabled={loading}
@@ -208,7 +212,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">Appel Direct / Urgence</h3>
-                  <p className="text-xs text-slate-400">Intervention rapide sur Lyon</p>
+                  <p className="text-xs text-slate-400">Intervention rapide depuis Décines-Charpieu</p>
                 </div>
               </div>
               <a
@@ -228,16 +232,20 @@ export default function ContactPage() {
                   <MapPin className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-slate-900 block">Siège social :</span>
-                    <span>Métropole de Lyon & Rhône (69)</span>
+                    <address className="not-italic">
+                      48 Ancien Chemin des Marais
+                      <br />
+                      69150 Décines-Charpieu
+                    </address>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Clock className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-slate-900 block">Horaires d'ouverture :</span>
+                    <span className="font-semibold text-slate-900 block">Horaires d&apos;ouverture :</span>
                     <span>Du Lundi au Samedi : 8h00 - 19h00</span> <br />
-                    <span className="text-amber-600 font-semibold">Service d'urgence fuite 7j/7</span>
+                    <span className="text-amber-600 font-semibold">Service d&apos;urgence fuite 7j/7</span>
                   </div>
                 </div>
 
@@ -253,22 +261,31 @@ export default function ContactPage() {
 
                 <div className="flex items-start gap-3 pt-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="font-semibold text-slate-900">Garantie Décennale sur tous les chantiers</span>
+                  <span className="font-semibold text-slate-900">Travaux couverts par notre assurance décennale</span>
                 </div>
               </div>
             </div>
 
-            {/* Communes Desservies */}
+            {/* Zone d'intervention */}
             <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <h3 className="font-bold text-slate-900 text-sm">Zone d'intervention prioritaire</h3>
+              <h3 className="font-bold text-slate-900 text-sm">Zone d&apos;intervention</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Basés à Décines-Charpieu, nous intervenons dans la métropole lyonnaise et dans un rayon
+                d&apos;environ 50 km.
+              </p>
               <ul className="grid grid-cols-2 gap-1.5 text-xs text-slate-600">
-                {COMMUNES_RHONE.map((ville, idx) => (
-                  <li key={idx} className="flex items-center gap-1">
+                {LOCAL_AREA_INDEX.map((area) => (
+                  <li key={area.slug} className="flex items-center gap-1">
                     <span className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
-                    <span>{ville}</span>
+                    <Link href={`/${area.slug}`} className="hover:text-amber-600 hover:underline">
+                      {area.city}
+                    </Link>
                   </li>
                 ))}
               </ul>
+              <Link href="/zones-intervention" className="text-xs font-bold text-amber-600 hover:text-amber-700">
+                Toutes nos zones d&apos;intervention &rarr;
+              </Link>
             </div>
 
           </div>
@@ -278,8 +295,8 @@ export default function ContactPage() {
       {/* 3. Carte de Lyon (Google Maps) */}
       <section className="w-full h-80 bg-slate-200 relative">
         <iframe
-          title="Carte d'intervention Jrenov Lyon"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178125.1017368537!2d4.7180905!3d45.7578137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea516ae88797%3A0x408ab2ae4bb21f0!2sLyon!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
+          title="Carte : siège de Jrenov à Décines-Charpieu"
+          src="https://www.google.com/maps?q=48%20Ancien%20Chemin%20des%20Marais%2C%2069150%20D%C3%A9cines-Charpieu&z=12&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}

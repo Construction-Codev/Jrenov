@@ -1,4 +1,10 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+import { getService } from "@/lib/services";
+import { serviceJsonLd } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
+import ServiceSilo from "@/components/ServiceSilo";
+import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -12,9 +18,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Zinguerie & Pose de Gouttières à Lyon (69) | Jrenov",
-  description:
-    "Artisan zingueur à Lyon et dans le Rhône. Pose et rénovation de gouttières zinc/PVC, chéneaux, abergements de cheminée et étanchéité. Devis gratuit au 04 65 84 88 85.",
+  ...pageMetadata({
+    title: "Zingueur à Décines-Charpieu – Gouttières, chéneaux, noues",
+    description:
+      "Gouttières zinc, alu ou PVC, chéneaux, noues, solins, abergements : Jrenov, zingueur basé à Décines-Charpieu, intervient dans l'Est lyonnais et la métropole.",
+    path: "/services/zinguerie",
+  }),
 };
 
 const ZINGUERIE_SERVICES = [
@@ -59,9 +68,28 @@ const MATERIALS = [
   },
 ];
 
+const FAQ: FaqItem[] = [
+  {
+    question: "Zinc, aluminium ou PVC : quel matériau choisir pour ses gouttières ?",
+    answer:
+      "Le zinc est le matériau traditionnel, durable et façonnable sur mesure. L'aluminium est inoxydable, léger et disponible en plusieurs coloris, et peut être profilé sur place sans raccord, comme à Dagneux. Le PVC reste la solution économique, adaptée aux annexes. Le choix dépend du budget, de l'architecture et de la couleur de la façade.",
+  },
+  {
+    question: "Quelle est la différence entre une gouttière et un chéneau ?",
+    answer:
+      "La gouttière est fixée en bas de pente, le long de la rive, et recueille l'eau d'un versant. Le chéneau est un canal intégré à l'ouvrage, par exemple encastré dans la toiture ou posé sur un mur, qui collecte l'eau d'un ou plusieurs versants. Les deux se réalisent notamment en zinc façonné.",
+  },
+  {
+    question: "D'où vient une fuite autour d'une cheminée ?",
+    answer:
+      "Le plus souvent du raccord entre la souche et la couverture : mortier fissuré ou abergement dégradé. À Brignais, nous avons retiré le mortier fissuré au pied de la cheminée, puis façonné et soudé un abergement complet en zinc sur mesure.",
+  },
+];
+
 export default function ZingueriePage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
+      <JsonLd data={serviceJsonLd(getService("zinguerie"))} />
       
       {/* 1. Hero de la page Service */}
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -74,11 +102,11 @@ export default function ZingueriePage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Travaux de Zinguerie & Gouttières à <span className="text-amber-400">Lyon</span>
+            Travaux de Zinguerie & Gouttières dans l&apos;<span className="text-amber-400">Est lyonnais</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Une mauvaise évacuation des eaux pluviales peut détériorer vos façades et créer des infiltrations d'eau. Jrenov assure l'installation, le remplacement et la réparation de tous vos éléments de zinguerie dans la métropole lyonnaise.
+            Une mauvaise évacuation des eaux pluviales peut détériorer vos façades et créer des infiltrations d&apos;eau. Jrenov assure l&apos;installation, le remplacement et la réparation de tous vos éléments de zinguerie depuis Décines-Charpieu, dans l&apos;Est lyonnais et la métropole lyonnaise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center sm:justify-start">
@@ -111,7 +139,7 @@ export default function ZingueriePage() {
             Nos prestations sur-mesure de zinguerie
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
-            Chaque toiture possède ses spécificités. Nous façonnons les éléments en atelier ou directement sur chantier pour garantir une étanchéité parfaite.
+            Chaque toiture possède ses spécificités. Nous façonnons les éléments en atelier ou directement sur chantier pour une étanchéité durable.
           </p>
         </div>
 
@@ -167,6 +195,12 @@ export default function ZingueriePage() {
         </div>
       </section>
 
+      {/* Réalisations, conseils et zones d'intervention (silo services) */}
+      <ServiceSilo serviceKey="zinguerie" />
+
+      {/* FAQ (FAQPage généré depuis le contenu visible) */}
+      <ServiceFaq title="Vos questions sur la zinguerie" items={FAQ} />
+
       {/* 4. Banner Diagnostic Fuite / Gouttière Percée */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
@@ -176,10 +210,10 @@ export default function ZingueriePage() {
               Gouttière qui déborde ou fuit ?
             </div>
             <h3 className="text-xl sm:text-2xl font-black">
-              Demandez un contrôle d'étanchéité gratuit
+              Demandez un contrôle d&apos;étanchéité gratuit
             </h3>
             <p className="text-slate-300 text-sm max-w-lg">
-              Nos artisans se déplacent sur Lyon et sa métropole pour déboucher, nettoyer ou réparer vos éléments de zinguerie sous 24h à 48h.
+              Nos artisans se déplacent depuis Décines-Charpieu, dans l&apos;Est lyonnais et la métropole, pour déboucher, nettoyer ou réparer vos éléments de zinguerie.
             </p>
           </div>
           <a
