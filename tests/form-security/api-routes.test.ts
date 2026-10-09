@@ -75,6 +75,7 @@ describe("POST /api/contact", () => {
   it("soumission valide : 200 et un seul envoi, données échappées", async () => {
     const res = await postContact(request("/api/contact", contactBody()));
     expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ success: true, submissionId: expect.any(String) });
     expect(sendMock).toHaveBeenCalledTimes(1);
     const email = sendMock.mock.calls[0][0];
     expect(email.html).toContain("Prix &lt; 500 € &amp; délai");
@@ -160,7 +161,7 @@ describe("POST /api/contact", () => {
   it("utilisateur très rapide / autocomplétion : soumission immédiate acceptée et envoyée", async () => {
     const res = await postContact(request("/api/contact", { ...contactBody(), formToken: issueFormToken() }));
     expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({ success: true });
+    expect(await res.json()).toEqual({ success: true, submissionId: expect.any(String) });
     expect(sendMock).toHaveBeenCalledTimes(1);
   });
 

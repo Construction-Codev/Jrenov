@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Phone, MapPin, Clock, Mail, ShieldCheck } from "lucide-react";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
+import ManageCookiesButton from "@/components/ManageCookiesButton";
 
 const SERVICES_LINKS = [
   { label: "Rénovation de couverture", href: "/services/couverture" },
@@ -138,6 +139,7 @@ export default function Footer() {
             <Link href="/mentions-legales" className="hover:text-slate-300 transition">
               Mentions légales
             </Link>
+            <ManageCookiesButton className="hover:text-slate-300 transition" />
             <Link href="/devis" className="hover:text-slate-300 transition">
               Demander un devis
             </Link>

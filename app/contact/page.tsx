@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
+import { readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
 import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Send, CheckCircle2 } from "lucide-react";
@@ -42,7 +43,9 @@ export default function ContactPage() {
       if (response.ok) {
         // Seul le type de demande (liste fermée) est transmis, jamais les champs saisis
         trackEvent("contact_form_submit", { service: String(body.sujet ?? "") || undefined });
+        const submissionId = await readSubmissionId(response);
         setSubmitted(true);
+        trackLeadConversion(submissionId);
       } else {
         const errorData = await response.json().catch(() => ({}));
         setErrorMessage(errorData.error || "Une erreur est survenue lors de l'envoi.");
