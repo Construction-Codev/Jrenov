@@ -22,17 +22,12 @@ Jamais de conversion : à l'ouverture des pages, au clic sur Envoyer, en cas d'e
 validation ou serveur, sur les clics téléphone/e-mail. Absence de gtag, refus ou bloqueur
 n'empêchent jamais l'envoi du formulaire (tout est dans des `try/catch`, après le succès).
 
-## Consentement : à brancher
+## Consentement
 
-Le site n'a **pas encore de bannière de consentement**. Tant qu'aucun choix n'est enregistré,
-gtag.js n'est pas chargé et **aucune conversion n'est envoyée**. Une bannière (maison ou CMP)
-doit simplement appeler :
-
-```ts
-import { setAdsConsent } from "@/lib/consent";
-setAdsConsent(true);  // « Accepter » : charge la balise sans rechargement
-setAdsConsent(false); // « Refuser » : rien n'est chargé (ou consent update « denied » si déjà chargé)
-```
-
-Pour tester sans bannière, dans la console du navigateur :
-`localStorage.setItem("jrenov-consent-ads", "granted")` puis recharger.
+`components/ConsentBanner.tsx` (monté dans `app/layout.tsx`) s'affiche tant qu'aucun choix n'est
+enregistré. « Accepter » et « Refuser » ont le même style ; ils appellent `setAdsConsent(true)` et
+`setAdsConsent(false)`. Le choix est mémorisé (`localStorage`, clé `jrenov-consent-ads`). Le bouton
+« Gérer mes cookies » du pied de page (`components/ManageCookiesButton.tsx`) rouvre la bannière via
+`openConsentPreferences()`. Accepter charge la balise sans rechargement ; un refus après acceptation
+envoie `consent update denied` et plus aucune conversion n'est déclenchée. La bannière n'est pas
+bloquante et n'est jamais rendue côté serveur. Section « 7. Cookies » ajoutée aux mentions légales.

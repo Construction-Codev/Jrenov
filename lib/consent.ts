@@ -1,9 +1,9 @@
 /**
  * Consentement aux cookies publicitaires (Google Ads).
  *
- * Le site n'a pas encore de bannière de consentement : tant qu'aucun choix n'a été
- * enregistré, le consentement vaut « inconnu » et AUCUNE balise publicitaire n'est
- * chargée. Une future bannière (ou CMP) n'a qu'à appeler `setAdsConsent(true|false)`.
+ * Tant qu'aucun choix n'a été enregistré, le consentement vaut « inconnu » et AUCUNE
+ * balise publicitaire n'est chargée. La bannière (components/ConsentBanner.tsx) appelle
+ * `setAdsConsent(true|false)` ; le lien « Gérer mes cookies » appelle `openConsentPreferences()`.
  * Le choix est conservé dans le navigateur et diffusé via l'événement CONSENT_EVENT.
  */
 
@@ -11,6 +11,8 @@ export type AdsConsent = "granted" | "denied" | "unknown";
 
 export const CONSENT_STORAGE_KEY = "jrenov-consent-ads";
 export const CONSENT_EVENT = "jrenov:consent-change";
+/** Demande de réouverture de la bannière (lien « Gérer mes cookies »). */
+export const CONSENT_OPEN_EVENT = "jrenov:consent-open";
 
 export function getAdsConsent(): AdsConsent {
   if (typeof window === "undefined") return "unknown";
@@ -61,4 +63,10 @@ export function subscribeAdsConsent(onChange: () => void): () => void {
     window.removeEventListener(CONSENT_EVENT, onChange);
     window.removeEventListener("storage", onStorage);
   };
+}
+
+/** Rouvre la bannière pour modifier un choix déjà enregistré. */
+export function openConsentPreferences(): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
 }

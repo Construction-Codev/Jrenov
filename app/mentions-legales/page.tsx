@@ -104,6 +104,18 @@ export default function MentionsLegalesPage() {
           </p>
         </section>
 
+        {/* 7. Cookies */}
+        <section id="cookies" className="space-y-3 text-sm text-slate-700">
+          <h2 className="font-bold text-slate-900 text-base">7. Cookies</h2>
+          <p>
+            Avec votre accord uniquement, le site utilise la balise Google Ads (Google Ireland Ltd) pour mesurer
+            si nos annonces mènent à une demande de contact ou de devis. Aucune donnée saisie dans les
+            formulaires n&apos;est transmise à Google. Sans acceptation, cette balise n&apos;est pas chargée et
+            aucun cookie publicitaire n&apos;est déposé. Votre choix est conservé dans votre navigateur et
+            peut être modifié à tout moment via le lien « Gérer mes cookies » en bas de chaque page.
+          </p>
+        </section>
+
         {/* Retour */}
         <div className="pt-6 border-t border-slate-100">
           <Link href="/" className="text-amber-600 hover:text-amber-700 font-bold text-sm">
