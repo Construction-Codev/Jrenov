@@ -24,7 +24,7 @@ n'empêchent jamais l'envoi du formulaire (tout est dans des `try/catch`, après
 
 ## Consentement
 
-`components/ConsentBanner.tsx` (monté dans `app/layout.tsx`) s'affiche tant qu'aucun choix n'est
+`components/ConsentBanner.tsx` (bandeau compact en bas d’écran, monté dans `app/layout.tsx`) s'affiche tant qu'aucun choix n'est
 enregistré. « Accepter » et « Refuser » ont le même style ; ils appellent `setAdsConsent(true)` et
 `setAdsConsent(false)`. Le choix est mémorisé (`localStorage`, clé `jrenov-consent-ads`). Le bouton
 « Gérer mes cookies » du pied de page (`components/ManageCookiesButton.tsx`) rouvre la bannière via

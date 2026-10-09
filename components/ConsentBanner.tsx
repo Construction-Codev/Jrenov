@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { Cookie } from "lucide-react";
 import {
   CONSENT_OPEN_EVENT,
   getAdsConsent,
@@ -12,10 +11,11 @@ import {
 } from "@/lib/consent";
 
 /**
- * Bannière de consentement aux cookies publicitaires (Google Ads).
- * Affichée tant qu'aucun choix n'est enregistré, ou à la demande via « Gérer mes cookies ».
+ * Bandeau compact de consentement aux cookies publicitaires (Google Ads).
+ * Affiché tant qu'aucun choix n'est enregistré, ou à la demande via « Gérer mes cookies ».
  * « Accepter » et « Refuser » ont exactement le même style. Sans acceptation, rien n'est chargé.
- * Non bloquante : le site et les formulaires restent utilisables quel que soit le choix.
+ * Non bloquant : la navigation n'est jamais considérée comme une acceptation, et le site
+ * comme les formulaires restent utilisables quel que soit le choix.
  */
 export default function ConsentBanner() {
   // Côté serveur : « ssr » pour ne jamais afficher la bannière dans le HTML statique
@@ -36,37 +36,24 @@ export default function ConsentBanner() {
   };
 
   const buttonClass =
-    "flex-1 sm:flex-none min-w-28 bg-slate-100 hover:bg-white text-slate-950 font-bold text-sm py-2.5 px-5 rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400";
+    "h-9 min-w-24 px-4 rounded-lg bg-slate-100 hover:bg-white text-slate-950 text-sm font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400";
 
+  // Bandeau compact « sticky » en fin de page : sans fond assombri ni blocage, il ne masque jamais le bas du contenu
   return (
     <div
       role="region"
-      aria-labelledby="consent-title"
-      className="fixed inset-x-0 bottom-0 z-50 p-3 sm:p-4 pointer-events-none"
+      aria-label="Cookies publicitaires"
+      className="sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur border-t border-slate-700 text-slate-300 shadow-lg"
     >
-      <div className="pointer-events-auto max-w-3xl mx-auto bg-slate-900 text-slate-300 border border-slate-700 rounded-2xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
-        <div className="flex items-start gap-3 flex-1">
-          <Cookie className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" aria-hidden="true" />
-          <div className="space-y-1">
-            <p id="consent-title" className="text-sm font-bold text-white">
-              Cookies publicitaires
-            </p>
-            <p className="text-xs leading-relaxed">
-              Avec votre accord, Google Ads mesure si nos annonces mènent à une demande de contact ou de devis.
-              Refuser ne change rien à l&apos;utilisation du site. Vous pouvez modifier votre choix à tout moment
-              via « Gérer mes cookies » en bas de page.{" "}
-              <Link href="/mentions-legales#cookies" className="underline hover:text-amber-400">
-                En savoir plus
-              </Link>
-            </p>
-            {consent !== "unknown" && (
-              <p className="text-xs text-slate-400">
-                Choix actuel : {consent === "granted" ? "accepté" : "refusé"}.
-              </p>
-            )}
-          </div>
-        </div>
-        <div className="flex gap-2 sm:gap-3 shrink-0">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+        <p className="text-xs leading-snug flex-1">
+          Avec votre accord, nous utilisons des cookies Google Ads pour mesurer les demandes provenant de nos
+          annonces.{" "}
+          <Link href="/mentions-legales#cookies" className="underline hover:text-amber-400 whitespace-nowrap">
+            En savoir plus
+          </Link>
+        </p>
+        <div className="grid grid-cols-2 gap-2 shrink-0">
           <button type="button" onClick={() => choose(false)} className={buttonClass}>
             Refuser
           </button>
