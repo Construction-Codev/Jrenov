@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { SITE_URL } from "@/lib/site";
 import { maskEmail } from "./email";
@@ -141,5 +142,7 @@ export async function handleFormSubmission<T extends { email: string }>(
 
   // « fast=1 » : envoi rapide (autocomplétion…), simple signal de diagnostic
   log(form, "sent", null, ipId, `${email ? `email=${maskEmail(email)}` : "email=none"}${token.fast ? " fast=1" : ""}`);
-  return json(200, { success: true });
+  // submissionId : présent UNIQUEMENT après un envoi réel (jamais pour le honeypot).
+  // Le navigateur s'en sert pour déclencher une seule conversion Google Ads par demande.
+  return json(200, { success: true, submissionId: randomUUID() });
 }

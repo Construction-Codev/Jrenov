@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import AnalyticsEvents from "@/components/AnalyticsEvents";
+import GoogleTag from "@/components/GoogleTag";
 import {
   BUSINESS,
   DEFAULT_DESCRIPTION,
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FacebookFeed />
         <Footer />
         <AnalyticsEvents />
+        <GoogleTag />
         <Analytics />
         <SpeedInsights />
       </body>

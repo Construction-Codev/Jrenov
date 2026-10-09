@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
 import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
 import {
   Home,
@@ -84,7 +85,9 @@ export default function DevisPage() {
 
       if (response.ok) {
         trackEvent("quote_form_submit", { service: formData.service || undefined });
+        const submissionId = await readSubmissionId(response);
         setSubmitted(true);
+        trackLeadConversion(submissionId);
       } else {
         const errorData = await response.json().catch(() => ({}));
         setErrorMessage(
