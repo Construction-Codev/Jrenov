@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
@@ -116,11 +116,11 @@ export default function CouverturePage() {
             </Link>
 
             <a
-              href="tel:0465848885"
+              href={PHONE_HREF}
               className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold px-6 py-3.5 rounded-xl text-center transition flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5 text-amber-400" />
-              Appeler le 04 65 84 88 85
+              Appeler le {BUSINESS.phoneDisplay}
             </a>
           </div>
         </div>
@@ -195,10 +195,10 @@ export default function CouverturePage() {
             </p>
           </div>
           <a
-            href="tel:0465848885"
+            href={PHONE_HREF}
             className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl transition shrink-0 uppercase text-xs sm:text-sm tracking-wider"
           >
-            Appel d&apos;urgence : 04 65 84 88 85
+            Appel d&apos;urgence : {BUSINESS.phoneDisplay}
           </a>
         </div>
       </section>

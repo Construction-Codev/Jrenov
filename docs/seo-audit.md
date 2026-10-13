@@ -103,7 +103,7 @@ Ce sont les seules informations utilisables dans les contenus et le balisage :
 | SIREN 841 721 236, SIRET 841 721 236 00013, NAF 43.91B (couverture par éléments) | idem |
 | Immatriculation : 07/05/2018 | idem |
 | Adresse : 48 Ancien Chemin des Marais, 69150 Décines-Charpieu | idem |
-| Téléphone : 04 65 84 88 85 ; e-mail : contact@jrenov.com | idem, header, footer |
+| Téléphone : 07 61 24 27 93 ; e-mail : contact@jrenov.com | idem, header, footer |
 | Assurance RC pro + garantie décennale (couverture, zinguerie, charpente), Auvergne-Rhône-Alpes | idem |
 | Horaires : lundi–samedi 8h00–19h00, urgence fuite 7j/7 | `app/contact/page.tsx` |
 | Réseaux : Facebook (`profile.php?id=61593675344403`), Instagram `@jrenov69` | `components/Footer.tsx` |
@@ -460,7 +460,7 @@ Toutes les valeurs ci-dessous proviennent du projet. Les champs **[À CONFIRMER]
   "url": "https://www.jrenov.com",
   "logo": "https://www.jrenov.com/logo.png",
   "image": "https://www.jrenov.com/logo.png",
-  "telephone": "+33465848885",
+  "telephone": "+33761242793",
   "email": "contact@jrenov.com",
   "foundingDate": "2018-05-07",
   "founder": { "@type": "Person", "name": "Jason Robba" },

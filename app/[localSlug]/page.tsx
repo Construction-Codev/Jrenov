@@ -14,7 +14,7 @@ import {
 import JsonLd from "@/components/JsonLd";
 import ContactCta from "@/components/ContactCta";
 import { RealisationCard, RealisationCompactCard } from "@/components/RealisationCard";
-import { BUSINESS, pageMetadata } from "@/lib/site";
+import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { getRealisation, type Realisation } from "@/lib/content";
 import { LOCAL_AREAS, getLocalArea, validateLocalAreas, type LocalArea } from "@/lib/local-areas";
@@ -45,7 +45,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const PHONE_HREF = `tel:${BUSINESS.phoneDisplay.replace(/\s/g, "")}`;
 
 const PROCESS_STEPS = [
   { step: "01", title: "Premier contact", desc: "Par téléphone ou via le formulaire de devis en ligne." },

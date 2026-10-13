@@ -174,10 +174,10 @@ Les résultats sont mis en cache 10 minutes par domaine (sauf les résultats ind
 | Message trop long | 400 | Votre message est trop long. Merci de le raccourcir. |
 | Injection, contrôle, champ inconnu, jeton, Turnstile | 400 | Message générique |
 | Origine invalide / type / taille | 403 / 415 / 413 | Message générique |
-| Rate limit | 429 | Trop de demandes… appelez le 04 65 84 88 85 |
+| Rate limit | 429 | Trop de demandes… appelez le 07 61 24 27 93 |
 | Échec Resend | 500 | Message générique |
 
-Message générique : « Votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler au 04 65 84 88 85. »
+Message générique : « Votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler au 07 61 24 27 93. »
 
 Logs serveur, sobres :
 ```

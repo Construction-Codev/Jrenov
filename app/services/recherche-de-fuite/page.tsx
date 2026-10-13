@@ -13,7 +13,7 @@ import {
   CloudRain,
   Umbrella,
 } from "lucide-react";
-import { BUSINESS, pageMetadata } from "@/lib/site";
+import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
@@ -27,7 +27,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/services/recherche-de-fuite",
 });
 
-const PHONE_HREF = `tel:${BUSINESS.phoneDisplay.replace(/\s/g, "")}`;
 
 // Signes repris de l'article « Comment détecter une fuite de toiture avant les infiltrations ? »
 const SYMPTOMS = [
@@ -113,7 +112,7 @@ const FAQ: FaqItem[] = [
   {
     question: "Intervenez-vous en urgence ?",
     answer:
-      "Oui, un service d'urgence fuite est assuré 7j/7 au 04 65 84 88 85, avec une intervention sous 24h. Basés à Décines-Charpieu, nous intervenons dans l'Est lyonnais et la métropole de Lyon.",
+      `Oui, un service d'urgence fuite est assuré 7j/7 au ${BUSINESS.phoneDisplay}, avec une intervention sous 24h. Basés à Décines-Charpieu, nous intervenons dans l'Est lyonnais et la métropole de Lyon.`,
   },
   {
     question: "Une fuite vient-elle toujours d'une tuile cassée ?",

@@ -7,6 +7,7 @@ import { readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
 import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Send, CheckCircle2 } from "lucide-react";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -219,10 +220,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <a
-                href="tel:0465848885"
+                href={PHONE_HREF}
                 className="block text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-lg py-3 rounded-xl transition"
               >
-                04 65 84 88 85
+                {BUSINESS.phoneDisplay}
               </a>
             </div>
 

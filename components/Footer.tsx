@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, MapPin, Clock, Mail, ShieldCheck } from "lucide-react";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 import ManageCookiesButton from "@/components/ManageCookiesButton";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 const SERVICES_LINKS = [
   { label: "Rénovation de couverture", href: "/services/couverture" },
@@ -104,9 +105,9 @@ export default function Footer() {
           <div className="space-y-3">
             <h3 className="text-white font-bold text-sm uppercase tracking-wider">Contact & Urgences</h3>
             <div className="space-y-2 text-xs sm:text-sm text-slate-300">
-              <a href="tel:0465848885" className="flex items-center gap-2 font-bold text-white hover:text-amber-400 transition">
+              <a href={PHONE_HREF} className="flex items-center gap-2 font-bold text-white hover:text-amber-400 transition">
                 <Phone className="w-4 h-4 text-amber-500" />
-                04 65 84 88 85
+                {BUSINESS.phoneDisplay}
               </a>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-amber-500 shrink-0" />

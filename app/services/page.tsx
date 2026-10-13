@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, Phone, FileText, CheckCircle2, ArrowRight, Images } from "lucide-react";
-import { pageMetadata, BUSINESS } from "@/lib/site";
+import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 
 export const metadata: Metadata = pageMetadata({
@@ -44,7 +44,7 @@ export default function ServicesPage() {
             </Link>
 
             <a
-              href={`tel:${BUSINESS.phoneDisplay.replace(/\s/g, "")}`}
+              href={PHONE_HREF}
               className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold px-6 py-3.5 rounded-xl text-center transition flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5 text-amber-400" />

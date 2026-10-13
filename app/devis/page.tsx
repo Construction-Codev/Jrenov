@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Building2,
 } from "lucide-react";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 // Types
 type ServiceType =
@@ -138,8 +139,8 @@ export default function DevisPage() {
 
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 space-y-1 inline-block">
               <p>Une urgence fuite ? Ne patientez pas :</p>
-              <a href="tel:0465848885" className="font-bold text-slate-900 text-sm hover:text-amber-600 block">
-                Appeler le 04 65 84 88 85
+              <a href={PHONE_HREF} className="font-bold text-slate-900 text-sm hover:text-amber-600 block">
+                Appeler le {BUSINESS.phoneDisplay}
               </a>
             </div>
           </div>

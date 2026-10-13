@@ -1,5 +1,6 @@
 import { validateEmail } from "./email";
 import { countLinks, hasControlChars, hasLineBreak, looksLikeInjection, normalizeInput } from "./sanitize";
+import { BUSINESS } from "@/lib/site";
 
 /**
  * Validation serveur des champs des formulaires contact et devis.
@@ -173,4 +174,4 @@ export function userMessageFor(reason: RejectReason, field: string): string {
 }
 
 export const GENERIC_ERROR =
-  "Votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler au 04 65 84 88 85.";
+  `Votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler au ${BUSINESS.phoneDisplay}.`;

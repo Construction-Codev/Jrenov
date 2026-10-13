@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, BUSINESS } from "@/lib/site";
 import Link from "next/link";
 import { ShieldCheck, Building2 } from "lucide-react";
 
@@ -44,7 +44,7 @@ export default function MentionsLegalesPage() {
             <p><span className="font-bold text-slate-900">Code APE / NAF :</span> 43.91B (Travaux de couverture par éléments)</p>
             <p><span className="font-bold text-slate-900">Date d&apos;immatriculation :</span> 07/05/2018</p>
             <p><span className="font-bold text-slate-900">Adresse du siège social :</span> 48 Ancien Chemin des Marais, 69150 Décines-Charpieu</p>
-            <p><span className="font-bold text-slate-900">Téléphone :</span> 04 65 84 88 85</p>
+            <p><span className="font-bold text-slate-900">Téléphone :</span> {BUSINESS.phoneDisplay}</p>
             <p><span className="font-bold text-slate-900">E-mail :</span> contact@jrenov.com</p>
           </div>
         </section>

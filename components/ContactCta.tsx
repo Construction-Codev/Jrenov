@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { Phone, FileText } from "lucide-react";
-import { BUSINESS } from "@/lib/site";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
-const PHONE_HREF = `tel:${BUSINESS.phoneDisplay.replace(/\s/g, "")}`;
 
 /** Bandeau d'appel à l'action (devis + téléphone), au style des pages services. */
 export default function ContactCta({ title, text }: { title: string; text: string }) {
