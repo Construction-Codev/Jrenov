@@ -1,15 +1,22 @@
 import { getAdsConsent } from "@/lib/consent";
 
 /**
- * Google Ads : identifiants et conversion « Website lead ».
+ * Google Ads : identifiants et conversions.
  *
  * La balise gtag.js est chargée par components/GoogleTag.tsx, uniquement après
- * consentement. La conversion n'est déclenchée QUE par trackLeadConversion(),
- * appelée après une réponse serveur confirmant l'envoi réel de la demande.
- * Aucune donnée personnelle n'est transmise.
+ * consentement. Deux conversions distinctes :
+ * - « Website lead » : trackLeadConversion(), appelée après une réponse serveur
+ *   confirmant l'envoi réel de la demande ;
+ * - clic téléphone : trackPhoneConversion(), appelée par la délégation de clics
+ *   de components/AnalyticsEvents.tsx sur un vrai clic d'un lien « tel: ».
+ * Aucune donnée personnelle n'est transmise (ni numéro, ni contenu de formulaire).
  */
 export const GOOGLE_ADS_ID = "AW-18401022050";
 export const LEAD_CONVERSION_SEND_TO = "AW-18401022050/3zwjCM7KnZcdEOKgpcZE";
+export const PHONE_CONVERSION_SEND_TO = "AW-18401022050/xlbwCOjuo5sdEOKgpcZE";
+
+/** Délai pendant lequel un nouveau clic téléphone n'est pas recompté (double tap, double écoute). */
+export const PHONE_CONVERSION_COOLDOWN_MS = 2000;
 
 type Gtag = (...args: unknown[]) => void;
 
@@ -48,6 +55,43 @@ export function trackLeadConversion(submissionId: unknown): boolean {
   } catch {
     return false;
   }
+}
+
+let lastPhoneConversionAt: number | null = null;
+
+/**
+ * Déclenche la conversion « clic téléphone ». À n'appeler que depuis un vrai clic
+ * utilisateur sur un lien « tel: » (jamais au chargement d'une page).
+ * Aucun paramètre : le numéro composé n'est jamais transmis.
+ *
+ * Ne bloque pas la navigation (pas de preventDefault, envoi en beacon) et ne lève
+ * jamais : absence de gtag, consentement refusé/inconnu ou bloqueur sont ignorés.
+ */
+export function trackPhoneConversion(): boolean {
+  try {
+    if (typeof window === "undefined") return false;
+    if (getAdsConsent() !== "granted") return false;
+    if (typeof window.gtag !== "function") return false;
+
+    const now = Date.now();
+    if (lastPhoneConversionAt !== null && now - lastPhoneConversionAt < PHONE_CONVERSION_COOLDOWN_MS) {
+      return false;
+    }
+    lastPhoneConversionAt = now;
+
+    window.gtag("event", "conversion", {
+      send_to: PHONE_CONVERSION_SEND_TO,
+      transport_type: "beacon",
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Réservé aux tests : réinitialise la protection anti-doublon des clics téléphone. */
+export function resetPhoneConversionCooldown(): void {
+  lastPhoneConversionAt = null;
 }
 
 /** Lit l'identifiant de soumission dans la réponse JSON de /api/contact ou /api/devis. */
