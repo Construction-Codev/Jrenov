@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackEvent } from "@/lib/analytics";
+import { trackContactLinkClick } from "@/lib/contact-link-tracking";
 
 /**
  * Suivi centralisé des clics « tel: » et « mailto: » sur tout le site,
  * par délégation d'événement : aucun composant CTA n'a besoin d'être modifié.
  * Seul l'emplacement du lien (header / footer / contenu) est transmis,
- * jamais le numéro ou l'adresse.
+ * jamais le numéro ou l'adresse. Les clics « tel: » réels déclenchent aussi la
+ * conversion Google Ads téléphone si les cookies publicitaires sont acceptés.
  */
 export default function AnalyticsEvents() {
   useEffect(() => {
@@ -18,14 +19,7 @@ export default function AnalyticsEvents() {
       const link = target.closest<HTMLAnchorElement>('a[href^="tel:"], a[href^="mailto:"]');
       if (!link) return;
 
-      const placement = link.closest("header")
-        ? "header"
-        : link.closest("footer")
-          ? "footer"
-          : "content";
-
-      const href = link.getAttribute("href") ?? "";
-      trackEvent(href.startsWith("tel:") ? "phone_click" : "email_click", { placement });
+      trackContactLinkClick(link, event.isTrusted);
     };
 
     document.addEventListener("click", handleClick, { capture: true });
