@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Phone, FileText } from "lucide-react";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 const videos = [
   "/banner1.mp4", 
@@ -137,11 +138,11 @@ export default function HeroBanner() {
           </Link>
           
           <a 
-            href="tel:0465848885" 
+            href={PHONE_HREF} 
             className="flex items-center gap-2.5 bg-slate-100 hover:bg-white text-slate-950 font-extrabold py-4 px-8 rounded-xl transition-all shadow-xl"
           >
             <Phone className="w-5 h-5 text-amber-600" />
-            04 65 84 88 85
+            {BUSINESS.phoneDisplay}
           </a>
         </div>
       </div>

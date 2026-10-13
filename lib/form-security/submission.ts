@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, BUSINESS } from "@/lib/site";
 import { maskEmail } from "./email";
 import { checkEmailDomain } from "./mx";
 import { anonymize, verifyFormToken } from "./form-token";
@@ -99,7 +99,7 @@ export async function handleFormSubmission<T extends { email: string }>(
       "rate_limit",
       json(
         429,
-        { error: "Trop de demandes ont été envoyées. Merci de réessayer plus tard ou de nous appeler au 04 65 84 88 85." },
+        { error: `Trop de demandes ont été envoyées. Merci de réessayer plus tard ou de nous appeler au ${BUSINESS.phoneDisplay}.` },
         { "Retry-After": String(limit.retryAfterSeconds) }
       )
     );

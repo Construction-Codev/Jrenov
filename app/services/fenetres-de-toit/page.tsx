@@ -10,7 +10,7 @@ import {
   Droplets,
   CheckCircle2,
 } from "lucide-react";
-import { BUSINESS, pageMetadata } from "@/lib/site";
+import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
@@ -24,7 +24,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/services/fenetres-de-toit",
 });
 
-const PHONE_HREF = `tel:${BUSINESS.phoneDisplay.replace(/\s/g, "")}`;
 
 // Trois types de projets, chacun attesté par une réalisation de data/realisations.json
 const PROJECT_TYPES = [

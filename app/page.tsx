@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HeroBanner from "@/components/Banner";
 import Link from "next/link";
-import { BUSINESS, DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/site";
+import { BUSINESS, DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { realisations, frenchDateToIso } from "@/lib/content";
 import { LOCAL_AREAS } from "@/lib/local-areas";
 import { SERVICES } from "@/lib/services";
@@ -203,11 +203,11 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
               <a
-                href="tel:0465848885"
+                href={PHONE_HREF}
                 className="bg-slate-950 hover:bg-slate-900 text-white font-extrabold px-6 py-4 rounded-xl text-center flex items-center justify-center gap-2 transition"
               >
                 <Phone className="w-5 h-5 text-amber-400" />
-                04 65 84 88 85
+                {BUSINESS.phoneDisplay}
               </a>
               <Link
                 href="/devis"

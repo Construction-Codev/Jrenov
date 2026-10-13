@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -166,10 +166,10 @@ export default async function RealisationDetailPage({ params }: Props) {
               </p>
             </div>
             <a 
-              href="tel:0465848885" 
+              href={PHONE_HREF} 
               className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl text-xs sm:text-sm shrink-0 flex items-center gap-2.5 transition-transform active:scale-95 shadow-lg shadow-amber-500/20"
             >
-              <Phone className="w-4 h-4" /> 04 65 84 88 85
+              <Phone className="w-4 h-4" /> {BUSINESS.phoneDisplay}
             </a>
           </div>
 

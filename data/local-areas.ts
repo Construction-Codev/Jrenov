@@ -1,4 +1,5 @@
 import type { ServiceKey } from "@/lib/services";
+import { BUSINESS } from "@/lib/site";
 
 /**
  * Pages locales publiées (première vague du Lot 3).
@@ -75,7 +76,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     primaryKeyword: "couvreur Décines-Charpieu",
     metaTitle: "Couvreur à Décines-Charpieu, artisan installé dans la commune",
     metaDescription:
-      "Jrenov, artisan couvreur installé à Décines-Charpieu (69150) : réparation et rénovation de toiture, zinguerie, isolation et démoussage. Devis gratuit au 04 65 84 88 85.",
+      `Jrenov, artisan couvreur installé à Décines-Charpieu (69150) : réparation et rénovation de toiture, zinguerie, isolation et démoussage. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
     h1: "Couvreur à Décines-Charpieu",
     heroBadge: "Siège de Jrenov · 69150 Décines-Charpieu",
     heroLead:
@@ -172,7 +173,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       {
         question: "Où se trouve Jrenov à Décines-Charpieu ?",
         answer:
-          "Le siège de l'entreprise est situé au 48 Ancien Chemin des Marais, 69150 Décines-Charpieu. Nous sommes joignables du lundi au samedi de 8h00 à 19h00 au 04 65 84 88 85, et un service d'urgence fuite est assuré 7j/7.",
+          `Le siège de l'entreprise est situé au 48 Ancien Chemin des Marais, 69150 Décines-Charpieu. Nous sommes joignables du lundi au samedi de 8h00 à 19h00 au ${BUSINESS.phoneDisplay}, et un service d'urgence fuite est assuré 7j/7.`,
       },
       {
         question: "Peut-on remplacer une fenêtre de toit sans refaire les finitions intérieures ?",
@@ -300,7 +301,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       {
         question: "Jrenov est-il loin de Meyzieu ?",
         answer:
-          "Non : notre siège se trouve à Décines-Charpieu, commune limitrophe. Pour une fuite, appelez le 04 65 84 88 85.",
+          `Non : notre siège se trouve à Décines-Charpieu, commune limitrophe. Pour une fuite, appelez le ${BUSINESS.phoneDisplay}.`,
       },
     ],
     sectionOrder: ["intro", "context", "issues", "realisations", "services", "process", "faq", "nearby"],

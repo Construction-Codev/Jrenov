@@ -17,8 +17,9 @@ export const BUSINESS = {
   founder: "Jason Robba",
   // Date d'immatriculation indiquée dans les mentions légales (07/05/2018)
   foundingDate: "2018-05-07",
-  phoneDisplay: "04 65 84 88 85",
-  phoneE164: "+33465848885",
+  // Numéro unique de l'entreprise : toujours passer par ces champs ou PHONE_HREF
+  phoneDisplay: "07 61 24 27 93",
+  phoneE164: "+33761242793",
   email: "contact@jrenov.com",
   address: {
     streetAddress: "48 Ancien Chemin des Marais",
@@ -38,6 +39,9 @@ export const BUSINESS = {
   ],
   logoPath: "/logo-512.png",
 } as const;
+
+/** Lien d'appel unique (format E.164), utilisé par tous les boutons « Appeler ». */
+export const PHONE_HREF = `tel:${BUSINESS.phoneE164}`;
 
 export const DEFAULT_OG_IMAGE = {
   url: "/og-image.jpg",

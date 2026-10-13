@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Phone, FileText, ArrowRight, Building2 } from "lucide-react";
 import ContactCta from "@/components/ContactCta";
-import { BUSINESS, pageMetadata } from "@/lib/site";
+import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { LOCAL_AREAS, ZONE_SECTORS, getLocalArea, realisationsInCommune } from "@/lib/local-areas";
 
 export const metadata: Metadata = pageMetadata({
@@ -12,7 +12,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/zones-intervention",
 });
 
-const PHONE_HREF = `tel:${BUSINESS.phoneDisplay.replace(/\s/g, "")}`;
 
 export default function ZonesInterventionPage() {
   return (

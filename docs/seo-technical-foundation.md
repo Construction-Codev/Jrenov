@@ -95,7 +95,7 @@ Les liens du fil d'Ariane ne pointent que vers des routes existantes. Par exempl
 9. **Hub `/services`** : présentation des 4 services existants, avec liens vers chaque page, les réalisations et le devis. Ajouté au menu (« Toutes nos prestations ») et au plan du site.
 10. **Fil d'Ariane** : libellés réels (titre de la réalisation ou de l'article), liste `<ol>`/`<li>`, `aria-current`, icônes `aria-hidden`, domaine canonique, pas de rendu sur une route inconnue (donc aucun lien vers une 404).
 11. **JSON-LD `RoofingContractor`** (`@id: https://www.jrenov.com/#business`), sur toutes les pages via le layout :
-    - nom, raison sociale, URL, logo 512 px, `telephone: +33465848885`, e-mail, adresse complète de Décines-Charpieu, horaires du lundi au samedi de 08:00 à 19:00, `sameAs` Facebook et Instagram ;
+    - nom, raison sociale, URL, logo 512 px, `telephone: +33761242793`, e-mail, adresse complète de Décines-Charpieu, horaires du lundi au samedi de 08:00 à 19:00, `sameAs` Facebook et Instagram ;
     - `foundingDate: 2018-05-07` : date d'immatriculation des mentions légales ;
     - `areaServed` : Décines-Charpieu et les communes des réalisations publiées (calculées depuis `data/realisations.json`) ;
     - **supprimés ou absents** : `priceRange "$$"`, `aggregateRating`, `review`, `geo`, `hasMap`, toute certification ;

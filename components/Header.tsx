@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin, Clock, Menu, X, ShieldCheck, ChevronDown } from "lucide-react";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 const SERVICES = [
   { label: "Couverture", href: "/services/couverture" },
@@ -131,7 +132,7 @@ export default function Header() {
           {/* CTA Phone & Devis */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:0465848885"
+              href={PHONE_HREF}
               className="flex items-center gap-2 text-slate-900 font-bold hover:text-amber-600 transition-colors"
             >
               <div className="p-2 bg-amber-100 text-amber-600 rounded-full">
@@ -141,7 +142,7 @@ export default function Header() {
                 <span className="text-[10px] text-slate-500 font-medium uppercase leading-none">
                   Urgence / Devis
                 </span>
-                <span className="text-sm leading-tight font-extrabold">04 65 84 88 85</span>
+                <span className="text-sm leading-tight font-extrabold">{BUSINESS.phoneDisplay}</span>
               </div>
             </a>
 
@@ -209,11 +210,11 @@ export default function Header() {
 
           <div className="pt-4 space-y-3">
             <a
-              href="tel:0465848885"
+              href={PHONE_HREF}
               className="flex items-center justify-center gap-2 w-full bg-slate-900 text-white font-bold py-3 rounded-lg"
             >
               <Phone className="w-4 h-4 text-amber-400" />
-              Appeler : 04 65 84 88 85
+              Appeler : {BUSINESS.phoneDisplay}
             </a>
             <Link
               href="/devis"
