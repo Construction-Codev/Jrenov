@@ -1,5 +1,7 @@
 # Audit SEO — jrenov.com
 
+> ⚠️ **Document historique.** L'état décrit ici date du 7 octobre 2026, avant les lots 2 à 6. L'état à jour et la feuille de route sont dans [`seo-audit-2026-10.md`](./seo-audit-2026-10.md).
+
 > Audit réalisé le 7 octobre 2026 sur le dépôt local (branche `master`, commit `c1d9e9e`, avec deux fichiers modifiés non commités : `app/mentions-legales/page.tsx` et `components/FacebookFeed.tsx`), ainsi que sur le site en ligne `https://www.jrenov.com` (lecture seule).
 >
 > Aucune page du site n'a été modifiée. Toutes les affirmations ci-dessous renvoient au code, aux données du dépôt ou à une vérification HTTP. Les éléments à confirmer par l'entreprise sont marqués **[À CONFIRMER]**.
