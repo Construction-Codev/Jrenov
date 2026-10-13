@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin, Clock, Menu, X, ShieldCheck, ChevronDown } from "lucide-react";
@@ -26,11 +26,42 @@ const NAV_LINKS = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeMenu = useCallback((restoreFocus = false) => {
+    setIsOpen(false);
+    if (restoreFocus) menuButtonRef.current?.focus();
+  }, []);
+
+  // Menu mobile ouvert : Échap le ferme et rend le focus au bouton ;
+  // passage en affichage desktop (≥ lg) : il se referme pour ne rien laisser ouvert.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu(true);
+    };
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onDesktop = () => {
+      if (desktop.matches) closeMenu();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    desktop.addEventListener("change", onDesktop);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      desktop.removeEventListener("change", onDesktop);
+    };
+  }, [isOpen, closeMenu]);
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-white shadow-md">
+    // Menu ouvert : le header ne dépasse jamais la hauteur visible de l'écran
+    // et seul le menu défile (sinon le bas du menu, dont « Appeler », est inatteignable).
+    <header
+      className={`w-full sticky top-0 z-50 bg-white shadow-md ${
+        isOpen ? "flex flex-col max-h-dvh" : ""
+      }`}
+    >
       {/* Topbar d'information */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+      <div className="shrink-0 bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 flex-wrap">
             <span className="flex items-center gap-1.5">
@@ -50,7 +81,7 @@ export default function Header() {
       </div>
 
       {/* Barre de navigation principale */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="shrink-0 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-16 h-16 flex items-center justify-center">
@@ -154,22 +185,42 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Bouton Mobile */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            className="lg:hidden p-2 text-slate-700 hover:text-slate-900 focus:outline-none"
-            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Appel & menu mobiles */}
+          <div className="flex items-center gap-1 lg:hidden">
+            {/* Sous md, le bloc téléphone desktop est masqué : accès d'appel permanent */}
+            <a
+              href={PHONE_HREF}
+              aria-label={`Appeler Jrenov au ${BUSINESS.phoneDisplay}`}
+              title={`Appeler le ${BUSINESS.phoneDisplay}`}
+              className="md:hidden flex items-center justify-center w-11 h-11 rounded-full text-amber-600 hover:text-amber-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            >
+              <span className="p-2 bg-amber-100 rounded-full">
+                <Phone className="w-5 h-5" aria-hidden="true" />
+              </span>
+            </a>
+
+            <button
+              ref={menuButtonRef}
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="p-2 text-slate-700 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+              aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isOpen}
+              aria-controls="menu-mobile"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Menu Mobile */}
       {isOpen && (
-        <div className="lg:hidden bg-slate-50 border-t border-slate-200 px-4 pt-2 pb-6 space-y-3">
+        <nav
+          id="menu-mobile"
+          aria-label="Menu principal"
+          className="lg:hidden min-h-0 flex-1 overflow-y-auto overscroll-contain bg-slate-50 border-t border-slate-200 px-4 pt-2 pb-6 space-y-3"
+        >
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
@@ -224,7 +275,7 @@ export default function Header() {
               Demander un devis gratuit
             </Link>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );
