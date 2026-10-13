@@ -122,7 +122,15 @@ export function validateContact(raw: unknown): ValidationResult<ContactData> {
 
 // ─── Formulaire devis ───────────────────────────────────────────────────────
 
-export const QUOTE_SERVICES = ["couverture", "zinguerie", "isolation", "demoussage", "urgence"] as const;
+export const QUOTE_SERVICES = [
+  "couverture",
+  "zinguerie",
+  "isolation",
+  "demoussage",
+  "fenetres-de-toit",
+  "recherche-de-fuite",
+  "urgence",
+] as const;
 export const QUOTE_BUILDINGS = ["maison", "immeuble", "autre"] as const;
 
 export interface QuoteData {

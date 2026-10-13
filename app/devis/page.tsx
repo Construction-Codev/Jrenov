@@ -10,6 +10,8 @@ import {
   Shield,
   Sparkles,
   AlertTriangle,
+  AppWindow,
+  SearchCheck,
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
@@ -25,6 +27,8 @@ type ServiceType =
   | "zinguerie"
   | "isolation"
   | "demoussage"
+  | "fenetres-de-toit"
+  | "recherche-de-fuite"
   | "urgence";
 
 type BuildingType = "maison" | "immeuble" | "autre";
@@ -193,6 +197,8 @@ export default function DevisPage() {
                       { id: "zinguerie", label: "Zinguerie & Gouttières", desc: "Pose, réparation chéneaux", icon: Droplets },
                       { id: "isolation", label: "Isolation Thermique", desc: "Sarking, combles perdus", icon: Shield },
                       { id: "demoussage", label: "Nettoyage & Démoussage", desc: "Traitement hydrofuge, entretien", icon: Sparkles },
+                      { id: "fenetres-de-toit", label: "Fenêtres de toit", desc: "Création, pose, remplacement", icon: AppWindow },
+                      { id: "recherche-de-fuite", label: "Recherche de fuite", desc: "Diagnostic d'infiltration, réparation", icon: SearchCheck },
                       { id: "urgence", label: "Urgence / Fuite d'eau", desc: "Infiltration suite aux intempéries", icon: AlertTriangle, alert: true },
                     ].map((item) => {
                       const Icon = item.icon;

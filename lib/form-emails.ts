@@ -65,6 +65,8 @@ const QUOTE_SERVICE_LABELS: Record<string, string> = {
   zinguerie: "Zinguerie & Gouttières",
   isolation: "Isolation Thermique",
   demoussage: "Nettoyage & Démoussage",
+  "fenetres-de-toit": "Fenêtres de toit",
+  "recherche-de-fuite": "Recherche de fuite",
   urgence: "Urgence / Fuite d'eau",
 };
 

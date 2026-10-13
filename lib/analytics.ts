@@ -26,6 +26,8 @@ const ALLOWED_SERVICES = new Set([
   "zinguerie",
   "isolation",
   "demoussage",
+  "fenetres-de-toit",
+  "recherche-de-fuite",
   "urgence",
   "autre",
 ]);
