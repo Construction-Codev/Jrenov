@@ -4,6 +4,7 @@ import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
 import ServiceSilo from "@/components/ServiceSilo";
+import CoverageDiagnosis from "@/components/CoverageDiagnosis";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
 import {
@@ -126,10 +127,11 @@ export default function CouverturePage() {
         </div>
       </section>
 
+      <CoverageDiagnosis />
       {/* 2. Section Matériaux */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center space-y-3 mb-12">
-          <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Matériaux & Savoir-faire</span>
+          <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Matériaux & Savoir-faire</span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
             Tous types de couvertures maîtrisés
           </h2>
@@ -155,7 +157,7 @@ export default function CouverturePage() {
       <section className="bg-slate-100 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Méthodologie</span>
+            <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Méthodologie</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
               Comment se déroule votre chantier de toiture ?
             </h2>
@@ -164,7 +166,7 @@ export default function CouverturePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PROCESS_STEPS.map((step, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 relative space-y-3">
-                <span className="text-3xl font-black text-amber-500/30 absolute top-4 right-4">
+                <span aria-hidden="true" className="text-3xl font-black text-amber-700 absolute top-4 right-4">
                   {step.step}
                 </span>
                 <h3 className="text-base font-bold text-slate-900 pr-8">{step.title}</h3>

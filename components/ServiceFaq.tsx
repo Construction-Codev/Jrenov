@@ -25,7 +25,7 @@ export default function ServiceFaq({ title, items }: { title: string; items: Faq
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
       <JsonLd data={faqJsonLd} />
       <div className="text-center space-y-3 mb-10">
-        <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Questions fréquentes</span>
+        <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Questions fréquentes</span>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{title}</h2>
       </div>
       <div className="space-y-4">

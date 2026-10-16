@@ -46,7 +46,7 @@ const REALISATION_SERVICE_OVERRIDES: Record<string, ServiceKey[]> = {
 };
 
 export function serviceKeysForRealisation(item: Realisation): ServiceKey[] {
-  return REALISATION_SERVICE_OVERRIDES[item.slug] ?? CATEGORY_SERVICES[item.category] ?? [];
+  return item.services ?? REALISATION_SERVICE_OVERRIDES[item.slug] ?? CATEGORY_SERVICES[item.category] ?? [];
 }
 
 export function servicesForRealisation(item: Realisation): ServiceItem[] {
@@ -299,7 +299,7 @@ export function validateServiceContent(): void {
   const postSlugs = new Set(posts.map((post) => post.slug));
 
   for (const item of realisations) {
-    if (!(item.slug in REALISATION_SERVICE_OVERRIDES) && !(item.category in CATEGORY_SERVICES)) {
+    if (!item.services && !(item.slug in REALISATION_SERVICE_OVERRIDES) && !(item.category in CATEGORY_SERVICES)) {
       throw new Error(`[service-content] Catégorie sans correspondance : « ${item.category} » (${item.slug})`);
     }
   }

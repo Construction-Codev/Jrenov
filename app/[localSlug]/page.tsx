@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import ContactCta from "@/components/ContactCta";
+import LocalProjectGuidance from "@/components/LocalProjectGuidance";
+import { HUB_GUIDANCE } from "@/data/local-guidance";
 import { RealisationCard, RealisationCompactCard } from "@/components/RealisationCard";
 import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
@@ -60,7 +62,7 @@ function resolveRealisations(slugs: string[]): Realisation[] {
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="space-y-3 mb-8">
-      <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">{eyebrow}</span>
+      <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">{eyebrow}</span>
       <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{title}</h2>
     </div>
   );
@@ -101,7 +103,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
           <div className="grid md:grid-cols-3 gap-6">
             {area.issues.items.map((issue) => (
               <div key={issue.title} className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
-                <div className="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{issue.title}</h3>
@@ -123,7 +125,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
               const Icon = service.icon;
               return (
                 <div key={serviceKey} className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex gap-4">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-2">
@@ -131,7 +133,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{text}</p>
                     <Link
                       href={service.href}
-                      className="text-amber-600 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
+                      className="text-amber-700 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
                     >
                       Découvrir la prestation <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -167,7 +169,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
           )}
           <Link
             href="/realisations"
-            className="mt-6 text-amber-600 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
+            className="mt-6 text-amber-700 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
           >
             Toutes nos réalisations <ArrowRight className="w-4 h-4" />
           </Link>
@@ -184,7 +186,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {PROCESS_STEPS.map((step) => (
                 <div key={step.step} className="bg-white p-6 rounded-2xl border border-slate-200 relative space-y-3">
-                  <span className="text-3xl font-black text-amber-500/30 absolute top-4 right-4">{step.step}</span>
+                  <span aria-hidden="true" className="text-3xl font-black text-amber-700 absolute top-4 right-4">{step.step}</span>
                   <h3 className="text-base font-bold text-slate-900 pr-8">{step.title}</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{step.desc}</p>
                 </div>
@@ -210,6 +212,11 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
                     <MapPin className="w-3.5 h-3.5 text-amber-500" />
                     Couvreur à {city.name}
                   </Link>
+                ) : HUB_GUIDANCE.some((item) => item.city === city.name) ? (
+                  <Link href={`/zones-intervention#${HUB_GUIDANCE.find((item) => item.city === city.name)!.id}`}
+                    className="inline-flex bg-white border border-slate-200 text-slate-700 hover:text-amber-800 font-semibold text-sm px-4 py-2 rounded-full">
+                    Toiture à {city.name}
+                  </Link>
                 ) : (
                   <span className="inline-flex items-center gap-1.5 bg-slate-100 border border-slate-200 text-slate-600 text-sm px-4 py-2 rounded-full">
                     <MapPin className="w-3.5 h-3.5 text-slate-400" />
@@ -221,7 +228,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
           </ul>
           <Link
             href="/zones-intervention"
-            className="mt-6 text-amber-600 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
+            className="mt-6 text-amber-700 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
           >
             Toutes nos zones d&apos;intervention <ArrowRight className="w-4 h-4" />
           </Link>
@@ -295,6 +302,7 @@ export default async function LocalAreaPage({ params }: Props) {
         </div>
       </section>
 
+      <LocalProjectGuidance slug={area.slug} />
       {area.sectionOrder.map((key) => renderSection(key, area))}
 
       <ContactCta

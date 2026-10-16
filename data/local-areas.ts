@@ -74,9 +74,9 @@ export const LOCAL_AREAS: LocalArea[] = [
     city: "Décines-Charpieu",
     postalCode: "69150",
     primaryKeyword: "couvreur Décines-Charpieu",
-    metaTitle: "Couvreur à Décines-Charpieu, artisan installé dans la commune",
+    metaTitle: "Couvreur à Décines-Charpieu, entreprise locale",
     metaDescription:
-      `Jrenov, artisan couvreur installé à Décines-Charpieu (69150) : réparation et rénovation de toiture, zinguerie, isolation et démoussage. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
+      "Jrenov, couvreur installé à Décines-Charpieu : réparation, rénovation et fenêtres de toit. Décrivez votre besoin pour un diagnostic et un devis gratuit.",
     h1: "Couvreur à Décines-Charpieu",
     heroBadge: "Siège de Jrenov · 69150 Décines-Charpieu",
     heroLead:
@@ -199,7 +199,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     primaryKeyword: "couvreur Meyzieu",
     metaTitle: "Couvreur à Meyzieu – Toiture, rives & zinguerie",
     metaDescription:
-      "Couvreur à Meyzieu : habillage de rives et bandeaux, gouttières, réparation et rénovation de toiture. Jrenov intervient depuis Décines-Charpieu, commune voisine. Devis gratuit.",
+      "Gouttières qui débordent, bandeaux abîmés ou toiture à réparer à Meyzieu ? Jrenov étudie vos travaux de couverture et de zinguerie. Devis gratuit.",
     h1: "Couvreur à Meyzieu : toiture, rives et zinguerie",
     heroBadge: "Commune voisine de notre siège",
     heroLead:
@@ -317,7 +317,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     primaryKeyword: "couvreur Villeurbanne",
     metaTitle: "Couvreur à Villeurbanne – Rénover une maison de ville",
     metaDescription:
-      "Rénovation et réparation de toiture à Villeurbanne : maisons de ville, couvertures anciennes en tuiles, rives et cheminées en zinc. Jrenov, couvreur basé à Décines-Charpieu.",
+      "Rénover une maison de ville à Villeurbanne : couverture en tuiles, raccords et accès au chantier. Jrenov prépare avec vous un devis adapté à votre toit.",
     h1: "Couvreur à Villeurbanne : rénover les toitures de maisons de ville",
     heroBadge: "Intervention depuis Décines-Charpieu",
     heroLead:
@@ -561,7 +561,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     primaryKeyword: "couvreur Genas",
     metaTitle: "Couvreur à Genas – Démoussage & entretien de toiture",
     metaDescription:
-      "Couvreur à Genas : nettoyage et démoussage de toiture, traitement des tuiles, réparation et rénovation de couverture. Jrenov, artisan basé à Décines-Charpieu. Devis gratuit.",
+      "Mousses, tuiles fragiles ou entretien à prévoir à Genas : Jrenov examine votre toiture avant de proposer un nettoyage ou une réparation. Devis gratuit.",
     h1: "Couvreur à Genas : entretien, démoussage et couverture",
     heroBadge: "Est lyonnais · intervention depuis Décines-Charpieu",
     heroLead:
@@ -680,7 +680,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     primaryKeyword: "couvreur Chassieu",
     metaTitle: "Couvreur à Chassieu – Toiture & isolation des combles",
     metaDescription:
-      "Couvreur à Chassieu : isolation des combles perdus, réparation et rénovation de toiture, zinguerie. Jrenov intervient depuis Décines-Charpieu. Devis gratuit et sans engagement.",
+      "Combles perdus ou aménagés à Chassieu : étudiez l’isolation avec l’état de la couverture. Jrenov vous accompagne dans votre projet de toiture. Devis gratuit.",
     h1: "Couvreur à Chassieu : couverture et isolation de toiture",
     heroBadge: "Est lyonnais · à proximité de notre siège",
     heroLead:
@@ -797,7 +797,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     primaryKeyword: "couvreur Saint-Priest",
     metaTitle: "Couvreur à Saint-Priest – Toiture & charpente",
     metaDescription:
-      "Couvreur à Saint-Priest : réparation et rénovation de toiture, zinguerie, isolation et traitement de charpente contre les insectes. Jrenov, basé à Décines-Charpieu. Devis gratuit.",
+      "Toiture déformée, fuite ou supports à examiner à Saint-Priest : Jrenov étudie les réparations avant de reprendre la couverture. Demandez votre devis gratuit.",
     h1: "Couvreur à Saint-Priest : toiture, combles et charpente",
     heroBadge: "Sud-Est lyonnais · intervention depuis Décines-Charpieu",
     heroLead:

@@ -1,7 +1,40 @@
-import realisations from "@/data/realisations.json";
+import legacyRealisations from "@/data/realisations.json";
+import legacyProjectSlugs from "@/data/legacy-project-slugs.json";
 import posts from "@/data/post.json";
+import { projectPhotos, publishableProjects } from "@/lib/project-publication";
 
-export { realisations, posts };
+// Le catalogue historique est figé aux slugs déjà publiés sur master (69ba43b).
+// Toute nouvelle fiche doit emprunter le contrôle de validation.
+if (legacyRealisations.some((project) => !legacyProjectSlugs.includes(project.slug))) {
+  throw new Error("[content] Nouvelle fiche dans le catalogue historique : utiliser data/project-drafts.json");
+}
+
+/** Catalogue historique déjà publié sur master, sans nouvelle validation implicite. */
+export const realisations: Realisation[] = [
+  ...legacyRealisations,
+  ...publishableProjects().map((project): Realisation => {
+    const photos = project.photoIds.map((id) => projectPhotos.find((photo) => photo.id === id)!);
+    return {
+      slug: project.slug,
+      title: project.title!,
+      city: project.city!,
+      category: project.intervention!,
+      summary: project.summary!,
+      description: project.description!,
+      image: photos[0].localPath!,
+      date: project.date ?? "",
+      duration: project.duration ?? "",
+      services: project.services,
+      photos: photos.map((photo) => ({ src: photo.localPath!, width: photo.width!, height: photo.height!, alt: photo.alt! })),
+    };
+  }),
+];
+
+if (new Set(realisations.map((item) => item.slug)).size !== realisations.length) {
+  throw new Error("[content] Slug de réalisation dupliqué entre le catalogue historique et les nouvelles fiches");
+}
+
+export { posts };
 
 const FRENCH_MONTHS: Record<string, string> = {
   janvier: "01",
@@ -59,7 +92,10 @@ export function latestIsoDate(dates: (string | undefined)[]): string | undefined
   return dates.filter((d): d is string => Boolean(d)).sort().at(-1);
 }
 
-export type Realisation = (typeof realisations)[number];
+export type Realisation = (typeof legacyRealisations)[number] & {
+  services?: import("@/lib/services").ServiceKey[];
+  photos?: { src: string; width: number; height: number; alt: string }[];
+};
 export type Post = (typeof posts)[number];
 
 export function getRealisation(slug: string): Realisation | undefined {

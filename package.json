@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:local-duplication": "node scripts/check-local-duplication.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "test": "vitest run"
   },
   "dependencies": {

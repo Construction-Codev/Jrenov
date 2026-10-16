@@ -73,7 +73,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm">
               {SERVICES_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-amber-400 transition">
+                  <Link href={link.href} className="inline-flex min-h-8 items-center hover:text-amber-400 transition">
                     {link.label}
                   </Link>
                 </li>
@@ -87,14 +87,14 @@ export default function Footer() {
             <ul className="grid grid-cols-1 gap-1 text-xs text-slate-400">
               {FOOTER_ZONES.map((zone) => (
                 <li key={zone.href}>
-                  <Link href={zone.href} className="flex items-center gap-1.5 hover:text-amber-400 transition">
+                  <Link href={zone.href} className="flex min-h-8 items-center gap-1.5 hover:text-amber-400 transition">
                     <MapPin className="w-3 h-3 text-amber-500 shrink-0" />
                     <span>Couvreur à {zone.label}</span>
                   </Link>
                 </li>
               ))}
               <li className="pt-1">
-                <Link href="/zones-intervention" className="font-semibold text-slate-300 hover:text-amber-400 transition">
+                <Link href="/zones-intervention" className="inline-flex min-h-8 items-center font-semibold text-slate-300 hover:text-amber-400 transition">
                   Toutes nos zones d&apos;intervention &rarr;
                 </Link>
               </li>
@@ -131,17 +131,17 @@ export default function Footer() {
         </div>
 
         {/* Bas du Footer & Mentions Légales */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
           <p>© {new Date().getFullYear()} Jrenov, couvreur à Décines-Charpieu. Tous droits réservés.</p>
           <div className="flex gap-4 flex-wrap">
-            <Link href="/plan-du-site" className="hover:text-slate-300 transition">
+            <Link href="/plan-du-site" className="inline-flex min-h-8 items-center hover:text-slate-300 transition">
               Plan du site
             </Link>
-            <Link href="/mentions-legales" className="hover:text-slate-300 transition">
+            <Link href="/mentions-legales" className="inline-flex min-h-8 items-center hover:text-slate-300 transition">
               Mentions légales
             </Link>
-            <ManageCookiesButton className="hover:text-slate-300 transition" />
-            <Link href="/devis" className="hover:text-slate-300 transition">
+            <ManageCookiesButton className="inline-flex min-h-8 items-center hover:text-slate-300 transition" />
+            <Link href="/devis" className="inline-flex min-h-8 items-center hover:text-slate-300 transition">
               Demander un devis
             </Link>
           </div>

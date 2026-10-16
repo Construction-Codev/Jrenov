@@ -8,3 +8,8 @@
 body {
   font-family: var(--font-sans);
 }
+
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 3px solid #b45309;
+  outline-offset: 4px;
+}

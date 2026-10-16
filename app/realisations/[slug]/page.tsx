@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
+import { BUSINESS, PHONE_HREF } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import realisations from "@/data/realisations.json";
+import { realisations, getRealisation, communeName } from "@/lib/content";
+import { projectMetadata } from "@/lib/project-seo";
+import JsonLd from "@/components/JsonLd";
+import { realisationJsonLd } from "@/lib/structured-data";
 import { MapPin, Calendar, Clock, ShieldCheck, ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { servicesForRealisation, showsDecennialBadge } from "@/lib/service-content";
 import { localAreaForCity } from "@/lib/local-areas";
@@ -11,6 +14,8 @@ import { localAreaForCity } from "@/lib/local-areas";
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return realisations.map((item) => ({
@@ -20,20 +25,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = realisations.find((p) => p.slug === slug);
-  if (!project) return {};
-
-  return pageMetadata({
-    title: `${project.title} à ${project.city.replace(/\s*\(\d{5}\)$/, "")}`,
-    description: `${project.summary} Découvrez notre réalisation de travaux à ${project.city}. Devis et diagnostic gratuit.`,
-    path: `/realisations/${project.slug}`,
-    type: "article",
-  });
+  const project = getRealisation(slug);
+  if (!project) notFound();
+  return projectMetadata(project);
 }
 
 export default async function RealisationDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = realisations.find((p) => p.slug === slug);
+  const project = getRealisation(slug);
 
   if (!project) notFound();
 
@@ -47,12 +46,13 @@ export default async function RealisationDetailPage({ params }: Props) {
 
   return (
     <article className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+      <JsonLd data={realisationJsonLd(project, services)} />
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Fil d'ariane & Bouton retour */}
         <Link 
           href="/realisations" 
-          className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-amber-600 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-amber-700 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Retour à toutes les réalisations
         </Link>
@@ -75,7 +75,7 @@ export default async function RealisationDetailPage({ params }: Props) {
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-              {project.title}
+              {project.title} à {project.city.replace(/\s*\(\d{5}\)$/, "")}
             </h1>
             
             <div className="flex flex-wrap gap-4 text-xs sm:text-sm text-slate-600 border-y border-slate-100 py-3.5">
@@ -83,31 +83,42 @@ export default async function RealisationDetailPage({ params }: Props) {
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0" />
                 {project.city}
               </span>
-              <span className="flex items-center gap-1.5 font-medium">
+              {project.date && <span className="flex items-center gap-1.5 font-medium">
                 <Calendar className="w-4 h-4 text-amber-500 shrink-0" />
                 {project.date}
-              </span>
-              {project.duration && (
-                <span className="flex items-center gap-1.5 font-medium">
-                  <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                  Durée : {project.duration}
-                </span>
-              )}
+              </span>}
+              {project.duration && <span className="flex items-center gap-1.5 font-medium">
+                <Clock className="w-4 h-4 text-amber-500 shrink-0" />
+                Durée : {project.duration}
+              </span>}
             </div>
           </div>
 
           {/* Image du Chantier */}
-          {project.image && (
+          {!project.photos?.length && project.image && (
             <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
               <Image
                 src={project.image}
                 alt={`${project.title} - Chantier Jrenov à ${project.city}`}
                 fill
-                priority
+                preload
                 className="object-cover"
                 sizes="(max-width: 896px) 100vw, 896px"
               />
             </div>
+          )}
+
+          {project.photos && project.photos.length > 0 && (
+            <section className="space-y-6" aria-label="Photos du chantier">
+              {project.photos.map((photo, index) => (
+                <figure key={photo.src} className="space-y-2">
+                  <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height}
+                    preload={index === 0} sizes="(max-width: 896px) 100vw, 896px"
+                    className="w-full h-auto rounded-2xl" />
+                  <figcaption className="text-sm text-slate-600">{photo.alt}</figcaption>
+                </figure>
+              ))}
+            </section>
           )}
 
           {/* Résumé synthétique */}
@@ -137,8 +148,8 @@ export default async function RealisationDetailPage({ params }: Props) {
                   href={service.href}
                   className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 hover:border-amber-400 transition group space-y-1"
                 >
-                  <span className="text-xs text-amber-600 font-bold block">Prestation</span>
-                  <span className="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition inline-flex items-center gap-1">
+                  <span className="text-xs text-amber-700 font-bold block">Prestation</span>
+                  <span className="font-bold text-slate-900 text-sm group-hover:text-amber-700 transition inline-flex items-center gap-1">
                     Découvrir notre service {service.title.toLowerCase()} <ArrowRight className="w-4 h-4" />
                   </span>
                 </Link>
@@ -148,8 +159,8 @@ export default async function RealisationDetailPage({ params }: Props) {
                   href={`/${localArea.slug}`}
                   className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 hover:border-amber-400 transition group space-y-1"
                 >
-                  <span className="text-xs text-amber-600 font-bold block">{localArea.city}</span>
-                  <span className="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition inline-flex items-center gap-1">
+                  <span className="text-xs text-amber-700 font-bold block">{localArea.city}</span>
+                  <span className="font-bold text-slate-900 text-sm group-hover:text-amber-700 transition inline-flex items-center gap-1">
                     Voir nos interventions de couverture à {localArea.city} <ArrowRight className="w-4 h-4" />
                   </span>
                 </Link>
@@ -161,18 +172,22 @@ export default async function RealisationDetailPage({ params }: Props) {
           <div className="bg-slate-950 text-white p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
             <div className="space-y-1 text-center sm:text-left">
               <h3 className="font-extrabold text-base sm:text-lg">
-                Un projet similaire à {project.city.split(" ")[0]} ou dans le Rhône ?
+                Un projet similaire à {communeName(project.city)} ?
               </h3>
               <p className="text-xs text-slate-400">
-                Diagnostic toiture offert et devis détaillé sous 24h sans engagement.
+                Décrivez votre besoin pour préparer un diagnostic et un devis détaillé.
               </p>
             </div>
+            <div className="flex flex-col gap-3 shrink-0">
+            <Link href="/devis" className="bg-white hover:bg-slate-100 text-slate-950 font-bold px-6 py-3 rounded-xl text-center">Demander un devis</Link>
             <a 
               href={PHONE_HREF} 
               className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl text-xs sm:text-sm shrink-0 flex items-center gap-2.5 transition-transform active:scale-95 shadow-lg shadow-amber-500/20"
             >
               <Phone className="w-4 h-4" /> {BUSINESS.phoneDisplay}
             </a>
+            <Link href="/contact" className="text-amber-300 underline underline-offset-4 text-center py-2">Nous contacter</Link>
+            </div>
           </div>
 
         </div>
@@ -180,9 +195,9 @@ export default async function RealisationDetailPage({ params }: Props) {
         {/* Section Réalisations Similaires (SEO & Maillage Interne) */}
         {relatedProjects.length > 0 && (
           <div className="space-y-4 pt-4">
-            <h3 className="text-lg font-bold text-slate-900">
+            <h2 className="text-lg font-bold text-slate-900">
               Autres réalisations en {project.category}
-            </h3>
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {relatedProjects.map((item) => (
                 <Link
@@ -190,10 +205,10 @@ export default async function RealisationDetailPage({ params }: Props) {
                   href={`/realisations/${item.slug}`}
                   className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:border-amber-400 transition-all group space-y-2"
                 >
-                  <span className="text-xs text-amber-600 font-bold block">{item.city}</span>
-                  <h4 className="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition-colors line-clamp-1">
+                  <span className="text-xs text-amber-700 font-bold block">{item.city}</span>
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-amber-700 transition-colors line-clamp-1">
                     {item.title}
-                  </h4>
+                  </h3>
                   <p className="text-xs text-slate-500 line-clamp-2">
                     {item.summary}
                   </p>

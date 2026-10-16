@@ -37,7 +37,7 @@ export default function ServiceLocalLinks({
         </ul>
         <Link
           href="/zones-intervention"
-          className="text-amber-600 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
+          className="text-amber-700 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
         >
           Toutes nos zones d&apos;intervention <ArrowRight className="w-4 h-4" />
         </Link>

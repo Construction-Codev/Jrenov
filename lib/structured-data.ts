@@ -1,16 +1,17 @@
 import { BUSINESS, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
-import { realisations, communeName } from "@/lib/content";
+import { realisations, communeName, type Realisation } from "@/lib/content";
+import { ZONE_SECTORS } from "@/data/local-areas";
 
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 /**
- * Communes desservies : le siège + les communes où une réalisation est publiée.
+ * Communes desservies : celles du hub géographique existant et du catalogue.
  * « Lyon 6e (69006) » → « Lyon » ; « Villeurbanne (69100) » → « Villeurbanne ».
  */
 export function servedCities(): string[] {
   const cities = realisations.map((item) => communeName(item.city));
-  return Array.from(new Set([BUSINESS.address.addressLocality, ...cities]));
+  return Array.from(new Set([BUSINESS.address.addressLocality, ...ZONE_SECTORS.flatMap((sector) => sector.communes.map((commune) => commune.name)), ...cities]));
 }
 
 /** Entité principale Jrenov (RoofingContractor). Uniquement des données vérifiées. */
@@ -53,6 +54,27 @@ export function websiteJsonLd() {
     url: SITE_URL,
     inLanguage: "fr-FR",
     publisher: { "@id": BUSINESS_ID },
+  };
+}
+
+/** Fiche de travaux : page descriptive, sans inventer une offre, un prix ou un avis. */
+export function realisationJsonLd(project: Realisation, services: { href: string }[]) {
+  const url = absoluteUrl(`/realisations/${project.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: `${project.title} à ${communeName(project.city)}`,
+    description: project.summary,
+    inLanguage: "fr-FR",
+    isPartOf: { "@id": WEBSITE_ID },
+    publisher: { "@id": BUSINESS_ID },
+    spatialCoverage: { "@type": "Place", name: project.city },
+    about: services.map((service) => ({ "@id": `${absoluteUrl(service.href)}#service` })),
+    ...(project.photos?.length ? { image: project.photos.map((photo) => ({
+      "@type": "ImageObject", contentUrl: absoluteUrl(photo.src), width: photo.width, height: photo.height, caption: photo.alt,
+    })) } : {}),
   };
 }
 

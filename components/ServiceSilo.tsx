@@ -26,7 +26,7 @@ export default function ServiceSilo({ serviceKey }: { serviceKey: ServiceKey }) 
       {/* Réalisations de ce type */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center space-y-3 mb-10">
-          <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Nos chantiers</span>
+          <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Nos chantiers</span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{silo.realisationsTitle}</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -37,7 +37,7 @@ export default function ServiceSilo({ serviceKey }: { serviceKey: ServiceKey }) 
         <div className="text-center pt-6">
           <Link
             href="/realisations"
-            className="text-amber-600 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
+            className="text-amber-700 hover:text-amber-700 text-sm font-bold inline-flex items-center gap-1 transition"
           >
             Toutes nos réalisations <ArrowRight className="w-4 h-4" />
           </Link>
@@ -49,7 +49,7 @@ export default function ServiceSilo({ serviceKey }: { serviceKey: ServiceKey }) 
         <section className="bg-slate-100 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-200">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-3 mb-10">
-              <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Nos conseils</span>
+              <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Nos conseils</span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">À lire sur notre blog</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -64,7 +64,7 @@ export default function ServiceSilo({ serviceKey }: { serviceKey: ServiceKey }) 
                     <Clock className="w-3.5 h-3.5" />
                     {post.readTime}
                   </span>
-                  <span className="block text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">
+                  <span className="block text-lg font-bold text-slate-900 group-hover:text-amber-700 transition">
                     {post.title}
                   </span>
                   <span className="block text-xs sm:text-sm text-slate-600 leading-relaxed">{post.excerpt}</span>

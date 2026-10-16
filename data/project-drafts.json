@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "chantier-a-documenter-wa0059",
+    "status": "draft",
+    "title": null,
+    "city": null,
+    "intervention": null,
+    "summary": null,
+    "description": null,
+    "services": [],
+    "photoIds": ["1dIrdSIwap6NoI_gMN1VHldJAPTFM2Dqw"],
+    "validation": {
+      "city": { "status": "pending", "evidence": null },
+      "works": { "status": "pending", "evidence": null }
+    }
+  },
+  {
+    "slug": "chantier-a-documenter-wa0189",
+    "status": "draft",
+    "title": null,
+    "city": null,
+    "intervention": null,
+    "summary": null,
+    "description": null,
+    "services": [],
+    "photoIds": ["1T0GILuNSaJFM1xEGlyn3s_sBiPhlIqq2"],
+    "validation": {
+      "city": { "status": "pending", "evidence": null },
+      "works": { "status": "pending", "evidence": null }
+    }
+  }
+]

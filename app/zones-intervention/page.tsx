@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Phone, FileText, ArrowRight, Building2 } from "lucide-react";
 import ContactCta from "@/components/ContactCta";
+import { HUB_GUIDANCE } from "@/data/local-guidance";
+import { getService } from "@/lib/services";
 import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { LOCAL_AREAS, ZONE_SECTORS, getLocalArea, realisationsInCommune } from "@/lib/local-areas";
 
@@ -59,7 +61,7 @@ export default function ZonesInterventionPage() {
       {/* 2. Siège */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col sm:flex-row gap-6 items-start">
-          <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center shrink-0">
             <Building2 className="w-6 h-6" />
           </div>
           <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed">
@@ -82,8 +84,8 @@ export default function ZonesInterventionPage() {
       <section className="bg-slate-100 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-3 mb-10">
-            <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Pages locales</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Votre couvreur commune par commune</h2>
+            <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Pages locales</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Votre couvreur commune par commune dans l&apos;Est lyonnais et autour de Lyon</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {LOCAL_AREAS.map((area) => (
@@ -92,15 +94,15 @@ export default function ZonesInterventionPage() {
                 href={`/${area.slug}`}
                 className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-amber-400 hover:shadow-md transition group space-y-2"
               >
-                <span className="text-xs text-amber-600 font-bold flex items-center gap-1">
+                <span className="text-xs text-amber-700 font-bold flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5" />
                   {area.city} ({area.postalCode})
                 </span>
-                <span className="block text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">
+                <span className="block text-lg font-bold text-slate-900 group-hover:text-amber-700 transition">
                   Couvreur à {area.city}
                 </span>
                 <span className="block text-xs sm:text-sm text-slate-600 leading-relaxed">{area.heroBadge}</span>
-                <span className="text-amber-600 text-sm font-bold inline-flex items-center gap-1 pt-1">
+                <span className="text-amber-700 text-sm font-bold inline-flex items-center gap-1 pt-1">
                   Voir la page <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
@@ -109,10 +111,25 @@ export default function ZonesInterventionPage() {
         </div>
       </section>
 
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full space-y-8">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Préparer votre demande à Bron, Vaulx-en-Velin et Rillieux-la-Pape</h2>
+        <p className="text-slate-700 leading-relaxed">Nous desservons aussi ces communes depuis Décines-Charpieu. Indiquez la commune, le type de bâtiment et votre besoin pour organiser l’étude de votre toiture. L’accès, le diagnostic et les travaux à prévoir seront précisés lors de l’échange.</p>
+        {HUB_GUIDANCE.map((item) => (
+          <article key={item.id} id={item.id} className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-4">
+            <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
+            <p className="text-slate-700 leading-relaxed">{item.text}</p>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <Link href={getService(item.service).href} className="text-amber-800 underline underline-offset-4 font-semibold py-3">{item.link}</Link>
+              <Link href="/devis" className="text-amber-800 underline underline-offset-4 font-semibold py-3">Demander un devis à {item.city}</Link>
+            </div>
+          </article>
+        ))}
+      </section>
+
       {/* 4. Secteurs */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-10">
         <div className="text-center space-y-3">
-          <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Secteurs desservis</span>
+          <span className="text-amber-700 font-bold text-sm uppercase tracking-wider">Secteurs desservis</span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Communes et chantiers par secteur</h2>
         </div>
 
@@ -132,9 +149,14 @@ export default function ZonesInterventionPage() {
                     {area ? (
                       <Link
                         href={`/${area.slug}`}
-                        className="font-bold text-slate-900 hover:text-amber-600 transition inline-flex items-center gap-1.5"
+                        className="font-bold text-slate-900 hover:text-amber-700 transition inline-flex items-center gap-1.5"
                       >
                         <MapPin className="w-4 h-4 text-amber-500" />
+                        Couvreur à {commune.name}
+                      </Link>
+                    ) : HUB_GUIDANCE.some((item) => item.city === commune.name) ? (
+                      <Link href={`#${HUB_GUIDANCE.find((item) => item.city === commune.name)!.id}`}
+                        className="inline-flex py-2 font-bold text-amber-800 underline underline-offset-4">
                         Couvreur à {commune.name}
                       </Link>
                     ) : (
@@ -147,7 +169,7 @@ export default function ZonesInterventionPage() {
                       <ul className="space-y-1 text-xs text-slate-600">
                         {projects.map((project) => (
                           <li key={project.slug}>
-                            <Link href={`/realisations/${project.slug}`} className="hover:text-amber-600 hover:underline">
+                            <Link href={`/realisations/${project.slug}`} className="inline-flex min-h-8 items-center py-1 hover:text-amber-700 hover:underline">
                               {project.title}
                             </Link>
                           </li>

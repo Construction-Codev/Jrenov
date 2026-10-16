@@ -28,19 +28,19 @@ export function RealisationCard({ item }: { item: Realisation }) {
               <MapPin className="w-3.5 h-3.5 text-amber-500" />
               {item.city}
             </span>
-            <span className="text-slate-500 flex items-center gap-1">
+            {item.date && <span className="text-slate-500 flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-amber-500" />
               {item.date}
-            </span>
+            </span>}
           </div>
-          <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">
+          <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-700 transition">
             <Link href={`/realisations/${item.slug}`}>{item.title}</Link>
           </h3>
           <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
         </div>
         <Link
           href={`/realisations/${item.slug}`}
-          className="text-xs font-extrabold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1"
+          className="text-xs font-extrabold text-amber-700 hover:text-amber-700 inline-flex items-center gap-1"
         >
           Voir le détail du chantier <ArrowRight className="w-3.5 h-3.5" />
         </Link>
@@ -68,11 +68,11 @@ export function RealisationCompactCard({ item }: { item: Realisation }) {
         </div>
       )}
       <div className="p-4 space-y-1">
-        <span className="text-xs text-amber-600 font-bold flex items-center gap-1">
+        <span className="text-xs text-amber-700 font-bold flex items-center gap-1">
           <MapPin className="w-3 h-3" />
           {item.city}
         </span>
-        <span className="block font-bold text-slate-900 text-sm group-hover:text-amber-600 transition">
+        <span className="block font-bold text-slate-900 text-sm group-hover:text-amber-700 transition">
           {item.title}
         </span>
       </div>
