@@ -46,7 +46,7 @@ export default function ContactPage() {
         trackEvent("contact_form_submit", { service: String(body.sujet ?? "") || undefined });
         const submissionId = await readSubmissionId(response);
         setSubmitted(true);
-        trackLeadConversion(submissionId);
+        trackLeadConversion(submissionId, { email: body.email, telephone: body.telephone });
       } else {
         const errorData = await response.json().catch(() => ({}));
         setErrorMessage(errorData.error || "Une erreur est survenue lors de l'envoi.");
