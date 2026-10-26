@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import AnalyticsEvents from "@/components/AnalyticsEvents";
 import GoogleTag from "@/components/GoogleTag";
 import ConsentBanner from "@/components/ConsentBanner";
+import MobileContactBar from "@/components/MobileContactBar";
 import {
   BUSINESS,
   DEFAULT_DESCRIPTION,
@@ -71,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
+      <body className="min-h-full flex flex-col bg-slate-50 pb-20 text-slate-900 md:pb-0">
         <JsonLd data={businessJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
         <Header />
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <FacebookFeed />
         <Footer />
+        <MobileContactBar />
         <AnalyticsEvents />
         <GoogleTag />
         <ConsentBanner />
