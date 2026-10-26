@@ -38,12 +38,12 @@ export default function ConsentBanner() {
   const buttonClass =
     "h-9 min-w-24 px-4 rounded-lg bg-slate-100 hover:bg-white text-slate-950 text-sm font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400";
 
-  // Bandeau compact « sticky » en fin de page : sans fond assombri ni blocage, il ne masque jamais le bas du contenu
+  // Choix visible dès l’arrivée, au-dessus des boutons mobiles ; aucun cookie publicitaire avant accord.
   return (
     <div
       role="region"
       aria-label="Cookies publicitaires"
-      className="sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur border-t border-slate-700 text-slate-300 shadow-lg"
+      className="fixed inset-x-0 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] z-50 border-t border-slate-700 bg-slate-900/95 text-slate-300 shadow-lg backdrop-blur md:bottom-0"
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <p className="text-xs leading-snug flex-1">
