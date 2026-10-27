@@ -3,6 +3,7 @@ import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
+import QuickCallbackForm from "@/components/QuickCallbackForm";
 import ServiceSilo from "@/components/ServiceSilo";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
@@ -125,6 +126,8 @@ export default function CouverturePage() {
           </div>
         </div>
       </section>
+
+      <QuickCallbackForm />
 
       {/* Parcours court pour les visiteurs arrivant d’une recherche de réparation. */}
       <section aria-labelledby="besoin-toiture" className="border-b border-slate-200 bg-white px-4 py-12 sm:px-6">
