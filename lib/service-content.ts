@@ -1,5 +1,5 @@
 import { SERVICES, getService, type ServiceItem, type ServiceKey } from "@/lib/services";
-import { realisations, posts, getRealisation, type Realisation, type Post } from "@/lib/content";
+import { realisations, posts, getRealisation, sortByFrenchDateNewestFirst, type Realisation, type Post } from "@/lib/content";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 
 /**
@@ -78,6 +78,16 @@ export interface ArticleLink {
 }
 
 export const ARTICLE_LINKS: Record<string, ArticleLink> = {
+  "reparer-tuiles-cassees-toiture-lyon": {
+    services: ["couverture", "recherche-de-fuite"],
+    text: "Tuile cassée, déplacée ou infiltration après un coup de vent ? Découvrez nos services de réparation de toiture et de recherche de fuite.",
+    withQuote: true,
+  },
+  "comparer-devis-couvreur-lyon-avant-signer": {
+    services: ["couverture"],
+    text: "Vous souhaitez comparer des propositions avant une réfection de toiture ? Découvrez nos prestations de couverture et demandez un devis détaillé.",
+    withQuote: true,
+  },
   "comment-detecter-fuite-toiture-lyon": {
     services: ["recherche-de-fuite"],
     text: "Vous reconnaissez l'un de ces signes chez vous ? Voyez comment nous localisons l'origine d'une infiltration, mettons la toiture hors d'eau puis réparons.",
@@ -114,7 +124,7 @@ export const ARTICLE_LINKS: Record<string, ArticleLink> = {
 };
 
 export function articlesForService(key: ServiceKey): Post[] {
-  return posts.filter((post) => ARTICLE_LINKS[post.slug]?.services.includes(key));
+  return sortByFrenchDateNewestFirst(posts.filter((post) => ARTICLE_LINKS[post.slug]?.services.includes(key)));
 }
 
 // ─── Contenu du silo par service ────────────────────────────────────────────
@@ -143,7 +153,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Rénovation de toiture dans l'Est lyonnais",
       intro:
         "Depuis notre siège de Décines-Charpieu, nous refaisons et réparons des couvertures dans tout l'Est lyonnais, à Lyon et dans la métropole. Exemples de communes avec une page dédiée :",
-      slugs: ["couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-meyzieu", "couvreur-saint-priest"],
+      slugs: ["couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-meyzieu", "couvreur-saint-priest", "couvreur-bron", "couvreur-venissieux", "couvreur-caluire-et-cuire", "couvreur-mions"],
     },
   },
   zinguerie: {
@@ -160,7 +170,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Zinguerie près de chez vous",
       intro:
         "Gouttières, rives et abergements : nos interventions de zinguerie partent de Décines-Charpieu. Quelques communes où nous intervenons :",
-      slugs: ["couvreur-meyzieu", "couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-lyon"],
+      slugs: ["couvreur-meyzieu", "couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-lyon", "couvreur-ecully", "couvreur-francheville", "couvreur-beynost"],
     },
   },
   isolation: {
@@ -170,7 +180,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Isolation de toiture dans l'Est lyonnais",
       intro:
         "Combles perdus, combles aménagés ou isolation par l'extérieur : nous intervenons notamment dans ces communes proches de notre siège :",
-      slugs: ["couvreur-chassieu", "couvreur-decines-charpieu", "couvreur-saint-priest"],
+      slugs: ["couvreur-chassieu", "couvreur-decines-charpieu", "couvreur-saint-priest", "couvreur-caluire-et-cuire", "couvreur-bron"],
     },
   },
   demoussage: {
@@ -180,7 +190,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Démoussage autour de Décines-Charpieu",
       intro:
         "Nettoyage et traitement de toiture dans l'Est lyonnais et la métropole, par exemple dans ces communes :",
-      slugs: ["couvreur-genas", "couvreur-decines-charpieu", "couvreur-meyzieu"],
+      slugs: ["couvreur-genas", "couvreur-decines-charpieu", "couvreur-meyzieu", "couvreur-tassin-la-demi-lune", "couvreur-mions"],
     },
   },
   "recherche-de-fuite": {
@@ -204,6 +214,11 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
         "couvreur-saint-priest",
         "couvreur-villeurbanne",
         "couvreur-lyon",
+        "couvreur-vaulx-en-velin",
+        "couvreur-rillieux-la-pape",
+        "couvreur-venissieux",
+        "couvreur-saint-fons",
+        "couvreur-jonage",
       ],
     },
   },
@@ -218,15 +233,17 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Fenêtres de toit autour de Décines-Charpieu",
       intro:
         "Notre dernier remplacement de fenêtres de toit a eu lieu à Décines-Charpieu, où se trouve notre siège. Nous intervenons aussi dans les communes voisines :",
-      slugs: ["couvreur-decines-charpieu", "couvreur-lyon", "couvreur-villeurbanne", "couvreur-meyzieu"],
+      slugs: ["couvreur-decines-charpieu", "couvreur-lyon", "couvreur-villeurbanne", "couvreur-meyzieu", "couvreur-caluire-et-cuire", "couvreur-jonage"],
     },
   },
 };
 
 export function featuredRealisations(key: ServiceKey): Realisation[] {
-  return SERVICE_SILOS[key].featuredRealisations
-    .map((slug) => getRealisation(slug))
-    .filter((item): item is Realisation => Boolean(item));
+  return sortByFrenchDateNewestFirst(
+    SERVICE_SILOS[key].featuredRealisations
+      .map((slug) => getRealisation(slug))
+      .filter((item): item is Realisation => Boolean(item))
+  );
 }
 
 // ─── Validation au build ────────────────────────────────────────────────────

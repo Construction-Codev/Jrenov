@@ -120,6 +120,23 @@ export function validateContact(raw: unknown): ValidationResult<ContactData> {
   });
 }
 
+// ─── Demande de rappel express ─────────────────────────────────────────────
+
+/** E-mail facultatif : seules les demandes qui en fournissent un reçoivent l'accusé. */
+export interface CallbackData {
+  nom: string;
+  telephone: string;
+  email: string;
+}
+
+export function validateCallback(raw: unknown): ValidationResult<CallbackData> {
+  return validateFields<CallbackData>(raw, {
+    nom: { required: true, min: 2, max: 80, pattern: NAME_PATTERN },
+    telephone: { required: true, max: 25, kind: "phone" },
+    email: { max: 254, kind: "email" },
+  });
+}
+
 // ─── Formulaire devis ───────────────────────────────────────────────────────
 
 export const QUOTE_SERVICES = ["couverture", "zinguerie", "isolation", "demoussage", "urgence"] as const;

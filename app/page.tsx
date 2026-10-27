@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import HeroBanner from "@/components/Banner";
+import QuickCallbackForm from "@/components/QuickCallbackForm";
 import Link from "next/link";
 import { BUSINESS, DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata, PHONE_HREF } from "@/lib/site";
-import { realisations, frenchDateToIso } from "@/lib/content";
+import { realisations, sortByFrenchDateNewestFirst } from "@/lib/content";
 import { LOCAL_AREAS } from "@/lib/local-areas";
 import { SERVICES } from "@/lib/services";
 import {
@@ -36,9 +37,7 @@ const ENGAGEMENTS: EngagementItem[] = [
 ];
 
 // Les 3 chantiers les plus récents (dates issues de data/realisations.json)
-const latestRealisations = [...realisations]
-  .sort((a, b) => (frenchDateToIso(b.date) ?? "").localeCompare(frenchDateToIso(a.date) ?? ""))
-  .slice(0, 3);
+const latestRealisations = sortByFrenchDateNewestFirst(realisations).slice(0, 3);
 
 export default function Home() {
   return (
@@ -46,6 +45,7 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-slate-50">
         {/* 1. Hero Banner */}
         <HeroBanner />
+        <QuickCallbackForm />
 
         {/* 2. Bandes d'engagements & réassurance */}
         <section className="bg-slate-900 text-white py-8 border-t border-amber-500/30">

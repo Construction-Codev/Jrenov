@@ -124,7 +124,7 @@ export function blogPostingJsonLd(post: {
     headline: post.title,
     description: post.excerpt,
     ...(post.datePublished ? { datePublished: post.datePublished } : {}),
-    author: { "@type": "Person", name: post.author },
+    author: { "@type": post.author === BUSINESS.name ? "Organization" : "Person", name: post.author },
     publisher: { "@id": BUSINESS_ID },
     mainEntityOfPage: url,
     inLanguage: "fr-FR",

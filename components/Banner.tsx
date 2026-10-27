@@ -145,6 +145,9 @@ export default function HeroBanner() {
             {BUSINESS.phoneDisplay}
           </a>
         </div>
+        <a href="#rappel" className="mt-5 inline-block text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400">
+          Être rappelé avec mon nom et mon numéro
+        </a>
       </div>
     </section>
   );

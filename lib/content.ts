@@ -54,6 +54,20 @@ export function frenchDateToIso(value: string | undefined): string | undefined {
   return undefined;
 }
 
+/**
+ * Trie les contenus datés du plus récent au plus ancien, sans modifier leur source.
+ * - Dates françaises au jour ou au mois (voir frenchDateToIso).
+ * - Dates inconnues en fin de liste.
+ * - Si deux chantiers n'ont qu'une même date mensuelle, le dernier ajouté dans
+ *   le tableau source est affiché en premier : pas de jour fictif inventé.
+ */
+export function sortByFrenchDateNewestFirst<T extends { date?: string }>(items: readonly T[]): T[] {
+  return items
+    .map((item, sourceIndex) => ({ item, sourceIndex, date: frenchDateToIso(item.date) ?? "" }))
+    .sort((a, b) => b.date.localeCompare(a.date) || b.sourceIndex - a.sourceIndex)
+    .map(({ item }) => item);
+}
+
 /** Date ISO la plus récente d'une liste (comparaison lexicographique valable en ISO). */
 export function latestIsoDate(dates: (string | undefined)[]): string | undefined {
   return dates.filter((d): d is string => Boolean(d)).sort().at(-1);

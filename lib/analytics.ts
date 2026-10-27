@@ -10,7 +10,9 @@ import { track } from "@vercel/analytics";
 export type ConversionEvent =
   | "phone_click"
   | "email_click"
+  | "callback_form_submit"
   | "quote_form_start"
+  | "quote_form_contact_step"
   | "quote_form_submit"
   | "contact_form_submit";
 

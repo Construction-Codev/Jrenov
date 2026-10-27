@@ -3,6 +3,7 @@ import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
+import QuickCallbackForm from "@/components/QuickCallbackForm";
 import ServiceSilo from "@/components/ServiceSilo";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
@@ -99,11 +100,11 @@ export default function CouverturePage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Rénovation & Réfection de Toiture autour de <span className="text-amber-400">Décines-Charpieu</span>
+            Réparation et rénovation de toiture à <span className="text-amber-400">Décines-Charpieu et dans l’Est lyonnais</span>
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Votre toiture présente des fuites, des tuiles cassées ou nécessite une rénovation complète ? Basé à Décines-Charpieu, Jrenov intervient dans l&apos;Est lyonnais et dans toute la métropole lyonnaise pour assurer l&apos;étanchéité et la protection pérenne de votre maison.
+            Fuite, infiltration, tuile cassée ou réfection complète ? Décrivez votre problème à un couvreur local. Jrenov intervient depuis Décines-Charpieu dans l&apos;Est lyonnais et la métropole de Lyon. Devis gratuit et sans engagement.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center sm:justify-start">
@@ -112,7 +113,7 @@ export default function CouverturePage() {
               className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl text-center transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20"
             >
               <FileText className="w-5 h-5" />
-              Demander un devis couverture
+              Demander un devis gratuit
             </Link>
 
             <a
@@ -123,10 +124,75 @@ export default function CouverturePage() {
               Appeler le {BUSINESS.phoneDisplay}
             </a>
           </div>
+          <a href="#rappel" className="inline-block text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200">
+            Ou demandez à être rappelé avec votre nom et votre téléphone
+          </a>
         </div>
       </section>
 
-      {/* 2. Section Matériaux */}
+      <QuickCallbackForm />
+
+      {/* Parcours court pour les visiteurs arrivant d’une recherche de réparation. */}
+      <section aria-labelledby="besoin-toiture" className="border-b border-slate-200 bg-white px-4 py-12 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-7 space-y-2">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-amber-700">Votre besoin, notre réponse</span>
+            <h2 id="besoin-toiture" className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+              Quel problème rencontrez-vous sur votre toiture ?
+            </h2>
+            <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base">
+              Pas besoin de connaître les termes techniques pour nous contacter. Indiquez simplement la nature de votre problème : nous vous recontacterons pour préciser les travaux.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="flex flex-col justify-between gap-4 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 font-extrabold text-slate-900">
+                  <AlertTriangle className="h-5 w-5 text-amber-700" aria-hidden="true" />
+                  Fuite ou infiltration
+                </div>
+                <p className="text-sm leading-relaxed text-slate-700">
+                  Des traces d&apos;humidité ou de l&apos;eau qui entre ? Pour une urgence en cours, privilégiez un appel direct.
+                </p>
+              </div>
+              <a href={PHONE_HREF} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-bold text-white hover:bg-slate-800">
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                Appeler Jrenov
+              </a>
+            </article>
+            <article className="flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div className="space-y-2">
+                <h3 className="font-extrabold text-slate-900">Tuiles cassées ou déplacées</h3>
+                <p className="text-sm leading-relaxed text-slate-700">
+                  Réparation ponctuelle, solin ou faîtage : décrivez les dégâts, même sans mesure de surface.
+                </p>
+              </div>
+              <Link href="/devis" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-amber-500 px-4 text-sm font-extrabold text-slate-950 hover:bg-amber-400">
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                Demander un devis
+              </Link>
+            </article>
+            <article className="flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div className="space-y-2">
+                <h3 className="font-extrabold text-slate-900">Rénovation de couverture</h3>
+                <p className="text-sm leading-relaxed text-slate-700">
+                  Toiture vieillissante ou projet de réfection ? Consultez d&apos;abord nos réalisations dans la métropole.
+                </p>
+              </div>
+              <Link href="/realisations" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-300 bg-white px-4 text-sm font-bold text-slate-900 hover:border-amber-500">
+                Voir nos chantiers réalisés
+              </Link>
+            </article>
+          </div>
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-600">
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-amber-700" aria-hidden="true" />Travaux couverts par la garantie décennale</span>
+            <span>Artisan basé à Décines-Charpieu</span>
+            <span>Devis gratuit et sans engagement</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Section Matériaux */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center space-y-3 mb-12">
           <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Matériaux & Savoir-faire</span>

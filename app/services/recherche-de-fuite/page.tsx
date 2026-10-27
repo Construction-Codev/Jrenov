@@ -17,6 +17,7 @@ import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
+import QuickCallbackForm from "@/components/QuickCallbackForm";
 import ServiceSilo from "@/components/ServiceSilo";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 
@@ -172,8 +173,13 @@ export default function RechercheDeFuitePage() {
               Demander un devis
             </Link>
           </div>
+          <a href="#rappel" className="inline-block text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200">
+            Pas d'urgence immédiate ? Demandez à être rappelé
+          </a>
         </div>
       </section>
+
+      <QuickCallbackForm />
 
       {/* 2. Symptômes */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
