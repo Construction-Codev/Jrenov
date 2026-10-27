@@ -28,8 +28,8 @@ function fakeWindow({ consent, gtag }: { consent?: string; gtag?: unknown }) {
   });
 }
 
-/** Lien simulé : seul l'attribut href et l'emplacement (header/footer) comptent. */
-function fakeLink(href: string, inside?: "header" | "footer") {
+/** Lien simulé : seul l'attribut href et l'emplacement (header/footer/barre mobile) comptent. */
+function fakeLink(href: string, inside?: "header" | "footer" | '[data-cta-placement="mobile_bar"]') {
   return {
     getAttribute: (name: string) => (name === "href" ? href : null),
     closest: (selector: string) => (selector === inside ? ({} as Element) : null),
@@ -121,6 +121,14 @@ describe("trackContactLinkClick (délégation de AnalyticsEvents)", () => {
     expect(track).toHaveBeenNthCalledWith(1, "phone_click", { placement: "footer" });
     expect(track).toHaveBeenNthCalledWith(2, "phone_click", { placement: "content" });
     expect(gtag).not.toHaveBeenCalled();
+  });
+
+  it("clic sur la barre d'appel mobile : placement mobile_bar + conversion téléphone", () => {
+    const gtag = vi.fn();
+    fakeWindow({ consent: "granted", gtag });
+    trackContactLinkClick(fakeLink("tel:+33761242793", '[data-cta-placement="mobile_bar"]'), true);
+    expect(track).toHaveBeenCalledWith("phone_click", { placement: "mobile_bar" });
+    expect(phoneCalls(gtag)).toHaveLength(1);
   });
 
   it("clic téléphone avec bloqueur : Vercel envoyé, aucune erreur", () => {

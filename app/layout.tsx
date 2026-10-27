@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import AnalyticsEvents from "@/components/AnalyticsEvents";
 import GoogleTag from "@/components/GoogleTag";
 import ConsentBanner from "@/components/ConsentBanner";
+import MobileCallBar from "@/components/MobileCallBar";
 import {
   BUSINESS,
   DEFAULT_DESCRIPTION,
@@ -81,7 +82,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <AnalyticsEvents />
         <GoogleTag />
-        <ConsentBanner />
+        {/* Bas d'écran : bandeau cookies (si besoin) au-dessus de la barre d'appel mobile, sans chevauchement */}
+        <div className="sticky bottom-0 z-40">
+          <ConsentBanner />
+          <MobileCallBar />
+        </div>
         <Analytics />
         <SpeedInsights />
       </body>

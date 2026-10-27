@@ -15,8 +15,8 @@ export type ConversionEvent =
   | "contact_form_submit";
 
 type EventProperties = {
-  /** Zone de la page où l'action a eu lieu : header, footer, content… */
-  placement?: "header" | "footer" | "content";
+  /** Zone de la page où l'action a eu lieu : header, footer, barre d'appel mobile, content… */
+  placement?: "header" | "footer" | "mobile_bar" | "content";
   /** Type de prestation choisi dans un formulaire (valeur d'une liste fermée). */
   service?: string;
 };

@@ -21,11 +21,13 @@ export function trackContactLinkClick(link: LinkLike, isTrusted: boolean): void 
   const isPhone = href.startsWith("tel:");
   if (!isPhone && !href.startsWith("mailto:")) return;
 
-  const placement = link.closest("header")
-    ? "header"
-    : link.closest("footer")
-      ? "footer"
-      : "content";
+  const placement = link.closest('[data-cta-placement="mobile_bar"]')
+    ? "mobile_bar"
+    : link.closest("header")
+      ? "header"
+      : link.closest("footer")
+        ? "footer"
+        : "content";
 
   trackEvent(isPhone ? "phone_click" : "email_click", { placement });
 
