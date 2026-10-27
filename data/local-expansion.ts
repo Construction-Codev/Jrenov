@@ -765,5 +765,819 @@ export const EXPANSION_LOCAL_AREAS: LocalArea[] = [
     }
   ]
 }),
+  buildCityPage({
+  "slug": "couvreur-sainte-foy-les-lyon",
+  "city": "Sainte-Foy-lès-Lyon",
+  "postalCode": "69110",
+  "keyword": "Couvreur à Sainte-Foy-lès-Lyon",
+  "headline": "Couvreur à Sainte-Foy-lès-Lyon : ardoise et toiture",
+  "angle": "rénovation d'ardoise, réparation de fuites et zinguerie.",
+  "lead": "Jrenov présente une réfection de couverture en ardoise naturelle à Sainte-Foy-lès-Lyon. Cette réalisation permet d'illustrer les soins nécessaires aux toitures anciennes et à leurs raccords.",
+  "introTitle": "Un chantier d'ardoise sur une maison de caractère",
+  "intro": [
+    "Une fiche chantier d'avril 2026 décrit le remplacement d'une ancienne couverture en ardoise, des fixations inox et la reprise des entourages de lucarnes. Ces éléments doivent être coordonnés pour préserver l'étanchéité générale.",
+    "Sainte-Foy-lès-Lyon comprend des maisons où la pente et les détails architecturaux rendent les travaux délicats. Chaque projet impose de vérifier la couverture existante et les règles d'urbanisme, particulièrement avant de changer de matériau."
+  ],
+  "contextTitle": "Ardoises et raccords : une approche complète",
+  "context": [
+    "Une ardoise fissurée peut laisser entrer l'eau, mais une lucarne ou un raccord métallique peut aussi expliquer une infiltration. La recherche de fuite doit précéder la proposition de travaux.",
+    "Lors d'une réfection, les écrans, les liteaux, les fixations et les ouvrages de zinguerie sont étudiés ensemble pour éviter de rénover seulement la partie visible."
+  ],
+  "issuesTitle": "Les points sensibles des couvertures complexes",
+  "issues": [
+    {
+      "title": "Ardoises qui se soulèvent",
+      "text": "Crochets et supports doivent être vérifiés avant remplacement."
+    },
+    {
+      "title": "Entourages de lucarnes",
+      "text": "Les liaisons étanches autour des petites ouvertures réclament des détails adaptés."
+    },
+    {
+      "title": "Cheminées anciennes",
+      "text": "Un abergement fissuré peut créer une infiltration indépendamment de l'ardoise."
+    }
+  ],
+  "serviceTitle": "Services de couverture à Sainte-Foy-lès-Lyon",
+  "serviceIntro": "Le chantier local concerne l'ardoise ; nous pouvons aussi étudier d'autres types de couvertures.",
+  "serviceCopy": [
+    {
+      "service": "couverture",
+      "text": "Réparation ou rénovation de couverture en ardoise ou en tuiles selon l'ouvrage."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Travaux sur abergements, lucarnes, rives et évacuations pluviales."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Recherche d'entrées d'eau en toiture avant une réfection générale."
+    },
+    {
+      "service": "fenetres-de-toit",
+      "text": "Étude de la pose et de l'étanchéité de fenêtres de toit."
+    },
+    {
+      "service": "isolation",
+      "text": "Analyse des possibilités d'isolation lors d'une réfection de couverture."
+    }
+  ],
+  "localSlugs": [
+    "renovation-toiture-ardoise-ste-foy"
+  ],
+  "nearbySlugs": [
+    "refection-noue-zinc-francheville",
+    "demoussage-traitement-hydrofuge-tassin"
+  ],
+  "nearbyCities": [
+    "Francheville",
+    "Tassin-la-Demi-Lune",
+    "Lyon"
+  ],
+  "proof": "La réalisation en ardoise datée d'avril 2026 est localisée à Sainte-Foy-lès-Lyon.",
+  "process": "Indiquez le matériau de couverture et les éventuels éléments patrimoniaux ou ouvertures ; la visite permettra de préciser la solution.",
+  "faq": [
+    {
+      "question": "Avez-vous une référence d'ardoise à Sainte-Foy ?",
+      "answer": "Oui, la réalisation d'avril 2026 décrit une réfection en ardoise et des raccords de lucarnes."
+    },
+    {
+      "question": "Peut-on remplacer uniquement une partie de l'ardoise ?",
+      "answer": "Cela dépend de l'état des supports, des fixations et du modèle d'ardoise. Un contrôle sur place reste nécessaire."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-francheville",
+  "city": "Francheville",
+  "postalCode": "69340",
+  "keyword": "Couvreur à Francheville",
+  "headline": "Couvreur à Francheville : fuite, noue zinc et toiture",
+  "angle": "réparation des noues, solins, couverture et gouttières.",
+  "lead": "Une réparation de noue en zinc réalisée à Francheville figure parmi les chantiers Jrenov. Elle illustre l'importance des jonctions entre deux pans de toiture lors d'une infiltration.",
+  "introTitle": "Une réparation de noue déjà réalisée à Francheville",
+  "intro": [
+    "La fiche d'août 2026 relate une fuite apparue au creux de deux versants : les tuiles ont été déposées localement pour remplacer la noue métallique dégradée. Cette intervention ne signifie pas qu'un remplacement complet du toit soit nécessaire à chaque infiltration.",
+    "Sur les maisons à plusieurs pans, les noues concentrent une partie de l'eau de pluie. Leur forme, leur pente et la qualité des recouvrements doivent être examinées avant toute réparation."
+  ],
+  "contextTitle": "Diagnostiquer un défaut entre deux versants",
+  "context": [
+    "La corrosion ou une jonction mal dimensionnée peuvent entraîner une entrée d'eau. Il faut aussi rechercher l'accumulation de débris végétaux et vérifier que les tuiles ne gênent pas l'écoulement.",
+    "La même vigilance s'applique aux pieds de cheminée et aux solins contre un mur : une réparation durable porte sur la cause, pas seulement sur la tache visible dans le logement."
+  ],
+  "issuesTitle": "Trois défauts de zinguerie possibles",
+  "issues": [
+    {
+      "title": "Noue métallique percée",
+      "text": "La jonction entre les pans peut demander un façonnage sur mesure après dépose locale."
+    },
+    {
+      "title": "Solin décollé",
+      "text": "Une reprise d'étanchéité peut être préférable à un traitement superficiel."
+    },
+    {
+      "title": "Gouttière débordante",
+      "text": "Une obstruction ou une pente inadaptée peut entraîner de l'eau contre la façade."
+    }
+  ],
+  "serviceTitle": "Couverture et zinguerie à Francheville",
+  "serviceIntro": "Nos pages de prestations expliquent les interventions possibles selon l'origine des désordres.",
+  "serviceCopy": [
+    {
+      "service": "recherche-de-fuite",
+      "text": "Diagnostic des noues et autres points singuliers de la toiture."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Façonnage, reprise de noues, abergements et évacuations."
+    },
+    {
+      "service": "couverture",
+      "text": "Réparation localisée de tuiles ou rénovation lorsqu'elle est nécessaire."
+    },
+    {
+      "service": "demoussage",
+      "text": "Entretien après inspection des éléments de toiture."
+    },
+    {
+      "service": "isolation",
+      "text": "Étude d'une isolation lorsqu'une réfection importante est envisagée."
+    }
+  ],
+  "localSlugs": [
+    "refection-noue-zinc-francheville"
+  ],
+  "nearbySlugs": [
+    "renovation-toiture-ardoise-ste-foy",
+    "reparation-fuite-cheminee-brignais"
+  ],
+  "nearbyCities": [
+    "Sainte-Foy-lès-Lyon",
+    "Tassin-la-Demi-Lune",
+    "Lyon"
+  ],
+  "proof": "La réalisation d'août 2026 est bien située à Francheville : remplacement d'une noue en zinc pour traiter une fuite.",
+  "process": "Pour une infiltration située au milieu du toit, notez si elle apparaît pendant des pluies prolongées ou uniquement par vent fort.",
+  "faq": [
+    {
+      "question": "Jrenov a-t-il remplacé une noue à Francheville ?",
+      "answer": "Oui, un chantier daté d'août 2026 porte sur le remplacement d'une noue métallique."
+    },
+    {
+      "question": "Une fuite dans une noue impose-t-elle une toiture neuve ?",
+      "answer": "Pas nécessairement. Si la couverture adjacente est saine, une reprise localisée peut être envisageable après diagnostic."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-mions",
+  "city": "Mions",
+  "postalCode": "69780",
+  "keyword": "Couvreur à Mions",
+  "headline": "Couvreur à Mions : toiture, tuiles et entretien",
+  "angle": "réparation de toiture, démoussage, zinguerie et étanchéité.",
+  "lead": "Jrenov étudie les demandes de réparation et d'entretien de toiture à Mions depuis Décines-Charpieu. Les exemples de travaux publiés concernent des communes voisines du sud-est lyonnais.",
+  "introTitle": "Entretien et rénovation de toiture autour de Mions",
+  "intro": [
+    "Mions se situe dans le prolongement résidentiel du sud-est de la métropole, entre Saint-Priest et Corbas. Sur une maison, la présence de tuiles abîmées ou d'une gouttière défaillante doit être évaluée avant d'envisager un changement de couverture.",
+    "La page distingue les services que Jrenov peut étudier à Mions de ses chantiers réellement documentés. Aucun exemple n'est présenté comme réalisé dans la commune sans référence."
+  ],
+  "contextTitle": "Rives, faîtage et évacuations pluviales",
+  "context": [
+    "Un débordement en bordure de toit peut venir d'une gouttière bouchée, d'une mauvaise pente ou d'un défaut de fixation des tuiles de rive. Chaque cause conduit à une intervention différente.",
+    "Pour une toiture de dépendance, les exigences de pente et de ventilation doivent aussi être examinées. Un chantier de couverture de garage est documenté à Corbas, proche du secteur."
+  ],
+  "issuesTitle": "Quand contacter un couvreur à Mions ?",
+  "issues": [
+    {
+      "title": "Tuiles cassées après le vent",
+      "text": "Une inspection ciblée permet d'éviter de remplacer des matériaux encore sains."
+    },
+    {
+      "title": "Traces sous la gouttière",
+      "text": "La pente, les descentes et les raccords peuvent être en cause."
+    },
+    {
+      "title": "Garage à rénover",
+      "text": "La solution dépend de la charpente, de l'usage et du revêtement existant."
+    }
+  ],
+  "serviceTitle": "Prestations de toiture à Mions",
+  "serviceIntro": "Une demande précise permet d'orienter vers le bon type d'intervention.",
+  "serviceCopy": [
+    {
+      "service": "couverture",
+      "text": "Réparation de tuiles et rénovation de toiture principale ou d'annexe."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Réparation ou remplacement de gouttières, habillage des rives et abergements."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Identification des points d'entrée de l'eau avant réparation."
+    },
+    {
+      "service": "demoussage",
+      "text": "Nettoyage de couverture si les tuiles sont compatibles et en état satisfaisant."
+    },
+    {
+      "service": "isolation",
+      "text": "Étude des combles et des solutions d'isolation selon le projet."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "renovation-toiture-garages-corbas",
+    "traitement-charpente-bois-saint-priest",
+    "remplacement-tuiles-cassees-orage-venissieux"
+  ],
+  "nearbyCities": [
+    "Corbas",
+    "Saint-Priest",
+    "Vénissieux",
+    "Saint-Bonnet-de-Mure"
+  ],
+  "proof": "Aucun chantier Jrenov à Mions n'est publié à ce jour. Les exemples affichés sont situés à Corbas, Saint-Priest et Vénissieux.",
+  "process": "Distinguez réparation urgente et projet de rénovation : l'état de l'ouvrage et ses accès sont déterminants pour le rendez-vous.",
+  "faq": [
+    {
+      "question": "Y a-t-il un chantier Jrenov à Mions présenté sur ce site ?",
+      "answer": "Non, les réalisations visibles ici proviennent de communes proches et sont nommées comme telles."
+    },
+    {
+      "question": "Faut-il refaire le toit d'un garage qui fuit ?",
+      "answer": "Pas systématiquement. Selon la couverture, une réparation de rive, de recouvrement ou de fixation peut être envisagée."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-miribel",
+  "city": "Miribel",
+  "postalCode": "01700",
+  "keyword": "Couvreur à Miribel",
+  "headline": "Couvreur à Miribel : couverture et recherche de fuite",
+  "angle": "fuites, couverture en tuiles, zinguerie et entretien.",
+  "lead": "À Miribel, dans l'Ain, Jrenov peut examiner une demande de couverture ou de réparation depuis son siège de Décines-Charpieu. Les références présentées se trouvent dans des communes du secteur élargi.",
+  "introTitle": "Un secteur de la Côtière à couvrir depuis Décines",
+  "intro": [
+    "Miribel appartient au département de l'Ain et se situe sur la frange nord-est de la métropole lyonnaise. Pour un chantier, la nature de la toiture et les conditions d'accès comptent plus que la seule distance entre les communes.",
+    "Les maisons avec toiture inclinée peuvent présenter des fuites au niveau des faîtages, des rives ou des cheminées. Il convient d'identifier l'ouvrage concerné avant de demander un devis de réfection générale."
+  ],
+  "contextTitle": "Vérifier les points singuliers avant de remplacer les tuiles",
+  "context": [
+    "Une infiltration qui apparaît après une pluie oblique peut venir d'un raccord et non d'un défaut au milieu du versant. Une recherche de fuite méthodique est préférable à un remplacement au hasard.",
+    "En cas de projet plus large, les gouttières et l'isolation peuvent être examinées en même temps que la couverture, mais doivent être chiffrées distinctement."
+  ],
+  "issuesTitle": "Ce que l'on contrôle sur une toiture",
+  "issues": [
+    {
+      "title": "Faîtage fragilisé",
+      "text": "Les fixations et l'état des faîtières déterminent la réparation."
+    },
+    {
+      "title": "Fuite de cheminée",
+      "text": "Un abergement ou un solin peut nécessiter une reprise en zinc."
+    },
+    {
+      "title": "Gouttières usées",
+      "text": "Les assemblages et descentes doivent conserver un écoulement correct."
+    }
+  ],
+  "serviceTitle": "Prestations possibles autour de Miribel",
+  "serviceIntro": "Les interventions proposées font l'objet d'une étude préalable de la toiture.",
+  "serviceCopy": [
+    {
+      "service": "couverture",
+      "text": "Remplacement de tuiles, réfection de faîtage ou rénovation selon la situation."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Diagnostic d'infiltrations dans une couverture inclinée."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Reprise des raccords, noues et gouttières."
+    },
+    {
+      "service": "demoussage",
+      "text": "Nettoyage et entretien sur supports compatibles."
+    },
+    {
+      "service": "isolation",
+      "text": "Étude du confort thermique en cas de travaux de rénovation."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "pose-gouttieres-alu-sur-mesure-dagneux",
+    "renovation-faitage-a-sec-fontaines-sur-saone",
+    "remplacement-velux-ancien-decines"
+  ],
+  "nearbyCities": [
+    "Beynost",
+    "Jonage",
+    "Rillieux-la-Pape",
+    "Décines-Charpieu"
+  ],
+  "proof": "Ces travaux se trouvent notamment à Dagneux, Fontaines-sur-Saône et Décines-Charpieu ; ils ne sont pas présentés comme des chantiers réalisés à Miribel.",
+  "process": "Pour une intervention hors département du Rhône, mentionnez bien l'adresse exacte à Miribel afin de confirmer le périmètre d'intervention.",
+  "faq": [
+    {
+      "question": "Jrenov est-il installé à Miribel ?",
+      "answer": "Non, son siège est à Décines-Charpieu. L'entreprise peut étudier une demande sur Miribel et en confirmer les modalités."
+    },
+    {
+      "question": "Une toiture en tuiles anciennes se répare-t-elle ?",
+      "answer": "Souvent, une reprise locale est possible si les supports et les matériaux sont adaptés. Le diagnostic reste indispensable."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-beynost",
+  "city": "Beynost",
+  "postalCode": "01700",
+  "keyword": "Couvreur à Beynost",
+  "headline": "Couvreur à Beynost : toiture, gouttières et fuites",
+  "angle": "zinguerie, réparation de tuiles, diagnostic d'étanchéité.",
+  "lead": "Depuis Décines-Charpieu, Jrenov étudie les projets de toiture à Beynost, commune de la Côtière dans l'Ain. Les réalisations documentées figurent dans les communes proches et non à Beynost même.",
+  "introTitle": "Beynost : privilégier le diagnostic au devis standard",
+  "intro": [
+    "À Beynost, une intervention sur une maison nécessite de tenir compte de la pente, des matériaux et du réseau de gouttières. Le même symptôme d'humidité peut provenir d'un solin, d'une tuile déplacée ou d'une évacuation qui refoule.",
+    "Jrenov présente des références de zinguerie et de couverture dans la région, notamment à Dagneux. Aucun chantier à Beynost n'est attribué sans documents correspondants."
+  ],
+  "contextTitle": "Les évacuations en bas de pente",
+  "context": [
+    "Une gouttière peut devenir inefficace à cause d'un mauvais alignement ou d'une descente obstruée. Un remplacement complet n'est pas la réponse automatique ; le couvreur vérifie d'abord la cause et la longueur concernée.",
+    "Lorsque les tuiles sont vieillissantes, le contrôle des rives et du faîtage permet d'établir si une réparation localisée reste pertinente."
+  ],
+  "issuesTitle": "Identifier l'origine d'un défaut de toiture",
+  "issues": [
+    {
+      "title": "Écoulement insuffisant",
+      "text": "Gouttière encrassée, crochets ou raccords sont à inspecter."
+    },
+    {
+      "title": "Tuile manquante",
+      "text": "Le risque d'infiltration doit être évalué sans monter sur le toit."
+    },
+    {
+      "title": "Solin fissuré",
+      "text": "Le raccord contre un mur peut nécessiter une reprise d'étanchéité."
+    }
+  ],
+  "serviceTitle": "Couverture et entretien à Beynost",
+  "serviceIntro": "Retrouvez les descriptifs techniques de chaque prestation proposée.",
+  "serviceCopy": [
+    {
+      "service": "zinguerie",
+      "text": "Gouttières, descentes pluviales, noues et abergements."
+    },
+    {
+      "service": "couverture",
+      "text": "Réparation de tuiles et réfection de couverture."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Identification d'une infiltration avant reprise du toit."
+    },
+    {
+      "service": "demoussage",
+      "text": "Entretien selon la nature et l'état des tuiles."
+    },
+    {
+      "service": "fenetres-de-toit",
+      "text": "Contrôle ou remplacement des raccords de fenêtre de toit."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "pose-gouttieres-alu-sur-mesure-dagneux",
+    "habillage-bandeaux-rive-alu-meyzieu"
+  ],
+  "nearbyCities": [
+    "Miribel",
+    "Jonage",
+    "Meyzieu"
+  ],
+  "proof": "Les exemples de zinguerie affichés sont documentés à Dagneux et Meyzieu, pas à Beynost.",
+  "process": "La commune se trouvant dans l'Ain, précisez-la dès le premier contact pour vérifier l'organisation de l'intervention.",
+  "faq": [
+    {
+      "question": "Peut-on solliciter un devis depuis Beynost ?",
+      "answer": "Oui, Jrenov peut étudier votre demande depuis son siège à Décines-Charpieu et préciser les modalités de visite."
+    },
+    {
+      "question": "Une gouttière qui fuit se répare-t-elle ?",
+      "answer": "Cela dépend du matériau, de l'étendue des dommages et de l'état des assemblages. Un contrôle permet de décider."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-jonage",
+  "city": "Jonage",
+  "postalCode": "69330",
+  "keyword": "Couvreur à Jonage",
+  "headline": "Couvreur à Jonage : réparation de toiture et zinguerie",
+  "angle": "reprise de toiture, gouttières, infiltrations et fenêtres de toit.",
+  "lead": "À Jonage, près de Meyzieu, Jrenov peut examiner une fuite, une tuile cassée ou un projet de rénovation. Les exemples publiés proviennent notamment de Meyzieu et Décines-Charpieu.",
+  "introTitle": "Un secteur proche de notre siège",
+  "intro": [
+    "Jonage prolonge l'Est lyonnais au-delà de Meyzieu. Pour un propriétaire, une réparation de toiture commence par le repérage de la zone touchée : faîtage, rive, cheminée ou fenêtre de toit.",
+    "Les réalisations consultables à Meyzieu montrent des travaux de zinguerie, tandis qu'à Décines un chantier concerne le remplacement de fenêtres de toit. Elles illustrent les services sans être présentées comme des références réalisées à Jonage."
+  ],
+  "contextTitle": "Raccords et toiture : ne pas confondre les défauts",
+  "context": [
+    "L'eau peut s'infiltrer sous une tuile déplacée ou contourner le toit par un raccord mal étanche. Le choix d'une réparation dépend d'une observation de l'ensemble des points singuliers.",
+    "Une rénovation générale peut inclure gouttières et isolation, mais le diagnostic distingue les postes réellement nécessaires."
+  ],
+  "issuesTitle": "Trois demandes de toiture possibles",
+  "issues": [
+    {
+      "title": "Tuiles après un coup de vent",
+      "text": "Vérifier le positionnement des tuiles et les attaches sur la zone concernée."
+    },
+    {
+      "title": "Gouttière qui se déforme",
+      "text": "Contrôler le profil, les fixations et les joints."
+    },
+    {
+      "title": "Fenêtre de toit vieillissante",
+      "text": "Examiner le vitrage, le dormant et le raccordement avec la couverture."
+    }
+  ],
+  "serviceTitle": "Nos services de toiture à Jonage",
+  "serviceIntro": "Les prestations sont proposées à partir des informations sur le toit, puis précisées par une visite.",
+  "serviceCopy": [
+    {
+      "service": "recherche-de-fuite",
+      "text": "Recherche d'entrées d'eau et mise en sécurité si nécessaire."
+    },
+    {
+      "service": "couverture",
+      "text": "Remplacement de tuiles ou rénovation de pans dégradés."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Gouttières, habillages de rives et solins."
+    },
+    {
+      "service": "fenetres-de-toit",
+      "text": "Remplacement et étanchéité de fenêtres de toit."
+    },
+    {
+      "service": "demoussage",
+      "text": "Nettoyage des tuiles lorsque leur état le permet."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "habillage-bandeaux-rive-alu-meyzieu",
+    "remplacement-velux-ancien-decines",
+    "pose-gouttieres-alu-sur-mesure-dagneux"
+  ],
+  "nearbyCities": [
+    "Meyzieu",
+    "Décines-Charpieu",
+    "Beynost",
+    "Miribel"
+  ],
+  "proof": "Les chantiers affichés sont situés à Meyzieu, Décines-Charpieu et Dagneux : aucune réalisation locale à Jonage n'a été ajoutée artificiellement.",
+  "process": "Précisez si votre besoin concerne une fuite active ou un projet de remplacement programmé afin d'orienter la première réponse.",
+  "faq": [
+    {
+      "question": "Jrenov possède-t-il un chantier publié à Jonage ?",
+      "answer": "Pas à ce jour. Les exemples présentés sont situés dans des communes du secteur."
+    },
+    {
+      "question": "Pour une fuite autour d'un Velux, faut-il changer toute la fenêtre ?",
+      "answer": "Pas toujours. Le problème peut venir du raccord ou de la fenêtre elle-même : il faut l'identifier avant de chiffrer."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-saint-bonnet-de-mure",
+  "city": "Saint-Bonnet-de-Mure",
+  "postalCode": "69720",
+  "keyword": "Couvreur à Saint-Bonnet-de-Mure",
+  "headline": "Couvreur à Saint-Bonnet-de-Mure : toiture et fuites",
+  "angle": "couverture en tuiles, recherche de fuite, gouttières et isolation.",
+  "lead": "Pour un projet à Saint-Bonnet-de-Mure, Jrenov examine les besoins de réparation, rénovation et étanchéité depuis Décines-Charpieu. Les chantiers présentés en référence sont ceux de communes voisines.",
+  "introTitle": "Travaux de couverture dans l'est de l'agglomération",
+  "intro": [
+    "Saint-Bonnet-de-Mure se situe à l'est de Saint-Priest et Genas. Sur les maisons et dépendances, l'état de la couverture, la pente et les raccords avec les évacuations doivent être vérifiés avant de retenir un procédé.",
+    "Jrenov n'affiche pas de chantier réalisé à Saint-Bonnet-de-Mure sans éléments probants. Les réalisations proches documentent la couverture d'un garage à Corbas et l'entretien de toiture à Genas."
+  ],
+  "contextTitle": "Réparation ponctuelle et rénovation n'ont pas le même périmètre",
+  "context": [
+    "Remplacer des tuiles abîmées constitue une opération différente d'une réfection avec écran de sous-toiture et liteaux. Pour comparer des devis, les supports et accessoires doivent être détaillés.",
+    "Pour une infiltration à proximité d'une cheminée, une reprise du solin peut suffire si le reste de la couverture est en état. Le diagnostic permet de ne pas anticiper une dépense inutile."
+  ],
+  "issuesTitle": "Observer les signes avant d'appeler",
+  "issues": [
+    {
+      "title": "Tuiles manquantes",
+      "text": "Une zone visible doit être sécurisée et inspectée sans monter soi-même sur le toit."
+    },
+    {
+      "title": "Façade humide sous toiture",
+      "text": "L'évacuation pluviale ou les rives peuvent être en cause."
+    },
+    {
+      "title": "Combles inconfortables",
+      "text": "Une intervention sur la couverture peut être l'occasion d'étudier l'isolation, sans la présumer nécessaire."
+    }
+  ],
+  "serviceTitle": "Prestations de couverture à Saint-Bonnet-de-Mure",
+  "serviceIntro": "Les pages techniques aident à préparer un diagnostic précis.",
+  "serviceCopy": [
+    {
+      "service": "couverture",
+      "text": "Réparation de tuiles et travaux de réfection sur toiture inclinée."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Diagnostic de l'origine d'infiltrations près des éléments sensibles."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Reprise de gouttières, solins et habillages métalliques."
+    },
+    {
+      "service": "isolation",
+      "text": "Étude des solutions thermiques selon le projet de toiture."
+    },
+    {
+      "service": "demoussage",
+      "text": "Entretien de couverture après inspection des tuiles."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "demoussage-toiture-ecologique-genas",
+    "renovation-toiture-garages-corbas",
+    "traitement-charpente-bois-saint-priest"
+  ],
+  "nearbyCities": [
+    "Genas",
+    "Saint-Priest",
+    "Mions",
+    "Saint-Laurent-de-Mure"
+  ],
+  "proof": "Aucun chantier de Saint-Bonnet-de-Mure n'est revendiqué. Les réalisations citées sont situées à Genas, Corbas et Saint-Priest.",
+  "process": "Indiquez si les travaux concernent une maison, un garage ou une annexe : cette précision aide à préparer le rendez-vous.",
+  "faq": [
+    {
+      "question": "Pouvez-vous vérifier une fuite à Saint-Bonnet-de-Mure ?",
+      "answer": "Jrenov peut étudier une demande dans ce secteur depuis Décines-Charpieu et proposer une visite selon disponibilité."
+    },
+    {
+      "question": "Une isolation est-elle obligatoire lors d'une réparation ?",
+      "answer": "Une réparation ponctuelle n'implique pas automatiquement une isolation. Les obligations éventuelles et la faisabilité dépendent du chantier."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-saint-fons",
+  "city": "Saint-Fons",
+  "postalCode": "69190",
+  "keyword": "Couvreur à Saint-Fons",
+  "headline": "Couvreur à Saint-Fons : réparation et étanchéité de toit",
+  "angle": "fuites, couvertures en tuiles, zinguerie et travaux sur annexes.",
+  "lead": "À Saint-Fons, Jrenov peut étudier une infiltration, une réparation de couverture ou des travaux de gouttière. Les références de chantier affichées proviennent de Vénissieux et Corbas, pas de Saint-Fons.",
+  "introTitle": "Toiture de maison ou de bâtiment d'activité",
+  "intro": [
+    "Saint-Fons s'inscrit dans le sud de la métropole lyonnaise, au voisinage de Vénissieux et de Lyon. Une toiture de pavillon et une toiture de bâtiment professionnel n'ont pas les mêmes contraintes de sécurité ni de matériaux.",
+    "Dans le cas d'une infiltration, la nature du toit doit être identifiée avant de proposer un devis : couverture inclinée en tuiles, éléments métalliques ou autre type d'étanchéité."
+  ],
+  "contextTitle": "Éviter les réparations sans diagnostic",
+  "context": [
+    "La cause d'un plafond humide peut être éloignée de la zone où l'eau apparaît à l'intérieur. Les jonctions avec un mur, les chéneaux et les solins sont des points à examiner.",
+    "Un chantier réel de bâchage après grêle est publié à Vénissieux, dans la commune voisine. Il donne un exemple de mise en sécurité, sans promettre une intervention identique à Saint-Fons."
+  ],
+  "issuesTitle": "Repérer la nature de la demande",
+  "issues": [
+    {
+      "title": "Fuite après un épisode pluvieux",
+      "text": "La localisation de l'entrée d'eau guide le choix de la réparation."
+    },
+    {
+      "title": "Tuiles endommagées",
+      "text": "L'état des supports et des fixations doit être examiné."
+    },
+    {
+      "title": "Débordement d'évacuation",
+      "text": "Chéneaux, gouttières et descentes peuvent nécessiter un contrôle."
+    }
+  ],
+  "serviceTitle": "Nos services de toiture à Saint-Fons",
+  "serviceIntro": "Les prestations sont soumises à l'examen du bâtiment et à une proposition adaptée.",
+  "serviceCopy": [
+    {
+      "service": "recherche-de-fuite",
+      "text": "Recherche des points d'entrée d'eau avant réparation."
+    },
+    {
+      "service": "couverture",
+      "text": "Remplacement de tuiles et rénovation de couvertures compatibles."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Entretien ou remplacement de gouttières et raccords métalliques."
+    },
+    {
+      "service": "demoussage",
+      "text": "Nettoyage de couverture selon son état."
+    },
+    {
+      "service": "isolation",
+      "text": "Étude d'isolation en complément de rénovations appropriées."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "remplacement-tuiles-cassees-orage-venissieux",
+    "renovation-toiture-garages-corbas"
+  ],
+  "nearbyCities": [
+    "Vénissieux",
+    "Corbas",
+    "Bron",
+    "Lyon"
+  ],
+  "proof": "Les réalisations affichées ici sont situées à Vénissieux et Corbas. Aucun chantier à Saint-Fons n'a été ajouté artificiellement.",
+  "process": "Précisez le type de bâtiment dès la prise de contact pour identifier les contraintes et le domaine de prestation applicable.",
+  "faq": [
+    {
+      "question": "Avez-vous des réalisations publiées à Saint-Fons ?",
+      "answer": "Aucune actuellement. Les références affichées sont localisées dans les communes voisines."
+    },
+    {
+      "question": "Travaillez-vous aussi sur des bâtiments professionnels ?",
+      "answer": "Une demande peut être étudiée selon la nature de la toiture, les accès et les qualifications requises pour l'intervention."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-dardilly",
+  "city": "Dardilly",
+  "postalCode": "69570",
+  "keyword": "Couvreur à Dardilly",
+  "headline": "Couvreur à Dardilly : rénovation de toit et gouttières",
+  "angle": "réfection de tuiles, zinguerie, recherche de fuite et entretien.",
+  "lead": "Dans l'ouest de l'agglomération, Jrenov peut étudier une réparation ou une rénovation de toiture à Dardilly. Les chantiers montrés proviennent d'Écully et des communes voisines.",
+  "introTitle": "Réparation et zinguerie à l'ouest de Lyon",
+  "intro": [
+    "Dardilly est située au nord-ouest de Lyon, à proximité d'Écully et de Champagne-au-Mont-d'Or. Pour un pavillon, l'état des rives et des gouttières compte autant que celui des tuiles.",
+    "Les réalisations mises en avant sont authentiquement localisées à Écully et Champagne-au-Mont-d'Or. La présente page est une information sur la zone desservie, pas la description d'un chantier à Dardilly."
+  ],
+  "contextTitle": "De la fuite de gouttière à la réfection complète",
+  "context": [
+    "Une infiltration localisée au bord du toit peut venir d'une sous-face dégradée, d'un solin ou d'une gouttière percée. La reprise d'un seul ouvrage peut parfois éviter des travaux plus larges.",
+    "Lorsqu'une couverture en tuiles est en fin de vie, la réfection peut demander de vérifier les liteaux et les points de raccordement avant le choix des matériaux."
+  ],
+  "issuesTitle": "Quelques désordres fréquents à diagnostiquer",
+  "issues": [
+    {
+      "title": "Bandeau de rive abîmé",
+      "text": "Il faut contrôler le bois support avant de le protéger par un habillage."
+    },
+    {
+      "title": "Tuiles à reprendre",
+      "text": "Un diagnostic permet de savoir si le problème est local ou généralisé."
+    },
+    {
+      "title": "Gouttière désolidarisée",
+      "text": "Crochets, pente et évacuations doivent être examinés ensemble."
+    }
+  ],
+  "serviceTitle": "Travaux de toiture proposés à Dardilly",
+  "serviceIntro": "Les interventions s'étudient sur place, selon le support et l'état des matériaux.",
+  "serviceCopy": [
+    {
+      "service": "zinguerie",
+      "text": "Gouttières et habillage des rives, dans la continuité des chantiers de zinguerie publiés à Écully."
+    },
+    {
+      "service": "couverture",
+      "text": "Rénovation de tuiles ou réparation ponctuelle de couverture."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Recherche de causes d'infiltration avant réparation."
+    },
+    {
+      "service": "demoussage",
+      "text": "Entretien de couverture adapté au type de tuile."
+    },
+    {
+      "service": "isolation",
+      "text": "Étude du confort thermique lors d'une rénovation de toit."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "reparation-zinguerie-gouttiere-ecully",
+    "renovation-toiture-tuiles-plat-champagne-au-mont-d-or"
+  ],
+  "nearbyCities": [
+    "Écully",
+    "Tassin-la-Demi-Lune",
+    "Lyon"
+  ],
+  "proof": "Les références concernent Écully et Champagne-au-Mont-d'Or. Aucun chantier à Dardilly n'est revendiqué dans le portfolio.",
+  "process": "Pour une couverture complexe, décrivez le nombre de pans et les raccords visibles ; le devis dépendra d'une visite.",
+  "faq": [
+    {
+      "question": "Avez-vous une agence à Dardilly ?",
+      "answer": "Non, le siège de Jrenov demeure à Décines-Charpieu. L'entreprise étudie les demandes dans l'ouest lyonnais."
+    },
+    {
+      "question": "Faut-il demander deux devis pour gouttières et tuiles ?",
+      "answer": "Un même devis peut détailler plusieurs postes distincts, en précisant clairement les quantités et matériaux."
+    }
+  ]
+}),
+  buildCityPage({
+  "slug": "couvreur-saint-laurent-de-mure",
+  "city": "Saint-Laurent-de-Mure",
+  "postalCode": "69720",
+  "keyword": "Couvreur à Saint-Laurent-de-Mure",
+  "headline": "Couvreur à Saint-Laurent-de-Mure : toiture et zinguerie",
+  "angle": "réparation de toiture, gouttières, fuites et isolation.",
+  "lead": "Jrenov étudie les projets de toiture à Saint-Laurent-de-Mure depuis Décines-Charpieu. Aucun chantier local n'est revendiqué : les réalisations présentées appartiennent à des communes du secteur.",
+  "introTitle": "Rénover une couverture dans l'est lyonnais",
+  "intro": [
+    "Saint-Laurent-de-Mure est voisine de Saint-Bonnet-de-Mure, à l'est de la métropole lyonnaise. Les propriétaires de maisons et dépendances peuvent avoir des besoins distincts : tuile à remplacer, zinguerie, isolation ou remise en état d'un garage.",
+    "Avant de contacter un couvreur, il est utile de noter la commune, la nature de la toiture et les éventuels signes d'humidité. Les détails techniques pourront être précisés au diagnostic."
+  ],
+  "contextTitle": "Traiter la cause de l'infiltration",
+  "context": [
+    "Des tuiles fissurées, un solin décollé ou une gouttière qui déborde entraînent des travaux différents. La présence de mousse ne prouve pas à elle seule qu'une toiture est à remplacer.",
+    "Pour une réfection complète, le devis doit distinguer couverture, zinguerie, écrans de sous-toiture et, si elle est envisagée, isolation."
+  ],
+  "issuesTitle": "Les éléments à contrôler",
+  "issues": [
+    {
+      "title": "Tuile déplacée",
+      "text": "L'état des fixations et des matériaux voisins oriente la réparation."
+    },
+    {
+      "title": "Gouttière qui fuit",
+      "text": "Les jonctions, crochets et descentes doivent être examinés."
+    },
+    {
+      "title": "Humidité sous toiture",
+      "text": "Une inspection du raccord et du support est nécessaire avant de chiffrer."
+    }
+  ],
+  "serviceTitle": "Nos services de toiture à Saint-Laurent-de-Mure",
+  "serviceIntro": "Un devis doit préciser les matériaux et la portée des travaux, sans prestations supposées.",
+  "serviceCopy": [
+    {
+      "service": "couverture",
+      "text": "Réparation ou rénovation de toitures en tuiles et annexes."
+    },
+    {
+      "service": "zinguerie",
+      "text": "Gouttières, abergements et habillage de rives."
+    },
+    {
+      "service": "recherche-de-fuite",
+      "text": "Diagnostic d'infiltrations avant intervention."
+    },
+    {
+      "service": "isolation",
+      "text": "Évaluation de l'isolation lors de travaux de toiture."
+    },
+    {
+      "service": "demoussage",
+      "text": "Entretien adapté aux tuiles en place."
+    }
+  ],
+  "localSlugs": [],
+  "nearbySlugs": [
+    "demoussage-toiture-ecologique-genas",
+    "renovation-toiture-garages-corbas"
+  ],
+  "nearbyCities": [
+    "Saint-Bonnet-de-Mure",
+    "Genas",
+    "Mions",
+    "Saint-Priest"
+  ],
+  "proof": "Les exemples de toiture concernent Genas et Corbas, et non Saint-Laurent-de-Mure.",
+  "process": "Confirmez la commune et décrivez l'état de la toiture ; le premier échange aidera à programmer un diagnostic réaliste.",
+  "faq": [
+    {
+      "question": "Jrenov a-t-il une réalisation à Saint-Laurent-de-Mure ?",
+      "answer": "Aucune réalisation locale n'est actuellement publiée. Les exemples visibles sont localisés dans d'autres communes."
+    },
+    {
+      "question": "Peut-on demander un devis pour refaire une seule pente ?",
+      "answer": "Oui, l'étude peut porter sur un seul pan, à condition de vérifier les raccords et la cohérence avec la couverture conservée."
+    }
+  ]
+}),
   // CITY_ENTRIES
 ];
