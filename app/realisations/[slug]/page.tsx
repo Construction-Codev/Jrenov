@@ -3,7 +3,7 @@ import { pageMetadata, BUSINESS, PHONE_HREF } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import realisations from "@/data/realisations.json";
+import { realisations, sortByFrenchDateNewestFirst } from "@/lib/content";
 import { MapPin, Calendar, Clock, ShieldCheck, ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { servicesForRealisation, showsDecennialBadge } from "@/lib/service-content";
 import { localAreaForCity } from "@/lib/local-areas";
@@ -41,7 +41,7 @@ export default async function RealisationDetailPage({ params }: Props) {
   const localArea = localAreaForCity(project.city);
 
   // Filtrage de 2 projets similaires dans la même catégorie pour le maillage interne
-  const relatedProjects = realisations
+  const relatedProjects = sortByFrenchDateNewestFirst(realisations)
     .filter((p) => p.category === project.category && p.slug !== project.slug)
     .slice(0, 2);
 
