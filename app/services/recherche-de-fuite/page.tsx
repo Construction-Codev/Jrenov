@@ -17,6 +17,7 @@ import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
+import QuickCallbackForm from "@/components/QuickCallbackForm";
 import ServiceSilo from "@/components/ServiceSilo";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 
@@ -174,6 +175,8 @@ export default function RechercheDeFuitePage() {
           </div>
         </div>
       </section>
+
+      <QuickCallbackForm />
 
       {/* 2. Symptômes */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
