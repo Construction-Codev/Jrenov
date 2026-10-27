@@ -173,6 +173,9 @@ export default function RechercheDeFuitePage() {
               Demander un devis
             </Link>
           </div>
+          <a href="#rappel" className="inline-block text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200">
+            Pas d'urgence immédiate ? Demandez à être rappelé
+          </a>
         </div>
       </section>
 
