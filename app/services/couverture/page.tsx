@@ -124,6 +124,9 @@ export default function CouverturePage() {
               Appeler le {BUSINESS.phoneDisplay}
             </a>
           </div>
+          <a href="#rappel" className="inline-block text-sm font-semibold text-amber-300 underline underline-offset-4 hover:text-amber-200">
+            Ou demandez à être rappelé avec votre nom et votre téléphone
+          </a>
         </div>
       </section>
 
