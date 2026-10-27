@@ -143,7 +143,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Rénovation de toiture dans l'Est lyonnais",
       intro:
         "Depuis notre siège de Décines-Charpieu, nous refaisons et réparons des couvertures dans tout l'Est lyonnais, à Lyon et dans la métropole. Exemples de communes avec une page dédiée :",
-      slugs: ["couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-meyzieu", "couvreur-saint-priest"],
+      slugs: ["couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-meyzieu", "couvreur-saint-priest", "couvreur-bron", "couvreur-venissieux", "couvreur-caluire-et-cuire", "couvreur-mions"],
     },
   },
   zinguerie: {
@@ -160,7 +160,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Zinguerie près de chez vous",
       intro:
         "Gouttières, rives et abergements : nos interventions de zinguerie partent de Décines-Charpieu. Quelques communes où nous intervenons :",
-      slugs: ["couvreur-meyzieu", "couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-lyon"],
+      slugs: ["couvreur-meyzieu", "couvreur-decines-charpieu", "couvreur-villeurbanne", "couvreur-lyon", "couvreur-ecully", "couvreur-francheville", "couvreur-beynost"],
     },
   },
   isolation: {
@@ -170,7 +170,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Isolation de toiture dans l'Est lyonnais",
       intro:
         "Combles perdus, combles aménagés ou isolation par l'extérieur : nous intervenons notamment dans ces communes proches de notre siège :",
-      slugs: ["couvreur-chassieu", "couvreur-decines-charpieu", "couvreur-saint-priest"],
+      slugs: ["couvreur-chassieu", "couvreur-decines-charpieu", "couvreur-saint-priest", "couvreur-caluire-et-cuire", "couvreur-bron"],
     },
   },
   demoussage: {
@@ -180,7 +180,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Démoussage autour de Décines-Charpieu",
       intro:
         "Nettoyage et traitement de toiture dans l'Est lyonnais et la métropole, par exemple dans ces communes :",
-      slugs: ["couvreur-genas", "couvreur-decines-charpieu", "couvreur-meyzieu"],
+      slugs: ["couvreur-genas", "couvreur-decines-charpieu", "couvreur-meyzieu", "couvreur-tassin-la-demi-lune", "couvreur-mions"],
     },
   },
   "recherche-de-fuite": {
@@ -204,6 +204,11 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
         "couvreur-saint-priest",
         "couvreur-villeurbanne",
         "couvreur-lyon",
+        "couvreur-vaulx-en-velin",
+        "couvreur-rillieux-la-pape",
+        "couvreur-venissieux",
+        "couvreur-saint-fons",
+        "couvreur-jonage",
       ],
     },
   },
@@ -218,7 +223,7 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
       title: "Fenêtres de toit autour de Décines-Charpieu",
       intro:
         "Notre dernier remplacement de fenêtres de toit a eu lieu à Décines-Charpieu, où se trouve notre siège. Nous intervenons aussi dans les communes voisines :",
-      slugs: ["couvreur-decines-charpieu", "couvreur-lyon", "couvreur-villeurbanne", "couvreur-meyzieu"],
+      slugs: ["couvreur-decines-charpieu", "couvreur-lyon", "couvreur-villeurbanne", "couvreur-meyzieu", "couvreur-caluire-et-cuire", "couvreur-jonage"],
     },
   },
 };

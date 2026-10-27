@@ -1,5 +1,6 @@
 import type { ServiceKey } from "@/lib/services";
 import { BUSINESS } from "@/lib/site";
+import { EXPANSION_LOCAL_AREAS } from "@/data/local-expansion";
 
 /**
  * Pages locales publiées (première vague du Lot 3).
@@ -65,7 +66,7 @@ export interface LocalArea {
   sectionOrder: LocalSectionKey[];
 }
 
-export const LOCAL_AREAS: LocalArea[] = [
+const ORIGINAL_LOCAL_AREAS: LocalArea[] = [
   // ──────────────────────────────────────────────────────────────
   // DÉCINES-CHARPIEU — siège de Jrenov
   // ──────────────────────────────────────────────────────────────
@@ -165,8 +166,8 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Chassieu", slug: "couvreur-chassieu" },
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
-        { name: "Vaulx-en-Velin" },
-        { name: "Bron" },
+        { name: "Vaulx-en-Velin", slug: "couvreur-vaulx-en-velin" },
+        { name: "Bron", slug: "couvreur-bron" },
       ],
     },
     faq: [
@@ -278,7 +279,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Chassieu", slug: "couvreur-chassieu" },
-        { name: "Jonage" },
+        { name: "Jonage", slug: "couvreur-jonage" },
         { name: "Pusignan" },
       ],
     },
@@ -398,9 +399,9 @@ export const LOCAL_AREAS: LocalArea[] = [
       intro: "Nous intervenons également à proximité :",
       cities: [
         { name: "Lyon", slug: "couvreur-lyon" },
-        { name: "Vaulx-en-Velin" },
-        { name: "Caluire-et-Cuire" },
-        { name: "Bron" },
+        { name: "Vaulx-en-Velin", slug: "couvreur-vaulx-en-velin" },
+        { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
       ],
     },
@@ -519,10 +520,10 @@ export const LOCAL_AREAS: LocalArea[] = [
       intro: "Nous intervenons également dans les communes qui bordent Lyon :",
       cities: [
         { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
-        { name: "Caluire-et-Cuire" },
-        { name: "Sainte-Foy-lès-Lyon" },
-        { name: "Vénissieux" },
-        { name: "Bron" },
+        { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
+        { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
       ],
     },
@@ -642,7 +643,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
         { name: "Saint-Priest", slug: "couvreur-saint-priest" },
         { name: "Pusignan" },
-        { name: "Saint-Bonnet-de-Mure" },
+        { name: "Saint-Bonnet-de-Mure", slug: "couvreur-saint-bonnet-de-mure" },
       ],
     },
     faq: [
@@ -763,7 +764,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Saint-Priest", slug: "couvreur-saint-priest" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Meyzieu", slug: "couvreur-meyzieu" },
       ],
     },
@@ -879,10 +880,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "Chassieu", slug: "couvreur-chassieu" },
         { name: "Genas", slug: "couvreur-genas" },
-        { name: "Bron" },
-        { name: "Vénissieux" },
-        { name: "Mions" },
-        { name: "Corbas" },
+        { name: "Bron", slug: "couvreur-bron" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
+        { name: "Mions", slug: "couvreur-mions" },
+        { name: "Corbas", slug: "couvreur-corbas" },
+      { name: "Saint-Laurent-de-Mure", slug: "couvreur-saint-laurent-de-mure" },
       ],
     },
     faq: [
@@ -911,6 +913,9 @@ export const LOCAL_AREAS: LocalArea[] = [
   },
 ];
 
+/** Toutes les pages locales effectivement publiées : anciens contenus et extensions vérifiées. */
+export const LOCAL_AREAS: LocalArea[] = [...ORIGINAL_LOCAL_AREAS, ...EXPANSION_LOCAL_AREAS];
+
 /**
  * Secteurs du hub /zones-intervention.
  * Uniquement des secteurs où une réalisation existe ou qui entourent directement le siège.
@@ -935,13 +940,13 @@ export const ZONE_SECTORS: ZoneSector[] = [
       { name: "Genas", slug: "couvreur-genas" },
       { name: "Chassieu", slug: "couvreur-chassieu" },
       { name: "Saint-Priest", slug: "couvreur-saint-priest" },
-      { name: "Vaulx-en-Velin" },
-      { name: "Bron" },
-      { name: "Jonage" },
+      { name: "Vaulx-en-Velin", slug: "couvreur-vaulx-en-velin" },
+      { name: "Bron", slug: "couvreur-bron" },
+      { name: "Jonage", slug: "couvreur-jonage" },
       { name: "Pusignan" },
-      { name: "Saint-Bonnet-de-Mure" },
-      { name: "Mions" },
-      { name: "Corbas" },
+      { name: "Saint-Bonnet-de-Mure", slug: "couvreur-saint-bonnet-de-mure" },
+      { name: "Mions", slug: "couvreur-mions" },
+      { name: "Corbas", slug: "couvreur-corbas" },
     ],
   },
   {
@@ -952,9 +957,10 @@ export const ZONE_SECTORS: ZoneSector[] = [
     communes: [
       { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
       { name: "Lyon", slug: "couvreur-lyon" },
-      { name: "Caluire-et-Cuire" },
-      { name: "Vénissieux" },
-      { name: "Rillieux-la-Pape" },
+      { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
+      { name: "Vénissieux", slug: "couvreur-venissieux" },
+      { name: "Rillieux-la-Pape", slug: "couvreur-rillieux-la-pape" },
+      { name: "Saint-Fons", slug: "couvreur-saint-fons" },
     ],
   },
   {
@@ -968,11 +974,12 @@ export const ZONE_SECTORS: ZoneSector[] = [
     name: "Ouest lyonnais",
     description: "De l'autre côté de Lyon, nous avons réalisé plusieurs chantiers de couverture, de zinguerie et d'entretien.",
     communes: [
-      { name: "Écully" },
-      { name: "Tassin-la-Demi-Lune" },
+      { name: "Écully", slug: "couvreur-ecully" },
+      { name: "Dardilly", slug: "couvreur-dardilly" },
+      { name: "Tassin-la-Demi-Lune", slug: "couvreur-tassin-la-demi-lune" },
       { name: "Craponne" },
-      { name: "Sainte-Foy-lès-Lyon" },
-      { name: "Francheville" },
+      { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
+      { name: "Francheville", slug: "couvreur-francheville" },
       { name: "Oullins" },
       { name: "Brignais" },
     ],
@@ -981,6 +988,6 @@ export const ZONE_SECTORS: ZoneSector[] = [
     key: "ain",
     name: "Côtière de l'Ain",
     description: "Au nord-est, de l'autre côté du Rhône, dans le département de l'Ain.",
-    communes: [{ name: "Dagneux" }, { name: "Miribel" }, { name: "Beynost" }],
+    communes: [{ name: "Dagneux" }, { name: "Miribel", slug: "couvreur-miribel" }, { name: "Beynost", slug: "couvreur-beynost" }],
   },
 ];
