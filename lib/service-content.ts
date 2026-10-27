@@ -1,5 +1,5 @@
 import { SERVICES, getService, type ServiceItem, type ServiceKey } from "@/lib/services";
-import { realisations, posts, getRealisation, type Realisation, type Post } from "@/lib/content";
+import { realisations, posts, getRealisation, sortByFrenchDateNewestFirst, type Realisation, type Post } from "@/lib/content";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 
 /**
@@ -224,9 +224,11 @@ export const SERVICE_SILOS: Record<ServiceKey, ServiceSilo> = {
 };
 
 export function featuredRealisations(key: ServiceKey): Realisation[] {
-  return SERVICE_SILOS[key].featuredRealisations
-    .map((slug) => getRealisation(slug))
-    .filter((item): item is Realisation => Boolean(item));
+  return sortByFrenchDateNewestFirst(
+    SERVICE_SILOS[key].featuredRealisations
+      .map((slug) => getRealisation(slug))
+      .filter((item): item is Realisation => Boolean(item))
+  );
 }
 
 // ─── Validation au build ────────────────────────────────────────────────────
