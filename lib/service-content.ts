@@ -78,6 +78,16 @@ export interface ArticleLink {
 }
 
 export const ARTICLE_LINKS: Record<string, ArticleLink> = {
+  "reparer-tuiles-cassees-toiture-lyon": {
+    services: ["couverture", "recherche-de-fuite"],
+    text: "Tuile cassée, déplacée ou infiltration après un coup de vent ? Découvrez nos services de réparation de toiture et de recherche de fuite.",
+    withQuote: true,
+  },
+  "comparer-devis-couvreur-lyon-avant-signer": {
+    services: ["couverture"],
+    text: "Vous souhaitez comparer des propositions avant une réfection de toiture ? Découvrez nos prestations de couverture et demandez un devis détaillé.",
+    withQuote: true,
+  },
   "comment-detecter-fuite-toiture-lyon": {
     services: ["recherche-de-fuite"],
     text: "Vous reconnaissez l'un de ces signes chez vous ? Voyez comment nous localisons l'origine d'une infiltration, mettons la toiture hors d'eau puis réparons.",
@@ -114,7 +124,7 @@ export const ARTICLE_LINKS: Record<string, ArticleLink> = {
 };
 
 export function articlesForService(key: ServiceKey): Post[] {
-  return posts.filter((post) => ARTICLE_LINKS[post.slug]?.services.includes(key));
+  return sortByFrenchDateNewestFirst(posts.filter((post) => ARTICLE_LINKS[post.slug]?.services.includes(key)));
 }
 
 // ─── Contenu du silo par service ────────────────────────────────────────────
