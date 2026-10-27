@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AnalyticsEvents />
         <GoogleTag />
         {/* Bas d'écran : bandeau cookies (si besoin) au-dessus de la barre d'appel mobile, sans chevauchement */}
-        <div className="sticky bottom-0 z-40">
+        <div className="sticky bottom-0 z-40 shadow-[0_-4px_12px_rgba(15,23,42,0.12)]">
           <ConsentBanner />
           <MobileCallBar />
         </div>

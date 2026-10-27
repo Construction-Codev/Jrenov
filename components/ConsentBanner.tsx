@@ -44,7 +44,7 @@ export default function ConsentBanner() {
     <div
       role="region"
       aria-label="Cookies publicitaires"
-      className="bg-slate-900/95 backdrop-blur border-t border-slate-700 text-slate-300 shadow-lg"
+      className="bg-slate-900 border-t border-slate-700 text-slate-300"
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <p className="text-xs leading-snug flex-1">

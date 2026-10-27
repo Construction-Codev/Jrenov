@@ -15,7 +15,7 @@ export default function MobileCallBar() {
   return (
     <div
       data-cta-placement="mobile_bar"
-      className="md:hidden bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(15,23,42,0.08)] px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
+      className="md:hidden bg-white border-t border-slate-200 px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
     >
       <div className="grid grid-cols-[1fr_auto] gap-2">
         <a
