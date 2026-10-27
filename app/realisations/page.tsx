@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 import Image from "next/image";
-import realisations from "@/data/realisations.json";
+import { realisations, sortByFrenchDateNewestFirst } from "@/lib/content";
 import { MapPin, Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RealisationsPage() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {realisations.map((item) => (
+          {sortByFrenchDateNewestFirst(realisations).map((item) => (
             <article key={item.slug} className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition group">
               
               {/* Image de la réalisation avec gestion d'affichage */}
