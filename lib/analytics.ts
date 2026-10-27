@@ -11,6 +11,7 @@ export type ConversionEvent =
   | "phone_click"
   | "email_click"
   | "quote_form_start"
+  | "quote_form_contact_step"
   | "quote_form_submit"
   | "contact_form_submit";
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
-import posts from "@/data/post.json";
+import { posts, sortByFrenchDateNewestFirst } from "@/lib/content";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function BlogPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {posts.map((post) => (
+          {sortByFrenchDateNewestFirst(posts).map((post) => (
             <article key={post.slug} className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex gap-4 text-xs text-slate-400">

@@ -44,7 +44,7 @@ export default function DevisPage() {
     nom: "",
     telephone: "",
     email: "",
-    codePostal: "69000",
+    codePostal: "",
     description: "",
   });
 
@@ -61,6 +61,7 @@ export default function DevisPage() {
 
   const handleNext = () => {
     if (step === 1 && !formData.service) return;
+    if (step === 1) trackEvent("quote_form_contact_step", { service: formData.service });
     setStep((prev) => prev + 1);
   };
 
@@ -117,7 +118,7 @@ export default function DevisPage() {
             Demande de devis en ligne
           </h1>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
-            Obtenez une estimation précise pour vos travaux de toiture dans l&apos;Est lyonnais, à Lyon et dans sa métropole sous 24h.
+            Expliquez-nous votre besoin en deux étapes. Votre demande est gratuite, sans engagement, et un artisan vous recontacte sous 24 heures ouvrées.
           </p>
         </div>
 
@@ -147,29 +148,18 @@ export default function DevisPage() {
         ) : (
           <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
             
-            {/* Indication des étapes */}
-            <div className="bg-slate-900 p-4 sm:p-6 text-white border-b border-slate-800">
-              <div className="flex justify-between items-center max-w-md mx-auto text-xs font-semibold">
-                <div className={`flex items-center gap-2 ${step >= 1 ? "text-amber-400" : "text-slate-500"}`}>
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${step >= 1 ? "bg-amber-500 text-slate-950 font-bold" : "bg-slate-800"}`}>
-                    1
-                  </span>
-                  <span className="hidden sm:inline">Prestation</span>
-                </div>
-                <div className={`h-0.5 w-8 ${step >= 2 ? "bg-amber-500" : "bg-slate-800"}`} />
-                <div className={`flex items-center gap-2 ${step >= 2 ? "text-amber-400" : "text-slate-500"}`}>
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${step >= 2 ? "bg-amber-500 text-slate-950 font-bold" : "bg-slate-800"}`}>
-                    2
-                  </span>
-                  <span className="hidden sm:inline">Détails</span>
-                </div>
-                <div className={`h-0.5 w-8 ${step >= 3 ? "bg-amber-500" : "bg-slate-800"}`} />
-                <div className={`flex items-center gap-2 ${step >= 3 ? "text-amber-400" : "text-slate-500"}`}>
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${step >= 3 ? "bg-amber-500 text-slate-950 font-bold" : "bg-slate-800"}`}>
-                    3
-                  </span>
-                  <span className="hidden sm:inline">Coordonnées</span>
-                </div>
+            {/* Deux étapes : besoin puis coordonnées. Aucun détail technique obligatoire. */}
+            <div className="border-b border-slate-800 bg-slate-900 p-4 text-white sm:p-6">
+              <div className="mx-auto flex max-w-md items-center justify-center gap-4 text-sm font-semibold">
+                <span className={`flex items-center gap-2 ${step === 1 ? "text-amber-400" : "text-slate-200"}`}>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 font-extrabold text-slate-950">1</span>
+                  Mon besoin
+                </span>
+                <div className={`h-0.5 w-8 ${step === 2 ? "bg-amber-500" : "bg-slate-600"}`} />
+                <span className={`flex items-center gap-2 ${step === 2 ? "text-amber-400" : "text-slate-400"}`}>
+                  <span className={`flex h-7 w-7 items-center justify-center rounded-full ${step === 2 ? "bg-amber-500 text-slate-950" : "bg-slate-800 text-slate-300"}`}>2</span>
+                  Me recontacter
+                </span>
               </div>
             </div>
 
@@ -234,96 +224,11 @@ export default function DevisPage() {
                 </div>
               )}
 
-              {/* ÉTAPE 2 : Détails du bien */}
+              {/* ÉTAPE 2 : Coordonnées, avec détails facultatifs */}
               {step === 2 && (
                 <div className="space-y-6">
                   <h2 className="text-xl font-bold text-slate-900">
-                    Précisez les caractéristiques de votre projet
-                  </h2>
-
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase mb-2">
-                        Type de bâtiment
-                      </label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {[
-                          { id: "maison", label: "Maison" },
-                          { id: "immeuble", label: "Immeuble" },
-                          { id: "autre", label: "Autre" },
-                        ].map((b) => (
-                          <button
-                            key={b.id}
-                            type="button"
-                            onClick={() => setFormData((p) => ({ ...p, building: b.id as BuildingType }))}
-                            className={`py-3 px-4 rounded-xl border text-xs font-bold transition ${
-                              formData.building === b.id
-                                ? "border-amber-500 bg-amber-500/10 text-amber-900"
-                                : "border-slate-200 text-slate-700 hover:border-slate-300"
-                            }`}
-                          >
-                            {b.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="surface" className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Surface approximative du toit (en m²)
-                      </label>
-                      <input
-                        type="number"
-                        id="surface"
-                        placeholder="Ex: 100"
-                        value={formData.surface}
-                        onChange={(e) => setFormData((p) => ({ ...p, surface: e.target.value }))}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-sm"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="description" className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                        Détails ou précisions utiles
-                      </label>
-                      <textarea
-                        id="description"
-                        rows={3}
-                        placeholder="Renseignez l'état actuel, l'accès au toit ou vos besoins spécifiques..."
-                        value={formData.description}
-                        onChange={(e) => setFormData((p) => ({ ...p, description: e.target.value }))}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="pt-4 flex justify-between">
-                    <button
-                      type="button"
-                      onClick={handlePrev}
-                      className="border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 text-sm"
-                    >
-                      <ArrowLeft className="w-4 h-4" />
-                      <span>Retour</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleNext}
-                      className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 text-sm"
-                    >
-                      <span>Étape suivante</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* ÉTAPE 3 : Coordonnées */}
-              {step === 3 && (
-                <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-slate-900">
-                    Où devons-nous vous envoyer le devis ?
+                    Comment pouvons-nous vous recontacter ?
                   </h2>
 
                   <div className="space-y-4">
@@ -390,6 +295,64 @@ export default function DevisPage() {
                       </div>
                     </div>
                   </div>
+
+                  <details className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <summary className="cursor-pointer text-sm font-semibold text-slate-700">
+                      Préciser mon projet (facultatif)
+                    </summary>
+                    <div className="mt-5 space-y-4">
+                      <fieldset>
+                        <legend className="mb-2 text-xs font-bold uppercase text-slate-700">Type de bâtiment</legend>
+                        <div className="grid grid-cols-3 gap-2">
+                          {([
+                            { id: "maison", label: "Maison" },
+                            { id: "immeuble", label: "Immeuble" },
+                            { id: "autre", label: "Autre" },
+                          ] as const).map((b) => (
+                            <button
+                              key={b.id}
+                              type="button"
+                              aria-pressed={formData.building === b.id}
+                              onClick={() => setFormData((p) => ({ ...p, building: b.id }))}
+                              className={`rounded-lg border px-2 py-3 text-xs font-bold ${formData.building === b.id ? "border-amber-500 bg-amber-100 text-slate-900" : "border-slate-200 bg-white text-slate-700"}`}
+                            >
+                              {b.label}
+                            </button>
+                          ))}
+                        </div>
+                      </fieldset>
+                      <div>
+                        <label htmlFor="surface" className="mb-2 block text-xs font-bold uppercase text-slate-700">
+                          Surface approximative du toit (m²)
+                        </label>
+                        <input
+                          type="number"
+                          id="surface"
+                          min="1"
+                          placeholder="Ex. : 100"
+                          value={formData.surface}
+                          onChange={(e) => setFormData((p) => ({ ...p, surface: e.target.value }))}
+                          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="description" className="mb-2 block text-xs font-bold uppercase text-slate-700">
+                          Précisions sur les travaux
+                        </label>
+                        <textarea
+                          id="description"
+                          rows={3}
+                          maxLength={3000}
+                          placeholder="Fuite, tuiles cassées, rénovation…"
+                          value={formData.description}
+                          onChange={(e) => setFormData((p) => ({ ...p, description: e.target.value }))}
+                          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                        />
+                      </div>
+                    </div>
+                  </details>
+
+                  <p className="text-xs text-slate-500">Seuls votre nom, votre téléphone et votre commune sont nécessaires pour être rappelé.</p>
 
                   <div className="pt-4 flex justify-between items-center">
                     <button

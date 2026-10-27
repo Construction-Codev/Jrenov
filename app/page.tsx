@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HeroBanner from "@/components/Banner";
 import Link from "next/link";
 import { BUSINESS, DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata, PHONE_HREF } from "@/lib/site";
-import { realisations, frenchDateToIso } from "@/lib/content";
+import { realisations, sortByFrenchDateNewestFirst } from "@/lib/content";
 import { LOCAL_AREAS } from "@/lib/local-areas";
 import { SERVICES } from "@/lib/services";
 import {
@@ -36,9 +36,7 @@ const ENGAGEMENTS: EngagementItem[] = [
 ];
 
 // Les 3 chantiers les plus récents (dates issues de data/realisations.json)
-const latestRealisations = [...realisations]
-  .sort((a, b) => (frenchDateToIso(b.date) ?? "").localeCompare(frenchDateToIso(a.date) ?? ""))
-  .slice(0, 3);
+const latestRealisations = sortByFrenchDateNewestFirst(realisations).slice(0, 3);
 
 export default function Home() {
   return (
