@@ -1,6 +1,6 @@
 import { LOCAL_AREAS, ZONE_SECTORS, type LocalArea } from "@/data/local-areas";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
-import { realisations, getRealisation, communeName, type Realisation } from "@/lib/content";
+import { realisations, getRealisation, communeName, sortByFrenchDateNewestFirst, type Realisation } from "@/lib/content";
 
 export { LOCAL_AREAS, ZONE_SECTORS };
 export type { LocalArea };
@@ -17,7 +17,7 @@ export function localAreaForCity(city: string): LocalArea | undefined {
 
 /** Réalisations d'une commune (comparaison sur le nom de commune normalisé). */
 export function realisationsInCommune(name: string): Realisation[] {
-  return realisations.filter((item) => communeName(item.city) === name);
+  return sortByFrenchDateNewestFirst(realisations.filter((item) => communeName(item.city) === name));
 }
 
 function requireRealisation(slug: string, context: string): Realisation {
