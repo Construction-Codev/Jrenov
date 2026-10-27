@@ -15,7 +15,7 @@ import { GENERIC_ERROR, userMessageFor, type ValidationResult } from "./validati
  * Une soumission refusée n'appelle JAMAIS la fonction d'envoi.
  */
 
-export type FormName = "contact" | "devis";
+export type FormName = "contact" | "devis" | "rappel";
 
 /** Taille maximale du corps de requête (les vrais envois font moins de 5 Ko). */
 export const MAX_PAYLOAD_BYTES = 16 * 1024;
@@ -23,7 +23,7 @@ export const MAX_PAYLOAD_BYTES = 16 * 1024;
 interface SubmissionConfig<T extends { email: string }> {
   form: FormName;
   validate: (raw: unknown) => ValidationResult<T>;
-  send: (data: T) => Promise<void>;
+  send: (data: T) => Promise<void | { confirmationSent: boolean }>;
 }
 
 /** Log sobre : formulaire, issue, raison, IP anonymisée. Jamais de donnée saisie. */
@@ -131,8 +131,9 @@ export async function handleFormSubmission<T extends { email: string }>(
     }
   }
 
+  let sent: void | { confirmationSent: boolean };
   try {
-    await send(result.data);
+    sent = await send(result.data);
   } catch (error) {
     // Code d'erreur Resend uniquement (ex. « validation_error »), jamais les données envoyées
     const code = error instanceof Error ? error.message.replace(/[^\w-]/g, "").slice(0, 40) : "unknown";
@@ -144,5 +145,9 @@ export async function handleFormSubmission<T extends { email: string }>(
   log(form, "sent", null, ipId, `${email ? `email=${maskEmail(email)}` : "email=none"}${token.fast ? " fast=1" : ""}`);
   // submissionId : présent UNIQUEMENT après un envoi réel (jamais pour le honeypot).
   // Le navigateur s'en sert pour déclencher une seule conversion Google Ads par demande.
-  return json(200, { success: true, submissionId: randomUUID() });
+  return json(200, {
+    success: true,
+    submissionId: randomUUID(),
+    ...(sent && typeof sent === "object" ? { confirmationSent: sent.confirmationSent } : {}),
+  });
 }
