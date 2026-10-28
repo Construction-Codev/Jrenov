@@ -62,10 +62,12 @@ export default function RealisationsPage() {
                     <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                     {item.city ?? "Lyon"}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                    {item.duration}
-                  </span>
+                  {item.duration && (
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      {item.duration}
+                    </span>
+                  )}
                 </div>
               </div>
 
