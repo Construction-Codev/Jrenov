@@ -87,10 +87,12 @@ export default async function RealisationDetailPage({ params }: Props) {
                 <Calendar className="w-4 h-4 text-amber-500 shrink-0" />
                 {project.date}
               </span>
-              <span className="flex items-center gap-1.5 font-medium">
-                <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                Durée : {project.duration}
-              </span>
+              {project.duration && (
+                <span className="flex items-center gap-1.5 font-medium">
+                  <Clock className="w-4 h-4 text-amber-500 shrink-0" />
+                  Durée : {project.duration}
+                </span>
+              )}
             </div>
           </div>
 

@@ -1230,11 +1230,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Nos chantiers autour de Jonage",
+      title: "Notre chantier à Jonage",
       intro:
-        "Nous n'avons pas encore publié de chantier situé à Jonage. Voici nos réalisations les plus proches, dans les communes voisines de l'Est lyonnais :",
-      localSlugs: [],
-      nearbyTitle: "À Meyzieu, Décines-Charpieu et Genas",
+        "Démoussage d'une couverture en tuiles romanes et application d'un hydrofuge coloré :",
+      localSlugs: ["demoussage-hydrofuge-tuiles-jonage"],
+      nearbyTitle: "Et dans les communes voisines",
       nearbySlugs: [
         "habillage-bandeaux-rive-alu-meyzieu",
         "remplacement-velux-ancien-decines",
@@ -1348,11 +1348,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Nos chantiers près de Dardilly",
+      title: "Notre chantier à Dardilly",
       intro:
-        "Aucun chantier publié n'est situé à Dardilly même. Ces réalisations ont été menées dans les communes voisines de l'Ouest lyonnais et des Monts d'Or :",
-      localSlugs: [],
-      nearbyTitle: "Écully, Champagne-au-Mont-d'Or, Tassin et Francheville",
+        "Habillage alu des débords de toit, avec gouttières et descentes assorties :",
+      localSlugs: ["habillage-alu-rives-gouttieres-dardilly"],
+      nearbyTitle: "Dans l'Ouest lyonnais et les Monts d'Or",
       nearbySlugs: [
         "reparation-zinguerie-gouttiere-ecully",
         "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
@@ -1468,11 +1468,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Des chantiers comparables aux toitures viennoises",
+      title: "Notre chantier à Vienne",
       intro:
-        "Nous n'avons pas encore publié de chantier à Vienne. Ces réalisations, menées dans l'agglomération lyonnaise, correspondent aux travaux que nous proposons sur les toitures en tuiles :",
-      localSlugs: [],
-      nearbyTitle: "Couverture et zinguerie dans la métropole",
+        "Réfection d'un faîtage à sec avec closoir ventilé sur une couverture en tuiles canal :",
+      localSlugs: ["refection-faitage-sec-tuiles-canal-vienne"],
+      nearbyTitle: "Couverture et zinguerie dans l'agglomération",
       nearbySlugs: [
         "demoussage-traitement-hydrofuge-tassin",
         "renovation-faitage-a-sec-fontaines-sur-saone",
@@ -1590,10 +1590,10 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Des chantiers proches de vos besoins",
+      title: "Notre chantier à Bourgoin-Jallieu",
       intro:
-        "Aucun chantier publié n'est situé à Bourgoin-Jallieu. Ces réalisations dans l'Est lyonnais illustrent les travaux que nous menons sur les pavillons :",
-      localSlugs: [],
+        "Rénovation de couverture avec pose d'un écran isolant réfléchissant et d'un litonnage neuf :",
+      localSlugs: ["ecran-isolant-sous-toiture-bourgoin-jallieu"],
       nearbyTitle: "Isolation, fenêtres de toit et couverture",
       nearbySlugs: [
         "isolation-combles-perdus-laine-roche-chassieu",
@@ -1707,11 +1707,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Nos chantiers près de Saint-Genis-Laval",
+      title: "Notre chantier à Saint-Genis-Laval",
       intro:
-        "Nous n'avons pas encore publié de chantier situé à Saint-Genis-Laval. Ces réalisations ont été menées dans les communes voisines du sud-ouest lyonnais :",
-      localSlugs: [],
-      nearbyTitle: "À Oullins, Brignais et Francheville",
+        "Reprise de l'étanchéité d'une souche de cheminée avec un abergement en zinc :",
+      localSlugs: ["abergement-cheminee-zinc-saint-genis-laval"],
+      nearbyTitle: "Dans le sud-ouest lyonnais",
       nearbySlugs: [
         "reparation-charpente-lambourde-oullins",
         "reparation-fuite-cheminee-brignais",
@@ -1826,11 +1826,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Nos chantiers au nord de Lyon",
+      title: "Notre chantier à Rillieux-la-Pape",
       intro:
-        "Aucun chantier publié n'est situé à Rillieux-la-Pape même. Voici nos réalisations les plus proches :",
-      localSlugs: [],
-      nearbyTitle: "Fontaines-sur-Saône, Caluire-et-Cuire et Dagneux",
+        "Reprise d'un faîtage avec pose d'un closoir ventilé :",
+      localSlugs: ["faitage-closoir-ventile-rillieux-la-pape"],
+      nearbyTitle: "Au nord de Lyon",
       nearbySlugs: [
         "renovation-faitage-a-sec-fontaines-sur-saone",
         "isolation-sarking-toiture-caluire",
@@ -2181,11 +2181,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Nos chantiers autour de Bron",
+      title: "Notre chantier à Bron",
       intro:
-        "Nous n'avons pas encore publié de chantier situé à Bron. Ces réalisations ont été menées dans les communes limitrophes :",
-      localSlugs: [],
-      nearbyTitle: "À Décines-Charpieu, Chassieu et Vénissieux",
+        "Nettoyage d'une couverture en tuiles mécaniques équipée d'une fenêtre de toit :",
+      localSlugs: ["nettoyage-toiture-fenetre-de-toit-bron"],
+      nearbyTitle: "Dans les communes limitrophes",
       nearbySlugs: [
         "remplacement-velux-ancien-decines",
         "isolation-combles-perdus-laine-roche-chassieu",
@@ -2415,11 +2415,11 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Nos chantiers près de Mions",
+      title: "Notre chantier à Mions",
       intro:
-        "Aucun chantier publié n'est situé à Mions même. Ces réalisations ont été menées dans les communes voisines du sud-est lyonnais :",
-      localSlugs: [],
-      nearbyTitle: "À Corbas, Saint-Priest et Vénissieux",
+        "Pose de rives en aluminium et nettoyage d'une couverture en tuiles romanes :",
+      localSlugs: ["rives-alu-nettoyage-toiture-mions"],
+      nearbyTitle: "Dans le sud-est lyonnais",
       nearbySlugs: [
         "renovation-toiture-garages-corbas",
         "traitement-charpente-bois-saint-priest",
@@ -2529,10 +2529,10 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     realisations: {
-      title: "Des chantiers comparables dans l'agglomération",
+      title: "Notre chantier à Saint-Quentin-Fallavier",
       intro:
-        "Nous n'avons pas encore publié de chantier à Saint-Quentin-Fallavier. Ces réalisations correspondent aux interventions que nous y proposons :",
-      localSlugs: [],
+        "Traitement d'une couverture en tuiles par pulvérisation :",
+      localSlugs: ["traitement-toiture-saint-quentin-fallavier"],
       nearbyTitle: "Bâtiment professionnel, bac acier et isolation",
       nearbySlugs: [
         "remplacement-tuiles-cassees-orage-venissieux",
