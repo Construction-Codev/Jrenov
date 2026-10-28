@@ -11,4 +11,10 @@ export const LOCAL_AREA_INDEX = [
   { slug: "couvreur-genas", city: "Genas" },
   { slug: "couvreur-chassieu", city: "Chassieu" },
   { slug: "couvreur-saint-priest", city: "Saint-Priest" },
+  { slug: "couvreur-caluire-et-cuire", city: "Caluire-et-Cuire" },
+  { slug: "couvreur-venissieux", city: "Vénissieux" },
+  { slug: "couvreur-jonage", city: "Jonage" },
+  { slug: "couvreur-dardilly", city: "Dardilly" },
+  { slug: "couvreur-vienne", city: "Vienne" },
+  { slug: "couvreur-bourgoin-jallieu", city: "Bourgoin-Jallieu" },
 ] as const;

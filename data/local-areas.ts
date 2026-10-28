@@ -2,7 +2,7 @@ import type { ServiceKey } from "@/lib/services";
 import { BUSINESS } from "@/lib/site";
 
 /**
- * Pages locales publiées (première vague du Lot 3).
+ * Pages locales publiées (première vague du Lot 3, deuxième vague d'octobre 2026).
  *
  * Règles éditoriales :
  * - contenu rédigé commune par commune (aucun gabarit à remplacement de nom de ville) ;
@@ -278,7 +278,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Chassieu", slug: "couvreur-chassieu" },
-        { name: "Jonage" },
+        { name: "Jonage", slug: "couvreur-jonage" },
         { name: "Pusignan" },
       ],
     },
@@ -399,7 +399,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "Lyon", slug: "couvreur-lyon" },
         { name: "Vaulx-en-Velin" },
-        { name: "Caluire-et-Cuire" },
+        { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
         { name: "Bron" },
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
       ],
@@ -519,9 +519,9 @@ export const LOCAL_AREAS: LocalArea[] = [
       intro: "Nous intervenons également dans les communes qui bordent Lyon :",
       cities: [
         { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
-        { name: "Caluire-et-Cuire" },
+        { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
         { name: "Sainte-Foy-lès-Lyon" },
-        { name: "Vénissieux" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
         { name: "Bron" },
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
       ],
@@ -880,7 +880,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Chassieu", slug: "couvreur-chassieu" },
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Bron" },
-        { name: "Vénissieux" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
         { name: "Mions" },
         { name: "Corbas" },
       ],
@@ -909,11 +909,736 @@ export const LOCAL_AREAS: LocalArea[] = [
     ],
     sectionOrder: ["intro", "issues", "context", "realisations", "services", "process", "faq", "nearby"],
   },
+  // ──────────────────────────────────────────────────────────────
+  // CALUIRE-ET-CUIRE — angle : isolation par l'extérieur (Sarking) + réfection
+  // Réalisation réelle : isolation-sarking-toiture-caluire (mars 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-caluire-et-cuire",
+    city: "Caluire-et-Cuire",
+    postalCode: "69300",
+    primaryKeyword: "couvreur Caluire-et-Cuire",
+    metaTitle: "Couvreur à Caluire-et-Cuire – Isolation Sarking & réfection",
+    metaDescription:
+      `Couvreur à Caluire-et-Cuire : réfection de toiture, isolation sous tuiles en fibre de bois (Sarking), zinguerie et recherche de fuite. Chantier réalisé en mars 2026. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Caluire-et-Cuire : réfection et isolation de toiture",
+    heroBadge: "Plateau de Caluire · chantier réalisé en 2026",
+    heroLead:
+      "Refaire sa couverture est le meilleur moment pour isoler par-dessus les chevrons. À Caluire-et-Cuire, nous avons mené en mars 2026 une rénovation complète avec 160 mm de fibre de bois posés sous les tuiles neuves.",
+    intro: {
+      title: "Entre Rhône et Saône, au nord de Lyon",
+      paragraphs: [
+        "Caluire-et-Cuire occupe le plateau qui prolonge la Croix-Rousse vers le nord, entre la Saône et le Rhône. Des bords du Rhône à Saint-Clair jusqu'aux rues pavillonnaires de Montessuy ou de Vassieux, la commune réunit des maisons de maître, des villas et de petits immeubles aux toitures très différentes.",
+        "Jrenov n'a pas d'établissement à Caluire-et-Cuire : nous venons de Décines-Charpieu, en traversant le Rhône. Nous y avons déjà conduit l'un de nos chantiers les plus complets, une rénovation énergétique de toiture menée en sept jours.",
+      ],
+    },
+    context: {
+      title: "Isoler par l'extérieur sans perdre un centimètre sous les combles",
+      paragraphs: [
+        "La technique dite « Sarking » consiste à poser l'isolant au-dessus de la charpente, en panneaux rigides continus, avant de remettre la couverture. Les chevrons restent apparents à l'intérieur et les pièces sous les toits gardent toute leur hauteur, ce qui intéresse particulièrement les combles déjà aménagés.",
+        "Sur la maison caluirarde, la couverture a été entièrement déposée, puis des panneaux de fibre de bois haute densité de 160 mm ont été fixés sur les chevrons. Ce matériau dense limite aussi la surchauffe estivale sous les toits. Une couverture neuve a ensuite été posée par-dessus.",
+      ],
+    },
+    issues: {
+      title: "Pourquoi les Caluirards nous contactent",
+      items: [
+        {
+          title: "Combles aménagés trop chauds l'été",
+          text: "Une chambre sous les toits devient vite inconfortable lorsque l'isolant est mince ou absent : l'isolation par l'extérieur traite le problème sans réduire la pièce.",
+        },
+        {
+          title: "Couverture ancienne en fin de vie",
+          text: "Tuiles qui se délitent, liteaux fatigués, absence d'écran sous toiture : une réfection complète permet de tout reprendre d'un coup.",
+        },
+        {
+          title: "Infiltration sur une maison de maître",
+          text: "Lucarnes, cheminées et noues multiplient les raccords sur les grandes toitures : chacun d'eux doit être contrôlé lors du diagnostic.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos interventions à Caluire-et-Cuire",
+      intro: "Isolation et couverture vont souvent de pair sur les maisons caluirardes :",
+      items: [
+        {
+          service: "isolation",
+          text: "Isolation sous tuiles en fibre de bois (Sarking), isolation des combles perdus ou aménagés.",
+        },
+        {
+          service: "couverture",
+          text: "Dépose et réfection complète de couverture, remplacement des liteaux et pose d'un écran de sous-toiture.",
+        },
+        {
+          service: "zinguerie",
+          text: "Abergements de cheminée, noues, gouttières et habillages de rives en zinc.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Tache au plafond d'une chambre sous les toits : nous cherchons l'entrée d'eau avant de proposer la réparation adaptée.",
+        },
+        {
+          service: "fenetres-de-toit",
+          text: "Remplacement ou création de fenêtres de toit, idéalement en même temps qu'une réfection.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Caluire-et-Cuire",
+      intro:
+        "Dépose de la couverture, isolation en fibre de bois de 160 mm sur chevrons et couverture neuve, en sept jours :",
+      localSlugs: ["isolation-sarking-toiture-caluire"],
+      nearbyTitle: "Autres chantiers au nord de Lyon",
+      nearbySlugs: [
+        "renovation-faitage-a-sec-fontaines-sur-saone",
+        "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
+        "creation-verriere-toit-lyon-3",
+      ],
+    },
+    processIntro:
+      "Pour un projet d'isolation par l'extérieur à Caluire-et-Cuire, la visite permet de mesurer la toiture, de vérifier la charpente et d'anticiper la surélévation créée par l'isolant au niveau des rives et des raccords.",
+    nearby: {
+      title: "Autour de Caluire-et-Cuire",
+      intro: "Nous intervenons également dans les communes voisines :",
+      cities: [
+        { name: "Lyon", slug: "couvreur-lyon" },
+        { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
+        { name: "Rillieux-la-Pape" },
+        { name: "Fontaines-sur-Saône" },
+        { name: "Sathonay-Camp" },
+      ],
+    },
+    faq: [
+      {
+        question: "Qu'est-ce que l'isolation Sarking ?",
+        answer:
+          "C'est une isolation posée au-dessus des chevrons, sous la couverture. À Caluire-et-Cuire, nous avons utilisé des panneaux rigides de fibre de bois de 160 mm avant de reposer une couverture neuve. L'espace intérieur des combles est entièrement conservé.",
+      },
+      {
+        question: "Combien de temps dure une rénovation de toiture avec isolation par l'extérieur ?",
+        answer:
+          "Notre chantier de Caluire-et-Cuire a duré sept jours, de la dépose de l'ancienne couverture à la pose des tuiles neuves. La durée varie selon la surface, la forme de la toiture et la météo.",
+      },
+      {
+        question: "Faut-il refaire la couverture pour isoler par l'extérieur ?",
+        answer:
+          "Oui : l'isolant se place entre la charpente et les tuiles, la couverture doit donc être déposée. C'est pourquoi cette solution est surtout pertinente lorsque la toiture doit de toute façon être refaite.",
+      },
+      {
+        question: "Venez-vous de loin pour un chantier caluirard ?",
+        answer:
+          `Notre siège se trouve à Décines-Charpieu, de l'autre côté du Rhône. Pour une visite ou un devis gratuit, appelez le ${BUSINESS.phoneDisplay} du lundi au samedi.`,
+      },
+    ],
+    sectionOrder: ["intro", "context", "realisations", "services", "issues", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // VÉNISSIEUX — angle : urgence après intempéries, bâtiments professionnels
+  // Réalisation réelle : remplacement-tuiles-cassees-orage-venissieux (juin 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-venissieux",
+    city: "Vénissieux",
+    postalCode: "69200",
+    primaryKeyword: "couvreur Vénissieux",
+    metaTitle: "Couvreur à Vénissieux – Urgence tuiles cassées & bâchage",
+    metaDescription:
+      `Couvreur à Vénissieux : bâchage d'urgence, remplacement de tuiles cassées après orage ou grêle, réparation de faîtage et de couverture, particuliers et professionnels. Appelez le ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Vénissieux : urgence toiture et réparation de couverture",
+    heroBadge: "Sud de Lyon · intervention depuis Décines-Charpieu",
+    heroLead:
+      "Après un orage de grêle, chaque heure compte. En juin 2026, nous avons bâché en moins de 12 heures la toiture d'un bâtiment professionnel de Vénissieux, puis remplacé 150 tuiles.",
+    intro: {
+      title: "Vénissieux, porte sud de la métropole",
+      paragraphs: [
+        "Vénissieux s'étend au sud de Lyon, entre le 8e arrondissement, Saint-Fons, Saint-Priest et Corbas. Le centre, Parilly, le Moulin-à-Vent ou les Minguettes ne se ressemblent pas, et les toitures non plus : maisons individuelles, petits collectifs, ateliers et locaux d'activité.",
+        "Notre siège de Décines-Charpieu est relié à Vénissieux par le boulevard périphérique Laurent-Bonnevay, ce qui nous permet d'intervenir rapidement en cas de dégât sur une toiture, pour des particuliers comme pour des entreprises.",
+      ],
+    },
+    context: {
+      title: "Toiture abîmée par un orage : les bons réflexes",
+      paragraphs: [
+        "Après un épisode de grêle ou de vent violent, la priorité est de remettre le bâtiment hors d'eau. Une bâche correctement lestée et fixée limite les infiltrations le temps de commander les matériaux et de planifier la réparation définitive.",
+        "Prenez des photos des dégâts visibles depuis le sol et prévenez votre assureur dans les délais prévus par votre contrat. Un devis détaillé de réparation, établi après visite, vous sera généralement demandé pour le dossier.",
+      ],
+    },
+    issues: {
+      title: "Les dégâts que nous réparons à Vénissieux",
+      items: [
+        {
+          title: "Tuiles cassées par la grêle",
+          text: "Les impacts fendent ou percent les tuiles : l'eau passe dès la pluie suivante, parfois loin du point d'impact.",
+        },
+        {
+          title: "Faîtage fragilisé",
+          text: "Les tuiles faîtières, au sommet du toit, sont les plus exposées : leurs fixations doivent être vérifiées et consolidées après une tempête.",
+        },
+        {
+          title: "Locaux professionnels à remettre en service",
+          text: "Sur un atelier ou un entrepôt, une infiltration peut stopper l'activité : la mise hors d'eau passe avant tout le reste.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Vénissieux",
+      intro: "De l'urgence à la rénovation :",
+      items: [
+        {
+          service: "recherche-de-fuite",
+          text: "Bâchage de mise hors d'eau, recherche de l'origine d'une infiltration et réparation.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement de tuiles cassées, consolidation du faîtage, réfection partielle ou totale de la couverture.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières et chéneaux déformés par la grêle ou arrachés par le vent.",
+        },
+        {
+          service: "isolation",
+          text: "Remplacement d'un isolant de combles mouillé après une infiltration.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage et traitement des tuiles une fois la toiture remise en état.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre intervention d'urgence à Vénissieux",
+      intro:
+        "Bâchage sous 12 heures après la grêle, remplacement de 150 tuiles et consolidation des fixations du faîtage, en deux jours :",
+      localSlugs: ["remplacement-tuiles-cassees-orage-venissieux"],
+      nearbyTitle: "Dans le sud et l'est de l'agglomération",
+      nearbySlugs: [
+        "renovation-toiture-garages-corbas",
+        "traitement-charpente-bois-saint-priest",
+        "refection-etancheite-toit-terrasse-lyon-6",
+      ],
+    },
+    processIntro:
+      "En cas d'urgence à Vénissieux, appelez directement : nous évaluons la situation par téléphone puis organisons la mise hors d'eau avant le diagnostic complet et le devis.",
+    nearby: {
+      title: "Communes proches de Vénissieux",
+      intro: "Nous intervenons aussi autour de Vénissieux :",
+      cities: [
+        { name: "Lyon", slug: "couvreur-lyon" },
+        { name: "Saint-Priest", slug: "couvreur-saint-priest" },
+        { name: "Corbas" },
+        { name: "Saint-Fons" },
+        { name: "Feyzin" },
+        { name: "Bron" },
+      ],
+    },
+    faq: [
+      {
+        question: "En combien de temps pouvez-vous bâcher une toiture après un orage ?",
+        answer:
+          "Cela dépend du nombre de demandes après l'intempérie. Lors de notre intervention de juin 2026 à Vénissieux, le bâchage a été réalisé en moins de 12 heures après l'orage de grêle.",
+      },
+      {
+        question: "Intervenez-vous sur des bâtiments professionnels ?",
+        answer:
+          "Oui. Le chantier de Vénissieux concernait justement un bâtiment professionnel : 150 tuiles ont été remplacées et les fixations du faîtage consolidées.",
+      },
+      {
+        question: "Que faire en attendant le couvreur quand il pleut dans la maison ?",
+        answer:
+          "Coupez l'électricité de la pièce concernée si l'eau approche d'un point lumineux, placez des récipients sous les gouttes et déplacez meubles et objets de valeur. Ne montez jamais sur un toit mouillé.",
+      },
+      {
+        question: "Le devis de réparation peut-il servir pour l'assurance ?",
+        answer:
+          "Notre devis détaille les travaux nécessaires et peut être joint à votre déclaration de sinistre. La prise en charge dépend ensuite de votre contrat et de l'expertise de l'assureur.",
+      },
+    ],
+    sectionOrder: ["intro", "realisations", "context", "issues", "services", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // JONAGE — angle : proximité immédiate, fuites et réparations rapides
+  // Aucune réalisation publiée à Jonage : chantiers voisins uniquement
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-jonage",
+    city: "Jonage",
+    postalCode: "69330",
+    primaryKeyword: "couvreur Jonage",
+    metaTitle: "Couvreur à Jonage – Fuite de toit & réparation rapide",
+    metaDescription:
+      `Couvreur à Jonage : recherche de fuite, réparation de tuiles, gouttières et entretien de toiture. Jrenov est installé à Décines-Charpieu, à quelques minutes. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Jonage : fuites, réparations et entretien de toiture",
+    heroBadge: "À quelques minutes de notre siège",
+    heroLead:
+      "Une goutte au plafond, une tuile tombée dans le jardin, une gouttière qui déborde : à Jonage, votre couvreur est installé tout près, à Décines-Charpieu.",
+    intro: {
+      title: "Jonage, entre canal et Grand Parc",
+      paragraphs: [
+        "Jonage est l'une des communes les plus à l'est de la Métropole de Lyon, bordée par le canal qui porte son nom et par le Grand Parc de Miribel-Jonage. Le bâti y est majoritairement pavillonnaire, avec un centre-village plus ancien.",
+        "Pour Jrenov, Jonage se trouve dans le premier cercle autour de notre siège de Décines-Charpieu, juste après Meyzieu. Une demande de visite pour une fuite ou une réparation peut donc s'organiser rapidement.",
+      ],
+    },
+    context: {
+      title: "Maisons individuelles : les fuites viennent souvent des raccords",
+      paragraphs: [
+        "Sur un pavillon, une infiltration ne signifie pas forcément qu'il faut refaire la toiture. Le plus souvent, l'eau passe par un point précis : une tuile glissée, un faîtage dont le mortier s'effrite, un abergement de cheminée fissuré ou une noue percée.",
+        "Notre méthode consiste à partir de la trace d'humidité à l'intérieur pour remonter vers la couverture, en contrôlant chaque raccord. Ce diagnostic permet de proposer une réparation ciblée plutôt qu'une réfection coûteuse.",
+      ],
+    },
+    issues: {
+      title: "Les interventions demandées à Jonage",
+      items: [
+        {
+          title: "Plafond taché ou humide",
+          text: "La tache apparaît rarement à l'aplomb de l'entrée d'eau : l'eau chemine le long des chevrons avant de tomber sur l'isolant.",
+        },
+        {
+          title: "Gouttières encombrées par les feuilles",
+          text: "Dans un environnement arboré, gouttières et descentes se bouchent vite et l'eau finit par déborder contre la façade.",
+        },
+        {
+          title: "Faîtage scellé qui s'effrite",
+          text: "Le mortier des tuiles faîtières se fissure avec le temps ; une pose à sec avec closoir ventilé est plus durable.",
+        },
+      ],
+    },
+    services: {
+      title: "Ce que nous faisons à Jonage",
+      intro: "Réparation d'abord, rénovation quand elle s'impose :",
+      items: [
+        {
+          service: "recherche-de-fuite",
+          text: "Diagnostic de l'infiltration, mise hors d'eau si nécessaire, puis réparation du point défaillant.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement de tuiles, reprise de faîtage, réfection de rives et rénovation de couverture.",
+        },
+        {
+          service: "zinguerie",
+          text: "Nettoyage, réparation et remplacement de gouttières, noues et abergements.",
+        },
+        {
+          service: "demoussage",
+          text: "Démoussage et traitement hydrofuge pour prolonger la vie des tuiles.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles, une fois la couverture étanche.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Nos chantiers autour de Jonage",
+      intro:
+        "Nous n'avons pas encore publié de chantier situé à Jonage. Voici nos réalisations les plus proches, dans les communes voisines de l'Est lyonnais :",
+      localSlugs: [],
+      nearbyTitle: "À Meyzieu, Décines-Charpieu et Genas",
+      nearbySlugs: [
+        "habillage-bandeaux-rive-alu-meyzieu",
+        "remplacement-velux-ancien-decines",
+        "demoussage-toiture-ecologique-genas",
+      ],
+    },
+    processIntro:
+      "À Jonage, la visite de diagnostic est l'occasion de faire le tour complet de la toiture : couverture, faîtage, raccords et gouttières, pour ne rien laisser passer.",
+    nearby: {
+      title: "Autour de Jonage",
+      intro: "Nous intervenons aussi dans les communes voisines :",
+      cities: [
+        { name: "Meyzieu", slug: "couvreur-meyzieu" },
+        { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
+        { name: "Genas", slug: "couvreur-genas" },
+        { name: "Pusignan" },
+        { name: "Jons" },
+      ],
+    },
+    faq: [
+      {
+        question: "Faut-il refaire toute la toiture quand il y a une fuite ?",
+        answer:
+          "Rarement. Sur une maison individuelle, l'infiltration vient le plus souvent d'un point précis (tuile, faîtage, raccord de cheminée). Une recherche de fuite permet de réparer uniquement ce qui doit l'être.",
+      },
+      {
+        question: "À quelle distance de Jonage se trouve votre entreprise ?",
+        answer:
+          `Notre siège est au 48 Ancien Chemin des Marais à Décines-Charpieu, à quelques minutes de Jonage par Meyzieu. Nous sommes joignables au ${BUSINESS.phoneDisplay} du lundi au samedi, de 8h à 19h.`,
+      },
+      {
+        question: "Pourquoi remplacer un faîtage scellé par une pose à sec ?",
+        answer:
+          "Le mortier se fissure avec les variations de température et finit par se détacher. La pose à sec, avec closoir ventilé et fixation mécanique des faîtières, comme nous l'avons fait à Fontaines-sur-Saône, ventile mieux la toiture et dure plus longtemps.",
+      },
+    ],
+    sectionOrder: ["intro", "issues", "context", "services", "realisations", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // DARDILLY — angle : zinguerie, entretien, maisons avec jardin (Ouest lyonnais)
+  // Aucune réalisation publiée à Dardilly : chantiers voisins uniquement
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-dardilly",
+    city: "Dardilly",
+    postalCode: "69570",
+    primaryKeyword: "couvreur Dardilly",
+    metaTitle: "Couvreur à Dardilly – Zinguerie, gouttières & toiture",
+    metaDescription:
+      "Couvreur à Dardilly : gouttières et zinguerie, démoussage, réparation et rénovation de toiture. Chantiers réalisés à Écully, Champagne-au-Mont-d'Or et Tassin. Devis gratuit et sans engagement.",
+    h1: "Couvreur à Dardilly : toiture, gouttières et zinguerie",
+    heroBadge: "Ouest lyonnais · au pied des Monts d'Or",
+    heroLead:
+      "Grandes parcelles, arbres et toitures à plusieurs pans : à Dardilly, l'entretien des gouttières et des raccords en zinc compte autant que l'état des tuiles.",
+    intro: {
+      title: "Un couvreur pour les maisons dardilloises",
+      paragraphs: [
+        "Dardilly s'étend au nord-ouest de Lyon, entre Écully, Limonest et Champagne-au-Mont-d'Or, aux portes des Monts d'Or. La commune associe un vieux village, des hameaux et de nombreux quartiers de maisons individuelles entourées de jardins.",
+        "Jrenov est installé à Décines-Charpieu, de l'autre côté de l'agglomération, mais nous intervenons régulièrement dans l'Ouest lyonnais : plusieurs de nos chantiers publiés se trouvent dans les communes qui entourent Dardilly.",
+      ],
+    },
+    context: {
+      title: "Toitures à plusieurs pans : la zinguerie en première ligne",
+      paragraphs: [
+        "Plus une toiture compte de pans, de lucarnes et de jonctions, plus elle comporte de noues, de solins et d'abergements. Ces pièces de zinc canalisent l'eau aux endroits les plus sensibles ; une noue percée ou un chéneau fuyard suffit à provoquer une infiltration le long d'un mur.",
+        "La végétation environnante joue aussi : feuilles et aiguilles s'accumulent dans les gouttières et au creux des noues, retiennent l'humidité et favorisent la corrosion. Un nettoyage régulier, associé à un contrôle des raccords, évite bien des réparations.",
+      ],
+    },
+    issues: {
+      title: "Ce que nous rencontrons sur les toitures de Dardilly",
+      items: [
+        {
+          title: "Gouttière nantaise qui fuit",
+          text: "Intégrée au bas de la toiture, la gouttière nantaise abîme la façade et les bois de rive lorsqu'elle se perce.",
+        },
+        {
+          title: "Noue rouillée au creux du toit",
+          text: "À la jonction de deux pans, l'eau se concentre : une noue fatiguée provoque une fuite difficile à localiser depuis l'intérieur.",
+        },
+        {
+          title: "Mousse sur les pans ombragés",
+          text: "Sous les arbres, les tuiles sèchent mal et se couvrent de mousse, qui finit par glisser dans les gouttières.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations pour Dardilly",
+      intro: "Zinguerie, entretien et couverture :",
+      items: [
+        {
+          service: "zinguerie",
+          text: "Chéneaux et gouttières façonnés sur mesure, noues en zinc, habillage alu des bandeaux et rives.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage des tuiles, traitement fongicide et hydrofuge, nettoyage des gouttières.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement de tuiles, réfection de faîtage, rénovation de couverture en tuiles ou ardoises.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Infiltration le long d'un mur ou au creux du toit : diagnostic de la zinguerie et de la couverture.",
+        },
+        {
+          service: "fenetres-de-toit",
+          text: "Pose et remplacement de fenêtres de toit avec raccords d'étanchéité en zinc.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Nos chantiers près de Dardilly",
+      intro:
+        "Aucun chantier publié n'est situé à Dardilly même. Ces réalisations ont été menées dans les communes voisines de l'Ouest lyonnais et des Monts d'Or :",
+      localSlugs: [],
+      nearbyTitle: "Écully, Champagne-au-Mont-d'Or, Tassin et Francheville",
+      nearbySlugs: [
+        "reparation-zinguerie-gouttiere-ecully",
+        "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
+        "demoussage-traitement-hydrofuge-tassin",
+        "refection-noue-zinc-francheville",
+      ],
+    },
+    processIntro:
+      "Pour une maison de Dardilly, nous regroupons si possible la visite avec nos autres rendez-vous de l'Ouest lyonnais, puis nous vous envoyons un devis détaillé.",
+    nearby: {
+      title: "Communes voisines de Dardilly",
+      intro: "Nous intervenons également à proximité :",
+      cities: [
+        { name: "Écully" },
+        { name: "Champagne-au-Mont-d'Or" },
+        { name: "Limonest" },
+        { name: "Tassin-la-Demi-Lune" },
+        { name: "Lyon", slug: "couvreur-lyon" },
+        { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
+      ],
+    },
+    faq: [
+      {
+        question: "Quelle différence entre une gouttière nantaise et une gouttière pendante ?",
+        answer:
+          "La gouttière nantaise repose sur le bas de la toiture, derrière un petit muret de tuiles ou de bois ; la gouttière pendante est accrochée sous le bord du toit. À Écully, nous avons remplacé des gouttières nantaises fuyardes par des chéneaux en zinc façonnés sur mesure.",
+      },
+      {
+        question: "Comment repérer une noue qui fuit ?",
+        answer:
+          "Une tache d'humidité dans l'angle d'une pièce sous les toits, ou une coulure sur la charpente à la jonction de deux pans, doit faire penser à la noue. À Francheville, une noue rouillée a été remplacée par un couloir en zinc à pince.",
+      },
+      {
+        question: "Faut-il nettoyer ses gouttières tous les ans ?",
+        answer:
+          "Dans un jardin arboré, un nettoyage au moins annuel, de préférence après la chute des feuilles, est recommandé. Il permet aussi de contrôler l'état des crochets et des raccords.",
+      },
+    ],
+    sectionOrder: ["intro", "context", "issues", "services", "realisations", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // VIENNE (38) — angle : ville ancienne, couvertures en tuiles, planification
+  // Aucune réalisation publiée à Vienne : aucune réalisation affichée comme locale
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-vienne",
+    city: "Vienne",
+    postalCode: "38200",
+    primaryKeyword: "couvreur Vienne",
+    metaTitle: "Couvreur à Vienne (38) – Réparation & rénovation de toiture",
+    metaDescription:
+      `Couvreur à Vienne (Isère) : réparation de tuiles, recherche de fuite, zinguerie et rénovation de toiture. Jrenov, artisan de l'agglomération lyonnaise. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Vienne : réparation et rénovation de toiture",
+    heroBadge: "Vienne (38200) · vallée du Rhône",
+    heroLead:
+      "Ville ancienne bâtie sur les collines de la rive gauche du Rhône, Vienne compte beaucoup de toitures en tuiles qui demandent un œil attentif. Jrenov s'y déplace depuis l'Est lyonnais.",
+    intro: {
+      title: "Intervenir à Vienne depuis l'agglomération lyonnaise",
+      paragraphs: [
+        "Vienne est une sous-préfecture de l'Isère, située au bord du Rhône, au sud de Lyon. Son centre historique, connu pour ses vestiges romains comme le temple d'Auguste et de Livie ou le théâtre antique, est entouré de quartiers résidentiels qui montent sur les collines.",
+        "Jrenov est basé à Décines-Charpieu et n'a pas d'agence à Vienne. Nous nous y déplaçons pour des chantiers de couverture, de zinguerie et de réparation, en planifiant la visite à l'avance pour vous proposer un rendez-vous précis.",
+      ],
+    },
+    context: {
+      title: "Toitures anciennes et secteur historique",
+      paragraphs: [
+        "Dans la vallée du Rhône, les toitures à faible pente couvertes de tuiles canal ou romanes sont fréquentes. Sur ces couvertures, les tuiles de courant et de couvert peuvent glisser avec le temps, et les faîtages ou rives scellés au mortier finissent par se fissurer.",
+        "Une partie du centre de Vienne est concernée par des règles de protection du patrimoine. Avant tout changement d'aspect de la toiture (matériau, teinte, ouverture nouvelle), il est indispensable de se renseigner auprès du service urbanisme de la ville. Une réparation à l'identique reste généralement plus simple à engager.",
+      ],
+    },
+    issues: {
+      title: "Ce qui amène les Viennois à appeler un couvreur",
+      items: [
+        {
+          title: "Tuiles canal qui glissent",
+          text: "Sur les pentes faibles, les tuiles peu fixées se décalent et laissent passer l'eau entre deux rangs.",
+        },
+        {
+          title: "Rives et faîtage scellés fissurés",
+          text: "Le mortier vieillit, se fend et se détache par morceaux : l'eau s'infiltre en tête de mur ou au sommet du toit.",
+        },
+        {
+          title: "Chéneaux et descentes en mauvais état",
+          text: "Sur les maisons de ville, un chéneau percé déverse l'eau dans la maçonnerie et abîme les façades.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Vienne",
+      intro: "Selon l'état de votre toiture :",
+      items: [
+        {
+          service: "couverture",
+          text: "Remaniement de tuiles, réfection de faîtage et de rives, rénovation de couverture en tuiles.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche de l'origine d'une infiltration, bâchage provisoire si besoin, puis réparation.",
+        },
+        {
+          service: "zinguerie",
+          text: "Chéneaux, gouttières, descentes et abergements en zinc.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage des tuiles et traitement hydrofuge adapté au matériau.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles ou par l'extérieur lors d'une réfection de couverture.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Des chantiers comparables aux toitures viennoises",
+      intro:
+        "Nous n'avons pas encore publié de chantier à Vienne. Ces réalisations, menées dans l'agglomération lyonnaise, correspondent aux travaux que nous proposons sur les toitures en tuiles :",
+      localSlugs: [],
+      nearbyTitle: "Couverture et zinguerie dans la métropole",
+      nearbySlugs: [
+        "demoussage-traitement-hydrofuge-tassin",
+        "renovation-faitage-a-sec-fontaines-sur-saone",
+        "reparation-fuite-cheminee-brignais",
+      ],
+    },
+    processIntro:
+      "Pour un chantier à Vienne, nous convenons ensemble d'un créneau de visite. Le diagnostic et le devis restent gratuits, quelle que soit la distance.",
+    nearby: {
+      title: "Autour de Vienne",
+      intro: "Nous pouvons également intervenir dans les communes proches, selon le chantier :",
+      cities: [
+        { name: "Pont-Évêque" },
+        { name: "Chasse-sur-Rhône" },
+        { name: "Saint-Romain-en-Gal" },
+        { name: "Sainte-Colombe" },
+        { name: "Seyssuel" },
+      ],
+    },
+    faq: [
+      {
+        question: "Jrenov intervient-il vraiment jusqu'à Vienne ?",
+        answer:
+          `Oui. Notre siège est à Décines-Charpieu et Vienne fait partie de notre zone d'intervention dans un rayon d'environ 50 km. Appelez le ${BUSINESS.phoneDisplay} pour convenir d'une visite.`,
+      },
+      {
+        question: "Qu'est-ce qu'un remaniement de toiture ?",
+        answer:
+          "C'est une intervention qui consiste à déposer puis reposer les tuiles d'une zone, en remplaçant celles qui sont cassées et en vérifiant le support. Elle convient aux couvertures dont la plupart des tuiles sont encore saines.",
+      },
+      {
+        question: "Faut-il une autorisation pour refaire une toiture dans le centre ancien ?",
+        answer:
+          "Cela dépend de la localisation et de la nature des travaux. Dans un secteur protégé, un changement d'aspect est soumis à des règles particulières : renseignez-vous auprès du service urbanisme de la ville de Vienne avant de signer un devis.",
+      },
+    ],
+    sectionOrder: ["intro", "context", "issues", "services", "process", "realisations", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // BOURGOIN-JALLIEU (38) — angle : pavillons, rénovation et isolation
+  // Aucune réalisation publiée à Bourgoin-Jallieu : aucune réalisation affichée comme locale
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-bourgoin-jallieu",
+    city: "Bourgoin-Jallieu",
+    postalCode: "38300",
+    primaryKeyword: "couvreur Bourgoin-Jallieu",
+    metaTitle: "Couvreur à Bourgoin-Jallieu – Rénovation & isolation de toit",
+    metaDescription:
+      "Couvreur à Bourgoin-Jallieu (Nord-Isère) : rénovation de couverture, isolation des combles, fenêtres de toit, zinguerie et recherche de fuite. Jrenov se déplace depuis l'Est lyonnais par l'A43.",
+    h1: "Couvreur à Bourgoin-Jallieu : rénovation, isolation et fenêtres de toit",
+    heroBadge: "Nord-Isère (38300) · accès direct par l'A43",
+    heroLead:
+      "Couverture de pavillon à rénover, combles mal isolés, fenêtre de toit à remplacer : Jrenov intervient à Bourgoin-Jallieu depuis Décines-Charpieu, par l'autoroute A43.",
+    intro: {
+      title: "Bourgoin-Jallieu, au cœur du Nord-Isère",
+      paragraphs: [
+        "Bourgoin-Jallieu est la principale ville du Nord-Isère, au sein de l'agglomération Porte de l'Isère, sur l'axe Lyon–Chambéry. Autour du centre-ville et de Jallieu s'étendent de nombreux quartiers pavillonnaires construits au fil des dernières décennies.",
+        "Notre siège de Décines-Charpieu est situé à l'est de Lyon, du côté de l'A43 : Bourgoin-Jallieu est donc accessible directement par l'autoroute. Nous y intervenons sur rendez-vous pour des travaux de toiture complets.",
+      ],
+    },
+    context: {
+      title: "Pavillons : rénover la couverture et isoler en même temps",
+      paragraphs: [
+        "Beaucoup de maisons individuelles ont été couvertes de tuiles mécaniques ou de tuiles béton, souvent sans écran de sous-toiture. Après plusieurs décennies, ces couvertures montrent des tuiles poreuses, des liteaux fatigués et des combles dont l'isolant s'est tassé.",
+        "Traiter la couverture et l'isolation dans un même projet évite d'intervenir deux fois. Selon l'état de la toiture, on peut souffler un nouvel isolant dans les combles perdus, ou isoler par l'extérieur si la couverture doit être refaite.",
+      ],
+    },
+    issues: {
+      title: "Les besoins fréquents à Bourgoin-Jallieu",
+      items: [
+        {
+          title: "Combles froids l'hiver",
+          text: "Une ancienne laine de verre tassée isole mal : souffler une épaisseur suffisante de laine de roche améliore nettement le confort.",
+        },
+        {
+          title: "Fenêtre de toit qui fuit ou se bloque",
+          text: "Un Velux ancien se remplace par l'extérieur, en reprenant les raccords d'étanchéité avec la couverture.",
+        },
+        {
+          title: "Tuiles béton qui ont perdu leur protection",
+          text: "Avec les années, la surface des tuiles béton devient poreuse et se couvre de mousse : un nettoyage et un hydrofuge, ou un remplacement, s'imposent.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Bourgoin-Jallieu",
+      intro: "Pour les maisons individuelles du Nord-Isère :",
+      items: [
+        {
+          service: "couverture",
+          text: "Rénovation complète de couverture avec pose d'un écran de sous-toiture, remplacement de tuiles et de faîtage.",
+        },
+        {
+          service: "isolation",
+          text: "Soufflage en combles perdus, isolation des combles aménagés ou par l'extérieur.",
+        },
+        {
+          service: "fenetres-de-toit",
+          text: "Remplacement de fenêtres de toit anciennes et création de nouvelles ouvertures.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières, descentes, noues et habillage des rives.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Diagnostic d'infiltration et réparation ciblée de la couverture.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage et traitement des tuiles mécaniques ou béton.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Des chantiers proches de vos besoins",
+      intro:
+        "Aucun chantier publié n'est situé à Bourgoin-Jallieu. Ces réalisations dans l'Est lyonnais illustrent les travaux que nous menons sur les pavillons :",
+      localSlugs: [],
+      nearbyTitle: "Isolation, fenêtres de toit et couverture",
+      nearbySlugs: [
+        "isolation-combles-perdus-laine-roche-chassieu",
+        "remplacement-velux-ancien-decines",
+        "renovation-toiture-garages-corbas",
+      ],
+    },
+    processIntro:
+      "À Bourgoin-Jallieu, nous fixons un rendez-vous de visite précis. Le diagnostic porte à la fois sur la couverture et, lorsque c'est possible, sur les combles et leur isolant.",
+    nearby: {
+      title: "Autour de Bourgoin-Jallieu",
+      intro: "Nous pouvons également intervenir dans les communes voisines, selon le chantier :",
+      cities: [
+        { name: "L'Isle-d'Abeau" },
+        { name: "Villefontaine" },
+        { name: "Saint-Quentin-Fallavier" },
+        { name: "Ruy-Montceau" },
+        { name: "Nivolas-Vermelle" },
+      ],
+    },
+    faq: [
+      {
+        question: "Vous déplacez-vous jusqu'à Bourgoin-Jallieu pour un devis ?",
+        answer:
+          `Oui. Bourgoin-Jallieu se trouve dans notre rayon d'intervention d'environ 50 km autour de Décines-Charpieu. La visite et le devis sont gratuits ; appelez le ${BUSINESS.phoneDisplay} pour fixer un rendez-vous.`,
+      },
+      {
+        question: "Vaut-il mieux isoler les combles ou refaire la toiture en premier ?",
+        answer:
+          "Il faut d'abord s'assurer que la couverture est étanche : un isolant neuf mouillé par une fuite perd son efficacité. Si la toiture est saine, l'isolation des combles peut se faire seule ; sinon, on traite les deux ensemble.",
+      },
+      {
+        question: "Peut-on remplacer un Velux sans abîmer l'intérieur ?",
+        answer:
+          "Oui, le remplacement se fait par l'extérieur. À Décines-Charpieu, nous avons ainsi posé trois fenêtres de toit neuves en une journée, sans détériorer les finitions intérieures.",
+      },
+    ],
+    sectionOrder: ["intro", "issues", "context", "services", "realisations", "process", "faq", "nearby"],
+  },
 ];
 
 /**
  * Secteurs du hub /zones-intervention.
- * Uniquement des secteurs où une réalisation existe ou qui entourent directement le siège.
+ * Secteurs où une réalisation existe, qui entourent directement le siège, ou couverts
+ * par une page locale publiée (Nord-Isère et pays viennois, dans le rayon d'environ 50 km).
  * Les listes ne sont pas exhaustives.
  */
 export interface ZoneSector {
@@ -937,7 +1662,7 @@ export const ZONE_SECTORS: ZoneSector[] = [
       { name: "Saint-Priest", slug: "couvreur-saint-priest" },
       { name: "Vaulx-en-Velin" },
       { name: "Bron" },
-      { name: "Jonage" },
+      { name: "Jonage", slug: "couvreur-jonage" },
       { name: "Pusignan" },
       { name: "Saint-Bonnet-de-Mure" },
       { name: "Mions" },
@@ -952,8 +1677,8 @@ export const ZONE_SECTORS: ZoneSector[] = [
     communes: [
       { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
       { name: "Lyon", slug: "couvreur-lyon" },
-      { name: "Caluire-et-Cuire" },
-      { name: "Vénissieux" },
+      { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
+      { name: "Vénissieux", slug: "couvreur-venissieux" },
       { name: "Rillieux-la-Pape" },
     ],
   },
@@ -969,6 +1694,7 @@ export const ZONE_SECTORS: ZoneSector[] = [
     description: "De l'autre côté de Lyon, nous avons réalisé plusieurs chantiers de couverture, de zinguerie et d'entretien.",
     communes: [
       { name: "Écully" },
+      { name: "Dardilly", slug: "couvreur-dardilly" },
       { name: "Tassin-la-Demi-Lune" },
       { name: "Craponne" },
       { name: "Sainte-Foy-lès-Lyon" },
@@ -982,5 +1708,15 @@ export const ZONE_SECTORS: ZoneSector[] = [
     name: "Côtière de l'Ain",
     description: "Au nord-est, de l'autre côté du Rhône, dans le département de l'Ain.",
     communes: [{ name: "Dagneux" }, { name: "Miribel" }, { name: "Beynost" }],
+  },
+  {
+    key: "isere",
+    name: "Nord-Isère & pays viennois",
+    description:
+      "Au sud-est et au sud de l'agglomération, dans notre rayon d'environ 50 km : interventions sur rendez-vous.",
+    communes: [
+      { name: "Bourgoin-Jallieu", slug: "couvreur-bourgoin-jallieu" },
+      { name: "Vienne", slug: "couvreur-vienne" },
+    ],
   },
 ];
