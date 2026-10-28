@@ -70,8 +70,8 @@ export default function ZonesInterventionPage() {
               interventions : plus un chantier en est proche, plus il est simple d&apos;organiser une visite rapide.
             </p>
             <p>
-              Les communes listées ci-dessous sont celles où nous avons déjà travaillé ou qui entourent directement
-              notre siège. Cette liste n&apos;est pas exhaustive : si votre commune n&apos;y figure pas, contactez-nous
+              Les communes listées ci-dessous sont celles où nous avons déjà travaillé, qui entourent directement
+              notre siège ou que nous desservons sur rendez-vous dans notre rayon d&apos;environ 50 km. Cette liste n&apos;est pas exhaustive : si votre commune n&apos;y figure pas, contactez-nous
               pour vérifier que nous pouvons intervenir.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function ZonesInterventionPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-3 mb-10">
             <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Pages locales</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Votre couvreur dans l&apos;Est lyonnais</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Votre couvreur commune par commune</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {LOCAL_AREAS.map((area) => (
