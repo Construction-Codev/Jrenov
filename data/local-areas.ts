@@ -2,7 +2,7 @@ import type { ServiceKey } from "@/lib/services";
 import { BUSINESS } from "@/lib/site";
 
 /**
- * Pages locales publiées (première vague du Lot 3, deuxième vague d'octobre 2026).
+ * Pages locales publiées (première vague du Lot 3, deuxième et troisième vagues d'octobre 2026).
  *
  * Règles éditoriales :
  * - contenu rédigé commune par commune (aucun gabarit à remplacement de nom de ville) ;
@@ -166,7 +166,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
         { name: "Vaulx-en-Velin" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
       ],
     },
     faq: [
@@ -400,7 +400,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Lyon", slug: "couvreur-lyon" },
         { name: "Vaulx-en-Velin" },
         { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
       ],
     },
@@ -520,9 +520,9 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
         { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
-        { name: "Sainte-Foy-lès-Lyon" },
+        { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
         { name: "Vénissieux", slug: "couvreur-venissieux" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
       ],
     },
@@ -763,7 +763,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
         { name: "Genas", slug: "couvreur-genas" },
         { name: "Saint-Priest", slug: "couvreur-saint-priest" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Meyzieu", slug: "couvreur-meyzieu" },
       ],
     },
@@ -879,10 +879,10 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "Chassieu", slug: "couvreur-chassieu" },
         { name: "Genas", slug: "couvreur-genas" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
         { name: "Vénissieux", slug: "couvreur-venissieux" },
-        { name: "Mions" },
-        { name: "Corbas" },
+        { name: "Mions", slug: "couvreur-mions" },
+        { name: "Corbas", slug: "couvreur-corbas" },
       ],
     },
     faq: [
@@ -1002,7 +1002,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "Lyon", slug: "couvreur-lyon" },
         { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
-        { name: "Rillieux-la-Pape" },
+        { name: "Rillieux-la-Pape", slug: "couvreur-rillieux-la-pape" },
         { name: "Fontaines-sur-Saône" },
         { name: "Sathonay-Camp" },
       ],
@@ -1125,10 +1125,10 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "Lyon", slug: "couvreur-lyon" },
         { name: "Saint-Priest", slug: "couvreur-saint-priest" },
-        { name: "Corbas" },
+        { name: "Corbas", slug: "couvreur-corbas" },
         { name: "Saint-Fons" },
         { name: "Feyzin" },
-        { name: "Bron" },
+        { name: "Bron", slug: "couvreur-bron" },
       ],
     },
     faq: [
@@ -1366,10 +1366,10 @@ export const LOCAL_AREAS: LocalArea[] = [
       title: "Communes voisines de Dardilly",
       intro: "Nous intervenons également à proximité :",
       cities: [
-        { name: "Écully" },
+        { name: "Écully", slug: "couvreur-ecully" },
         { name: "Champagne-au-Mont-d'Or" },
         { name: "Limonest" },
-        { name: "Tassin-la-Demi-Lune" },
+        { name: "Tassin-la-Demi-Lune", slug: "couvreur-tassin-la-demi-lune" },
         { name: "Lyon", slug: "couvreur-lyon" },
         { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
       ],
@@ -1609,7 +1609,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       cities: [
         { name: "L'Isle-d'Abeau" },
         { name: "Villefontaine" },
-        { name: "Saint-Quentin-Fallavier" },
+        { name: "Saint-Quentin-Fallavier", slug: "couvreur-saint-quentin-fallavier" },
         { name: "Ruy-Montceau" },
         { name: "Nivolas-Vermelle" },
       ],
@@ -1633,6 +1633,1411 @@ export const LOCAL_AREAS: LocalArea[] = [
     ],
     sectionOrder: ["intro", "issues", "context", "services", "realisations", "process", "faq", "nearby"],
   },
+  // ──────────────────────────────────────────────────────────────
+  // SAINT-GENIS-LAVAL — angle : plateau du sud-ouest, cheminées et charpentes
+  // Aucune réalisation publiée à Saint-Genis-Laval : chantiers voisins uniquement
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-saint-genis-laval",
+    city: "Saint-Genis-Laval",
+    postalCode: "69230",
+    primaryKeyword: "couvreur Saint-Genis-Laval",
+    metaTitle: "Couvreur à Saint-Genis-Laval – Toiture, cheminée & charpente",
+    metaDescription:
+      `Couvreur à Saint-Genis-Laval : réparation de toiture, abergements de cheminée, reprise de charpente, zinguerie et rénovation. Chantiers réalisés à Oullins et Brignais. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Saint-Genis-Laval : toiture, cheminées et charpente",
+    heroBadge: "Sud-ouest lyonnais · 69230",
+    heroLead:
+      "Cheminée qui laisse passer l'eau, chevrons fragilisés par une vieille fuite, tuiles à reprendre : à Saint-Genis-Laval, nous traitons la toiture dans son ensemble, du faîtage jusqu'à la charpente.",
+    intro: {
+      title: "Saint-Genis-Laval, sur les hauteurs du sud-ouest lyonnais",
+      paragraphs: [
+        "Saint-Genis-Laval occupe un plateau qui domine la vallée du Rhône, entre Oullins, Brignais, Chaponost et Irigny. La commune, connue pour l'Observatoire de Lyon, compte un centre ancien, des hameaux et de nombreux quartiers de maisons individuelles.",
+        "Jrenov est installé à Décines-Charpieu, à l'est de l'agglomération. Pour Saint-Genis-Laval, nous traversons Lyon par le sud ; nous avons déjà mené plusieurs chantiers dans les communes qui l'entourent, à Oullins comme à Brignais.",
+      ],
+    },
+    context: {
+      title: "Cheminée et charpente : deux points à surveiller sur les maisons anciennes",
+      paragraphs: [
+        "Sur beaucoup de maisons, le raccord entre la souche de cheminée et la couverture a été réalisé au mortier. Avec les cycles de gel et de chaleur, ce mortier se fissure et l'eau s'infiltre au pied du conduit, souvent sans que la tache n'apparaisse tout de suite à l'intérieur.",
+        "Quand une infiltration a duré, ce sont les bois qui en souffrent : chevrons qui s'affaissent, pannes noircies, voire attaque d'insectes. Avant de refaire la couverture, il faut donc vérifier la charpente et remplacer ou renforcer les pièces abîmées.",
+      ],
+    },
+    issues: {
+      title: "Ce que nous traitons autour de Saint-Genis-Laval",
+      items: [
+        {
+          title: "Fuite au pied de la cheminée",
+          text: "Mortier fendu, solin décollé : un abergement en zinc façonné sur mesure remplace durablement ces raccords fragiles.",
+        },
+        {
+          title: "Chevrons affaissés",
+          text: "Un pan de toiture qui se creuse signale une pièce de bois affaiblie, à moiser ou à remplacer avant de refermer la couverture.",
+        },
+        {
+          title: "Tuiles déplacées par le vent",
+          text: "Sur un plateau dégagé, les rives et le faîtage sont exposés : une tuile glissée doit être remise en place rapidement.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Saint-Genis-Laval",
+      intro: "De la réparation ponctuelle à la rénovation :",
+      items: [
+        {
+          service: "zinguerie",
+          text: "Abergements de cheminée, solins, noues, gouttières et descentes en zinc.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche de l'origine de l'infiltration, mise hors d'eau si nécessaire, puis réparation.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement de tuiles, reprise de faîtage, rénovation de couverture et réparations de charpente.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles une fois la toiture et la charpente remises en état.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage et traitement des tuiles.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Nos chantiers près de Saint-Genis-Laval",
+      intro:
+        "Nous n'avons pas encore publié de chantier situé à Saint-Genis-Laval. Ces réalisations ont été menées dans les communes voisines du sud-ouest lyonnais :",
+      localSlugs: [],
+      nearbyTitle: "À Oullins, Brignais et Francheville",
+      nearbySlugs: [
+        "reparation-charpente-lambourde-oullins",
+        "reparation-fuite-cheminee-brignais",
+        "refection-noue-zinc-francheville",
+      ],
+    },
+    processIntro:
+      "À Saint-Genis-Laval, la visite comprend, lorsque c'est accessible, un passage dans les combles : c'est souvent là que l'on mesure l'ampleur réelle d'une infiltration.",
+    nearby: {
+      title: "Autour de Saint-Genis-Laval",
+      intro: "Nous intervenons également dans les communes voisines :",
+      cities: [
+        { name: "Oullins", slug: "couvreur-oullins" },
+        { name: "Brignais", slug: "couvreur-brignais" },
+        { name: "Francheville", slug: "couvreur-francheville" },
+        { name: "Chaponost" },
+        { name: "Irigny" },
+        { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
+      ],
+    },
+    faq: [
+      {
+        question: "Comment savoir si l'eau entre par la cheminée ?",
+        answer:
+          "Une auréole au plafond près du conduit, des traces sur la souche dans les combles ou un mortier fissuré visible depuis le jardin sont les indices les plus fréquents. Le diagnostic sur place permet de le confirmer avant toute réparation.",
+      },
+      {
+        question: "Une charpente abîmée par une fuite peut-elle être réparée sans tout refaire ?",
+        answer:
+          "Souvent oui. À Oullins, commune voisine, nous avons découpé les pièces abîmées, moisé les pannes avec des bastings neufs et changé les chevrons affaissés, après dépose locale de la couverture.",
+      },
+      {
+        question: "Depuis où intervenez-vous pour un chantier à Saint-Genis-Laval ?",
+        answer:
+          `Oui. Nous intervenons dans toute la métropole de Lyon depuis notre siège de Décines-Charpieu. Pour un diagnostic gratuit, appelez le ${BUSINESS.phoneDisplay}.`,
+      },
+    ],
+    sectionOrder: ["intro", "issues", "context", "realisations", "services", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // RILLIEUX-LA-PAPE — angle : faîtage, gouttières et entretien des pavillons
+  // Aucune réalisation publiée à Rillieux-la-Pape : chantiers voisins uniquement
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-rillieux-la-pape",
+    city: "Rillieux-la-Pape",
+    postalCode: "69140",
+    primaryKeyword: "couvreur Rillieux-la-Pape",
+    metaTitle: "Couvreur à Rillieux-la-Pape – Faîtage, gouttières & toiture",
+    metaDescription:
+      "Couvreur à Rillieux-la-Pape : faîtage à sec, réparation de tuiles, gouttières, isolation et rénovation de toiture. Jrenov intervient depuis Décines-Charpieu. Devis gratuit et sans engagement.",
+    h1: "Couvreur à Rillieux-la-Pape : faîtage, gouttières et couverture",
+    heroBadge: "Nord de la métropole · 69140",
+    heroLead:
+      "Faîtage dont le mortier tombe en morceaux, gouttière qui déborde, tuiles à remplacer : à Rillieux-la-Pape, nous intervenons sur les maisons de Crépieux, de Vancia ou du village.",
+    intro: {
+      title: "Rillieux-la-Pape, entre plateau et côtière du Rhône",
+      paragraphs: [
+        "Rillieux-la-Pape s'étend au nord de Lyon, sur le plateau qui prolonge Caluire-et-Cuire, jusqu'à la côtière qui descend vers le Rhône. La commune associe la Ville nouvelle, le vieux village, Crépieux-la-Pape et le secteur de Vancia, où dominent les maisons individuelles.",
+        "Depuis notre siège de Décines-Charpieu, nous rejoignons Rillieux-la-Pape en franchissant le Rhône. Nous avons déjà travaillé tout autour, à Caluire-et-Cuire, à Fontaines-sur-Saône et à Dagneux, dans l'Ain.",
+      ],
+    },
+    context: {
+      title: "Le faîtage scellé, un point faible qui se répare durablement",
+      paragraphs: [
+        "Sur de nombreuses maisons, les tuiles faîtières ont été posées sur un bourrelet de mortier. Ce scellement se fissure avec le temps, se détache par plaques et laisse l'eau s'infiltrer au sommet du toit, juste au-dessus des pièces de vie.",
+        "La pose à sec remplace ce mortier par une lisse de rehausse, un closoir ventilé et une fixation mécanique de chaque faîtière. La toiture est mieux ventilée, et le faîtage ne dépend plus d'un liant qui vieillit.",
+      ],
+    },
+    issues: {
+      title: "Les problèmes que l'on rencontre à Rillieux-la-Pape",
+      items: [
+        {
+          title: "Morceaux de mortier dans le jardin",
+          text: "C'est souvent le faîtage qui se désagrège : il est temps d'intervenir avant que les faîtières ne se déplacent.",
+        },
+        {
+          title: "Gouttière qui déborde à chaque averse",
+          text: "Pente insuffisante, descente bouchée ou crochets affaissés : l'eau ruisselle alors sur la façade.",
+        },
+        {
+          title: "Combles mal isolés",
+          text: "Sur les maisons des années passées, l'isolant d'origine est souvent mince ou tassé.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos interventions à Rillieux-la-Pape",
+      intro: "Pour les maisons et les petits collectifs :",
+      items: [
+        {
+          service: "couverture",
+          text: "Faîtage posé à sec, remplacement de tuiles, réfection de rives, rénovation de couverture.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières en aluminium ou en zinc, descentes, noues et abergements.",
+        },
+        {
+          service: "isolation",
+          text: "Soufflage en combles perdus et isolation des combles aménagés.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Diagnostic d'une infiltration et réparation ciblée.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage des tuiles et traitement hydrofuge.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Nos chantiers au nord de Lyon",
+      intro:
+        "Aucun chantier publié n'est situé à Rillieux-la-Pape même. Voici nos réalisations les plus proches :",
+      localSlugs: [],
+      nearbyTitle: "Fontaines-sur-Saône, Caluire-et-Cuire et Dagneux",
+      nearbySlugs: [
+        "renovation-faitage-a-sec-fontaines-sur-saone",
+        "isolation-sarking-toiture-caluire",
+        "pose-gouttieres-alu-sur-mesure-dagneux",
+      ],
+    },
+    processIntro:
+      "Pour un faîtage ou une gouttière à Rillieux-la-Pape, la visite sert à mesurer le linéaire à reprendre et à vérifier l'état des tuiles voisines.",
+    nearby: {
+      title: "Communes proches de Rillieux-la-Pape",
+      intro: "Nous intervenons aussi autour de Rillieux-la-Pape :",
+      cities: [
+        { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
+        { name: "Sathonay-Camp" },
+        { name: "Fontaines-sur-Saône" },
+        { name: "Neyron" },
+        { name: "Miribel" },
+        { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
+      ],
+    },
+    faq: [
+      {
+        question: "Qu'est-ce qu'un faîtage posé à sec ?",
+        answer:
+          "Les tuiles faîtières sont fixées mécaniquement sur une lisse, au-dessus d'un closoir ventilé, sans mortier. À Fontaines-sur-Saône, nous avons remplacé ainsi un ancien faîtage scellé qui tombait en ruine, en deux jours.",
+      },
+      {
+        question: "Faut-il refaire tout le faîtage si seules quelques faîtières bougent ?",
+        answer:
+          "Pas toujours. Si le mortier est sain ailleurs, une reprise locale peut suffire. S'il se désagrège sur toute la longueur, une pose à sec complète est plus durable.",
+      },
+      {
+        question: "Quelle gouttière choisir pour remplacer une ancienne gouttière en PVC ?",
+        answer:
+          "L'aluminium profilé sur place évite les raccords et se décline en plusieurs couleurs ; le zinc reste une référence pour sa longévité. Le choix dépend de la maison et du budget, nous vous conseillons lors de la visite.",
+      },
+    ],
+    sectionOrder: ["intro", "context", "issues", "services", "realisations", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // BRIGNAIS — angle : cheminées, abergements zinc
+  // Réalisation réelle : reparation-fuite-cheminee-brignais (mai 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-brignais",
+    city: "Brignais",
+    postalCode: "69530",
+    primaryKeyword: "couvreur Brignais",
+    metaTitle: "Couvreur à Brignais – Fuite de cheminée & zinguerie",
+    metaDescription:
+      `Couvreur à Brignais : recherche de fuite, abergement de cheminée en zinc sur mesure, gouttières, réparation et rénovation de toiture. Chantier réalisé à Brignais en mai 2026. Devis au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Brignais : fuites de cheminée, zinguerie et toiture",
+    heroBadge: "Vallée du Garon · chantier réalisé en 2026",
+    heroLead:
+      "Une infiltration au pied de la cheminée se règle rarement avec un simple joint. À Brignais, nous avons façonné et soudé en mai 2026 un abergement complet en zinc, en une journée.",
+    intro: {
+      title: "Brignais, dans la vallée du Garon",
+      paragraphs: [
+        "Brignais se trouve au sud-ouest de Lyon, au sein de la communauté de communes de la Vallée du Garon, hors du périmètre de la Métropole. La ville mêle un centre ancien, des lotissements résidentiels et une zone d'activités importante.",
+        "Jrenov, installé à Décines-Charpieu, y est déjà intervenu pour une fuite de cheminée. Nous rejoignons Brignais par le sud de l'agglomération pour les réparations, la zinguerie et les rénovations de toiture.",
+      ],
+    },
+    context: {
+      title: "Pourquoi les fuites de cheminée reviennent",
+      paragraphs: [
+        "Autour d'une souche de cheminée, l'étanchéité est souvent assurée par un solin en mortier. Ce mortier ne suit pas les mouvements de la toiture : il se fissure, et chaque réparation au mastic ne fait que repousser le problème.",
+        "Sur le chantier de Brignais, le mortier fissuré a été entièrement retiré. Un abergement en zinc a ensuite été façonné sur mesure et soudé autour de la souche : une bavette à l'avant, des côtés et une noquette à l'arrière qui renvoient l'eau sur les tuiles.",
+      ],
+    },
+    issues: {
+      title: "Les signes d'un problème autour de la cheminée",
+      items: [
+        {
+          title: "Tache au plafond près du conduit",
+          text: "Elle apparaît souvent après de fortes pluies poussées par le vent, puis sèche : la fuite est intermittente mais bien réelle.",
+        },
+        {
+          title: "Solin en mortier fissuré",
+          text: "Visible depuis le jardin avec des jumelles : des fissures ou des morceaux manquants à la base de la souche.",
+        },
+        {
+          title: "Souche qui s'effrite",
+          text: "Briques ou enduit dégradés en tête de cheminée laissent l'eau pénétrer dans le conduit lui-même.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Brignais",
+      intro: "Autour de la cheminée et au-delà :",
+      items: [
+        {
+          service: "zinguerie",
+          text: "Abergements de cheminée et de fenêtres de toit, solins, noues, gouttières et chéneaux.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Localisation de l'infiltration avant toute intervention, bâchage si nécessaire.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement des tuiles autour de la souche, réfection de faîtage, rénovation de couverture.",
+        },
+        {
+          service: "isolation",
+          text: "Remplacement d'un isolant mouillé dans les combles après réparation.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Brignais",
+      intro:
+        "Retrait du mortier fissuré, puis façonnage et soudure d'un abergement complet en zinc, en une journée :",
+      localSlugs: ["reparation-fuite-cheminee-brignais"],
+      nearbyTitle: "Dans l'ouest et le sud-ouest lyonnais",
+      nearbySlugs: [
+        "reparation-charpente-lambourde-oullins",
+        "refection-noue-zinc-francheville",
+        "pose-fenetres-toit-velux-craponne",
+      ],
+    },
+    processIntro:
+      "Pour une fuite à Brignais, nous commençons par confirmer l'origine de l'eau : la cheminée est souvent en cause, mais une noue ou une tuile voisine peut aussi l'être.",
+    nearby: {
+      title: "Autour de Brignais",
+      intro: "Nous intervenons également dans les communes voisines :",
+      cities: [
+        { name: "Saint-Genis-Laval", slug: "couvreur-saint-genis-laval" },
+        { name: "Chaponost" },
+        { name: "Vourles" },
+        { name: "Millery" },
+        { name: "Oullins", slug: "couvreur-oullins" },
+      ],
+    },
+    faq: [
+      {
+        question: "Qu'est-ce qu'un abergement de cheminée ?",
+        answer:
+          "C'est l'ensemble des pièces métalliques qui assurent l'étanchéité entre la souche et la couverture. À Brignais, nous l'avons façonné sur mesure en zinc et soudé sur place, en remplacement d'un solin en mortier fissuré.",
+      },
+      {
+        question: "Un joint en mastic suffit-il pour stopper une fuite de cheminée ?",
+        answer:
+          "Rarement de façon durable. Le mastic peut dépanner, mais si le mortier est fissuré, la fuite revient. Un abergement en zinc traite la cause.",
+      },
+      {
+        question: "Combien de temps dure la réparation d'un raccord de cheminée ?",
+        answer:
+          "Le chantier de Brignais a duré une journée. La durée dépend de la taille de la souche, de sa position sur le toit et de l'état des tuiles autour.",
+      },
+    ],
+    sectionOrder: ["intro", "realisations", "context", "issues", "services", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // FRANCHEVILLE — angle : noues et jonctions de pans
+  // Réalisation réelle : refection-noue-zinc-francheville (août 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-francheville",
+    city: "Francheville",
+    postalCode: "69340",
+    primaryKeyword: "couvreur Francheville",
+    metaTitle: "Couvreur à Francheville – Noue percée, fuite & zinguerie",
+    metaDescription:
+      "Couvreur à Francheville : remplacement de noue en zinc, recherche de fuite, gouttières, réparation et rénovation de toiture. Chantier réalisé à Francheville en août 2026. Devis gratuit.",
+    h1: "Couvreur à Francheville : noues, fuites et zinguerie",
+    heroBadge: "Ouest lyonnais · chantier réalisé en 2026",
+    heroLead:
+      "Une fuite au creux du toit, là où deux pans se rejoignent ? C'est souvent la noue. À Francheville, nous avons remplacé en août 2026 une noue rouillée par un couloir en zinc à pince.",
+    intro: {
+      title: "Francheville, dans la vallée de l'Yzeron",
+      paragraphs: [
+        "Francheville s'étend à l'ouest de Lyon, de part et d'autre de la vallée de l'Yzeron, entre Tassin-la-Demi-Lune, Craponne et Sainte-Foy-lès-Lyon. Ses quartiers résidentiels comptent beaucoup de maisons aux toitures à plusieurs pans.",
+        "Jrenov y est déjà intervenu pour une fuite au creux du toit. Depuis Décines-Charpieu, nous rejoignons Francheville en traversant Lyon ; plusieurs de nos chantiers publiés se trouvent d'ailleurs dans l'Ouest lyonnais.",
+      ],
+    },
+    context: {
+      title: "La noue, gouttière cachée de la toiture",
+      paragraphs: [
+        "La noue est l'angle rentrant formé par deux pans de toiture qui se rejoignent. Toute l'eau de ces deux pans s'y concentre avant de rejoindre la gouttière : c'est l'un des endroits les plus sollicités du toit.",
+        "À Francheville, la noue d'origine était rouillée et percée. Nous avons déposé les tuiles de rive de la noue, retiré l'ancien métal, puis posé un couloir de noue en zinc à pince de 500 mm de large, avant de reposer les tuiles.",
+      ],
+    },
+    issues: {
+      title: "Les signes d'une noue défaillante",
+      items: [
+        {
+          title: "Coulure dans un angle de pièce",
+          text: "Sous les toits, une tache dans l'angle formé par deux pans désigne souvent la noue.",
+        },
+        {
+          title: "Feuilles et mousse accumulées",
+          text: "Les débris freinent l'écoulement dans la noue, l'eau déborde sous les tuiles et le métal s'use plus vite.",
+        },
+        {
+          title: "Métal rouillé ou percé",
+          text: "Les anciennes noues en acier galvanisé finissent par rouiller ; le zinc offre une bien meilleure longévité.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Francheville",
+      intro: "Zinguerie d'abord, mais pas seulement :",
+      items: [
+        {
+          service: "zinguerie",
+          text: "Noues en zinc, abergements, chéneaux, gouttières et descentes.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche de l'origine d'une infiltration, y compris dans les angles difficiles d'accès.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement de tuiles, réfection de faîtage, rénovation complète.",
+        },
+        {
+          service: "fenetres-de-toit",
+          text: "Pose et remplacement de fenêtres de toit avec raccords d'étanchéité.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage de la couverture et des noues encombrées.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Francheville",
+      intro:
+        "Remplacement d'une noue percée par un couloir en zinc à pince, en deux jours :",
+      localSlugs: ["refection-noue-zinc-francheville"],
+      nearbyTitle: "Ailleurs dans l'Ouest lyonnais",
+      nearbySlugs: [
+        "pose-fenetres-toit-velux-craponne",
+        "demoussage-traitement-hydrofuge-tassin",
+        "renovation-toiture-ardoise-ste-foy",
+      ],
+    },
+    processIntro:
+      "Pour une fuite à Francheville, nous contrôlons les noues, les raccords et les tuiles voisines : une noue réparée sans vérifier le reste ne règle pas toujours le problème.",
+    nearby: {
+      title: "Communes voisines de Francheville",
+      intro: "Nous intervenons aussi à proximité :",
+      cities: [
+        { name: "Tassin-la-Demi-Lune", slug: "couvreur-tassin-la-demi-lune" },
+        { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
+        { name: "Craponne" },
+        { name: "Oullins", slug: "couvreur-oullins" },
+        { name: "Lyon", slug: "couvreur-lyon" },
+      ],
+    },
+    faq: [
+      {
+        question: "Qu'est-ce qu'une noue à pince ?",
+        answer:
+          "C'est une noue dont les bords sont repliés (les « pinces ») pour retenir l'eau qui déborderait sous les tuiles. À Francheville, nous avons posé un couloir de noue en zinc à pince de 500 mm de large.",
+      },
+      {
+        question: "Faut-il démonter la toiture pour changer une noue ?",
+        answer:
+          "Non, seulement les tuiles qui bordent la noue. Elles sont déposées, l'ancienne noue est retirée et la nouvelle posée, puis les tuiles sont remises en place. Le chantier de Francheville a duré deux jours.",
+      },
+      {
+        question: "Comment éviter qu'une noue se bouche ?",
+        answer:
+          "Un nettoyage régulier, surtout sous les arbres, et un contrôle lors de l'entretien de la toiture. Une noue large en zinc évacue aussi mieux les débris.",
+      },
+    ],
+    sectionOrder: ["intro", "context", "realisations", "issues", "services", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // BRON — angle : proximité est, pavillons, isolation et réparations
+  // Aucune réalisation publiée à Bron : chantiers voisins uniquement
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-bron",
+    city: "Bron",
+    postalCode: "69500",
+    primaryKeyword: "couvreur Bron",
+    metaTitle: "Couvreur à Bron – Réparation, isolation & Velux",
+    metaDescription:
+      `Couvreur à Bron : réparation de toiture, remplacement de fenêtres de toit, isolation des combles et zinguerie. Jrenov est basé à Décines-Charpieu, commune proche. Devis gratuit au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Bron : réparation, isolation et fenêtres de toit",
+    heroBadge: "Est lyonnais · tout près de notre siège",
+    heroLead:
+      "Velux qui fuit, combles froids, tuiles cassées : à Bron, votre couvreur est installé dans la commune voisine de Décines-Charpieu, à quelques minutes par le boulevard Laurent-Bonnevay.",
+    intro: {
+      title: "Bron, aux portes de Lyon",
+      paragraphs: [
+        "Bron est limitrophe de Lyon, de Villeurbanne, de Vaulx-en-Velin, de Chassieu, de Saint-Priest et de Vénissieux. Autour du parc de Parilly et de l'aéroport de Lyon-Bron, la ville compte de nombreux quartiers pavillonnaires et des petits immeubles.",
+        "Pour Jrenov, Bron fait partie du premier cercle autour de notre siège de Décines-Charpieu. Nous y intervenons pour des réparations rapides comme pour des chantiers de rénovation complets.",
+      ],
+    },
+    context: {
+      title: "Pavillons : améliorer le confort sans tout refaire",
+      paragraphs: [
+        "Sur un pavillon, deux interventions changent nettement le confort : remplacer des fenêtres de toit vieillissantes et renforcer l'isolation des combles. Elles se réalisent sans toucher au reste de la couverture lorsque celle-ci est saine.",
+        "À Décines-Charpieu, nous avons remplacé trois Velux en une journée par l'extérieur ; à Chassieu, nous avons soufflé 35 cm de laine de roche dans des combles perdus. Deux chantiers voisins qui illustrent ce que nous proposons à Bron.",
+      ],
+    },
+    issues: {
+      title: "Les demandes fréquentes à Bron",
+      items: [
+        {
+          title: "Fenêtre de toit qui goutte",
+          text: "Joints usés ou raccord d'étanchéité défaillant : un Velux ancien se remplace par l'extérieur sans abîmer l'intérieur.",
+        },
+        {
+          title: "Combles perdus mal isolés",
+          text: "Un isolant tassé laisse filer la chaleur : un soufflage en épaisseur suffisante améliore vite le confort.",
+        },
+        {
+          title: "Tuile cassée après un coup de vent",
+          text: "Une seule tuile manquante suffit à mouiller l'isolant : mieux vaut intervenir vite.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Bron",
+      intro: "Toutes nos prestations sont disponibles à Bron :",
+      items: [
+        {
+          service: "fenetres-de-toit",
+          text: "Remplacement de Velux anciens, création de fenêtres de toit avec raccords d'étanchéité.",
+        },
+        {
+          service: "isolation",
+          text: "Soufflage en combles perdus, isolation des combles aménagés ou par l'extérieur.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement de tuiles, reprise de faîtage, rénovation de couverture.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Diagnostic d'infiltration et réparation rapide depuis notre siège tout proche.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières, descentes, noues et abergements.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage et traitement des tuiles.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Nos chantiers autour de Bron",
+      intro:
+        "Nous n'avons pas encore publié de chantier situé à Bron. Ces réalisations ont été menées dans les communes limitrophes :",
+      localSlugs: [],
+      nearbyTitle: "À Décines-Charpieu, Chassieu et Vénissieux",
+      nearbySlugs: [
+        "remplacement-velux-ancien-decines",
+        "isolation-combles-perdus-laine-roche-chassieu",
+        "remplacement-tuiles-cassees-orage-venissieux",
+      ],
+    },
+    processIntro:
+      "Bron étant toute proche de notre siège, la visite de diagnostic peut généralement être planifiée rapidement.",
+    nearby: {
+      title: "Autour de Bron",
+      intro: "Nous intervenons dans toutes les communes voisines :",
+      cities: [
+        { name: "Villeurbanne", slug: "couvreur-villeurbanne" },
+        { name: "Chassieu", slug: "couvreur-chassieu" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
+        { name: "Saint-Priest", slug: "couvreur-saint-priest" },
+        { name: "Décines-Charpieu", slug: "couvreur-decines-charpieu" },
+        { name: "Vaulx-en-Velin" },
+      ],
+    },
+    faq: [
+      {
+        question: "Faut-il refaire la toiture pour changer un Velux ?",
+        answer:
+          "Non. Le remplacement se fait par l'extérieur, en reprenant uniquement l'étanchéité autour de la fenêtre. À Décines-Charpieu, trois fenêtres de toit ont ainsi été changées en une journée.",
+      },
+      {
+        question: "Quelle épaisseur d'isolant prévoir dans des combles perdus à Bron ?",
+        answer:
+          "Elle dépend de l'isolant et de la performance recherchée. Sur notre chantier voisin de Chassieu, 35 cm de laine de roche ont été soufflés pour une résistance thermique annoncée de R = 8 m².K/W.",
+      },
+      {
+        question: "Intervenez-vous rapidement à Bron en cas de fuite ?",
+        answer:
+          `Notre siège est à Décines-Charpieu, commune proche de Bron. Appelez le ${BUSINESS.phoneDisplay} : nous organisons la mise hors d'eau puis la réparation.`,
+      },
+    ],
+    sectionOrder: ["intro", "issues", "services", "context", "realisations", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // TASSIN-LA-DEMI-LUNE — angle : démoussage + hydrofuge coloré
+  // Réalisation réelle : demoussage-traitement-hydrofuge-tassin (février 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-tassin-la-demi-lune",
+    city: "Tassin-la-Demi-Lune",
+    postalCode: "69160",
+    primaryKeyword: "couvreur Tassin-la-Demi-Lune",
+    metaTitle: "Couvreur à Tassin-la-Demi-Lune – Démoussage & hydrofuge",
+    metaDescription:
+      "Couvreur à Tassin-la-Demi-Lune : démoussage, traitement fongicide, hydrofuge coloré, réparation et rénovation de toiture. Chantier réalisé à Tassin en février 2026. Devis gratuit.",
+    h1: "Couvreur à Tassin-la-Demi-Lune : démoussage, hydrofuge et toiture",
+    heroBadge: "Ouest lyonnais · chantier réalisé en 2026",
+    heroLead:
+      "Mousses, lichens, tuiles ternies : à Tassin-la-Demi-Lune, nous avons nettoyé en février 2026 une toiture en tuiles romanes avant d'y appliquer un hydrofuge coloré à effet perlant.",
+    intro: {
+      title: "Tassin-la-Demi-Lune, porte de l'Ouest lyonnais",
+      paragraphs: [
+        "Tassin-la-Demi-Lune est limitrophe du 5e et du 9e arrondissement de Lyon, entre Écully, Charbonnières-les-Bains, Craponne et Francheville. La commune est très résidentielle, avec de nombreuses maisons entourées de jardins arborés.",
+        "Jrenov est basé à Décines-Charpieu, mais l'Ouest lyonnais est un secteur où nous intervenons régulièrement : le chantier de Tassin s'ajoute à ceux d'Écully, de Craponne et de Francheville.",
+      ],
+    },
+    context: {
+      title: "Hydrofuge incolore ou coloré : quelle différence ?",
+      paragraphs: [
+        "Après le nettoyage et le traitement fongicide, l'hydrofuge imperméabilise la surface des tuiles : l'eau perle et ruisselle au lieu de pénétrer. La tuile reste sèche plus longtemps et les mousses ont plus de mal à se réinstaller.",
+        "La version colorée redonne en plus une teinte homogène à une couverture ternie par les années. C'est ce que nous avons appliqué à Tassin-la-Demi-Lune, après un nettoyage à pression modérée et un traitement fongicide curatif.",
+      ],
+    },
+    issues: {
+      title: "Quand faut-il traiter sa toiture ?",
+      items: [
+        {
+          title: "Mousse épaisse sur les tuiles",
+          text: "Elle retient l'eau contre la tuile, favorise l'éclatement par le gel et finit dans les gouttières.",
+        },
+        {
+          title: "Lichens incrustés",
+          text: "Les taches grises ou jaunes s'accrochent au matériau et ne partent qu'avec un traitement adapté.",
+        },
+        {
+          title: "Couverture terne et irrégulière",
+          text: "Une toiture décolorée par plaques peut retrouver un aspect uniforme grâce à un hydrofuge coloré.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Tassin-la-Demi-Lune",
+      intro: "Entretien en priorité, sans oublier le reste :",
+      items: [
+        {
+          service: "demoussage",
+          text: "Nettoyage à pression adaptée, traitement fongicide, hydrofuge incolore ou coloré.",
+        },
+        {
+          service: "couverture",
+          text: "Remplacement des tuiles cassées repérées lors du nettoyage, reprise de faîtage, rénovation.",
+        },
+        {
+          service: "zinguerie",
+          text: "Nettoyage et remplacement de gouttières, chéneaux et noues.",
+        },
+        {
+          service: "fenetres-de-toit",
+          text: "Pose ou remplacement de fenêtres de toit.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Tassin-la-Demi-Lune",
+      intro:
+        "Nettoyage à pression modérée, traitement fongicide curatif et hydrofuge coloré sur tuiles romanes, en deux jours :",
+      localSlugs: ["demoussage-traitement-hydrofuge-tassin"],
+      nearbyTitle: "Chantiers voisins dans l'Ouest lyonnais",
+      nearbySlugs: [
+        "reparation-zinguerie-gouttiere-ecully",
+        "pose-fenetres-toit-velux-craponne",
+        "refection-noue-zinc-francheville",
+      ],
+    },
+    processIntro:
+      "Avant un démoussage à Tassin-la-Demi-Lune, nous vérifions l'état des tuiles : celles qui sont fendues sont remplacées avant le traitement.",
+    nearby: {
+      title: "Autour de Tassin-la-Demi-Lune",
+      intro: "Nous intervenons aussi dans les communes voisines :",
+      cities: [
+        { name: "Écully", slug: "couvreur-ecully" },
+        { name: "Francheville", slug: "couvreur-francheville" },
+        { name: "Craponne" },
+        { name: "Charbonnières-les-Bains" },
+        { name: "Dardilly", slug: "couvreur-dardilly" },
+        { name: "Lyon", slug: "couvreur-lyon" },
+      ],
+    },
+    faq: [
+      {
+        question: "Un hydrofuge est-il indispensable après un démoussage ?",
+        answer:
+          "Il n'est pas obligatoire, mais il prolonge l'effet du nettoyage en limitant la pénétration de l'eau dans la tuile. À Tassin-la-Demi-Lune, nous avons appliqué un hydrofuge coloré à effet perlant.",
+      },
+      {
+        question: "Quelle pression utiliser pour nettoyer des tuiles romanes ?",
+        answer:
+          "Une pression modérée, adaptée au matériau, pour décoller les mousses sans abîmer la surface de la tuile. C'est la méthode employée sur notre chantier tassilunois.",
+      },
+      {
+        question: "Combien de temps dure un démoussage avec traitement ?",
+        answer:
+          "Le chantier de Tassin-la-Demi-Lune a duré deux jours : nettoyage, traitement fongicide puis application de l'hydrofuge. Il faut prévoir une période sans pluie.",
+      },
+    ],
+    sectionOrder: ["intro", "realisations", "context", "issues", "services", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // MIONS — angle : sud-est, pavillons, couverture et gouttières
+  // Aucune réalisation publiée à Mions : chantiers voisins uniquement
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-mions",
+    city: "Mions",
+    postalCode: "69780",
+    primaryKeyword: "couvreur Mions",
+    metaTitle: "Couvreur à Mions – Rénovation de toiture & gouttières",
+    metaDescription:
+      "Couvreur à Mions : rénovation et réparation de toiture, gouttières, toitures de garage en bac acier et isolation. Chantiers réalisés à Corbas et Saint-Priest. Devis gratuit et sans engagement.",
+    h1: "Couvreur à Mions : rénovation, gouttières et dépendances",
+    heroBadge: "Sud-Est lyonnais · 69780",
+    heroLead:
+      "Couverture vieillissante, gouttières à changer, toit de garage à refaire : à Mions, nous intervenons sur la maison comme sur ses dépendances.",
+    intro: {
+      title: "Mions, dans le sud-est de la métropole",
+      paragraphs: [
+        "Mions se situe au sud-est de la Métropole de Lyon, entre Corbas, Saint-Priest et Saint-Symphorien-d'Ozon. La commune est essentiellement résidentielle, avec un centre ancien et de nombreux lotissements.",
+        "Jrenov est basé à Décines-Charpieu et intervient régulièrement dans ce secteur : nos chantiers de Corbas, Saint-Priest et Vénissieux se trouvent à quelques kilomètres de Mions.",
+      ],
+    },
+    context: {
+      title: "Maison et dépendances : deux toitures, deux approches",
+      paragraphs: [
+        "Sur la maison, une couverture en tuiles peut souvent être réparée ou rénovée partiellement : remplacement des tuiles poreuses, reprise du faîtage, pose d'un écran de sous-toiture lors d'une réfection.",
+        "Pour un garage, un abri ou un atelier, le bac acier est une solution courante. Avec un feutre régulateur de condensation, il évite les gouttes sous la tôle ; c'est ce que nous avons posé à Corbas sur un garage dont l'ancienne couverture amiantée avait été retirée par une entreprise agréée.",
+      ],
+    },
+    issues: {
+      title: "Ce que nous traitons à Mions",
+      items: [
+        {
+          title: "Tuiles poreuses ou cassées",
+          text: "Avec les années, certaines tuiles boivent l'eau et finissent par se fendre : un remplacement ciblé évite les infiltrations.",
+        },
+        {
+          title: "Gouttières affaissées",
+          text: "Crochets tordus, pente inversée : l'eau stagne puis déborde le long du mur.",
+        },
+        {
+          title: "Toit de garage fatigué",
+          text: "Anciennes plaques fibrociment ou tôles rouillées : la couverture d'une dépendance se refait en bac acier.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Mions",
+      intro: "Pour la maison et ses annexes :",
+      items: [
+        {
+          service: "couverture",
+          text: "Réparation et rénovation de couverture en tuiles, couverture de dépendances en bac acier.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières, descentes, rives et habillages en aluminium.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles perdus ou aménagés.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche de fuite et réparation ciblée.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage et traitement des tuiles.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Nos chantiers près de Mions",
+      intro:
+        "Aucun chantier publié n'est situé à Mions même. Ces réalisations ont été menées dans les communes voisines du sud-est lyonnais :",
+      localSlugs: [],
+      nearbyTitle: "À Corbas, Saint-Priest et Vénissieux",
+      nearbySlugs: [
+        "renovation-toiture-garages-corbas",
+        "traitement-charpente-bois-saint-priest",
+        "remplacement-tuiles-cassees-orage-venissieux",
+      ],
+    },
+    processIntro:
+      "À Mions, la visite permet de faire le point sur la maison et ses dépendances en une seule fois, pour un devis global si vous le souhaitez.",
+    nearby: {
+      title: "Communes voisines de Mions",
+      intro: "Nous intervenons également autour de Mions :",
+      cities: [
+        { name: "Corbas", slug: "couvreur-corbas" },
+        { name: "Saint-Priest", slug: "couvreur-saint-priest" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
+        { name: "Saint-Symphorien-d'Ozon" },
+        { name: "Chaponnay" },
+      ],
+    },
+    faq: [
+      {
+        question: "Peut-on remplacer seulement quelques tuiles ?",
+        answer:
+          "Oui, si le reste de la couverture est en bon état. Le diagnostic permet de distinguer une réparation ponctuelle d'une couverture arrivée en fin de vie.",
+      },
+      {
+        question: "Que faire d'un toit de garage en fibrociment ancien ?",
+        answer:
+          "S'il est susceptible de contenir de l'amiante, il doit être retiré par une entreprise agréée. Nous posons ensuite la nouvelle couverture, comme à Corbas avec des tôles bac acier isolées.",
+      },
+      {
+        question: "Mions est-elle dans votre secteur ?",
+        answer:
+          `Oui. Mions fait partie de la métropole lyonnaise, que nous couvrons depuis Décines-Charpieu. Pour un devis, appelez le ${BUSINESS.phoneDisplay}.`,
+      },
+    ],
+    sectionOrder: ["intro", "issues", "context", "services", "realisations", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // SAINT-QUENTIN-FALLAVIER (38) — angle : bâtiments professionnels + maisons
+  // Aucune réalisation publiée à Saint-Quentin-Fallavier
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-saint-quentin-fallavier",
+    city: "Saint-Quentin-Fallavier",
+    postalCode: "38070",
+    primaryKeyword: "couvreur Saint-Quentin-Fallavier",
+    metaTitle: "Couvreur à Saint-Quentin-Fallavier – Maisons & locaux pros",
+    metaDescription:
+      `Couvreur à Saint-Quentin-Fallavier : réparation de toiture après intempéries, bac acier, gouttières, isolation, pour particuliers et professionnels. Intervention depuis l'Est lyonnais. Devis au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Saint-Quentin-Fallavier : maisons et locaux professionnels",
+    heroBadge: "Nord-Isère (38070) · par l'A43",
+    heroLead:
+      "Locaux d'activité ou maison individuelle : à Saint-Quentin-Fallavier, Jrenov intervient pour les réparations après intempéries, les couvertures en bac acier et l'entretien des toitures.",
+    intro: {
+      title: "Saint-Quentin-Fallavier, porte du Nord-Isère",
+      paragraphs: [
+        "Saint-Quentin-Fallavier se trouve dans le Nord-Isère, au sein de l'agglomération Porte de l'Isère, le long de l'A43. La commune est connue pour ses vastes zones d'activités et logistiques, à côté desquelles s'étendent des quartiers résidentiels et le village.",
+        "Depuis notre siège de Décines-Charpieu, l'accès se fait directement par l'autoroute. Nous y intervenons sur rendez-vous, pour des particuliers comme pour des entreprises.",
+      ],
+    },
+    context: {
+      title: "Toiture d'un local professionnel : limiter l'arrêt d'activité",
+      paragraphs: [
+        "Sur un atelier ou un local d'activité, une infiltration peut endommager des stocks ou des machines. La priorité est de remettre le bâtiment hors d'eau rapidement, puis de programmer la réparation à un moment qui gêne le moins l'activité.",
+        "À Vénissieux, nous avons bâché un bâtiment professionnel moins de 12 heures après un orage de grêle avant de remplacer 150 tuiles. Pour les annexes et petits bâtiments, le bac acier anti-condensation, posé à Corbas, est une solution robuste.",
+      ],
+    },
+    issues: {
+      title: "Nos interventions typiques à Saint-Quentin-Fallavier",
+      items: [
+        {
+          title: "Dégâts après un orage",
+          text: "Tuiles cassées, tôles soulevées : la mise hors d'eau passe avant la réparation définitive.",
+        },
+        {
+          title: "Condensation sous une couverture métallique",
+          text: "Des gouttes sous la tôle signalent l'absence de régulateur : un bac acier avec feutre anti-condensation règle ce problème.",
+        },
+        {
+          title: "Pavillon à rénover",
+          text: "Couverture en tuiles vieillissante et combles peu isolés : un projet global évite deux chantiers successifs.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Saint-Quentin-Fallavier",
+      intro: "Pour les professionnels et les particuliers :",
+      items: [
+        {
+          service: "recherche-de-fuite",
+          text: "Bâchage de mise hors d'eau, recherche de l'origine de la fuite, réparation.",
+        },
+        {
+          service: "couverture",
+          text: "Couverture en bac acier, remplacement de tuiles, rénovation de toiture.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières, chéneaux et descentes d'eaux pluviales.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles et isolation lors d'une réfection de couverture.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Des chantiers comparables dans l'agglomération",
+      intro:
+        "Nous n'avons pas encore publié de chantier à Saint-Quentin-Fallavier. Ces réalisations correspondent aux interventions que nous y proposons :",
+      localSlugs: [],
+      nearbyTitle: "Bâtiment professionnel, bac acier et isolation",
+      nearbySlugs: [
+        "remplacement-tuiles-cassees-orage-venissieux",
+        "renovation-toiture-garages-corbas",
+        "isolation-combles-perdus-laine-roche-chassieu",
+      ],
+    },
+    processIntro:
+      "Pour un local professionnel à Saint-Quentin-Fallavier, nous convenons du créneau de visite avec vous et tenons compte des contraintes d'accès au site.",
+    nearby: {
+      title: "Autour de Saint-Quentin-Fallavier",
+      intro: "Nous pouvons également intervenir dans les communes voisines, selon le chantier :",
+      cities: [
+        { name: "Bourgoin-Jallieu", slug: "couvreur-bourgoin-jallieu" },
+        { name: "Villefontaine" },
+        { name: "L'Isle-d'Abeau" },
+        { name: "Satolas-et-Bonce" },
+        { name: "Saint-Laurent-de-Mure" },
+      ],
+    },
+    faq: [
+      {
+        question: "Intervenez-vous sur des bâtiments d'entreprise ?",
+        answer:
+          "Oui. À Vénissieux, nous avons remis hors d'eau un bâtiment professionnel moins de 12 heures après la grêle, puis remplacé 150 tuiles et consolidé le faîtage.",
+      },
+      {
+        question: "Pourquoi choisir un bac acier anti-condensation ?",
+        answer:
+          "Le feutre collé sous la tôle absorbe l'humidité qui se forme la nuit et la restitue ensuite, ce qui évite les gouttes à l'intérieur. C'est la solution posée sur le garage de Corbas.",
+      },
+      {
+        question: "Saint-Quentin-Fallavier est-elle trop loin de votre siège ?",
+        answer:
+          `Non, la commune est dans notre rayon d'environ 50 km autour de Décines-Charpieu, accessible par l'A43. Appelez le ${BUSINESS.phoneDisplay} pour une visite.`,
+      },
+    ],
+    sectionOrder: ["intro", "context", "issues", "services", "realisations", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // CORBAS — angle : garages, dépendances, bac acier
+  // Réalisation réelle : renovation-toiture-garages-corbas (septembre 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-corbas",
+    city: "Corbas",
+    postalCode: "69960",
+    primaryKeyword: "couvreur Corbas",
+    metaTitle: "Couvreur à Corbas – Toiture de garage en bac acier",
+    metaDescription:
+      "Couvreur à Corbas : couverture de garage et dépendances en bac acier anti-condensation, réparation et rénovation de toiture, gouttières. Chantier réalisé à Corbas en septembre 2026.",
+    h1: "Couvreur à Corbas : toitures de garages, dépendances et maisons",
+    heroBadge: "Sud-Est lyonnais · chantier réalisé en 2026",
+    heroLead:
+      "Une vieille couverture de garage à remplacer ? À Corbas, nous avons posé en septembre 2026 des tôles bac acier isolées avec feutre anti-condensation, après le retrait de l'ancienne couverture amiantée par une entreprise agréée.",
+    intro: {
+      title: "Corbas, au sud-est de Lyon",
+      paragraphs: [
+        "Corbas fait partie de la Métropole de Lyon, au sud-est, entre Vénissieux, Saint-Priest, Mions et Feyzin. On y trouve un centre-bourg, des quartiers pavillonnaires et une zone d'activités étendue.",
+        "Jrenov y a réalisé un chantier de couverture de garage en septembre 2026. Depuis Décines-Charpieu, nous rejoignons Corbas par l'est de l'agglomération.",
+      ],
+    },
+    context: {
+      title: "Refaire le toit d'un garage : les étapes",
+      paragraphs: [
+        "Beaucoup de garages et d'annexes construits il y a plusieurs décennies sont couverts de plaques en fibrociment. Lorsqu'elles peuvent contenir de l'amiante, leur dépose relève d'une entreprise agréée, avec un plan de retrait et une évacuation encadrée.",
+        "Une fois la charpente dégagée, nous posons la nouvelle couverture. À Corbas, nous avons choisi des tôles bac acier isolées avec feutre régulateur de condensation, et des rives de finition thermolaquées. Le chantier a duré trois jours.",
+      ],
+    },
+    issues: {
+      title: "Les demandes que nous recevons à Corbas",
+      items: [
+        {
+          title: "Plaques de garage fissurées",
+          text: "Un fibrociment cassé laisse passer l'eau ; s'il est ancien, la dépose doit être confiée à un professionnel agréé.",
+        },
+        {
+          title: "Gouttes sous une tôle",
+          text: "Une couverture métallique sans régulateur de condensation « pleut » à l'intérieur les nuits froides.",
+        },
+        {
+          title: "Toiture de maison à réviser",
+          text: "Tuiles déplacées, faîtage fissuré : nous contrôlons aussi la toiture principale lors de la visite si vous le souhaitez.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Corbas",
+      intro: "Dépendances, maison et zinguerie :",
+      items: [
+        {
+          service: "couverture",
+          text: "Bac acier sur garages et annexes, réparation et rénovation de couverture en tuiles.",
+        },
+        {
+          service: "zinguerie",
+          text: "Gouttières, descentes, rives thermolaquées.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche de fuite et mise hors d'eau.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles de la maison.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Corbas",
+      intro:
+        "Pose de tôles bac acier isolées avec feutre anti-condensation et rives thermolaquées sur un garage, en trois jours :",
+      localSlugs: ["renovation-toiture-garages-corbas"],
+      nearbyTitle: "Dans le sud-est lyonnais",
+      nearbySlugs: [
+        "remplacement-tuiles-cassees-orage-venissieux",
+        "traitement-charpente-bois-saint-priest",
+        "isolation-combles-perdus-laine-roche-chassieu",
+      ],
+    },
+    processIntro:
+      "Pour un garage à Corbas, la visite permet de mesurer la surface, de vérifier la charpente et, si besoin, de vous orienter vers une entreprise agréée pour le désamiantage.",
+    nearby: {
+      title: "Communes proches de Corbas",
+      intro: "Nous intervenons aussi autour de Corbas :",
+      cities: [
+        { name: "Mions", slug: "couvreur-mions" },
+        { name: "Vénissieux", slug: "couvreur-venissieux" },
+        { name: "Saint-Priest", slug: "couvreur-saint-priest" },
+        { name: "Feyzin" },
+        { name: "Solaize" },
+      ],
+    },
+    faq: [
+      {
+        question: "Retirez-vous vous-mêmes les plaques amiantées ?",
+        answer:
+          "Non. Le retrait d'éléments contenant de l'amiante relève d'une entreprise agréée. À Corbas, l'ancienne couverture a été déposée par une telle entreprise ; nous avons ensuite posé la nouvelle couverture en bac acier.",
+      },
+      {
+        question: "Le bac acier est-il bruyant sous la pluie ?",
+        answer:
+          "Un bac acier isolé ou équipé d'un feutre atténue le bruit par rapport à une tôle nue. Pour un garage ou un atelier, c'est en général un bon compromis.",
+      },
+      {
+        question: "Combien de temps faut-il pour recouvrir un garage ?",
+        answer:
+          "Notre chantier de Corbas a duré trois jours, une fois l'ancienne couverture retirée. La durée dépend de la surface et de l'état de la charpente.",
+      },
+    ],
+    sectionOrder: ["intro", "realisations", "context", "issues", "services", "process", "faq", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // ÉCULLY — angle : chéneaux zinc et habillage alu (urgence infiltration façade)
+  // Réalisation réelle : reparation-zinguerie-gouttiere-ecully (février 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-ecully",
+    city: "Écully",
+    postalCode: "69130",
+    primaryKeyword: "couvreur Écully",
+    metaTitle: "Couvreur à Écully – Chéneaux zinc & habillage de rives",
+    metaDescription:
+      "Couvreur à Écully : chéneaux en zinc sur mesure, remplacement de gouttières, habillage alu des bandeaux, réparation de toiture. Chantier réalisé à Écully en février 2026. Devis gratuit.",
+    h1: "Couvreur à Écully : chéneaux, gouttières et rives",
+    heroBadge: "Ouest lyonnais · chantier réalisé en 2026",
+    heroLead:
+      "Des infiltrations le long du mur de façade ? À Écully, nous sommes intervenus en urgence en février 2026 pour remplacer des gouttières fuyardes par des chéneaux en zinc façonnés sur mesure.",
+    intro: {
+      title: "Écully, à l'ouest de Lyon",
+      paragraphs: [
+        "Écully jouxte le 9e arrondissement de Lyon, entre Tassin-la-Demi-Lune, Dardilly et Champagne-au-Mont-d'Or. Connue pour accueillir de grandes écoles, la commune est aussi très résidentielle, avec beaucoup de maisons individuelles et de belles propriétés.",
+        "Jrenov y a réalisé un chantier de zinguerie en février 2026. Notre siège est à Décines-Charpieu, mais l'Ouest lyonnais fait partie des secteurs où nous intervenons le plus souvent.",
+      ],
+    },
+    context: {
+      title: "Quand la gouttière abîme la façade",
+      paragraphs: [
+        "Une gouttière intégrée au bas de la toiture, si elle se perce, déverse l'eau directement dans le mur. Les premiers signes apparaissent à l'intérieur, sous forme d'auréoles en haut des murs, ou à l'extérieur avec des coulures sur l'enduit.",
+        "À Écully, nous avons façonné sur mesure des chéneaux en zinc de 0,65 mm, puis posé un habillage en aluminium sur les bandeaux. Le bois de rive n'est plus exposé, et il n'y a plus de peinture à refaire.",
+      ],
+    },
+    issues: {
+      title: "Ce qui doit vous alerter",
+      items: [
+        {
+          title: "Auréoles en haut d'un mur",
+          text: "Juste sous la toiture, elles signalent souvent une gouttière ou un chéneau qui fuit plutôt qu'une tuile.",
+        },
+        {
+          title: "Bois de rive qui noircit",
+          text: "Planches humides et peinture qui cloque : l'eau ruisselle là où elle ne devrait pas.",
+        },
+        {
+          title: "Raccords de gouttière qui gouttent",
+          text: "Soudures fatiguées et joints décollés laissent s'échapper l'eau à chaque averse.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Écully",
+      intro: "Zinguerie en priorité :",
+      items: [
+        {
+          service: "zinguerie",
+          text: "Chéneaux et gouttières en zinc façonnés sur mesure, habillage alu des bandeaux et sous-faces.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Diagnostic des infiltrations en façade ou sous la toiture.",
+        },
+        {
+          service: "couverture",
+          text: "Réparation et rénovation de couverture en tuiles ou en ardoises.",
+        },
+        {
+          service: "demoussage",
+          text: "Nettoyage des tuiles et des gouttières.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation des combles.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Écully",
+      intro:
+        "Remplacement de gouttières fuyardes par des chéneaux en zinc sur mesure et habillage alu des bandeaux, en deux jours :",
+      localSlugs: ["reparation-zinguerie-gouttiere-ecully"],
+      nearbyTitle: "Ailleurs dans l'Ouest lyonnais et les Monts d'Or",
+      nearbySlugs: [
+        "demoussage-traitement-hydrofuge-tassin",
+        "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
+        "habillage-bandeaux-rive-alu-meyzieu",
+      ],
+    },
+    processIntro:
+      "À Écully, nous mesurons lors de la visite le linéaire de chéneaux et de rives à reprendre, et vérifions l'état des bois avant tout habillage.",
+    nearby: {
+      title: "Autour d'Écully",
+      intro: "Nous intervenons aussi dans les communes voisines :",
+      cities: [
+        { name: "Tassin-la-Demi-Lune", slug: "couvreur-tassin-la-demi-lune" },
+        { name: "Dardilly", slug: "couvreur-dardilly" },
+        { name: "Champagne-au-Mont-d'Or" },
+        { name: "Lyon", slug: "couvreur-lyon" },
+        { name: "Limonest" },
+      ],
+    },
+    faq: [
+      {
+        question: "Pourquoi choisir le zinc pour un chéneau ?",
+        answer:
+          "Le zinc se façonne sur mesure, se soude et dure longtemps. À Écully, nous avons utilisé du zinc de 0,65 mm d'épaisseur pour des chéneaux adaptés exactement à la maison.",
+      },
+      {
+        question: "Une fuite de gouttière peut-elle être une urgence ?",
+        answer:
+          "Oui, quand l'eau s'infiltre dans les murs. C'était le cas à Écully : nous sommes intervenus en urgence après des infiltrations le long du mur de façade.",
+      },
+      {
+        question: "L'habillage alu des bandeaux nécessite-t-il un entretien ?",
+        answer:
+          "Très peu : l'aluminium thermolaqué ne se repeint pas. Un simple nettoyage de temps en temps suffit.",
+      },
+    ],
+    sectionOrder: ["intro", "context", "realisations", "issues", "services", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // OULLINS — angle : charpente fragilisée par une fuite
+  // Réalisation réelle : reparation-charpente-lambourde-oullins (août 2026)
+  // Commune nouvelle Oullins-Pierre-Bénite depuis 2024
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-oullins",
+    city: "Oullins",
+    postalCode: "69600",
+    primaryKeyword: "couvreur Oullins",
+    metaTitle: "Couvreur à Oullins – Charpente, réparation & couverture",
+    metaDescription:
+      `Couvreur à Oullins-Pierre-Bénite : reprise de charpente après fuite, chevrons et pannes, réparation et rénovation de couverture. Chantier réalisé à Oullins en août 2026. Devis au ${BUSINESS.phoneDisplay}.`,
+    h1: "Couvreur à Oullins : charpente, réparation et couverture",
+    heroBadge: "Oullins-Pierre-Bénite · chantier réalisé en 2026",
+    heroLead:
+      "Une ancienne fuite a laissé des traces sur la charpente ? À Oullins, nous avons changé en août 2026 des chevrons affaissés et moisé des pannes avant de refermer la couverture.",
+    intro: {
+      title: "Oullins, au sud de Lyon",
+      paragraphs: [
+        "Oullins est limitrophe du sud-ouest de Lyon et forme, depuis 2024, la commune nouvelle d'Oullins-Pierre-Bénite. Le bâti y est dense et varié : maisons de ville, pavillons sur les coteaux et petits immeubles.",
+        "Jrenov y a réalisé une reprise de charpente en août 2026. Depuis notre siège de Décines-Charpieu, nous rejoignons Oullins par le sud de l'agglomération.",
+      ],
+    },
+    context: {
+      title: "Charpente abîmée par l'eau : réparer avant de recouvrir",
+      paragraphs: [
+        "Une fuite qui dure fait travailler le bois : il gonfle, se déforme puis perd sa résistance. Les chevrons s'affaissent, la couverture se creuse, et les insectes trouvent un terrain favorable.",
+        "Sur le chantier d'Oullins, la couverture a été déposée localement. Nous avons découpé les pièces abîmées, moisé les pannes avec des bastings neufs, remplacé les chevrons affaissés puis appliqué un traitement insecticide avant de reposer les tuiles. L'intervention a duré trois jours.",
+      ],
+    },
+    issues: {
+      title: "Les signes d'une charpente fragilisée",
+      items: [
+        {
+          title: "Toiture qui se creuse",
+          text: "Un pan qui ondule ou un faîtage qui fléchit trahit souvent un chevron ou une panne affaiblie.",
+        },
+        {
+          title: "Bois noirci ou spongieux",
+          text: "Dans les combles, un bois qui s'enfonce sous la pointe d'un tournevis a été longtemps mouillé.",
+        },
+        {
+          title: "Traces d'anciennes fuites",
+          text: "Auréoles sèches sur les bois : la fuite a peut-être été réparée, mais la charpente doit être contrôlée.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Oullins",
+      intro: "De la charpente à la couverture :",
+      items: [
+        {
+          service: "couverture",
+          text: "Dépose locale, remplacement de chevrons, moisage de pannes, repose ou rénovation de la couverture.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche et réparation de la fuite à l'origine des dégâts.",
+        },
+        {
+          service: "zinguerie",
+          text: "Noues, solins, abergements et gouttières.",
+        },
+        {
+          service: "isolation",
+          text: "Remplacement de l'isolant mouillé une fois la toiture saine.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Oullins",
+      intro:
+        "Reprise d'une charpente fragilisée par une ancienne fuite : moisage des pannes, chevrons neufs et traitement insecticide, en trois jours :",
+      localSlugs: ["reparation-charpente-lambourde-oullins"],
+      nearbyTitle: "Autres chantiers au sud et à l'ouest de Lyon",
+      nearbySlugs: [
+        "reparation-fuite-cheminee-brignais",
+        "renovation-toiture-ardoise-ste-foy",
+        "traitement-charpente-bois-saint-priest",
+      ],
+    },
+    processIntro:
+      "À Oullins, quand une fuite est signalée, nous inspectons aussi la charpente depuis les combles si l'accès le permet : c'est elle qui détermine l'ampleur des travaux.",
+    nearby: {
+      title: "Autour d'Oullins",
+      intro: "Nous intervenons également dans les communes voisines :",
+      cities: [
+        { name: "Lyon", slug: "couvreur-lyon" },
+        { name: "Saint-Genis-Laval", slug: "couvreur-saint-genis-laval" },
+        { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
+        { name: "Pierre-Bénite" },
+        { name: "Irigny" },
+      ],
+    },
+    faq: [
+      {
+        question: "Qu'est-ce que le moisage d'une panne ?",
+        answer:
+          "C'est le renforcement d'une pièce de charpente affaiblie en la prenant en sandwich entre deux pièces de bois neuves, solidement fixées. À Oullins, nous avons moisé des pannes avec des bastings neufs.",
+      },
+      {
+        question: "Faut-il traiter la charpente après une réparation ?",
+        answer:
+          "C'est conseillé lorsque des bois ont été mouillés longtemps : un traitement insecticide protège les pièces conservées. Nous l'avons appliqué sur le chantier d'Oullins.",
+      },
+      {
+        question: "Intervenez-vous aussi à Pierre-Bénite ?",
+        answer:
+          "Oui. Oullins et Pierre-Bénite forment désormais une seule commune, Oullins-Pierre-Bénite, et nous intervenons sur l'ensemble de son territoire.",
+      },
+    ],
+    sectionOrder: ["intro", "issues", "context", "realisations", "services", "faq", "process", "nearby"],
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // SAINTE-FOY-LÈS-LYON — angle : ardoise, maisons de maître, lucarnes
+  // Réalisation réelle : renovation-toiture-ardoise-ste-foy (avril 2026)
+  // ──────────────────────────────────────────────────────────────
+  {
+    slug: "couvreur-sainte-foy-les-lyon",
+    city: "Sainte-Foy-lès-Lyon",
+    postalCode: "69110",
+    primaryKeyword: "couvreur Sainte-Foy-lès-Lyon",
+    metaTitle: "Couvreur à Sainte-Foy-lès-Lyon – Ardoise & maisons de maître",
+    metaDescription:
+      "Couvreur à Sainte-Foy-lès-Lyon : couverture en ardoise posée au crochet, réfection de lucarnes, réparation et rénovation de toiture. Chantier réalisé à Sainte-Foy en avril 2026. Devis gratuit.",
+    h1: "Couvreur à Sainte-Foy-lès-Lyon : ardoise, lucarnes et rénovation",
+    heroBadge: "Coteaux de l'Ouest lyonnais · chantier réalisé en 2026",
+    heroLead:
+      "Sur une maison de maître, la toiture fait partie du caractère du bâtiment. À Sainte-Foy-lès-Lyon, nous avons remplacé en avril 2026 une couverture en ardoise, posée au crochet inox, et refait les entourages de lucarnes.",
+    intro: {
+      title: "Sainte-Foy-lès-Lyon, sur les hauteurs de la Saône",
+      paragraphs: [
+        "Sainte-Foy-lès-Lyon occupe une colline à l'ouest de Lyon, au-dessus de la Saône et du quartier de la Confluence, entre Lyon 5e, La Mulatière, Francheville et Oullins. La commune compte de nombreuses maisons bourgeoises et propriétés anciennes.",
+        "Jrenov y a mené en avril 2026 l'un de ses chantiers les plus exigeants, une couverture en ardoise sur une maison de maître, en huit jours. Notre siège est à Décines-Charpieu, de l'autre côté de l'agglomération.",
+      ],
+    },
+    context: {
+      title: "L'ardoise posée au crochet : précision et durabilité",
+      paragraphs: [
+        "Une couverture en ardoise se compose de centaines de pièces fines, alignées au cordeau. La pose au crochet inox fixe chaque ardoise sans la percer, ce qui facilite aussi le remplacement ultérieur d'une pièce cassée.",
+        "À Sainte-Foy-lès-Lyon, nous avons déposé les ardoises dégradées, posé un écran de sous-toiture respirant et un litonnage neuf, puis des ardoises d'Espagne de qualité supérieure. Les entourages des lucarnes ont été refaits dans la foulée.",
+      ],
+    },
+    issues: {
+      title: "Ce que nous rencontrons sur les toitures fidésiennes",
+      items: [
+        {
+          title: "Ardoises glissées ou cassées",
+          text: "Des pièces tombées au pied du mur signalent des crochets corrodés ou des ardoises fendues.",
+        },
+        {
+          title: "Lucarnes qui laissent passer l'eau",
+          text: "Joues, frontons et raccords des lucarnes sont des points sensibles sur les toitures anciennes.",
+        },
+        {
+          title: "Liteaux fatigués",
+          text: "Sous une couverture ancienne, le support en bois peut être à remplacer en même temps que les ardoises.",
+        },
+      ],
+    },
+    services: {
+      title: "Nos prestations à Sainte-Foy-lès-Lyon",
+      intro: "Pour les toitures en ardoise comme en tuiles :",
+      items: [
+        {
+          service: "couverture",
+          text: "Couverture en ardoise posée au crochet, réfection de lucarnes, rénovation de couvertures en tuiles.",
+        },
+        {
+          service: "zinguerie",
+          text: "Noues, abergements, chéneaux et gouttières en zinc.",
+        },
+        {
+          service: "recherche-de-fuite",
+          text: "Recherche de fuite sur toitures complexes : lucarnes, cheminées, noues.",
+        },
+        {
+          service: "isolation",
+          text: "Isolation lors d'une réfection de couverture.",
+        },
+        {
+          service: "fenetres-de-toit",
+          text: "Fenêtres de toit adaptées aux couvertures en ardoise.",
+        },
+      ],
+    },
+    realisations: {
+      title: "Notre chantier à Sainte-Foy-lès-Lyon",
+      intro:
+        "Remplacement d'une couverture en ardoise sur une maison de maître, avec écran respirant, litonnage neuf et réfection des lucarnes, en huit jours :",
+      localSlugs: ["renovation-toiture-ardoise-ste-foy"],
+      nearbyTitle: "Couvertures exigeantes dans l'agglomération",
+      nearbySlugs: [
+        "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
+        "refection-solins-etancheite-lyon-5",
+        "reparation-charpente-lambourde-oullins",
+      ],
+    },
+    processIntro:
+      "Pour une toiture en ardoise à Sainte-Foy-lès-Lyon, la visite permet d'évaluer la part d'ardoises à remplacer et l'état du support, deux éléments qui décident entre réparation et réfection.",
+    nearby: {
+      title: "Autour de Sainte-Foy-lès-Lyon",
+      intro: "Nous intervenons aussi dans les communes voisines :",
+      cities: [
+        { name: "Lyon", slug: "couvreur-lyon" },
+        { name: "Francheville", slug: "couvreur-francheville" },
+        { name: "Oullins", slug: "couvreur-oullins" },
+        { name: "La Mulatière" },
+        { name: "Tassin-la-Demi-Lune", slug: "couvreur-tassin-la-demi-lune" },
+      ],
+    },
+    faq: [
+      {
+        question: "Pourquoi poser l'ardoise au crochet plutôt qu'au clou ?",
+        answer:
+          "Le crochet maintient l'ardoise sans la percer et permet de remplacer une pièce cassée sans déposer les voisines. À Sainte-Foy-lès-Lyon, nous avons utilisé des crochets inox.",
+      },
+      {
+        question: "Peut-on remplacer seulement quelques ardoises ?",
+        answer:
+          "Oui, si le support et la majorité des ardoises sont sains. Quand les pièces dégradées se multiplient et que les liteaux sont fatigués, une réfection complète devient plus raisonnable.",
+      },
+      {
+        question: "Combien de temps dure la réfection d'une toiture en ardoise ?",
+        answer:
+          "Sur la maison de maître de Sainte-Foy-lès-Lyon, le chantier a duré huit jours, réfection des lucarnes comprise. Tout dépend de la surface et de la complexité de la toiture.",
+      },
+    ],
+    sectionOrder: ["intro", "context", "realisations", "issues", "services", "faq", "process", "nearby"],
+  },
+
 ];
 
 /**
@@ -1661,12 +3066,12 @@ export const ZONE_SECTORS: ZoneSector[] = [
       { name: "Chassieu", slug: "couvreur-chassieu" },
       { name: "Saint-Priest", slug: "couvreur-saint-priest" },
       { name: "Vaulx-en-Velin" },
-      { name: "Bron" },
+      { name: "Bron", slug: "couvreur-bron" },
       { name: "Jonage", slug: "couvreur-jonage" },
       { name: "Pusignan" },
       { name: "Saint-Bonnet-de-Mure" },
-      { name: "Mions" },
-      { name: "Corbas" },
+      { name: "Mions", slug: "couvreur-mions" },
+      { name: "Corbas", slug: "couvreur-corbas" },
     ],
   },
   {
@@ -1679,7 +3084,7 @@ export const ZONE_SECTORS: ZoneSector[] = [
       { name: "Lyon", slug: "couvreur-lyon" },
       { name: "Caluire-et-Cuire", slug: "couvreur-caluire-et-cuire" },
       { name: "Vénissieux", slug: "couvreur-venissieux" },
-      { name: "Rillieux-la-Pape" },
+      { name: "Rillieux-la-Pape", slug: "couvreur-rillieux-la-pape" },
     ],
   },
   {
@@ -1693,14 +3098,15 @@ export const ZONE_SECTORS: ZoneSector[] = [
     name: "Ouest lyonnais",
     description: "De l'autre côté de Lyon, nous avons réalisé plusieurs chantiers de couverture, de zinguerie et d'entretien.",
     communes: [
-      { name: "Écully" },
+      { name: "Écully", slug: "couvreur-ecully" },
       { name: "Dardilly", slug: "couvreur-dardilly" },
-      { name: "Tassin-la-Demi-Lune" },
+      { name: "Saint-Genis-Laval", slug: "couvreur-saint-genis-laval" },
+      { name: "Tassin-la-Demi-Lune", slug: "couvreur-tassin-la-demi-lune" },
       { name: "Craponne" },
-      { name: "Sainte-Foy-lès-Lyon" },
-      { name: "Francheville" },
-      { name: "Oullins" },
-      { name: "Brignais" },
+      { name: "Sainte-Foy-lès-Lyon", slug: "couvreur-sainte-foy-les-lyon" },
+      { name: "Francheville", slug: "couvreur-francheville" },
+      { name: "Oullins", slug: "couvreur-oullins" },
+      { name: "Brignais", slug: "couvreur-brignais" },
     ],
   },
   {
@@ -1717,6 +3123,7 @@ export const ZONE_SECTORS: ZoneSector[] = [
     communes: [
       { name: "Bourgoin-Jallieu", slug: "couvreur-bourgoin-jallieu" },
       { name: "Vienne", slug: "couvreur-vienne" },
+      { name: "Saint-Quentin-Fallavier", slug: "couvreur-saint-quentin-fallavier" },
     ],
   },
 ];

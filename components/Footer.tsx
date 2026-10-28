@@ -14,7 +14,7 @@ const SERVICES_LINKS = [
 ];
 
 // Quelques pages locales mises en avant : la liste complète est sur /zones-intervention
-const FOOTER_ZONES = LOCAL_AREA_INDEX.map((area) => ({ label: area.city, href: `/${area.slug}` }));
+const FOOTER_ZONES = LOCAL_AREA_INDEX.slice(0, 9).map((area) => ({ label: area.city, href: `/${area.slug}` }));
 
 export default function Footer() {
   return (
