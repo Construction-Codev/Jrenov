@@ -250,7 +250,7 @@
     "summary": "Nettoyage d'une couverture en tuiles romanes noircie par les mousses, puis application d'un hydrofuge coloré.",
     "description": "La couverture, en tuiles romanes, était ternie et colonisée par les mousses et lichens. Après un nettoyage complet des pans, un hydrofuge coloré a été appliqué pour imperméabiliser les tuiles et leur redonner une teinte homogène : la photo montre la différence entre la partie traitée et la partie d'origine.",
     "image": "/images/realisations/demoussage-hydrofuge-tuiles-jonage.jpg",
-    "duration": ""
+    "duration": "2 jours"
   },
   {
     "slug": "habillage-alu-rives-gouttieres-dardilly",
@@ -261,7 +261,7 @@
     "summary": "Habillage en aluminium couleur bois foncé des bandeaux et sous-faces, avec gouttières et descentes assorties.",
     "description": "Sur cette maison, les débords de toiture ont été habillés en aluminium d'une teinte foncée, assortie aux menuiseries. Bandeaux, sous-faces, gouttières et descentes forment un ensemble homogène qui protège les bois et ne demande plus de peinture.",
     "image": "/images/realisations/habillage-alu-rives-dardilly.jpg",
-    "duration": ""
+    "duration": "3 jours"
   },
   {
     "slug": "refection-faitage-sec-tuiles-canal-vienne",
@@ -272,7 +272,7 @@
     "summary": "Dépose des faîtières, pose d'un closoir ventilé sur lisse puis repose des tuiles faîtières sur une couverture en tuiles canal.",
     "description": "Le faîtage de cette couverture en tuiles canal a été entièrement repris. Les anciennes faîtières ont été déposées, un closoir ventilé a été posé sur une lisse le long du sommet du toit, puis les tuiles faîtières ont été remises en place et fixées. Cette pose à sec ventile la toiture et ne dépend plus d'un scellement au mortier.",
     "image": "/images/realisations/faitage-sec-tuiles-canal-vienne.jpg",
-    "duration": ""
+    "duration": "1 jour"
   },
   {
     "slug": "ecran-isolant-sous-toiture-bourgoin-jallieu",
@@ -283,7 +283,7 @@
     "summary": "Pose d'un écran isolant réfléchissant et d'un litonnage neuf avant la repose de la couverture.",
     "description": "Dans le cadre d'une rénovation de toiture, la couverture a été déposée pour poser un écran isolant réfléchissant sur l'ensemble du pan, maintenu par un contre-litonnage et un litonnage neufs. Les tuiles ont ensuite été reposées sur ce nouveau support.",
     "image": "/images/realisations/isolation-sous-toiture-bourgoin-jallieu.jpg",
-    "duration": ""
+    "duration": "5 jours"
   },
   {
     "slug": "abergement-cheminee-zinc-saint-genis-laval",
@@ -294,7 +294,7 @@
     "summary": "Reprise de l'étanchéité autour d'une souche de cheminée avec un abergement en zinc façonné.",
     "description": "Autour de cette souche de cheminée, les tuiles ont été déposées pour reprendre complètement l'étanchéité. Un abergement en zinc façonné habille désormais le pied de la souche et renvoie l'eau sur la couverture, avant la repose des tuiles autour.",
     "image": "/images/realisations/abergement-cheminee-zinc-saint-genis-laval.jpg",
-    "duration": ""
+    "duration": "1 jour"
   },
   {
     "slug": "faitage-closoir-ventile-rillieux-la-pape",
@@ -305,7 +305,7 @@
     "summary": "Dépose des tuiles faîtières et pose d'un closoir ventilé le long du faîtage avant repose.",
     "description": "Le faîtage de cette toiture a été déposé sur toute sa longueur. Un closoir ventilé a été mis en place le long du sommet du toit pour remplacer l'ancien scellement, puis les tuiles faîtières ont été reposées et fixées.",
     "image": "/images/realisations/faitage-closoir-rillieux-la-pape.jpg",
-    "duration": ""
+    "duration": "1 jour"
   },
   {
     "slug": "nettoyage-toiture-fenetre-de-toit-bron",
@@ -316,7 +316,7 @@
     "summary": "Nettoyage d'une couverture en tuiles mécaniques équipée d'une fenêtre de toit.",
     "description": "Cette toiture en tuiles mécaniques, équipée d'une fenêtre de toit, a été nettoyée pan par pan pour retirer mousses et salissures. Le nettoyage autour de la fenêtre de toit permet aussi de contrôler ses raccords d'étanchéité avec la couverture.",
     "image": "/images/realisations/nettoyage-toiture-velux-bron.jpg",
-    "duration": ""
+    "duration": "1 jour"
   },
   {
     "slug": "rives-alu-nettoyage-toiture-mions",
@@ -327,7 +327,7 @@
     "summary": "Pose de rives en aluminium gris et nettoyage d'une couverture en tuiles romanes.",
     "description": "Sur cette maison, les rives de toiture ont été habillées en aluminium gris, ce qui protège la tranche de la couverture et les bois de rive. La couverture en tuiles romanes a été nettoyée dans la foulée pour retirer les mousses.",
     "image": "/images/realisations/rives-alu-nettoyage-mions.jpg",
-    "duration": ""
+    "duration": "2 jours"
   },
   {
     "slug": "traitement-toiture-saint-quentin-fallavier",
@@ -338,6 +338,6 @@
     "summary": "Application d'un traitement par pulvérisation sur une couverture en tuiles.",
     "description": "Après nettoyage, un traitement a été pulvérisé sur l'ensemble de la couverture en tuiles pour limiter le retour des mousses et lichens. L'intervention se fait depuis la toiture, pan par pan, avec un pulvérisateur.",
     "image": "/images/realisations/traitement-toiture-saint-quentin-fallavier.jpg",
-    "duration": ""
+    "duration": "1 jour"
   }
 ]
