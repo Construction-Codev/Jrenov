@@ -20,8 +20,19 @@ describe("articles de conseils JRENOV", () => {
     expect([...months].sort()).toEqual([
       "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10", "2026-11",
     ]);
+
+    const editorialDates = guides.map((post) => frenchDateToIso(post.editorialDate));
+    expect(new Set(editorialDates).size).toBe(12);
+    expect(editorialDates[0]).toBe("2026-05-01");
+    expect(editorialDates.at(-1)).toBe("2026-11-04");
+    for (let i = 1; i < editorialDates.length; i++) {
+      const daysBetween = (Date.parse(editorialDates[i]!) - Date.parse(editorialDates[i - 1]!)) / 86_400_000;
+      expect(daysBetween).toBe(17);
+    }
+
     for (const guide of guides) {
       expect(frenchDateToIso(guide.date)).toBe("2026-11-04");
+      expect(frenchDateToIso(guide.editorialDate)?.slice(0, 7)).toBe(frenchDateToIso(guide.topicMonth));
       expect(guide.author).toBe("JRENOV");
     }
   });
