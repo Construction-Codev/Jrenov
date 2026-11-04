@@ -171,6 +171,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Une charpente accessible depuis les combles mérite-t-elle un contrôle avant de remplacer les tuiles à Décines-Charpieu ?",
+        answer: "Oui. Le remplacement de la couverture doit s'appuyer sur l'état réel des chevrons et liteaux. Une humidité autour d'une fenêtre de toit, comme dans les configurations déjà traitées à Décines-Charpieu, impose aussi de vérifier les raccords avant de refermer.",
+      },
+      {
+        question: "Quels éléments détailler dans un devis de rénovation de toiture à Décines-Charpieu ?",
+        answer: "Distinguez la dépose des tuiles, les reprises de support, les accessoires de couverture, les raccords de fenêtre de toit et les évacuations. Le diagnostic préalable permet de séparer réparation localisée et réfection complète.",
+      },
+      {
         question: "Où se trouve Jrenov à Décines-Charpieu ?",
         answer:
           `Le siège de l'entreprise est situé au 48 Ancien Chemin des Marais, 69150 Décines-Charpieu. Nous sommes joignables du lundi au samedi de 8h00 à 19h00 au ${BUSINESS.phoneDisplay}, et un service d'urgence fuite est assuré 7j/7.`,
@@ -284,6 +292,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Pourquoi examiner les chevrons sous un bandeau dégradé à Meyzieu ?",
+        answer: "Une planche de rive abîmée peut cacher une dégradation des extrémités de chevrons. Sur une toiture à Meyzieu, l'habillage aluminium ne doit être posé qu'après avoir vérifié et, si nécessaire, repris les bois porteurs et les fixations.",
+      },
+      {
+        question: "Une rénovation de toiture à Meyzieu doit-elle inclure les gouttières ?",
+        answer: "Pas automatiquement, mais les descentes, les crochets et les jonctions avec les rives sont à examiner. Notre réalisation de bandeaux à Meyzieu montre l'importance du bas de toit dans la durabilité d'une couverture.",
+      },
+      {
         question: "Pourquoi habiller ses bandeaux en aluminium plutôt que les repeindre ?",
         answer:
           "Le bois de rive doit être repeint ou lasuré régulièrement. L'habillage en aluminium thermolaqué supprime cet entretien : à Meyzieu, nous avons choisi un gris anthracite pour l'harmoniser avec la façade.",
@@ -325,7 +341,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     intro: {
       title: "Un couvreur de l'Est lyonnais à Villeurbanne",
       paragraphs: [
-        "Jrenov n'a pas d'établissement à Villeurbanne : l'entreprise est installée à Décines-Charpieu, plus à l'est, et rejoint la commune pour chaque chantier. Villeurbanne fait partie des villes de la métropole où nous intervenons pour des particuliers.",
+        "Implantée à Décines-Charpieu, JRENOV accompagne les propriétaires de Villeurbanne pour la rénovation de toiture, le remplacement de tuiles, la recherche de fuite et les ouvrages de zinguerie. Nous préparons chaque intervention selon la configuration de la couverture, les accès et les attentes du client.",
         "Entre les immeubles des Gratte-Ciel et les rues de maisons de ville de Cusset, des Maisons-Neuves ou de Croix-Luizet, le bâti villeurbannais est très varié. Notre chantier de janvier 2026 concernait justement une maison de ville dont la couverture en tuiles terre cuite devait être entièrement refaite.",
       ],
     },
@@ -406,9 +422,17 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Comment vérifier la charpente avant de refaire les tuiles d'une maison à Villeurbanne ?",
+        answer: "Sur une maison de ville, la visite doit rechercher les traces d'humidité sur les pannes et liteaux, contrôler les appuis et identifier les raccords avec les murs voisins. Le devis distingue les travaux visibles et les reprises à confirmer après dépose.",
+      },
+      {
+        question: "Que prévoir pour la rénovation d'une toiture de maison de ville à Villeurbanne ?",
+        answer: "Au-delà du choix des tuiles, anticipez l'accès en façade, l'évacuation des anciens matériaux, les solins mitoyens et les abergements de cheminée. Ces éléments peuvent peser autant que la surface dans l'organisation du chantier.",
+      },
+      {
         question: "Jrenov est-il une entreprise villeurbannaise ?",
         answer:
-          "Non. Notre siège est à Décines-Charpieu, au 48 Ancien Chemin des Marais. Nous intervenons à Villeurbanne depuis cette adresse, comme dans le reste de la métropole lyonnaise.",
+          "JRENOV intervient à Villeurbanne pour les réparations de fuite, la rénovation de toiture, les raccords de zinc et les travaux de couverture, avec une visite et un devis adaptés à la configuration du bâtiment.",
       },
       {
         question: "Que comprend une rénovation complète de couverture ?",
@@ -443,7 +467,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     intro: {
       title: "Des chantiers dans plusieurs arrondissements",
       paragraphs: [
-        "Jrenov n'est pas installé à Lyon : notre siège se trouve à Décines-Charpieu, à l'est de l'agglomération. Les arrondissements de la rive gauche du Rhône sont donc les plus proches de nous, mais nous intervenons aussi de l'autre côté des fleuves.",
+        "Depuis Décines-Charpieu, JRENOV intervient dans les arrondissements de Lyon pour les travaux de toiture et de zinguerie. Nos chantiers documentés dans les 3e, 5e et 6e arrondissements illustrent notre approche des configurations urbaines : accès, jonctions complexes, sécurité et finitions.",
         "En 2026, nous avons réalisé trois chantiers lyonnais très différents : l'étanchéité d'un toit-terrasse dans le 6e, une verrière d'atelier dans le 3e et la reprise de solins en plomb sur une maison de ville historique du 5e. Trois chantiers, trois problèmes propres au bâti urbain.",
       ],
     },
@@ -528,9 +552,17 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Qui vérifie la charpente lors d'une réfection de toiture à Lyon ?",
+        answer: "La vérification des éléments bois fait partie du diagnostic de couverture. Les conclusions dépendent de la nature du bâtiment : maison de ville, immeuble ou toiture plus complexe. Une déformation structurelle nécessite l'avis d'un professionnel qualifié pour le dimensionnement.",
+      },
+      {
+        question: "Comment chiffrer une rénovation de toiture à Lyon lorsque l'accès est difficile ?",
+        answer: "Le devis doit isoler les moyens d'accès, la sécurisation, l'évacuation, la couverture et les travaux de zinguerie. Pour un immeuble, il faut également anticiper les décisions de copropriété et les autorisations éventuellement nécessaires.",
+      },
+      {
         question: "D'où intervient Jrenov pour un chantier à Lyon ?",
         answer:
-          "De notre siège de Décines-Charpieu, au 48 Ancien Chemin des Marais. Nous n'avons pas d'établissement dans Lyon, mais nous y avons déjà réalisé des chantiers dans les 3e, 5e et 6e arrondissements.",
+          "Notre équipe intervient depuis Décines-Charpieu et a déjà réalisé des chantiers dans les 3e, 5e et 6e arrondissements de Lyon. Pour votre toiture, nous organisons une visite afin de définir les travaux et de vous remettre un devis adapté.",
       },
       {
         question: "Refaites-vous l'étanchéité des toits-terrasses d'immeubles ?",
@@ -646,6 +678,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Les mousses cachent-elles toujours un problème de charpente à Genas ?",
+        answer: "Non. La présence de mousse sur les tuiles n'indique pas à elle seule un dommage structurel. En revanche, des infiltrations persistantes ou des liteaux humides justifient de contrôler les bois avant tout traitement de surface.",
+      },
+      {
+        question: "Quand préférer une rénovation à un simple nettoyage de toiture à Genas ?",
+        answer: "Si les tuiles sont fragiles, les fixations fatiguées ou les fuites récurrentes, un nettoyage ne règlera pas le problème. Une inspection permet de choisir entre démoussage, remplacement localisé et réfection de la couverture.",
+      },
       {
         question: "À quelle fréquence faut-il démousser une toiture ?",
         answer:
@@ -769,6 +809,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Pourquoi contrôler la charpente avant l'isolation des combles à Chassieu ?",
+        answer: "Un isolant neuf ne doit pas recouvrir des traces d'humidité inexpliquées. Vérifiez d'abord la couverture, la ventilation et les bois accessibles. Les désordres doivent être corrigés avant d'augmenter l'épaisseur d'isolant.",
+      },
+      {
+        question: "Peut-on rénover toiture et isolation ensemble à Chassieu ?",
+        answer: "Oui, selon le type de travaux. Une dépose importante peut permettre d'étudier l'écran sous-toiture et l'isolation, tandis qu'une couverture saine peut ne nécessiter qu'une amélioration par les combles.",
+      },
+      {
         question: "Quelle épaisseur d'isolant souffler dans des combles perdus ?",
         answer:
           "Elle dépend de l'isolant choisi et de la performance visée. À Chassieu, nous avons soufflé 35 cm de laine de roche, pour une résistance thermique annoncée de R = 8 m².K/W.",
@@ -887,6 +935,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Une fuite sur une toiture à Saint-Priest impose-t-elle de remplacer la charpente ?",
+        answer: "Pas forcément. Il faut déterminer depuis combien de temps les bois sont humides, s'ils ont conservé leur résistance et si la cause de l'infiltration a été supprimée. Le remplacement des tuiles ne suffit pas si le support est dégradé.",
+      },
+      {
+        question: "Comment comparer des devis de rénovation de toiture à Saint-Priest ?",
+        answer: "Vérifiez la superficie, les matériaux, la dépose, le traitement des points singuliers, les évacuations d'eau et les dispositions en cas de défaut découvert après ouverture. Deux devis ne sont comparables que si leur périmètre est similaire.",
+      },
+      {
         question: "Comment savoir si une charpente est attaquée par des insectes ?",
         answer:
           "Sciure au sol des combles, petits trous ronds dans le bois, bois qui s'effrite sous la pointe d'un tournevis : ce sont les signes les plus courants. À Saint-Priest, c'est la sciure qui a donné l'alerte.",
@@ -929,7 +985,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       title: "Entre Rhône et Saône, au nord de Lyon",
       paragraphs: [
         "Caluire-et-Cuire occupe le plateau qui prolonge la Croix-Rousse vers le nord, entre la Saône et le Rhône. Des bords du Rhône à Saint-Clair jusqu'aux rues pavillonnaires de Montessuy ou de Vassieux, la commune réunit des maisons de maître, des villas et de petits immeubles aux toitures très différentes.",
-        "Jrenov n'a pas d'établissement à Caluire-et-Cuire : nous venons de Décines-Charpieu, en traversant le Rhône. Nous y avons déjà conduit l'un de nos chantiers les plus complets, une rénovation énergétique de toiture menée en sept jours.",
+        "JRENOV accompagne les propriétaires de Caluire-et-Cuire depuis son implantation à Décines-Charpieu. Nous y avons notamment réalisé une rénovation énergétique de toiture en sept jours : une expérience concrète pour étudier couverture, isolation et finitions dans un même projet.",
       ],
     },
     context: {
@@ -1008,6 +1064,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Que vérifier sur la charpente avant une isolation par l'extérieur à Caluire-et-Cuire ?",
+        answer: "La couverture déposée donne accès aux chevrons et permet d'examiner leur état, les appuis et la planéité. La technique de sarking implique de vérifier la compatibilité structurelle et la continuité des couches d'étanchéité et de ventilation.",
+      },
+      {
+        question: "Une rénovation de toiture à Caluire-et-Cuire peut-elle améliorer le confort d'été ?",
+        answer: "L'isolation et le choix du complexe de toiture peuvent jouer sur le confort intérieur. Le projet doit prendre en compte les matériaux, l'épaisseur disponible, la ventilation et les contraintes d'urbanisme, au-delà du simple remplacement des tuiles.",
+      },
       {
         question: "Qu'est-ce que l'isolation Sarking ?",
         answer:
@@ -1133,6 +1197,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Après la casse de tuiles à Vénissieux, faut-il inspecter les liteaux et la charpente ?",
+        answer: "Oui, lorsque l'eau a pu atteindre le support. L'intervention commence par la localisation des éléments déplacés puis vérifie les fixations, les liteaux et les raccords pour éviter qu'une réparation visible ne laisse persister l'infiltration.",
+      },
+      {
+        question: "Comment décider entre réparation et rénovation de toiture à Vénissieux ?",
+        answer: "La décision dépend de l'étendue des dégâts, de la solidité des tuiles voisines et des éventuelles entrées d'eau ailleurs sur le toit. Le devis doit expliquer pourquoi une reprise partielle suffit ou non.",
+      },
+      {
         question: "En combien de temps pouvez-vous bâcher une toiture après un orage ?",
         answer:
           "Cela dépend du nombre de demandes après l'intempérie. Lors de notre intervention de juin 2026 à Vénissieux, le bâchage a été réalisé en moins de 12 heures après l'orage de grêle.",
@@ -1256,6 +1328,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Que contrôler sous les tuiles d'une maison à Jonage ?",
+        answer: "Les chevrons, les liteaux et les raccords situés autour des émergences de toiture sont à examiner lorsqu'une humidité est signalée. L'objectif est de confirmer le chemin de l'eau plutôt que de remplacer des éléments au hasard.",
+      },
+      {
+        question: "Une recherche de fuite à Jonage doit-elle être séparée du devis de couverture ?",
+        answer: "Distinguer diagnostic, mise hors d'eau et réparation définitive clarifie les travaux. Cette méthode évite de facturer une réfection importante avant d'avoir identifié la zone réellement défaillante.",
+      },
+      {
         question: "Faut-il refaire toute la toiture quand il y a une fuite ?",
         answer:
           "Rarement. Sur une maison individuelle, l'infiltration vient le plus souvent d'un point précis (tuile, faîtage, raccord de cheminée). Une recherche de fuite permet de réparer uniquement ce qui doit l'être.",
@@ -1376,6 +1456,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Quel lien entre une noue en zinc et l'état de la charpente à Dardilly ?",
+        answer: "La noue concentre les eaux de ruissellement entre deux pans. Si elle fuit, les bois situés en dessous peuvent rester humides. Une réparation sérieuse vérifie le support et la pente avant le remplacement du métal.",
+      },
+      {
+        question: "Que demander pour une rénovation de toiture à plusieurs pans à Dardilly ?",
+        answer: "Le devis doit détailler les longueurs de noues, les solins, le faîtage, les rives et la gestion des jonctions. Le nombre de raccords peut être plus déterminant que la seule surface de couverture.",
+      },
+      {
         question: "Quelle différence entre une gouttière nantaise et une gouttière pendante ?",
         answer:
           "La gouttière nantaise repose sur le bas de la toiture, derrière un petit muret de tuiles ou de bois ; la gouttière pendante est accrochée sous le bord du toit. À Écully, nous avons remplacé des gouttières nantaises fuyardes par des chéneaux en zinc façonnés sur mesure.",
@@ -1414,7 +1502,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       title: "Intervenir à Vienne depuis l'agglomération lyonnaise",
       paragraphs: [
         "Vienne est une sous-préfecture de l'Isère, située au bord du Rhône, au sud de Lyon. Son centre historique, connu pour ses vestiges romains comme le temple d'Auguste et de Livie ou le théâtre antique, est entouré de quartiers résidentiels qui montent sur les collines.",
-        "Jrenov est basé à Décines-Charpieu et n'a pas d'agence à Vienne. Nous nous y déplaçons pour des chantiers de couverture, de zinguerie et de réparation, en planifiant la visite à l'avance pour vous proposer un rendez-vous précis.",
+        "À Vienne, JRENOV prépare chaque projet de couverture, de réparation de toiture et de zinguerie en tenant compte de l'accessibilité, des matériaux existants et des éventuelles contraintes du bâti ancien. La visite technique permet d'établir un devis détaillé avant les travaux.",
       ],
     },
     context: {
@@ -1493,6 +1581,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Comment vérifier une charpente ancienne avant une rénovation de toiture à Vienne ?",
+        answer: "Les dimensions, assemblages et déformations du bois doivent être observés avant de choisir une couverture neuve. Sur un bâtiment ancien, toute modification de charge ou de géométrie peut nécessiter une étude spécifique.",
+      },
+      {
+        question: "Quelles contraintes examiner avant de refaire une couverture à Vienne ?",
+        answer: "Outre les matériaux, il faut contrôler l'accès, les éventuels voisinages mitoyens et les règles patrimoniales applicables. Demandez à distinguer les ouvrages de zinguerie des prestations de couverture.",
+      },
       {
         question: "Jrenov intervient-il vraiment jusqu'à Vienne ?",
         answer:
@@ -1616,6 +1712,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Pourquoi examiner les chevrons au moment de remplacer les tuiles à Bourgoin-Jallieu ?",
+        answer: "La dépose de couverture est une occasion de vérifier les supports, les attaches et la présence de traces anciennes d'humidité. Les reprises nécessaires doivent être chiffrées distinctement plutôt que supposées dès le départ.",
+      },
+      {
+        question: "Comment intégrer l'isolation à une rénovation de toiture à Bourgoin-Jallieu ?",
+        answer: "Le choix entre isolation par les combles et par l'extérieur dépend de l'occupation des pièces, de l'état de la couverture et du projet global. Il faut anticiper la ventilation avant de refermer le complexe.",
+      },
+      {
         question: "Vous déplacez-vous jusqu'à Bourgoin-Jallieu pour un devis ?",
         answer:
           `Oui. Bourgoin-Jallieu se trouve dans notre rayon d'intervention d'environ 50 km autour de Décines-Charpieu. La visite et le devis sont gratuits ; appelez le ${BUSINESS.phoneDisplay} pour fixer un rendez-vous.`,
@@ -1733,6 +1837,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Une fuite près d'une cheminée peut-elle dégrader la charpente à Saint-Genis-Laval ?",
+        answer: "Oui. L'eau peut circuler derrière un solin et atteindre des bois éloignés du point d'entrée. Vérifiez les abergements et les éléments structurels accessibles avant de vous limiter à un colmatage ponctuel.",
+      },
+      {
+        question: "Que contient un devis complet de rénovation de toiture à Saint-Genis-Laval ?",
+        answer: "Précisez la couverture, les raccords de cheminée, les éventuelles reprises de support et les protections du chantier. La visite doit déterminer si la réfection concerne un raccord ou l'ensemble d'un pan.",
+      },
       {
         question: "Comment savoir si l'eau entre par la cheminée ?",
         answer:
@@ -1853,6 +1965,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Un faîtage abîmé peut-il endommager les bois sous la toiture à Rillieux-la-Pape ?",
+        answer: "Une entrée d'eau par la ligne de faîtage peut humidifier les liteaux et la partie supérieure de la charpente. Avant de poser un nouveau closoir, le professionnel doit examiner les supports et les fixations.",
+      },
+      {
+        question: "Qu'est-ce qui distingue une réfection de faîtage d'une rénovation complète à Rillieux-la-Pape ?",
+        answer: "La première traite la jonction supérieure des pans ; la seconde peut impliquer le renouvellement des matériaux sur une surface importante. La décision repose sur l'état des tuiles, des appuis et des autres points singuliers.",
+      },
+      {
         question: "Qu'est-ce qu'un faîtage posé à sec ?",
         answer:
           "Les tuiles faîtières sont fixées mécaniquement sur une lisse, au-dessus d'un closoir ventilé, sans mortier. À Fontaines-sur-Saône, nous avons remplacé ainsi un ancien faîtage scellé qui tombait en ruine, en deux jours.",
@@ -1966,6 +2086,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Pourquoi examiner le bois autour d'une cheminée à Brignais ?",
+        answer: "Une infiltration au droit de l'abergement peut se propager le long d'une panne ou d'un chevron. Le diagnostic associe vérification du zinc, de la maçonnerie et des pièces de bois accessibles avant toute reprise.",
+      },
+      {
+        question: "Peut-on réparer un solin sans refaire le toit à Brignais ?",
+        answer: "Oui, lorsque la défaillance est localisée et que le reste de la couverture reste sain. Le devis de zinguerie doit décrire le raccord, la dépose éventuelle des tuiles voisines et les finitions.",
+      },
       {
         question: "Qu'est-ce qu'un abergement de cheminée ?",
         answer:
@@ -2084,6 +2212,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Une noue défaillante peut-elle fragiliser la charpente à Francheville ?",
+        answer: "Les eaux infiltrées le long d'une noue peuvent dégrader ses appuis en bois sans traces immédiates en surface. Le contrôle de la couverture et du support précède la confection d'un nouveau raccord.",
+      },
+      {
+        question: "Quels points comparer avant une rénovation de toiture à Francheville ?",
+        answer: "Regardez le tracé des noues, l'état des tuiles, l'accessibilité et les raccords contre les murs. Le chiffrage doit montrer la différence entre une intervention sur la noue et une réfection plus vaste.",
+      },
       {
         question: "Qu'est-ce qu'une noue à pince ?",
         answer:
@@ -2208,6 +2344,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Faut-il contrôler la charpente avant d'isoler les combles à Bron ?",
+        answer: "Oui, en particulier si des traces d'eau ont déjà été observées. L'isolant doit être posé sur un ensemble sain, avec une ventilation cohérente et sans masquer des désordres existants.",
+      },
+      {
+        question: "Peut-on améliorer une toiture à Bron sans la refaire entièrement ?",
+        answer: "Selon le diagnostic, une isolation des combles, un remplacement de tuiles ponctuel ou la reprise d'un raccord peut suffire. Une réfection totale ne se justifie pas uniquement par l'âge du bâtiment.",
+      },
+      {
         question: "Faut-il refaire la toiture pour changer un Velux ?",
         answer:
           "Non. Le remplacement se fait par l'extérieur, en reprenant uniquement l'étanchéité autour de la fenêtre. À Décines-Charpieu, trois fenêtres de toit ont ainsi été changées en une journée.",
@@ -2322,6 +2466,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Un traitement hydrofuge suffit-il si des liteaux sont humides à Tassin-la-Demi-Lune ?",
+        answer: "Non. Un traitement de surface ne remplace pas la réparation d'une infiltration. Les bois et les fixations doivent être contrôlés, puis la source de l'eau supprimée avant d'envisager un entretien esthétique ou protecteur.",
+      },
+      {
+        question: "Comment distinguer démoussage et rénovation de toiture à Tassin-la-Demi-Lune ?",
+        answer: "Un nettoyage vise des matériaux encore solides. Lorsque les tuiles sont fragiles ou que plusieurs fuites apparaissent, il faut d'abord étudier la réfection des zones concernées.",
+      },
       {
         question: "Un hydrofuge est-il indispensable après un démoussage ?",
         answer:
@@ -2441,6 +2593,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Comment inspecter la charpente d'un garage ou d'une dépendance à Mions ?",
+        answer: "Les portées, fixations et appuis diffèrent de ceux d'une maison. Avant de changer des plaques ou des tuiles, il faut vérifier le support et l'absence de déformation, en particulier si l'ancien revêtement a fui.",
+      },
+      {
+        question: "Une rénovation de toiture à Mions implique-t-elle les annexes ?",
+        answer: "Pas nécessairement. Le devis doit séparer la maison, le garage et les dépendances, car les couvertures, pentes et contraintes de pose peuvent être différentes.",
+      },
+      {
         question: "Peut-on remplacer seulement quelques tuiles ?",
         answer:
           "Oui, si le reste de la couverture est en bon état. Le diagnostic permet de distinguer une réparation ponctuelle d'une couverture arrivée en fin de vie.",
@@ -2555,6 +2715,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Pourquoi examiner les structures porteuses d'une toiture professionnelle à Saint-Quentin-Fallavier ?",
+        answer: "Sur un local d'activité, les grandes portées et les éléments de couverture exigent un contrôle adapté avant toute intervention. Les modifications structurelles nécessitent l'avis d'un professionnel qualifié et des dispositions de sécurité spécifiques.",
+      },
+      {
+        question: "Comment planifier une rénovation de toiture pour limiter l'interruption d'activité ?",
+        answer: "La visite doit identifier les accès, les circulations de personnes, la protection des stocks et les phases de chantier. Un devis clair distingue mise en sécurité, couverture et évacuations pluviales.",
+      },
+      {
         question: "Intervenez-vous sur des bâtiments d'entreprise ?",
         answer:
           "Oui. À Vénissieux, nous avons remis hors d'eau un bâtiment professionnel moins de 12 heures après la grêle, puis remplacé 150 tuiles et consolidé le faîtage.",
@@ -2668,6 +2836,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Que vérifier sur la charpente d'un garage avant de refaire son toit à Corbas ?",
+        answer: "Les pannes, liteaux et éventuelles déformations sont à examiner avant de choisir un revêtement neuf. Il faut s'assurer que le support convient au poids et aux fixations prévus.",
+      },
+      {
+        question: "Comment choisir entre bac acier et tuiles pour une rénovation à Corbas ?",
+        answer: "La réponse dépend de la pente, de la structure, du règlement local d'urbanisme et de l'utilisation du bâtiment. Le devis doit inclure les raccords, la gestion des eaux et la ventilation nécessaire.",
+      },
       {
         question: "Retirez-vous vous-mêmes les plaques amiantées ?",
         answer:
@@ -2787,6 +2963,14 @@ export const LOCAL_AREAS: LocalArea[] = [
     },
     faq: [
       {
+        question: "Une fuite de gouttière peut-elle atteindre la charpente à Écully ?",
+        answer: "Une gouttière débordante peut humidifier les bandeaux, les extrémités de chevrons et la façade. Le contrôle des crochets et de la pente doit s'accompagner d'une vérification des bois si des traces de dégradation sont visibles.",
+      },
+      {
+        question: "Quand remplacer une gouttière plutôt que refaire toute la toiture à Écully ?",
+        answer: "Si la couverture est saine et que le problème concerne uniquement l'évacuation des eaux, une réparation de zinguerie peut suffire. La visite distingue les ouvrages concernés.",
+      },
+      {
         question: "Pourquoi choisir le zinc pour un chéneau ?",
         answer:
           "Le zinc se façonne sur mesure, se soude et dure longtemps. À Écully, nous avons utilisé du zinc de 0,65 mm d'épaisseur pour des chéneaux adaptés exactement à la maison.",
@@ -2901,6 +3085,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Quels signes indiquent une charpente fragilisée à Oullins-Pierre-Bénite ?",
+        answer: "Une déformation, un bois friable ou une humidité persistante appellent une investigation avant de refermer la toiture. La commune nouvelle regroupe Oullins et Pierre-Bénite ; le diagnostic tient compte du bâtiment, pas de sa seule adresse.",
+      },
+      {
+        question: "Réfection complète ou réparation des supports à Oullins-Pierre-Bénite ?",
+        answer: "Le devis doit distinguer les éléments structurels à faire évaluer, les liteaux à remplacer et la couverture elle-même. Réparer une fuite durablement suppose de traiter la cause et ses conséquences sur les supports.",
+      },
       {
         question: "Qu'est-ce que le moisage d'une panne ?",
         answer:
@@ -3019,6 +3211,14 @@ export const LOCAL_AREAS: LocalArea[] = [
       ],
     },
     faq: [
+      {
+        question: "Pourquoi examiner une charpente ancienne sous une couverture en ardoise à Sainte-Foy-lès-Lyon ?",
+        answer: "La pose au crochet exige un support adapté et des liteaux réguliers. Avant la réfection, on vérifie les bois, l'état des lucarnes et les raccords pour éviter de préserver des supports dégradés sous les nouvelles ardoises.",
+      },
+      {
+        question: "Quels éléments distinguer dans un devis de rénovation en ardoise à Sainte-Foy-lès-Lyon ?",
+        answer: "Le devis décrit le choix des ardoises, les crochets, le litonnage, les raccords des lucarnes et les moyens d'accès. Il peut prévoir des vérifications spécifiques avant la pose selon l'état de la charpente.",
+      },
       {
         question: "Pourquoi poser l'ardoise au crochet plutôt qu'au clou ?",
         answer:
