@@ -327,9 +327,9 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
           `Réparation de tuiles, réfection de faîtage ou rénovation de toiture : ${p.action}`,
           `Recherche d'une infiltration avant toute réparation de fuite : ${p.inspect}`,
           `Gouttières, solins, noues et rives : ${p.lead}`,
-          `Isolation par les combles ou par l'extérieur seulement si l'état de la couverture et la ventilation le permettent. ${p.action}`,
-          `Nettoyage ou démoussage après vérification de la résistance des tuiles ; un traitement ne remplace pas une réparation. ${p.inspect}`,
-          `Pose ou remplacement d'une fenêtre de toit avec reprise du raccord, en fonction de la pente et des matériaux de couverture. ${p.lead}`,
+          `Isolation et ventilation à examiner avec la couverture : ${p.action}`,
+          `Démoussage uniquement sur couverture saine : ${p.inspect}`,
+          `Fenêtre de toit et raccords adaptés : ${p.lead}`,
         ][index],
       })),
     },
@@ -349,7 +349,7 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     faq: [
       {
         question: `Pour ${details} à ${p.city}, une réparation ponctuelle peut-elle suffire ?`,
-        answer: `${p.inspect} Une reprise ciblée est étudiée si les matériaux voisins sont sains, après vérification du support à ${p.city}.`,
+        answer: `${p.inspect} Il faut confirmer la tenue des tuiles voisines.`,
       },
       {
         question: `Charpente à ${p.city} : quel contrôle avant de traiter ${details} ?`,
@@ -361,7 +361,7 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
       },
       {
         question: `Pour ${details} à ${p.city}, faut-il remplacer toutes les tuiles ?`,
-        answer: `${p.lead} Une réparation localisée peut suffire, si l'inspection confirme la solidité des éléments voisins à ${p.city}.`,
+        answer: `${p.lead} La tenue des matériaux voisins détermine l'étendue des travaux.`,
       },
       {
         question: `Gouttières et ${details} à ${p.city} : que vérifier ensemble ?`,
