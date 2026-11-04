@@ -78,6 +78,66 @@ export interface ArticleLink {
 }
 
 export const ARTICLE_LINKS: Record<string, ArticleLink> = {
+  "choisir-couvreur-lyon-verifier-devis-assurance": {
+    services: ["couverture"],
+    text: "Vous avez un projet de rénovation ou une réparation à programmer ? Retrouvez nos interventions et demandez un devis détaillé adapté à votre couverture.",
+    withQuote: true,
+  },
+  "tuiles-cassees-reparer-ou-refaire-toiture": {
+    services: ["couverture", "recherche-de-fuite"],
+    text: "Une tuile cassée peut nécessiter une reprise localisée ou une inspection plus large : découvrez nos services de couverture et de recherche de fuite.",
+    withQuote: true,
+  },
+  "fuite-toiture-apres-orage-premiers-reflexes": {
+    services: ["recherche-de-fuite"],
+    text: "Après une infiltration, notre intervention vise d'abord à identifier l'origine du problème puis à sécuriser et réparer la couverture.",
+    withQuote: true,
+  },
+  "fuite-solin-cheminee-comment-reparer": {
+    services: ["zinguerie", "recherche-de-fuite"],
+    text: "Nous examinons les raccords de toiture, les solins et les abergements pour proposer une solution adaptée à la cause de la fuite.",
+    withQuote: true,
+  },
+  "prix-reparation-fuite-toiture-comment-estimer": {
+    services: ["recherche-de-fuite", "couverture"],
+    text: "Le prix dépend de la cause et de l'accès à la toiture : une visite et un descriptif précis sont indispensables pour chiffrer votre réparation.",
+    withQuote: true,
+  },
+  "infiltration-autour-velux-origines-solutions": {
+    services: ["fenetres-de-toit", "recherche-de-fuite"],
+    text: "Nous intervenons sur les fenêtres de toit et leurs raccords ainsi que sur les infiltrations provenant des éléments de couverture voisins.",
+    withQuote: true,
+  },
+  "faitage-toiture-abime-comment-reconnaitre": {
+    services: ["couverture"],
+    text: "Un faîtage fragilisé nécessite un contrôle des éléments, de la fixation et de la ventilation de la couverture avant toute réparation.",
+    withQuote: true,
+  },
+  "gouttiere-deborde-fortes-pluies-causes-solutions": {
+    services: ["zinguerie"],
+    text: "Une gouttière qui déborde peut nécessiter un nettoyage, une reprise de pente ou une réparation : nos prestations de zinguerie détaillent ces interventions.",
+    withQuote: true,
+  },
+  "condensation-ou-fuite-dans-les-combles": {
+    services: ["recherche-de-fuite", "isolation"],
+    text: "Pour un diagnostic cohérent, il faut vérifier l'étanchéité extérieure, l'isolation et la ventilation plutôt que traiter uniquement les traces visibles.",
+    withQuote: true,
+  },
+  "declaration-prealable-refection-toiture-lyon": {
+    services: ["couverture"],
+    text: "Une fois les formalités vérifiées auprès de votre commune, découvrez nos solutions de couverture et préparez votre demande de devis.",
+    withQuote: true,
+  },
+  "verifier-toiture-avant-hiver-checklist-lyon": {
+    services: ["couverture", "zinguerie", "demoussage"],
+    text: "Tuiles, faîtage, écoulement des eaux et entretien : nos services permettent d'adapter les interventions à l'état réel de votre toiture.",
+    withQuote: true,
+  },
+  "reparer-ou-renover-toiture-criteres-decision": {
+    services: ["couverture", "recherche-de-fuite"],
+    text: "Nous pouvons examiner l'origine des désordres pour comparer une réparation durable et une rénovation plus étendue, selon votre couverture.",
+    withQuote: true,
+  },
   "comment-detecter-fuite-toiture-lyon": {
     services: ["recherche-de-fuite"],
     text: "Vous reconnaissez l'un de ces signes chez vous ? Voyez comment nous localisons l'origine d'une infiltration, mettons la toiture hors d'eau puis réparons.",
