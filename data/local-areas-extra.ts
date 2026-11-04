@@ -292,7 +292,7 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     postalCode: "",
     primaryKeyword: `couvreur ${p.city}`,
     metaTitle: `Couvreur à ${p.city} – ${p.focus}`,
-    metaDescription: `Couvreur ${p.city} : ${p.lead}`.slice(0, 155).replace(/[.,;:\\s]+$/, "") + ".",
+    metaDescription: `Couvreur ${p.city} : ${p.lead}`.slice(0, 155).trimEnd().replace(/[.,;:]$/, "") + ".",
     h1: `Couvreur à ${p.city} : ${p.focus.toLowerCase()}`,
     heroBadge: `Travaux de couverture et zinguerie à ${p.city}`,
     heroLead: p.lead,
