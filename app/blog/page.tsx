@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
-import posts from "@/data/post.json";
+import { posts, frenchDateToIso } from "@/lib/content";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -13,7 +13,13 @@ export const metadata: Metadata = {
   }),
 };
 
+const editorialDate = (post: (typeof posts)[number]) =>
+  "topicMonth" in post && typeof post.topicMonth === "string" ? post.topicMonth : post.date;
+
 export default function BlogPage() {
+  const sortedPosts = [...posts].sort((a, b) =>
+    (frenchDateToIso(editorialDate(b)) ?? "").localeCompare(frenchDateToIso(editorialDate(a)) ?? "")
+  );
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-12">
@@ -27,13 +33,16 @@ export default function BlogPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {posts.map((post) => (
+          {sortedPosts.map((post) => (
             <article key={post.slug} className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex gap-4 text-xs text-slate-400">
-                  <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{post.date}</span>
+                  <time dateTime={frenchDateToIso(post.date)} className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />Publié le {post.date}</time>
                   <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{post.readTime}</span>
                 </div>
+                {"topicMonth" in post && typeof post.topicMonth === "string" && (
+                  <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">Dossier pratique · {post.topicMonth}</p>
+                )}
                 <h2 className="text-xl font-bold text-slate-900 hover:text-amber-600 transition">
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
