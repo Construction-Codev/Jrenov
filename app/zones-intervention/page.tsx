@@ -95,7 +95,7 @@ export default function ZonesInterventionPage() {
               >
                 <span className="text-xs text-amber-600 font-bold flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5" />
-                  {area.city} ({area.postalCode})
+                  {area.city}{area.postalCode ? ` (${area.postalCode})` : ""}
                 </span>
                 <span className="block text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">
                   Couvreur à {area.city}
