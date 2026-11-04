@@ -430,7 +430,7 @@ export const LOCAL_AREAS: LocalArea[] = [
         answer: "Au-delà du choix des tuiles, anticipez l'accès en façade, l'évacuation des anciens matériaux, les solins mitoyens et les abergements de cheminée. Ces éléments peuvent peser autant que la surface dans l'organisation du chantier.",
       },
       {
-        question: "Jrenov est-il une entreprise villeurbannaise ?",
+        question: "Quelles prestations JRENOV réalise-t-il à Villeurbanne ?",
         answer:
           "JRENOV intervient à Villeurbanne pour les réparations de fuite, la rénovation de toiture, les raccords de zinc et les travaux de couverture, avec une visite et un devis adaptés à la configuration du bâtiment.",
       },
@@ -1080,7 +1080,7 @@ export const LOCAL_AREAS: LocalArea[] = [
       {
         question: "Combien de temps dure une rénovation de toiture avec isolation par l'extérieur ?",
         answer:
-          "Notre chantier de Caluire-et-Cuire a duré sept jours, de la dépose de l'ancienne couverture à la pose des tuiles neuves. La durée varie selon la surface, la forme de la toiture et la météo.",
+          "Notre chantier de Caluire-et-Cuire a duré sept jours, de la dépose de l'ancienne couverture à la pose des tuiles neuves. La durée varie selon la surface, l'accessibilité et l'importance des reprises à effectuer.",
       },
       {
         question: "Faut-il refaire la couverture pour isoler par l'extérieur ?",
