@@ -335,7 +335,7 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     },
     realisations: {
       title: `Exemples de travaux de couverture réalisés par JRENOV`,
-      intro: `Pour ${details}, ces réalisations JRENOV dans d'autres communes illustrent le travail de couverture et de zinguerie.`,
+      intro: `Pour ${details}, deux chantiers JRENOV réalisés ailleurs illustrent les interventions.`,
       localSlugs: [],
       nearbyTitle: `Nos réalisations à découvrir`,
       nearbySlugs: nearby,
