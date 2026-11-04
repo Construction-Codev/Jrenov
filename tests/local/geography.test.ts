@@ -33,9 +33,15 @@ describe("couverture et qualité des pages SEO locales", () => {
     }
   });
 
-  it("n'invente pas de réalisations locales dans les nouvelles communes", () => {
+  it("ne relie comme chantier local que les quatre réalisations vérifiées", () => {
+    const verified: Record<string, string> = {
+      "Craponne": "pose-fenetres-toit-velux-craponne",
+      "Dagneux": "pose-gouttieres-alu-sur-mesure-dagneux",
+      "Fontaines-sur-Saône": "renovation-faitage-a-sec-fontaines-sur-saone",
+      "Champagne-au-Mont-d'Or": "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
+    };
     for (const area of ADDITIONAL_LOCAL_AREAS) {
-      expect(area.realisations.localSlugs).toEqual([]);
+      expect(area.realisations.localSlugs).toEqual(verified[area.city] ? [verified[area.city]] : []);
       expect(area.realisations.nearbySlugs.length).toBeGreaterThan(0);
       expect(area.faq.length).toBeGreaterThanOrEqual(6);
       expect(area.context.title).toMatch(/charpente/i);
