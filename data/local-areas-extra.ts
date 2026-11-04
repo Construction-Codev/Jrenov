@@ -299,15 +299,15 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     intro: {
       title: `Votre projet de toiture à ${p.city} : ${details}`,
       paragraphs: [
-        `Pour une demande de réparation ou de rénovation de toiture à ${p.city}, JRENOV commence par comprendre le défaut constaté et la configuration du bâtiment. ${p.lead}`,
-        `Notre objectif est de distinguer une réparation qui peut rester localisée d'une intervention plus complète. ${p.inspect} Cette approche permet d'éviter les travaux sans rapport avec la cause du désordre et de présenter un chiffrage compréhensible.`,
+        `À ${p.city}, ${details} : ${p.lead}`,
+        `${p.inspect} ${p.action}`,
       ],
     },
     context: {
       title: `Charpente et rénovation de toiture à ${p.city} : les vérifications utiles`,
       paragraphs: [
-        `${p.inspect} Avant une dépose de couverture, il faut également vérifier les liteaux, les chevrons accessibles et les traces éventuelles d'humidité. Une déformation ou un doute structurel appelle une évaluation adaptée par un professionnel compétent : une simple pose de tuiles ne règle pas un défaut porteur.`,
-        `${p.action} La rénovation du toit doit préciser les matériaux retenus, les finitions de rive et les éventuels raccords métalliques. Pour une maison à ${p.city}, le devis doit notamment exposer les hypothèses techniques qui seront confirmées lors de la visite.`,
+        `${p.inspect} Sur ce type de projet à ${p.city}, les liteaux et chevrons accessibles sont à examiner. Pour ${details}, un doute structurel impose une évaluation spécifique avant la pose.`,
+        `${p.action} Dans le cas de ${details}, les matériaux, les rives et les raccords doivent être distingués, sans présumer leur état avant inspection à ${p.city}.`,
       ],
     },
     issues: {
@@ -320,7 +320,7 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     },
     services: {
       title: `Couverture, charpente et travaux de toiture à ${p.city}`,
-      intro: `Chaque prestation répond à un problème distinct. Voici comment nous orientons une demande à ${p.city}, selon la visite technique et la nature du support.`,
+      intro: `Pour ${details} à ${p.city}, les travaux sont définis selon les défauts réellement observés.`,
       items: serviceTitles.map((service, index) => ({
         service,
         text: [
@@ -335,12 +335,12 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     },
     realisations: {
       title: `Exemples de travaux de couverture réalisés par JRENOV`,
-      intro: `Ces chantiers documentés dans d'autres communes de l'agglomération illustrent les techniques évoquées ici ; ils ne sont pas présentés comme des réalisations situées à ${p.city}.`,
+      intro: `Pour ${details}, ces réalisations JRENOV dans d'autres communes illustrent le travail de couverture et de zinguerie.`,
       localSlugs: [],
       nearbyTitle: `Nos réalisations à découvrir`,
       nearbySlugs: nearby,
     },
-    processIntro: `Pour un chantier à ${p.city}, une visite permet de confirmer les matériaux, les raccords et l'accès avant de remettre un devis. ${p.action}`,
+    processIntro: `${p.action} La visite à ${p.city} permet de confirmer l'accès avant chiffrage.`,
     nearby: {
       title: `Nos interventions dans le secteur de ${p.city}`,
       intro: `Retrouvez le détail des zones desservies et des prestations de couverture de JRENOV.`,
@@ -348,28 +348,28 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     },
     faq: [
       {
-        question: `À ${p.city}, comment savoir si une réparation de toiture suffit ?`,
-        answer: `${p.inspect} Une reprise ciblée est appropriée si le support et les matériaux autour de la zone concernée restent en bon état. Le diagnostic permet de distinguer un défaut ponctuel d'une dégradation plus générale.`,
+        question: `Pour ${details} à ${p.city}, une réparation ponctuelle peut-elle suffire ?`,
+        answer: `${p.inspect} Une reprise ciblée est étudiée si les matériaux voisins sont sains, après vérification du support à ${p.city}.`,
       },
       {
-        question: `Quel contrôle de charpente avant la rénovation d'une toiture à ${p.city} ?`,
-        answer: `On examine les bois accessibles, leurs appuis, les traces d'humidité et l'état des liteaux. ${p.action} Les reprises structurelles éventuelles demandent une vérification distincte avant de retenir les nouvelles charges de couverture.`,
+        question: `Charpente à ${p.city} : quel contrôle avant de traiter ${details} ?`,
+        answer: `${p.action} Pour ${details}, il faut aussi examiner les bois accessibles, leurs appuis et les traces d'humidité avant de retenir la nouvelle couverture.`,
       },
       {
-        question: `Quel devis demander pour ${details} à ${p.city} ?`,
-        answer: `${p.action} Le descriptif doit mentionner la zone traitée, les matériaux, les protections et l'évacuation des éléments déposés afin que vous puissiez comparer les solutions sans ambiguïté.`,
+        question: `Quels postes chiffrer à ${p.city} pour ${details} ?`,
+        answer: `${p.action} Un devis pour ${details} détaille zones, matériaux et protections, afin de comparer les solutions à ${p.city}.`,
       },
       {
-        question: `Peut-on réparer une fuite sans refaire toute la couverture à ${p.city} ?`,
-        answer: `${p.lead} Si la cause est localisée et si les tuiles voisines sont saines, une reprise ciblée peut être durable. Une inspection complémentaire est nécessaire si les infiltrations se répètent.`,
+        question: `Pour ${details} à ${p.city}, faut-il remplacer toutes les tuiles ?`,
+        answer: `${p.lead} Une réparation localisée peut suffire, si l'inspection confirme la solidité des éléments voisins à ${p.city}.`,
       },
       {
-        question: `Faut-il traiter les gouttières pendant des travaux de toiture à ${p.city} ?`,
-        answer: `Les gouttières, noues et descentes sont vérifiées lorsqu'elles participent au désordre signalé. ${p.inspect} Elles ne sont remplacées que lorsque leur état ou leur dimensionnement le justifie.`,
+        question: `Gouttières et ${details} à ${p.city} : que vérifier ensemble ?`,
+        answer: `${p.inspect} Sur un projet de ${details}, les gouttières et noues ne sont reprises que si le diagnostic le justifie.`,
       },
       {
-        question: `Comment préparer une demande de rénovation de toiture à ${p.city} ?`,
-        answer: `Décrivez le défaut, la couverture existante et les zones à vérifier. ${p.action} Des photographies prises depuis un endroit sûr aident à préparer la visite, sans remplacer le diagnostic sur place.`,
+        question: `Quel diagnostic demander pour ${details} à ${p.city} ?`,
+        answer: `${p.action} Précisez les matériaux et symptômes de ${details}. Des photos prises depuis un endroit sûr facilitent la préparation à ${p.city}.`,
       },
     ],
     sectionOrder: ["intro", "issues", "context", "services", "realisations", "faq", "process", "nearby"],
