@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import posts from "@/data/post.json";
+import { posts, frenchDateToIso } from "@/lib/content";
 import ArticleContent from "@/components/ArticleContent";
 import ArticleServiceLinks from "@/components/ArticleServiceLinks";
 import JsonLd from "@/components/JsonLd";
 import { blogPostingJsonLd } from "@/lib/structured-data";
-import { frenchDateToIso } from "@/lib/content";
 import { Calendar, Clock, ArrowLeft, User } from "lucide-react";
 
 type Props = {
@@ -48,10 +47,13 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
 
         <div className="space-y-4">
+          {"topicMonth" in post && typeof post.topicMonth === "string" && (
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">Dossier pratique · {post.topicMonth}</p>
+          )}
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">{post.title}</h1>
           <div className="flex gap-4 text-xs text-slate-500 border-y border-slate-100 py-3">
             <span className="flex items-center gap-1"><User className="w-4 h-4 text-amber-500" />{post.author}</span>
-            <span className="flex items-center gap-1"><Calendar className="w-4 h-4 text-amber-500" />{post.date}</span>
+            <time dateTime={frenchDateToIso(post.date)} className="flex items-center gap-1"><Calendar className="w-4 h-4 text-amber-500" />Publié le {post.date}</time>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4 text-amber-500" />Temps de lecture : {post.readTime}</span>
           </div>
         </div>

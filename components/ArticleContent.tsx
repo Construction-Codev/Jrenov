@@ -1,23 +1,35 @@
 import { Fragment, type ReactNode } from "react";
+import Link from "next/link";
 
 /**
- * Rendu minimal et sûr du contenu des articles (data/post.json).
- * Syntaxe prise en charge, sans HTML injecté :
- * - « ### Titre »  → <h2>
- * - « - élément »  → <ul><li> (éléments consécutifs regroupés)
- * - « **texte** »  → <strong>
- * - autre ligne    → <p>
+ * Rendu volontairement limité pour les articles du blog :
+ * titres H2, listes, emphase et liens Markdown internes/HTTPS sûrs.
+ * Pas de HTML brut ni d'URL à schéma dangereux.
  */
+const INLINE_TOKENS = /(\*\*[^*]+\*\*|\[[^\]]+\]\((?:\/|https:\/\/)[^)]+\))/g;
+
 function renderInline(text: string): ReactNode[] {
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, idx) =>
-    part.startsWith("**") && part.endsWith("**") && part.length > 4 ? (
-      <strong key={idx} className="font-semibold text-slate-900">
-        {part.slice(2, -2)}
-      </strong>
-    ) : (
-      <Fragment key={idx}>{part}</Fragment>
-    )
-  );
+  return text.split(INLINE_TOKENS).map((part, idx) => {
+    const link = part.match(/^\[([^\]]+)\]\((\/[^)]*|https:\/\/[^)]+)\)$/);
+    if (link) {
+      const [, label, href] = link;
+      return (
+        <Link key={idx} href={href} className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">
+          {label}
+        </Link>
+      );
+    }
+
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+      return (
+        <strong key={idx} className="font-semibold text-slate-900">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+
+    return <Fragment key={idx}>{part}</Fragment>;
+  });
 }
 
 type Block =
@@ -34,7 +46,7 @@ function toBlocks(lines: string[]): Block[] {
       const last = blocks.at(-1);
       if (last?.type === "list") last.items.push(line.slice(2));
       else blocks.push({ type: "list", items: [line.slice(2)] });
-    } else {
+    } else if (line.trim()) {
       blocks.push({ type: "paragraph", text: line });
     }
   }
