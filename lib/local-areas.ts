@@ -1,8 +1,10 @@
-import { LOCAL_AREAS, ZONE_SECTORS, type LocalArea } from "@/data/local-areas";
+import { LOCAL_AREAS as EXISTING_LOCAL_AREAS, ZONE_SECTORS, type LocalArea } from "@/data/local-areas";
+import { ADDITIONAL_LOCAL_AREAS } from "@/data/local-areas-extra";
 import { LOCAL_AREA_INDEX } from "@/data/local-area-index";
 import { realisations, getRealisation, communeName, type Realisation } from "@/lib/content";
 
-export { LOCAL_AREAS, ZONE_SECTORS };
+export const LOCAL_AREAS: LocalArea[] = [...EXISTING_LOCAL_AREAS, ...ADDITIONAL_LOCAL_AREAS];
+export { ZONE_SECTORS };
 export type { LocalArea };
 
 export function getLocalArea(slug: string): LocalArea | undefined {
