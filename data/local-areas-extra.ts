@@ -95,7 +95,7 @@ const PROFILES = [
   {
     "slug": "couvreur-fontaines-sur-saone",
     "city": "Fontaines-sur-Saône",
-    "focus": "Noue zinc entre deux pans de toiture",
+    "focus": "Faîtage ventilé et raccords de noue",
     "lead": "Sur une couverture composée de plusieurs pans, une noue mal raccordée peut provoquer une infiltration éloignée du point d'entrée.",
     "inspect": "Nous examinons les recouvrements, le tracé de la noue et l'humidité éventuelle des liteaux sous-jacents.",
     "action": "Une réparation de zinc ciblée peut suffire si les tuiles environnantes conservent leur intégrité.",
@@ -104,7 +104,7 @@ const PROFILES = [
   {
     "slug": "couvreur-champagne-au-mont-d-or",
     "city": "Champagne-au-Mont-d'Or",
-    "focus": "Ardoises et finitions de couverture",
+    "focus": "Tuiles plates et finitions de couverture",
     "lead": "Une maison aux matériaux de toiture variés exige d'identifier les techniques de fixation avant de sélectionner des éléments de remplacement.",
     "inspect": "Nous observons les rives, raccords de cheminée et éventuelles lucarnes pour préparer une réfection cohérente.",
     "action": "Le devis différencie la couverture principale des finitions métalliques et de leurs supports.",
@@ -113,7 +113,7 @@ const PROFILES = [
   {
     "slug": "couvreur-craponne",
     "city": "Craponne",
-    "focus": "Faîtage scellé et closoir ventilé",
+    "focus": "Fenêtres de toit et reprise de faîtage",
     "lead": "Des tuiles faîtières instables justifient un contrôle des fixations et de la ventilation avant toute reprise au mortier.",
     "inspect": "Nous examinons la ligne haute, les tuiles immédiatement inférieures et les éléments porteurs accessibles.",
     "action": "Selon l'état de l'ouvrage, le chiffrage compare réparation localisée et reprise complète du faîtage.",
@@ -274,6 +274,26 @@ const PROFILES = [
   }
 ] as const;
 
+/** Chantiers localisés par la commune du fichier de réalisations ; aucun chantier supposé. */
+const VERIFIED_LOCAL_WORK: Record<string, { slug: string; description: string }> = {
+  "Craponne": {
+    slug: "pose-fenetres-toit-velux-craponne",
+    description: "À Craponne, JRENOV a créé et posé des fenêtres de toit Velux en mars 2026. Ce chantier montre l'importance du raccordement entre la fenêtre et la couverture, au-delà du seul choix du vitrage.",
+  },
+  "Dagneux": {
+    slug: "pose-gouttieres-alu-sur-mesure-dagneux",
+    description: "À Dagneux, une réalisation de juillet 2026 illustre la fabrication et la pose de gouttières aluminium en continu. Le dimensionnement, la fixation et les raccords avec les descentes participent à l'efficacité de l'ensemble.",
+  },
+  "Fontaines-sur-Saône": {
+    slug: "renovation-faitage-a-sec-fontaines-sur-saone",
+    description: "À Fontaines-sur-Saône, un faîtage a été rénové en juillet 2026 avec un closoir ventilé. Ce chantier documente une reprise mécanique de la ligne haute du toit, avec traitement de la ventilation et des fixations.",
+  },
+  "Champagne-au-Mont-d'Or": {
+    slug: "renovation-toiture-tuiles-plat-champagne-au-mont-d-or",
+    description: "À Champagne-au-Mont-d'Or, JRENOV a réalisé en août 2026 une réfection de toiture en tuiles plates. Elle illustre l'attention portée au calepinage, aux supports et aux finitions dans une rénovation de couverture.",
+  },
+};
+
 const featuredWork = [
   "remplacement-velux-ancien-decines",
   "habillage-bandeaux-rive-alu-meyzieu",
@@ -284,6 +304,7 @@ const featuredWork = [
 export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
   const details = p.focus.toLowerCase();
   const nearby = [featuredWork[p.i % featuredWork.length], featuredWork[(p.i + 1) % featuredWork.length]];
+  const localWork = VERIFIED_LOCAL_WORK[p.city];
   const serviceTitles = ["couverture", "recherche-de-fuite", "zinguerie", "isolation", "demoussage", "fenetres-de-toit"] as const;
 
   return {
@@ -334,9 +355,9 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
       })),
     },
     realisations: {
-      title: `Exemples de travaux de couverture réalisés par JRENOV`,
-      intro: `Pour ${details}, deux chantiers JRENOV réalisés ailleurs illustrent les interventions.`,
-      localSlugs: [],
+      title: localWork ? `Notre réalisation de toiture à ${p.city}` : `Exemples de travaux de couverture réalisés par JRENOV`,
+      intro: localWork ? localWork.description : `Pour ${details}, deux chantiers JRENOV réalisés ailleurs illustrent les interventions.`,
+      localSlugs: localWork ? [localWork.slug] : [],
       nearbyTitle: `Nos réalisations à découvrir`,
       nearbySlugs: nearby,
     },
