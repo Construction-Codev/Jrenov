@@ -32,7 +32,7 @@ const PROFILES = [
   {
     "slug": "couvreur-miribel",
     "city": "Miribel",
-    "focus": "Cheminées et toiture ancienne",
+    "focus": "Raccords de cheminée sur couverture ancienne",
     "lead": "Sur une maison ancienne, une infiltration derrière une souche peut provenir d'un défaut de maçonnerie, de zinc ou de tuiles.",
     "inspect": "Nous comparons les indices intérieurs aux points de raccord extérieurs pour identifier la zone à ouvrir.",
     "action": "Le devis détaille les pièces d'abergement, le démontage local des tuiles et les finitions compatibles.",
@@ -68,7 +68,7 @@ const PROFILES = [
   {
     "slug": "couvreur-charvieu-chavagneux",
     "city": "Charvieu-Chavagneux",
-    "focus": "Isolation et tuiles",
+    "focus": "Combles à isoler, couverture à conserver",
     "lead": "Rénover les tuiles et améliorer l'isolation des combles sont deux décisions liées, mais qui ne nécessitent pas toujours le même chantier.",
     "inspect": "Avant de proposer un isolant, nous contrôlons les traces d'humidité, la ventilation et l'état des supports.",
     "action": "Le chiffrage sépare la réfection extérieure, les travaux dans les combles et les options thermiques.",
@@ -86,7 +86,7 @@ const PROFILES = [
   {
     "slug": "couvreur-neuville-sur-saone",
     "city": "Neuville-sur-Saône",
-    "focus": "Toiture de maison mitoyenne",
+    "focus": "Maison mitoyenne, accès et couverture",
     "lead": "Pour une rénovation de maison de ville, les raccords avec les bâtiments voisins et les accès peuvent compter autant que la surface à couvrir.",
     "inspect": "Nous inspectons les souches, les murs mitoyens et les noues en organisant les protections adaptées aux lieux.",
     "action": "Le devis décrit les contraintes de livraison et d'évacuation en plus des travaux de couverture.",
@@ -95,7 +95,7 @@ const PROFILES = [
   {
     "slug": "couvreur-fontaines-sur-saone",
     "city": "Fontaines-sur-Saône",
-    "focus": "Noues et étanchéité",
+    "focus": "Noue zinc entre deux pans de toiture",
     "lead": "Sur une couverture composée de plusieurs pans, une noue mal raccordée peut provoquer une infiltration éloignée du point d'entrée.",
     "inspect": "Nous examinons les recouvrements, le tracé de la noue et l'humidité éventuelle des liteaux sous-jacents.",
     "action": "Une réparation de zinc ciblée peut suffire si les tuiles environnantes conservent leur intégrité.",
@@ -113,7 +113,7 @@ const PROFILES = [
   {
     "slug": "couvreur-craponne",
     "city": "Craponne",
-    "focus": "Faîtage et tuiles",
+    "focus": "Faîtage scellé et closoir ventilé",
     "lead": "Des tuiles faîtières instables justifient un contrôle des fixations et de la ventilation avant toute reprise au mortier.",
     "inspect": "Nous examinons la ligne haute, les tuiles immédiatement inférieures et les éléments porteurs accessibles.",
     "action": "Selon l'état de l'ouvrage, le chiffrage compare réparation localisée et reprise complète du faîtage.",
@@ -131,7 +131,7 @@ const PROFILES = [
   {
     "slug": "couvreur-saint-fons",
     "city": "Saint-Fons",
-    "focus": "Relevés et étanchéité",
+    "focus": "Relevés étanches entre plusieurs volumes",
     "lead": "Sur un bâtiment avec une partie de toit plus basse, les jonctions entre niveaux et les évacuations nécessitent un examen spécifique.",
     "inspect": "Nous vérifions les relevés, pénétrations, solins et zones de stagnation avant d'identifier l'origine de l'infiltration.",
     "action": "Une réparation peut concerner l'étanchéité d'un raccord sans imposer le remplacement de toute la toiture.",
@@ -176,7 +176,7 @@ const PROFILES = [
   {
     "slug": "couvreur-montluel",
     "city": "Montluel",
-    "focus": "Tuiles anciennes et solins",
+    "focus": "Solins de maçonnerie et tuiles anciennes",
     "lead": "Lorsqu'une couverture ancienne fuit près d'un mur, la défaillance peut venir du raccord plutôt que des tuiles elles-mêmes.",
     "inspect": "Nous examinons la compatibilité des matériaux, le solin et les fixations sur le pan concerné.",
     "action": "La réparation retenue doit être chiffrée avec ses raccords et ses éventuelles reprises de support.",
@@ -203,7 +203,7 @@ const PROFILES = [
   {
     "slug": "couvreur-la-verpilliere",
     "city": "La Verpillière",
-    "focus": "Tuiles mécaniques et rives",
+    "focus": "Fixation de tuiles mécaniques en rive",
     "lead": "Sur une couverture en tuiles mécaniques, un bord de pan dégradé exige un contrôle de ses fixations et de l'état des liteaux.",
     "inspect": "Nous vérifions les éclats, l'emboîtement des tuiles et la continuité de la rive.",
     "action": "Le devis décrit précisément les éléments remplacés au lieu de proposer automatiquement une réfection totale.",
@@ -212,7 +212,7 @@ const PROFILES = [
   {
     "slug": "couvreur-l-isle-d-abeau",
     "city": "L'Isle-d'Abeau",
-    "focus": "Réfection et isolation",
+    "focus": "Projet thermique et couverture neuve",
     "lead": "Une réfection de toiture peut être coordonnée à l'amélioration de l'isolation, mais une couverture saine n'a pas besoin d'être déposée pour ce seul motif.",
     "inspect": "Nous examinons l'état des supports et le renouvellement d'air dans les combles avant de conseiller une solution.",
     "action": "Le chiffrage explique les avantages et contraintes de l'isolation intérieure ou par l'extérieur.",
@@ -221,7 +221,7 @@ const PROFILES = [
   {
     "slug": "couvreur-cremieu",
     "city": "Crémieu",
-    "focus": "Toiture ancienne et urbanisme",
+    "focus": "Urbanisme et rénovation patrimoniale",
     "lead": "Un projet sur une maison ancienne doit respecter les matériaux existants et les éventuelles prescriptions patrimoniales de la commune.",
     "inspect": "Nous vérifions l'état des solins, des rives et des tuiles avant de proposer la solution de réparation.",
     "action": "Tout changement d'aspect doit être examiné avec le service urbanisme avant travaux.",
@@ -239,7 +239,7 @@ const PROFILES = [
   {
     "slug": "couvreur-meximieux",
     "city": "Meximieux",
-    "focus": "Tuiles cassées et supports",
+    "focus": "Remplacement ponctuel de tuiles cassées",
     "lead": "Remplacer une tuile sans vérifier son système d'emboîtement et l'état du liteau peut laisser persister une entrée d'eau.",
     "inspect": "Nous observons les pièces voisines et les éventuelles déformations de support avant d'intervenir.",
     "action": "La réparation immédiate et les opérations d'entretien programmables figurent séparément au devis.",
@@ -248,7 +248,7 @@ const PROFILES = [
   {
     "slug": "couvreur-villefranche-sur-saone",
     "city": "Villefranche-sur-Saône",
-    "focus": "Zinguerie de maison de ville",
+    "focus": "Raccords de zinc sur maison de ville",
     "lead": "Sur une toiture mitoyenne, les solins et descentes méritent le même soin que les matériaux de couverture.",
     "inspect": "Nous vérifions les murs voisins, les accessoires et l'accès pour organiser la réparation.",
     "action": "Le devis décrit les raccords repris et les travaux de tuiles sans mélanger des postes de nature différente.",
@@ -292,7 +292,7 @@ export const ADDITIONAL_LOCAL_AREAS: LocalArea[] = PROFILES.map((p) => {
     postalCode: "",
     primaryKeyword: `couvreur ${p.city}`,
     metaTitle: `Couvreur à ${p.city} – ${p.focus}`,
-    metaDescription: `${p.city} : ${p.focus.toLowerCase()}, réparation et rénovation de toiture, recherche de fuite, zinguerie et devis JRENOV. ${p.action}`.slice(0, 160),
+    metaDescription: `Couvreur ${p.city} : ${p.lead}`.slice(0, 155).replace(/[.,;:\\s]+$/, "") + ".",
     h1: `Couvreur à ${p.city} : ${p.focus.toLowerCase()}`,
     heroBadge: `Travaux de couverture et zinguerie à ${p.city}`,
     heroLead: p.lead,
