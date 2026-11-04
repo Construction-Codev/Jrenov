@@ -47,8 +47,10 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
 
         <div className="space-y-4">
-          {"topicMonth" in post && typeof post.topicMonth === "string" && (
-            <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">Dossier pratique · {post.topicMonth}</p>
+          {"editorialDate" in post && typeof post.editorialDate === "string" && (
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">
+              Dossier daté du {post.editorialDate}
+            </p>
           )}
           <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">{post.title}</h1>
           <div className="flex gap-4 text-xs text-slate-500 border-y border-slate-100 py-3">
