@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { CheckCircle2, PhoneCall, X } from "lucide-react";
+import { createPortal } from "react-dom";
 import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
 import { trackEvent } from "@/lib/analytics";
 import { readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
@@ -139,7 +140,7 @@ export function CallbackDialog({ open, onClose }: { open: boolean; onClose: () =
     return () => { document.removeEventListener("keydown", escape); previous?.focus(); };
   }, [open, onClose]);
   if (!open) return null;
-  return <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/75 p-4" role="presentation"
+  return createPortal(<div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/75 p-4" role="presentation"
     onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
     <div role="dialog" aria-modal="true" aria-labelledby="callback-dialog-title"
       className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
@@ -154,5 +155,5 @@ export function CallbackDialog({ open, onClose }: { open: boolean; onClose: () =
       </div>
       <CallbackRequestForm />
     </div>
-  </div>;
+  </div>, document.body);
 }
