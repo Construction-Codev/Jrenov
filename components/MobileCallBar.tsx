@@ -1,5 +1,8 @@
-import { Phone, FileText } from "lucide-react";
-import Link from "next/link";
+"use client";
+
+import { useCallback, useState } from "react";
+import { Phone, PhoneCall } from "lucide-react";
+import { CallbackDialog } from "@/components/CallbackRequest";
 import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 /**
@@ -12,7 +15,10 @@ import { BUSINESS, PHONE_HREF } from "@/lib/site";
  * « mobile_bar » grâce à l'attribut data-cta-placement.
  */
 export default function MobileCallBar() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const closeDialog = useCallback(() => setDialogOpen(false), []);
   return (
+    <>
     <div
       data-cta-placement="mobile_bar"
       className="md:hidden bg-white border-t border-slate-200 px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
@@ -26,14 +32,17 @@ export default function MobileCallBar() {
           <Phone className="w-5 h-5" aria-hidden="true" />
           <span>Appeler · {BUSINESS.phoneDisplay}</span>
         </a>
-        <Link
-          href="/devis"
+        <button
+          type="button"
+          onClick={() => setDialogOpen(true)}
           className="flex items-center justify-center gap-1.5 h-12 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
         >
-          <FileText className="w-4 h-4" aria-hidden="true" />
-          <span>Devis</span>
-        </Link>
+          <PhoneCall className="w-4 h-4" aria-hidden="true" />
+          <span>Me rappeler</span>
+        </button>
       </div>
     </div>
+    <CallbackDialog open={dialogOpen} onClose={closeDialog} />
+    </>
   );
 }

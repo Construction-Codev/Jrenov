@@ -12,7 +12,8 @@ export type ConversionEvent =
   | "email_click"
   | "quote_form_start"
   | "quote_form_submit"
-  | "contact_form_submit";
+  | "contact_form_submit"
+  | "callback_request";
 
 type EventProperties = {
   /** Zone de la page où l'action a eu lieu : header, footer, barre d'appel mobile, content… */
