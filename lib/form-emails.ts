@@ -25,6 +25,7 @@ const CONTACT_SUBJECT_LABELS: Record<string, string> = {
   isolation: "Isolation de toiture",
   demoussage: "Nettoyage & Démoussage",
   autre: "Autre demande",
+  rappel: "RAPPEL IMMÉDIAT – demande de rappel",
 };
 
 export function buildContactEmail(data: ContactData) {

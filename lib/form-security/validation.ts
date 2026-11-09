@@ -98,7 +98,7 @@ function validateFields<T>(raw: unknown, rules: Record<keyof T & string, FieldRu
 
 // ─── Formulaire contact ─────────────────────────────────────────────────────
 
-export const CONTACT_SUBJECTS = ["urgence", "couverture", "zinguerie", "isolation", "demoussage", "autre"] as const;
+export const CONTACT_SUBJECTS = ["urgence", "couverture", "zinguerie", "isolation", "demoussage", "autre", "rappel"] as const;
 
 export interface ContactData {
   nom: string;

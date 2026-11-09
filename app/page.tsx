@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroBanner from "@/components/Banner";
+import { CallbackHomeSection } from "@/components/CallbackRequest";
 import Link from "next/link";
 import { BUSINESS, DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { realisations, frenchDateToIso } from "@/lib/content";
@@ -46,6 +47,7 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-slate-50">
         {/* 1. Hero Banner */}
         <HeroBanner />
+        <CallbackHomeSection />
 
         {/* 2. Bandes d'engagements & réassurance */}
         <section className="bg-slate-900 text-white py-8 border-t border-amber-500/30">
