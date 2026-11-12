@@ -242,6 +242,18 @@ describe("POST /api/devis", () => {
     expect(sendMock.mock.calls[0][0].replyTo).toBeUndefined();
   });
 
+  it.each([
+    ["fenetres-de-toit", "Fenêtres de toit"],
+    ["recherche-de-fuite", "Recherche de fuite"],
+  ])("nouvelle prestation %s : 200 et libellé correct dans l'e-mail", async (service, label) => {
+    const res = await postDevis(request("/api/devis", { ...quoteBody(), service }));
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ success: true, submissionId: expect.any(String) });
+    const email = sendMock.mock.calls[0][0];
+    expect(email.subject).toContain(`[Demande de Devis] ${label} - Marie Martin`);
+    expect(email.html).toContain(`<strong>Type de prestation :</strong> ${label}`);
+  });
+
   it("protégée comme le contact : honeypot, prestation inconnue, HTML", async () => {
     expect((await postDevis(request("/api/devis", { ...quoteBody(), website: "x" }))).status).toBe(200);
     expect((await postDevis(request("/api/devis", { ...quoteBody(), service: "<script>" }))).status).toBe(400);

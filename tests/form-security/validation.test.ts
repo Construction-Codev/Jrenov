@@ -98,6 +98,13 @@ describe("validateQuote", () => {
     expect(validateQuote(quote).ok).toBe(true);
   });
 
+  it.each(["couverture", "zinguerie", "isolation", "demoussage", "fenetres-de-toit", "recherche-de-fuite", "urgence"])(
+    "accepte la prestation %s",
+    (service) => {
+      expect(validateQuote({ ...quote, service }).ok).toBe(true);
+    },
+  );
+
   it("refuse une prestation inconnue", () => {
     expect(validateQuote({ ...quote, service: "piscine" })).toMatchObject({ ok: false, field: "service" });
   });
