@@ -13,7 +13,9 @@ import { getAdsConsent } from "@/lib/consent";
  */
 export const GOOGLE_ADS_ID = "AW-18401022050";
 export const LEAD_CONVERSION_SEND_TO = "AW-18401022050/3zwjCM7KnZcdEOKgpcZE";
-export const PHONE_CONVERSION_SEND_TO = "AW-18401022050/xlbwCOjuo5sdEOKgpcZE";
+// Action « Lead par téléphone » dans Google Ads. Libellé copié depuis l'extrait d'événement :
+// ne jamais le ressaisir à la main (l'ancien libellé contenait un « l » à la place d'un « 1 »).
+export const PHONE_CONVERSION_SEND_TO = "AW-18401022050/Sl_XCK3V87EdEOKgpcZE";
 
 /** Délai pendant lequel un nouveau clic téléphone n'est pas recompté (double tap, double écoute). */
 export const PHONE_CONVERSION_COOLDOWN_MS = 2000;

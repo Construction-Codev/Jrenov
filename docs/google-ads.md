@@ -2,8 +2,13 @@
 
 - Compte : `AW-18401022050`
 - Conversion « Website lead » : `AW-18401022050/3zwjCM7KnZcdEOKgpcZE`
-- Conversion « Clic téléphone » : `AW-18401022050/xlbwCOjuo5sdEOKgpcZE` (action **secondaire** dans
-  Google Ads pendant la validation : réglage fait dans l'interface Google Ads, pas dans le code)
+- Conversion « Lead par téléphone » (clic sur un lien `tel:`) : `AW-18401022050/Sl_XCK3V87EdEOKgpcZE`
+  (action **principale** créée le 04/11/2026 ; principale/secondaire se règle dans l'interface
+  Google Ads, pas dans le code)
+- Ancienne action « Contact » (`AW-18401022050/x1bwCOjuo5sdEOKgpcZE`, secondaire) : plus utilisée
+  par le site. Jusqu'au 12/11/2026 le code envoyait par erreur `xlbw…` (lettre « l » au lieu du
+  chiffre « 1 ») : aucun clic téléphone n'a donc jamais été reçu par Google Ads avant cette date.
+  Toujours copier les libellés depuis Google Ads, jamais les ressaisir.
 
 ## Fonctionnement
 
@@ -49,10 +54,10 @@ Rien n'est déclenché au chargement d'une page ni sur un clic `mailto:`.
 3. « Gérer mes cookies » (pied de page) → **Accepter** : la balise `AW-18401022050` apparaît
    (événements `config`), sans conversion.
 4. Cliquer le numéro du header (sur ordinateur, fermer la boîte « ouvrir l'application ») :
-   un événement `conversion` avec `send_to = AW-18401022050/xlbwCOjuo5sdEOKgpcZE` apparaît, une
+   un événement `conversion` avec `send_to = AW-18401022050/Sl_XCK3V87EdEOKgpcZE` apparaît, une
    seule fois même en double-cliquant.
 5. Cliquer l'adresse e-mail : aucune conversion.
-6. Dans Google Ads, Objectifs → Conversions → « Clic téléphone » → « Résolution des problèmes
+6. Dans Google Ads, Objectifs → Conversions → « Lead par téléphone » → « Résolution des problèmes
    / Diagnostic » : le statut passe à « Enregistrement des conversions » sous quelques heures.
    Ces clics de test comptent comme conversions réelles : les faire depuis une IP exclue ou
    les accepter comme bruit pendant la phase secondaire.

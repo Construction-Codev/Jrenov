@@ -305,7 +305,7 @@ Vérifié avec la PR #3 : les 159 liens `tel:` des 53 pages pointent vers `tel:+
 | Événement | Vercel Analytics | Google Ads | État |
 |---|---|---|---|
 | Envoi devis / contact réussi | `quote_form_submit`, `contact_form_submit` | `AW-18401022050/3zwjCM7KnZcdEOKgpcZE` après consentement et `submissionId` | ✅ en production |
-| Clic téléphone | `phone_click` avec `placement` | `AW-18401022050/xlbwCOjuo5sdEOKgpcZE` | PR #2 ouverte. Compatible avec la PR #3 (aucun fichier commun, fusion testée sans conflit) |
+| Clic téléphone | `phone_click` avec `placement` | `AW-18401022050/Sl_XCK3V87EdEOKgpcZE` | PR #2 ouverte. Compatible avec la PR #3 (aucun fichier commun, fusion testée sans conflit) |
 | Début de devis | `quote_form_start` | — | ✅ |
 
 Après fusion des PR #2 et #3 : vérifier avec Google Tag Assistant qu'un clic sur le nouveau numéro déclenche bien la conversion téléphone (après acceptation des cookies). Les appels réellement aboutis ne sont pas mesurables par le site : seul un numéro de suivi Google ou l'extension d'appel le permettrait **[ENTREPRISE]**.
