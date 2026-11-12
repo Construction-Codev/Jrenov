@@ -127,7 +127,7 @@ function renderSection(key: LocalSectionKey, area: LocalArea): ReactNode {
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-slate-900">{service.title}</h3>
+                    <h3 className="text-lg font-bold text-slate-900">{service.title} à {area.city}</h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{text}</p>
                     <Link
                       href={service.href}

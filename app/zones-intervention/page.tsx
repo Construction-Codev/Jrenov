@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Phone, FileText, ArrowRight, Building2 } from "lucide-react";
 import ContactCta from "@/components/ContactCta";
+import CommuneDirectory from "@/components/CommuneDirectory";
 import { BUSINESS, pageMetadata, PHONE_HREF } from "@/lib/site";
 import { LOCAL_AREAS, ZONE_SECTORS, getLocalArea, realisationsInCommune } from "@/lib/local-areas";
 
@@ -94,7 +95,7 @@ export default function ZonesInterventionPage() {
               >
                 <span className="text-xs text-amber-600 font-bold flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5" />
-                  {area.city} ({area.postalCode})
+                  {area.city}{area.postalCode ? ` (${area.postalCode})` : ""}
                 </span>
                 <span className="block text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">
                   Couvreur à {area.city}
@@ -162,8 +163,10 @@ export default function ZonesInterventionPage() {
         ))}
       </section>
 
+      <CommuneDirectory />
+
       <ContactCta
-        title="Votre commune n'est pas dans la liste ?"
+        title="Un projet de toiture dans votre commune ?"
         text="Nous intervenons dans un rayon d'environ 50 km autour de Décines-Charpieu. Appelez-nous ou demandez un devis en ligne."
       />
     </div>
