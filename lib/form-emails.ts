@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { escapeHtml, escapeMultiline, toHeaderSafe } from "@/lib/form-security/sanitize";
 import type { ContactData, QuoteData } from "@/lib/form-security/validation";
+import { BUSINESS, PHONE_HREF, SITE_URL } from "@/lib/site";
 
 /**
  * Construction et envoi des emails des formulaires.
@@ -15,6 +16,59 @@ function getResend(): Resend {
 }
 
 const or = (value: string, fallback: string) => (value ? escapeHtml(value) : fallback);
+
+type ConfirmationKind = "contact" | "devis" | "rappel";
+
+const CONFIRMATIONS: Record<ConfirmationKind, { subject: string; message: string }> = {
+  contact: {
+    subject: "Jrenov : votre message a bien été reçu",
+    message: "Nous avons bien reçu votre message. Notre équipe vous recontactera pour répondre à votre demande.",
+  },
+  devis: {
+    subject: "Jrenov : votre demande de devis a bien été reçue",
+    message: "Nous avons bien reçu votre demande de devis. Notre équipe vous recontactera pour préciser votre projet et préparer un devis adapté.",
+  },
+  rappel: {
+    subject: "Jrenov : votre demande de rappel a bien été reçue",
+    message: "Nous avons bien reçu votre demande de rappel. Notre équipe vous rappellera dès que possible pendant nos horaires d’ouverture, du lundi au samedi, de 8h à 19h.",
+  },
+};
+
+/** Contenu fixe : le message libre du visiteur n'est pas retransmis à une adresse tierce. */
+export function buildConfirmationEmail(email: string, kind: ConfirmationKind, from: string) {
+  const content = CONFIRMATIONS[kind];
+  return {
+    from,
+    to: [email],
+    replyTo: BUSINESS.email,
+    subject: content.subject,
+    text: `Bonjour,\n\n${content.message}\n\nVous pouvez répondre à cet email ou nous appeler au ${BUSINESS.phoneDisplay}.\n\nL’équipe Jrenov\n${SITE_URL}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #1e293b;">
+        <h1 style="font-size: 22px; color: #b45309;">Merci pour votre demande</h1>
+        <p>Bonjour,</p>
+        <p>${escapeHtml(content.message)}</p>
+        <p>Vous pouvez répondre à cet email ou nous appeler au <a href="${PHONE_HREF}">${BUSINESS.phoneDisplay}</a>.</p>
+        <p>L’équipe <a href="${SITE_URL}">Jrenov</a></p>
+      </div>
+    `,
+  };
+}
+
+async function sendWithConfirmation(notification: ReturnType<typeof buildContactEmail>, email: string, kind: ConfirmationKind): Promise<void> {
+  const { error } = await getResend().emails.send(notification);
+  if (error) throw new Error(error.name ?? "resend_error");
+  if (!email) return;
+
+  // La demande est déjà reçue : un échec de confirmation ne doit pas provoquer un nouvel envoi du formulaire.
+  try {
+    const confirmation = await getResend().emails.send(buildConfirmationEmail(email, kind, notification.from));
+    if (confirmation.error) throw new Error("confirmation_failed");
+  } catch {
+    // Aucune adresse ni contenu saisi dans les logs.
+    console.warn(`[form] ${kind} confirmation_failed`);
+  }
+}
 
 // ─── Contact ────────────────────────────────────────────────────────────────
 
@@ -55,8 +109,7 @@ export function buildContactEmail(data: ContactData) {
 }
 
 export async function sendContactEmail(data: ContactData): Promise<void> {
-  const { error } = await getResend().emails.send(buildContactEmail(data));
-  if (error) throw new Error(error.name ?? "resend_error");
+  await sendWithConfirmation(buildContactEmail(data), data.email, data.sujet === "rappel" ? "rappel" : "contact");
 }
 
 // ─── Devis ──────────────────────────────────────────────────────────────────
@@ -97,6 +150,5 @@ export function buildQuoteEmail(data: QuoteData) {
 }
 
 export async function sendQuoteEmail(data: QuoteData): Promise<void> {
-  const { error } = await getResend().emails.send(buildQuoteEmail(data));
-  if (error) throw new Error(error.name ?? "resend_error");
+  await sendWithConfirmation(buildQuoteEmail(data), data.email, "devis");
 }

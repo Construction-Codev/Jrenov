@@ -67,15 +67,17 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllEnvs());
 
 describe("POST /api/contact", () => {
-  it("soumission valide : 200 et un seul envoi, données échappées", async () => {
+  it("soumission valide : notification et confirmation, données échappées", async () => {
     const res = await postContact(request("/api/contact", contactBody()));
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ success: true, submissionId: expect.any(String) });
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(sendMock).toHaveBeenCalledTimes(2);
     const email = sendMock.mock.calls[0][0];
     expect(email.html).toContain("Prix &lt; 500 € &amp; délai");
     expect(email.replyTo).toBe("jean.dupont@gmail.com");
     expect(email.subject).not.toMatch(/[\r\n]/);
+    expect(sendMock.mock.calls[1][0]).toMatchObject({ to: ["jean.dupont@gmail.com"], replyTo: "contact@jrenov.com" });
+    expect(sendMock.mock.calls[1][0].html).not.toContain("Prix");
   });
 
   it("honeypot rempli : faux succès silencieux, aucun envoi", async () => {
@@ -110,7 +112,7 @@ describe("POST /api/contact", () => {
     domainCheckMock.mockResolvedValue("unknown");
     const res = await postContact(request("/api/contact", contactBody()));
     expect(res.status).toBe(200);
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(sendMock).toHaveBeenCalledTimes(2);
   });
 
   it("message énorme : 413, aucun envoi", async () => {
@@ -157,7 +159,7 @@ describe("POST /api/contact", () => {
     const res = await postContact(request("/api/contact", { ...contactBody(), formToken: issueFormToken() }));
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ success: true, submissionId: expect.any(String) });
-    expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(sendMock).toHaveBeenCalledTimes(2);
   });
 
   it("devis envoyé immédiatement (autocomplétion) : accepté", async () => {
@@ -197,13 +199,14 @@ describe("POST /api/contact", () => {
       statuses.push((await postContact(request("/api/contact", contactBody(), { ip: "198.51.100.7" }))).status);
     }
     expect(statuses).toEqual([200, 200, 200, 200, 200, 429]);
-    expect(sendMock).toHaveBeenCalledTimes(5);
+    expect(sendMock).toHaveBeenCalledTimes(10);
   });
 
   it("échec Resend : 500 générique", async () => {
     sendMock.mockResolvedValue({ data: null, error: { name: "validation_error", message: "x" } });
     const res = await postContact(request("/api/contact", contactBody()));
     expect(res.status).toBe(500);
+    expect(sendMock).toHaveBeenCalledTimes(1);
   });
 
   it("Turnstile activé et refusé par Cloudflare : 400, aucun envoi", async () => {
@@ -225,7 +228,46 @@ describe("POST /api/contact", () => {
     const res = await postContact(request("/api/contact", { ...contactBody(), turnstileToken: "jeton" }));
     vi.unstubAllGlobals();
     expect(res.status).toBe(200);
+    expect(sendMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe("Emails de confirmation", () => {
+  it.each(["contact", "devis", "rappel"] as const)("confirme une demande %s après la notification", async (kind) => {
+    const isQuote = kind === "devis";
+    const payload = isQuote
+      ? { ...quoteBody(), email: "marie@gmail.com" }
+      : { ...contactBody(), sujet: kind === "rappel" ? "rappel" : "autre", email: "marie@gmail.com" };
+    const res = await (isQuote ? postDevis : postContact)(request(isQuote ? "/api/devis" : "/api/contact", payload));
+    expect(res.status).toBe(200);
+    expect(sendMock).toHaveBeenCalledTimes(2);
+    const notification = sendMock.mock.calls[0][0];
+    const confirmation = sendMock.mock.calls[1][0];
+    expect(notification.to).not.toContain("marie@gmail.com");
+    expect(confirmation.to).toEqual(["marie@gmail.com"]);
+    expect(confirmation.from).toBe(notification.from);
+    expect(confirmation.subject).toContain(kind === "devis" ? "devis" : kind === "rappel" ? "rappel" : "message");
+    expect(confirmation.text).toContain("07 61 24 27 93");
+    expect(confirmation.replyTo).toBe("contact@jrenov.com");
+    expect(confirmation.html).not.toContain(payload.message);
+  });
+
+  it.each(["error", "exception"])("un échec de confirmation (%s) conserve la demande reçue", async (failure) => {
+    sendMock.mockResolvedValueOnce({ data: { id: "notification" }, error: null });
+    if (failure === "error") sendMock.mockResolvedValueOnce({ error: { name: "validation_error" } });
+    else sendMock.mockRejectedValueOnce(new Error("Erreur contenant des informations privées"));
+    const res = await postContact(request("/api/contact", contactBody()));
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ success: true, submissionId: expect.any(String) });
+    expect(sendMock).toHaveBeenCalledTimes(2);
+    expect(console.warn).toHaveBeenCalledWith("[form] contact confirmation_failed");
+  });
+
+  it("le rappel sans email envoie uniquement la notification à Jrenov", async () => {
+    const res = await postContact(request("/api/contact", { ...contactBody(), sujet: "rappel", email: "" }));
+    expect(res.status).toBe(200);
     expect(sendMock).toHaveBeenCalledTimes(1);
+    expect(sendMock.mock.calls[0][0].to).toEqual(["contact@jrenov.com"]);
   });
 });
 

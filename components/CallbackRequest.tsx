@@ -54,7 +54,7 @@ export function CallbackRequestForm() {
         body: JSON.stringify({
           nom: values.get("nom"),
           telephone: values.get("telephone"),
-          email: "",
+          email: values.get("email") || "",
           ville: "",
           sujet: "rappel",
           message: "Demande de rappel depuis le site JRENOV. Merci de rappeler ce prospect dès que possible pendant les horaires d'ouverture.",
@@ -100,6 +100,11 @@ export function CallbackRequestForm() {
       <input id={id + "-telephone"} name="telephone" type="tel" required maxLength={25} autoComplete="tel" inputMode="tel"
         placeholder="06 12 34 56 78" className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 focus:outline-none focus:ring-2 focus:ring-amber-500" />
     </div>
+    <div>
+      <label htmlFor={id + "-email"} className="mb-1 block text-sm font-semibold text-slate-800">Votre email (facultatif)</label>
+      <input id={id + "-email"} name="email" type="email" maxLength={254} autoComplete="email"
+        placeholder="Pour recevoir une confirmation" className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 focus:outline-none focus:ring-2 focus:ring-amber-500" />
+    </div>
     <FormGuardFields />
     {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
     <button type="submit" disabled={sending} className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-amber-500 px-4 py-3 font-extrabold text-slate-950 hover:bg-amber-400 disabled:opacity-60">
@@ -108,7 +113,7 @@ export function CallbackRequestForm() {
     </button>
     <p className="text-center text-xs text-slate-600">
       {open === null ? "Rappel selon nos horaires." : open ? "Rappel immédiat pendant les horaires d'ouverture." : "Rappel dès l'ouverture (lundi-samedi, 8h-19h)."}
-      {" "}Vos coordonnées servent uniquement à vous rappeler.
+      {" "}Vos coordonnées servent à traiter votre demande et à vous envoyer une confirmation si vous renseignez votre email.
     </p>
   </form>;
 }
