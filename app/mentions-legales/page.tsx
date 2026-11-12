@@ -109,9 +109,12 @@ export default function MentionsLegalesPage() {
           <h2 className="font-bold text-slate-900 text-base">7. Cookies</h2>
           <p>
             Avec votre accord uniquement, le site utilise la balise Google Ads (Google Ireland Ltd) pour mesurer
-            si nos annonces mènent à une demande de contact ou de devis. Aucune donnée saisie dans les
-            formulaires n&apos;est transmise à Google. Sans acceptation, cette balise n&apos;est pas chargée et
-            aucun cookie publicitaire n&apos;est déposé. Votre choix est conservé dans votre navigateur et
+            si nos annonces mènent à une demande de contact ou de devis. Si vous envoyez une demande après
+            avoir accepté, votre adresse e-mail et votre numéro de téléphone sont transmis à Google sous
+            forme hachée (empreinte chiffrée, illisible) dans le seul but de rattacher la demande à
+            l&apos;annonce consultée ; le reste du formulaire n&apos;est jamais transmis. Sans acceptation,
+            cette balise n&apos;est pas chargée, aucun cookie publicitaire n&apos;est déposé et aucune donnée
+            n&apos;est envoyée à Google. Votre choix est conservé dans votre navigateur et
             peut être modifié à tout moment via le lien « Gérer mes cookies » en bas de chaque page.
           </p>
         </section>

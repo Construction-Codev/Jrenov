@@ -1,6 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CONSENT_STORAGE_KEY } from "@/lib/consent";
-import { LEAD_CONVERSION_SEND_TO, readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
+import {
+  LEAD_CONVERSION_SEND_TO,
+  buildUserData,
+  normalizeEmail,
+  normalizePhoneE164,
+  readSubmissionId,
+  trackLeadConversion,
+} from "@/lib/google-ads";
 
 // Navigateur simulé : localStorage en mémoire, gtag espionné. Aucune requête réelle.
 function fakeWindow({ consent, gtag }: { consent?: string; gtag?: unknown }) {
@@ -79,6 +86,50 @@ describe("trackLeadConversion", () => {
 
   it("côté serveur (pas de window) : rien", () => {
     expect(trackLeadConversion(newId())).toBe(false);
+  });
+});
+
+describe("suivi avancé des conversions (user_data)", () => {
+  beforeEach(() => vi.unstubAllGlobals());
+  afterEach(() => vi.unstubAllGlobals());
+
+  it("normalise l'e-mail et le téléphone français au format E.164", () => {
+    expect(normalizeEmail("  Jean.Dupont@Example.FR ")).toBe("jean.dupont@example.fr");
+    expect(normalizeEmail("pas un email")).toBeNull();
+    expect(normalizeEmail("")).toBeNull();
+    expect(normalizePhoneE164("06 12 34 56 78")).toBe("+33612345678");
+    expect(normalizePhoneE164("06.12.34.56.78")).toBe("+33612345678");
+    expect(normalizePhoneE164("+33 6 12 34 56 78")).toBe("+33612345678");
+    expect(normalizePhoneE164("+33 (0)6 12 34 56 78")).toBe("+33612345678");
+    expect(normalizePhoneE164("0033612345678")).toBe("+33612345678");
+    expect(normalizePhoneE164("12345")).toBeNull();
+    expect(normalizePhoneE164(null)).toBeNull();
+  });
+
+  it("ne construit rien sans donnée exploitable", () => {
+    expect(buildUserData()).toBeNull();
+    expect(buildUserData({ email: "", phone: "abc" })).toBeNull();
+    expect(buildUserData({ email: "", phone: "0612345678" })).toEqual({ phone_number: "+33612345678" });
+  });
+
+  it("consentement accepté : user_data est défini juste avant la conversion", () => {
+    const gtag = vi.fn();
+    fakeWindow({ consent: "granted", gtag });
+    const id = newId();
+    expect(trackLeadConversion(id, { email: "Client@Example.fr", phone: "06 12 34 56 78" })).toBe(true);
+    expect(gtag.mock.calls).toEqual([
+      ["set", "user_data", { email: "client@example.fr", phone_number: "+33612345678" }],
+      ["event", "conversion", { send_to: LEAD_CONVERSION_SEND_TO, transaction_id: id }],
+    ]);
+  });
+
+  it("consentement refusé ou absent : aucune donnée personnelle n'est passée à gtag", () => {
+    const gtag = vi.fn();
+    fakeWindow({ consent: "denied", gtag });
+    expect(trackLeadConversion(newId(), { email: "client@example.fr", phone: "0612345678" })).toBe(false);
+    fakeWindow({ gtag });
+    expect(trackLeadConversion(newId(), { email: "client@example.fr", phone: "0612345678" })).toBe(false);
+    expect(gtag).not.toHaveBeenCalled();
   });
 });
 
