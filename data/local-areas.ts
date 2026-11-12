@@ -1283,7 +1283,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     city: "Dardilly",
     postalCode: "69570",
     primaryKeyword: "couvreur Dardilly",
-    metaTitle: "Couvreur à Dardilly – Zinguerie, gouttières & toiture",
+    metaTitle: "Couvreur à Dardilly – Habillage alu des débords de toit",
     metaDescription:
       "Couvreur à Dardilly : gouttières et zinguerie, démoussage, réparation et rénovation de toiture. Chantiers réalisés à Écully, Champagne-au-Mont-d'Or et Tassin. Devis gratuit et sans engagement.",
     h1: "Couvreur à Dardilly : toiture, gouttières et zinguerie",
@@ -2350,7 +2350,7 @@ export const LOCAL_AREAS: LocalArea[] = [
     city: "Mions",
     postalCode: "69780",
     primaryKeyword: "couvreur Mions",
-    metaTitle: "Couvreur à Mions – Rénovation de toiture & gouttières",
+    metaTitle: "Couvreur à Mions – Rives aluminium et nettoyage des tuiles",
     metaDescription:
       "Couvreur à Mions : rénovation et réparation de toiture, gouttières, toitures de garage en bac acier et isolation. Chantiers réalisés à Corbas et Saint-Priest. Devis gratuit et sans engagement.",
     h1: "Couvreur à Mions : rénovation, gouttières et dépendances",
