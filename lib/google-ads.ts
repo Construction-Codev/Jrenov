@@ -9,7 +9,8 @@ import { getAdsConsent } from "@/lib/consent";
  *   confirmant l'envoi réel de la demande ;
  * - clic téléphone : trackPhoneConversion(), appelée par la délégation de clics
  *   de components/AnalyticsEvents.tsx sur un vrai clic d'un lien « tel: ».
- * Aucune donnée personnelle n'est transmise (ni numéro, ni contenu de formulaire).
+ * Pour les leads consentis, Google reçoit uniquement les coordonnées nécessaires au suivi avancé.
+ * Les autres champs du formulaire et le message ne sont jamais transmis.
  */
 export const GOOGLE_ADS_ID = "AW-18401022050";
 export const LEAD_CONVERSION_SEND_TO = "AW-18401022050/3zwjCM7KnZcdEOKgpcZE";
@@ -38,7 +39,12 @@ const trackedSubmissions = new Set<string>();
  *
  * Ne lève jamais : absence de gtag, refus de consentement ou bloqueur sont ignorés.
  */
-export function trackLeadConversion(submissionId: unknown): boolean {
+export type LeadUserData = { email?: unknown; telephone?: unknown };
+
+/** Google Tag chiffre automatiquement les coordonnées fournies via user_data.
+ * Aucun contenu libre de formulaire n'est transmis et le consentement est requis.
+ */
+export function trackLeadConversion(submissionId: unknown, user?: LeadUserData): boolean {
   try {
     if (typeof submissionId !== "string" || submissionId === "") return false;
     if (typeof window === "undefined") return false;
@@ -46,6 +52,19 @@ export function trackLeadConversion(submissionId: unknown): boolean {
     if (getAdsConsent() !== "granted") return false;
     if (typeof window.gtag !== "function") return false;
 
+    const email = typeof user?.email === "string" ? user.email.trim().toLowerCase() : "";
+    const rawPhone = typeof user?.telephone === "string" ? user.telephone.replace(/[\\s.()-]/g, "") : "";
+    const phone = /^0[1-9]\\d{8}$/.test(rawPhone)
+      ? "+33" + rawPhone.slice(1)
+      : /^\\+33[1-9]\\d{8}$/.test(rawPhone) ? rawPhone : "";
+    // Le paramètre user_data est traité par Google Tag pour les conversions avancées.
+    // Ne jamais transmettre de coordonnées sans consentement publicitaire préalable.
+    if (email || phone) {
+      window.gtag("set", "user_data", {
+        ...(email ? { email } : {}),
+        ...(phone ? { phone_number: phone } : {}),
+      });
+    }
     trackedSubmissions.add(submissionId);
     window.gtag("event", "conversion", {
       send_to: LEAD_CONVERSION_SEND_TO,
