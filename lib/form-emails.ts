@@ -61,16 +61,7 @@ export async function sendContactEmail(data: ContactData): Promise<void> {
 
 // ─── Devis ──────────────────────────────────────────────────────────────────
 
-const QUOTE_SERVICE_LABELS: Record<string, string> = {
-  couverture: "Rénovation de Toiture",
-  zinguerie: "Zinguerie & Gouttières",
-  isolation: "Isolation Thermique",
-  demoussage: "Nettoyage & Démoussage",
-  urgence: "Urgence / Fuite d'eau",
-};
-
 export function buildQuoteEmail(data: QuoteData) {
-  const serviceName = QUOTE_SERVICE_LABELS[data.service] ?? data.service;
   // Le lien tel: ne reçoit que les chiffres et le « + » du numéro validé
   const telHref = data.telephone.replace(/[^\d+]/g, "");
 
@@ -78,33 +69,24 @@ export function buildQuoteEmail(data: QuoteData) {
     from: process.env.CONTACT_EMAIL_FROM as string,
     to: [process.env.CONTACT_EMAIL_TO as string],
     replyTo: data.email || undefined,
-    subject: toHeaderSafe(`[Demande de Devis] ${serviceName} - ${data.nom} (${data.codePostal})`, 150),
+    subject: toHeaderSafe(`[Demande de Devis] ${data.nom}`, 150),
     html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px;">
           <h2 style="color: #d97706; margin-top: 0;">Nouvelle demande de devis en ligne</h2>
-          <p style="font-size: 14px; color: #64748b;">Reçue depuis le formulaire multi-étapes du site web.</p>
+          <p style="font-size: 14px; color: #64748b;">Reçue depuis le formulaire de devis du site web.</p>
 
           <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
 
-          <h3 style="color: #0f172a; font-size: 16px;">1. Service demandé</h3>
-          <p><strong>Type de prestation :</strong> ${escapeHtml(serviceName)}</p>
-
-          <h3 style="color: #0f172a; font-size: 16px; margin-top: 20px;">2. Détails du bien & projet</h3>
-          <ul>
-            <li><strong>Type de bâtiment :</strong> ${escapeHtml(data.building)}</li>
-            <li><strong>Surface estimée :</strong> ${data.surface ? `${escapeHtml(data.surface)} m²` : "Non précisée"}</li>
-          </ul>
-          <p><strong>Précisions / Description :</strong></p>
+          <p><strong>Message :</strong></p>
           <div style="background-color: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px;">
-            ${data.description ? escapeMultiline(data.description) : "Aucune précision fournie."}
+            ${escapeMultiline(data.message)}
           </div>
 
-          <h3 style="color: #0f172a; font-size: 16px; margin-top: 20px;">3. Coordonnées du client</h3>
+          <h3 style="color: #0f172a; font-size: 16px; margin-top: 20px;">Coordonnées du client</h3>
           <ul>
             <li><strong>Nom & Prénom :</strong> ${escapeHtml(data.nom)}</li>
             <li><strong>Téléphone :</strong> <a href="tel:${escapeHtml(telHref)}" style="color: #d97706; font-weight: bold;">${escapeHtml(data.telephone)}</a></li>
             <li><strong>E-mail :</strong> ${or(data.email, "Non renseigné")}</li>
-            <li><strong>Ville / Code Postal :</strong> ${escapeHtml(data.codePostal)}</li>
           </ul>
 
           <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />

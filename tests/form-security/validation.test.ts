@@ -11,15 +11,10 @@ const contact = {
 };
 
 const quote = {
-  service: "zinguerie",
-  building: "maison",
-  surface: "120",
-  delai: "rapide",
   nom: "Marie Martin",
   telephone: "+33 6 12 34 56 78",
   email: "",
-  codePostal: "69330 Meyzieu",
-  description: "Gouttière qui déborde côté jardin.",
+  message: "Gouttière qui déborde côté jardin.",
 };
 
 describe("validateContact", () => {
@@ -98,11 +93,18 @@ describe("validateQuote", () => {
     expect(validateQuote(quote).ok).toBe(true);
   });
 
-  it("refuse une prestation inconnue", () => {
-    expect(validateQuote({ ...quote, service: "piscine" })).toMatchObject({ ok: false, field: "service" });
+  it("accepte un devis sans email", () => {
+    const { email, ...withoutEmail } = quote;
+    void email;
+    expect(validateQuote(withoutEmail)).toMatchObject({ ok: true, data: { email: "" } });
   });
 
-  it("refuse une surface non numérique", () => {
-    expect(validateQuote({ ...quote, surface: "beaucoup" })).toMatchObject({ ok: false, field: "surface" });
+  it.each(["nom", "telephone", "message"])("exige le champ %s", (field) => {
+    expect(validateQuote({ ...quote, [field]: "" })).toMatchObject({ ok: false, reason: "missing_field", field });
+  });
+
+  it("refuse un message trop long ou malveillant", () => {
+    expect(validateQuote({ ...quote, message: "a".repeat(3001) })).toMatchObject({ ok: false, field: "message" });
+    expect(validateQuote({ ...quote, message: "<script>x</script>" })).toMatchObject({ ok: false, reason: "injection" });
   });
 });

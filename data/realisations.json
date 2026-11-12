@@ -62,7 +62,7 @@
     "category": "Étanchéité",
     "summary": "Réfection intégrale du complexe d'étanchéité d'un toit-terrasse inaccessible.",
     "description": "Suite à des infiltrations dans les derniers étages, nous avons déposé l'ancien revêtement, posé un pare-vapeur, un isolant polyuréthane de 120 mm et une étanchéité bicouche élastomère soudée au chalumeau.",
-    "image": "/images/realisations/etancheite.jpg",
+    "image": "/images/realisations/toiture-bitumeuse.png",
     "duration": "4 jours"
   },
   {
@@ -128,7 +128,7 @@
     "category": "Fenêtre de toit",
     "summary": "Installation d'une verrière 3 modules pour une luminosité maximale dans un atelier d'artiste.",
     "description": "Renforcement de la charpente bois, découpe de la couverture et intégration d'un ensemble de trois verrières juxtaposées avec raccordements d'étanchéité spécifiques en plomb et zinc.",
-    "image": "/images/realisations/verriere2.jpg",
+    "image": "/images/realisations/atelier-verriere.png",
     "duration": "3 jours"
   },
   {
@@ -150,7 +150,7 @@
     "category": "Zinguerie",
     "summary": "Profilage sur chantier de gouttières alu sans soudure ni raccord.",
     "description": "Installation d'un réseau complet d'évacuation d'eau pluviale. Profilage directement sur place des gouttières de forme corniche couleur terre cuite pour s'intégrer parfaitement à la villa.",
-    "image": "/images/realisations/aluminium.jpg",
+    "image": "/images/realisations/gouttiere-longue.png",
     "duration": "1 jour"
   },
   {
@@ -238,7 +238,7 @@
     "category": "Couverture",
     "summary": "Pose de plaques bac acier anti-condensation sur une toiture de garage.",
     "description": "Remplacement d'une ancienne couverture amiantée (déposée par entreprise agréée). Pose de tôles bac acier isolées avec feutre régulateur de condensation et rives de finition thermolaquées.",
-    "image": "",
+    "image": "/images/realisations/toiture-metalique.png",
     "duration": "3 jours"
   },
   {

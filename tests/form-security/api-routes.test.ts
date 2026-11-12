@@ -47,15 +47,10 @@ const contactBody = () => ({
 });
 
 const quoteBody = () => ({
-  service: "couverture",
-  building: "maison",
-  surface: "90",
-  delai: "rapide",
   nom: "Marie Martin",
   telephone: "+33 6 12 34 56 78",
   email: "",
-  codePostal: "69330 Meyzieu",
-  description: "Tuiles cassées.",
+  message: "Tuiles cassées.",
   website: "",
   formToken: issueFormToken(Date.now() - 10_000),
 });
@@ -242,10 +237,10 @@ describe("POST /api/devis", () => {
     expect(sendMock.mock.calls[0][0].replyTo).toBeUndefined();
   });
 
-  it("protégée comme le contact : honeypot, prestation inconnue, HTML", async () => {
+  it("protégée comme le contact : honeypot, champ inattendu, HTML", async () => {
     expect((await postDevis(request("/api/devis", { ...quoteBody(), website: "x" }))).status).toBe(200);
     expect((await postDevis(request("/api/devis", { ...quoteBody(), service: "<script>" }))).status).toBe(400);
-    expect((await postDevis(request("/api/devis", { ...quoteBody(), description: "<script>x</script>" }))).status).toBe(400);
+    expect((await postDevis(request("/api/devis", { ...quoteBody(), message: "<script>x</script>" }))).status).toBe(400);
     expect(sendMock).not.toHaveBeenCalled();
   });
 

@@ -122,32 +122,19 @@ export function validateContact(raw: unknown): ValidationResult<ContactData> {
 
 // ─── Formulaire devis ───────────────────────────────────────────────────────
 
-export const QUOTE_SERVICES = ["couverture", "zinguerie", "isolation", "demoussage", "urgence"] as const;
-export const QUOTE_BUILDINGS = ["maison", "immeuble", "autre"] as const;
-
 export interface QuoteData {
-  service: string;
-  building: string;
-  surface: string;
-  delai: string;
   nom: string;
   telephone: string;
   email: string;
-  codePostal: string;
-  description: string;
+  message: string;
 }
 
 export function validateQuote(raw: unknown): ValidationResult<QuoteData> {
   return validateFields<QuoteData>(raw, {
-    service: { required: true, max: 20, allowed: QUOTE_SERVICES },
-    building: { required: true, max: 20, allowed: QUOTE_BUILDINGS },
-    surface: { max: 9, pattern: /^\d{1,6}(?:[.,]\d{1,2})?$/ },
-    delai: { max: 20, pattern: /^[a-z0-9-]+$/ },
     nom: { required: true, min: 2, max: 80, pattern: NAME_PATTERN },
     telephone: { required: true, max: 25, kind: "phone" },
     email: { max: 254, kind: "email" },
-    codePostal: { required: true, min: 2, max: 100, pattern: PLACE_PATTERN },
-    description: { max: 3000, multiline: true },
+    message: { required: true, min: 5, max: 3000, multiline: true },
   });
 }
 
