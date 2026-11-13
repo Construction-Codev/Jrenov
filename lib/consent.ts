@@ -1,5 +1,5 @@
 /**
- * Consentement aux cookies publicitaires (Google Ads).
+ * Consentements indépendants aux cookies publicitaires (Ads) et analytiques (GA4).
  *
  * Tant qu'aucun choix n'a été enregistré, le consentement vaut « inconnu » et AUCUNE
  * balise publicitaire n'est chargée. La bannière (components/ConsentBanner.tsx) appelle
@@ -69,4 +69,53 @@ export function subscribeAdsConsent(onChange: () => void): () => void {
 export function openConsentPreferences(): void {
   if (typeof window === "undefined") return;
   window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
+}
+
+/**
+ * Consentement spécifique aux mesures d'audience Google Analytics 4.
+ * Un ancien consentement publicitaire ne vaut JAMAIS acceptation automatique de GA4.
+ */
+export const ANALYTICS_CONSENT_STORAGE_KEY = "jrenov-consent-analytics";
+export type AnalyticsConsent = AdsConsent;
+
+export function getAnalyticsConsent(): AnalyticsConsent {
+  if (typeof window === "undefined") return "unknown";
+  try {
+    const value = window.localStorage.getItem(ANALYTICS_CONSENT_STORAGE_KEY);
+    return value === "granted" || value === "denied" ? value : "unknown";
+  } catch {
+    return "unknown";
+  }
+}
+
+export function setAnalyticsConsent(granted: boolean): void {
+  if (typeof window === "undefined") return;
+  const value: AnalyticsConsent = granted ? "granted" : "denied";
+  try {
+    window.localStorage.setItem(ANALYTICS_CONSENT_STORAGE_KEY, value);
+  } catch {
+    // Sans stockage disponible, aucune autorisation implicite lors d'une prochaine visite.
+  }
+  // Si le script Google a déjà été chargé, lui retirer immédiatement le consentement.
+  if (typeof window.gtag === "function") {
+    try {
+      window.gtag("consent", "update", { analytics_storage: value });
+    } catch {
+      // Le consentement doit rester non bloquant pour le site.
+    }
+  }
+  window.dispatchEvent(new Event(CONSENT_EVENT));
+}
+
+export function subscribeAnalyticsConsent(onChange: () => void): () => void {
+  if (typeof window === "undefined") return () => {};
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === ANALYTICS_CONSENT_STORAGE_KEY) onChange();
+  };
+  window.addEventListener(CONSENT_EVENT, onChange);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(CONSENT_EVENT, onChange);
+    window.removeEventListener("storage", onStorage);
+  };
 }
