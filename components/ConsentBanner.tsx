@@ -24,8 +24,9 @@ export default function ConsentBanner() {
   const analytics = useSyncExternalStore<AdsConsent | "ssr">(subscribeAnalyticsConsent, getAnalyticsConsent, () => "ssr");
   const ga4Active = GA4_MEASUREMENT_ID !== null;
   const [reopened, setReopened] = useState(false);
-  const [allowAds, setAllowAds] = useState(false);
-  const [allowAnalytics, setAllowAnalytics] = useState(false);
+  const [selection, setSelection] = useState<{ ads: boolean; analytics: boolean } | null>(null);
+  const allowAds = selection?.ads ?? ads === "granted";
+  const allowAnalytics = selection?.analytics ?? analytics === "granted";
 
   useEffect(() => {
     const open = () => setReopened(true);
@@ -33,17 +34,13 @@ export default function ConsentBanner() {
     return () => window.removeEventListener(CONSENT_OPEN_EVENT, open);
   }, []);
 
-  useEffect(() => {
-    setAllowAds(ads === "granted");
-    setAllowAnalytics(analytics === "granted");
-  }, [ads, analytics, reopened]);
-
   if (ads === "ssr" || analytics === "ssr") return null;
   if (ads !== "unknown" && (!ga4Active || analytics !== "unknown") && !reopened) return null;
 
   const choose = (adValue: boolean, analyticsValue: boolean) => {
     setAdsConsent(adValue);
     if (ga4Active) setAnalyticsConsent(analyticsValue);
+    setSelection(null);
     setReopened(false);
   };
   const actionClass =
@@ -57,7 +54,9 @@ export default function ConsentBanner() {
             <p className="text-sm font-bold text-white sm:text-base">Choisissez les cookies autorisés</p>
             <p className="text-xs leading-relaxed text-slate-200 sm:text-sm">
               Nous utilisons les cookies Google uniquement avec votre accord.
-              Vous pouvez autoriser les mesures d&apos;audience sans autoriser les publicités, ou l&apos;inverse.{" "}
+              {ga4Active
+                ? "Vous pouvez autoriser la mesure d’audience sans autoriser la publicité, ou l’inverse."
+                : "Vous pouvez refuser ou accepter la mesure des conversions publicitaires."}{" "}
               <Link href="/mentions-legales#cookies" className="underline hover:text-amber-400">En savoir plus</Link>
             </p>
           </div>
@@ -73,7 +72,7 @@ export default function ConsentBanner() {
               aria-label="Autoriser les cookies publicitaires Google Ads"
               type="checkbox"
               checked={allowAds}
-              onChange={(e) => setAllowAds(e.currentTarget.checked)}
+              onChange={(e) => setSelection({ ads: e.currentTarget.checked, analytics: allowAnalytics })}
               className="h-4 w-4 accent-amber-500"
             />
             Publicité Google Ads (mesure des conversions)
@@ -84,7 +83,7 @@ export default function ConsentBanner() {
                 aria-label="Autoriser les cookies Google Analytics 4"
                 type="checkbox"
                 checked={allowAnalytics}
-                onChange={(e) => setAllowAnalytics(e.currentTarget.checked)}
+                onChange={(e) => setSelection({ ads: allowAds, analytics: e.currentTarget.checked })}
                 className="h-4 w-4 accent-amber-500"
               />
               Mesure d&apos;audience Google Analytics 4
