@@ -7,20 +7,25 @@ import {
   getAdsConsent,
   setAdsConsent,
   subscribeAdsConsent,
+  getAnalyticsConsent,
+  setAnalyticsConsent,
+  subscribeAnalyticsConsent,
   type AdsConsent,
 } from "@/lib/consent";
+import { GA4_MEASUREMENT_ID } from "@/lib/google-analytics";
 
 /**
- * Bandeau de consentement aux cookies publicitaires (Google Ads).
- * Affiché tant qu'aucun choix n'est enregistré, ou à la demande via « Gérer mes cookies ».
- * « Accepter » et « Refuser » ont exactement le même style. Sans acceptation, rien n'est chargé.
- * Non bloquant : la navigation n'est jamais considérée comme une acceptation, et le site
- * comme les formulaires restent utilisables quel que soit le choix.
+ * Préférences de consentement par finalité. L'ancien choix Google Ads reste
+ * inchangé ; il n'autorise pas automatiquement Google Analytics 4.
+ * Rien de Google ne se charge si les deux finalités sont refusées/inconnues.
  */
 export default function ConsentBanner() {
-  // Côté serveur : « ssr » pour ne jamais afficher la bannière dans le HTML statique
-  const consent = useSyncExternalStore<AdsConsent | "ssr">(subscribeAdsConsent, getAdsConsent, () => "ssr");
+  const ads = useSyncExternalStore<AdsConsent | "ssr">(subscribeAdsConsent, getAdsConsent, () => "ssr");
+  const analytics = useSyncExternalStore<AdsConsent | "ssr">(subscribeAnalyticsConsent, getAnalyticsConsent, () => "ssr");
+  const ga4Active = GA4_MEASUREMENT_ID !== null;
   const [reopened, setReopened] = useState(false);
+  const [allowAds, setAllowAds] = useState(false);
+  const [allowAnalytics, setAllowAnalytics] = useState(false);
 
   useEffect(() => {
     const open = () => setReopened(true);
@@ -28,43 +33,63 @@ export default function ConsentBanner() {
     return () => window.removeEventListener(CONSENT_OPEN_EVENT, open);
   }, []);
 
-  if (consent === "ssr" || (consent !== "unknown" && !reopened)) return null;
+  useEffect(() => {
+    setAllowAds(ads === "granted");
+    setAllowAnalytics(analytics === "granted");
+  }, [ads, analytics, reopened]);
 
-  const choose = (granted: boolean) => {
-    setAdsConsent(granted);
+  if (ads === "ssr" || analytics === "ssr") return null;
+  if (ads !== "unknown" && (!ga4Active || analytics !== "unknown") && !reopened) return null;
+
+  const choose = (adValue: boolean, analyticsValue: boolean) => {
+    setAdsConsent(adValue);
+    if (ga4Active) setAnalyticsConsent(analyticsValue);
     setReopened(false);
   };
+  const actionClass =
+    "min-h-11 rounded-lg bg-slate-100 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-white focus-visible:ring-2 focus-visible:ring-amber-400";
 
-  const buttonClass =
-    "h-11 min-w-28 px-5 rounded-lg bg-slate-100 hover:bg-white text-slate-950 text-base font-bold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400";
-
-  // Bandeau en bas d'écran, dans le conteneur « sticky » du layout (avec la barre d'appel mobile).
-  // Bien visible (liseré, titre, grands boutons) mais sans fond assombri ni blocage : le site,
-  // le numéro de téléphone et les formulaires restent utilisables sans avoir répondu.
   return (
-    <div
-      role="region"
-      aria-label="Cookies publicitaires"
-      className="bg-slate-900 border-t-4 border-amber-500 text-slate-200"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
-        <div className="flex-1 space-y-1">
-          <p className="text-sm sm:text-base font-bold text-white">Acceptez-vous les cookies de mesure ?</p>
-          <p className="text-xs sm:text-sm leading-snug">
-            Avec votre accord, nous utilisons des cookies Google Ads pour mesurer les demandes provenant de nos
-            annonces.{" "}
-            <Link href="/mentions-legales#cookies" className="underline hover:text-amber-400 whitespace-nowrap">
-              En savoir plus
-            </Link>
-          </p>
+    <div role="region" aria-label="Préférences de cookies" className="border-t-4 border-amber-500 bg-slate-900 text-slate-100">
+      <div className="mx-auto max-w-7xl space-y-3 px-4 py-3 sm:px-6 sm:py-4">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="max-w-3xl space-y-1">
+            <p className="text-sm font-bold text-white sm:text-base">Choisissez les cookies autorisés</p>
+            <p className="text-xs leading-relaxed text-slate-200 sm:text-sm">
+              Nous utilisons les cookies Google uniquement avec votre accord.
+              Vous pouvez autoriser les mesures d&apos;audience sans autoriser les publicités, ou l&apos;inverse.{" "}
+              <Link href="/mentions-legales#cookies" className="underline hover:text-amber-400">En savoir plus</Link>
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" onClick={() => choose(false, false)} className={actionClass}>Tout refuser</button>
+            <button type="button" onClick={() => choose(allowAds, allowAnalytics)} className={actionClass}>Enregistrer</button>
+            <button type="button" onClick={() => choose(true, true)} className={actionClass}>Tout accepter</button>
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-2 shrink-0">
-          <button type="button" onClick={() => choose(false)} className={buttonClass}>
-            Refuser
-          </button>
-          <button type="button" onClick={() => choose(true)} className={buttonClass}>
-            Accepter
-          </button>
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <label className="flex cursor-pointer items-center gap-2">
+            <input
+              aria-label="Autoriser les cookies publicitaires Google Ads"
+              type="checkbox"
+              checked={allowAds}
+              onChange={(e) => setAllowAds(e.currentTarget.checked)}
+              className="h-4 w-4 accent-amber-500"
+            />
+            Publicité Google Ads (mesure des conversions)
+          </label>
+          {ga4Active && (
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                aria-label="Autoriser les cookies Google Analytics 4"
+                type="checkbox"
+                checked={allowAnalytics}
+                onChange={(e) => setAllowAnalytics(e.currentTarget.checked)}
+                className="h-4 w-4 accent-amber-500"
+              />
+              Mesure d&apos;audience Google Analytics 4
+            </label>
+          )}
         </div>
       </div>
     </div>
