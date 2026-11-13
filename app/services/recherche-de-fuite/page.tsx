@@ -178,7 +178,7 @@ export default function RechercheDeFuitePage() {
 
       <CallbackServiceSection
         title="Vous préférez être rappelé ?"
-        description="Pour une fuite ou une infiltration, laissez votre nom et votre téléphone. Nous vous recontactons pendant les horaires d'ouverture. En cas d'urgence immédiate, privilégiez l'appel."
+        description="Pour une fuite ou une infiltration, laissez votre nom et votre téléphone. JRENOV vous rappelle 24 h/24, 7 j/7. En cas d'urgence immédiate, privilégiez l'appel."
       />
 
       {/* 2. Symptômes */}
