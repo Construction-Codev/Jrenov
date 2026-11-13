@@ -4,6 +4,7 @@ import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
 import ServiceSilo from "@/components/ServiceSilo";
+import { CallbackServiceSection } from "@/components/CallbackRequest";
 import CoverageDiagnosis from "@/components/CoverageDiagnosis";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 import Link from "next/link";
@@ -124,9 +125,21 @@ export default function CouverturePage() {
               Appeler le {BUSINESS.phoneDisplay}
             </a>
           </div>
+          <nav aria-label="Explorer les solutions de toiture" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-1 text-sm sm:justify-start">
+            <Link href="/services/recherche-de-fuite" className="font-semibold text-amber-300 underline underline-offset-4 hover:text-white">
+              J'ai une fuite de toiture
+            </Link>
+            <Link href="/realisations" className="font-semibold text-amber-300 underline underline-offset-4 hover:text-white">
+              Voir nos chantiers
+            </Link>
+          </nav>
         </div>
       </section>
 
+      <CallbackServiceSection
+        title="Besoin d'un avis pour votre toiture ?"
+        description="Réparation, rénovation ou tuiles déplacées : laissez-nous votre nom et votre téléphone. Un couvreur JRENOV vous recontacte pour discuter de votre besoin."
+      />
       <CoverageDiagnosis />
       {/* 2. Section Matériaux */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
