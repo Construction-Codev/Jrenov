@@ -4,11 +4,13 @@ import { useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
 import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
+import { CallbackDialog } from "@/components/CallbackRequest";
 import { CheckCircle2, Phone, ShieldCheck, Building2 } from "lucide-react";
 import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 export default function DevisPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [callbackOpen, setCallbackOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -82,6 +84,23 @@ export default function DevisPage() {
             Obtenez une estimation précise pour vos travaux de toiture dans l&apos;Est lyonnais, à Lyon et dans sa métropole sous 24h.
           </p>
         </div>
+
+        {/* Alternative rapide au devis détaillé, sans affaiblir la validation anti-spam. */}
+        {!submitted && (
+          <aside className="flex flex-col items-start justify-between gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:flex-row sm:items-center">
+            <div className="space-y-1">
+              <h2 className="font-bold text-slate-950">Pas le temps de remplir un devis ?</h2>
+              <p className="text-sm text-slate-700">Votre nom et votre téléphone suffisent pour être rappelé.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setCallbackOpen(true)}
+              className="min-h-12 w-full shrink-0 rounded-xl bg-slate-900 px-5 py-3 font-bold text-white hover:bg-slate-800 sm:w-auto"
+            >
+              Me rappeler gratuitement
+            </button>
+          </aside>
+        )}
 
         {/* Formulaire ou Message de succès */}
         {submitted ? (
@@ -217,6 +236,7 @@ export default function DevisPage() {
         </div>
 
       </div>
+      <CallbackDialog open={callbackOpen} onClose={() => setCallbackOpen(false)} />
     </div>
   );
 }
