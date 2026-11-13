@@ -127,7 +127,7 @@ export default function CouverturePage() {
           </div>
           <nav aria-label="Explorer les solutions de toiture" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-1 text-sm sm:justify-start">
             <Link href="/services/recherche-de-fuite" className="font-semibold text-amber-300 underline underline-offset-4 hover:text-white">
-              J'ai une fuite de toiture
+              J&apos;ai une fuite de toiture
             </Link>
             <Link href="/realisations" className="font-semibold text-amber-300 underline underline-offset-4 hover:text-white">
               Voir nos chantiers
