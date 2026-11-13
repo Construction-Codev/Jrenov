@@ -18,6 +18,7 @@ import { getService } from "@/lib/services";
 import { serviceJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
 import ServiceSilo from "@/components/ServiceSilo";
+import { CallbackServiceSection } from "@/components/CallbackRequest";
 import ServiceFaq, { type FaqItem } from "@/components/ServiceFaq";
 
 export const metadata: Metadata = pageMetadata({
@@ -174,6 +175,11 @@ export default function RechercheDeFuitePage() {
           </div>
         </div>
       </section>
+
+      <CallbackServiceSection
+        title="Vous préférez être rappelé ?"
+        description="Pour une fuite ou une infiltration, laissez votre nom et votre téléphone. JRENOV vous rappelle 24 h/24, 7 j/7. En cas d'urgence immédiate, privilégiez l'appel."
+      />
 
       {/* 2. Symptômes */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">

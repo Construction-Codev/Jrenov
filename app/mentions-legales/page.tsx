@@ -108,14 +108,17 @@ export default function MentionsLegalesPage() {
         <section id="cookies" className="space-y-3 text-sm text-slate-700">
           <h2 className="font-bold text-slate-900 text-base">7. Cookies</h2>
           <p>
-            Avec votre accord uniquement, le site utilise la balise Google Ads (Google Ireland Ltd) pour mesurer
-            si nos annonces mènent à une demande de contact ou de devis. Si vous envoyez une demande après
-            avoir accepté, votre adresse e-mail et votre numéro de téléphone sont transmis à Google sous
-            forme hachée (empreinte chiffrée, illisible) dans le seul but de rattacher la demande à
-            l&apos;annonce consultée ; le reste du formulaire n&apos;est jamais transmis. Sans acceptation,
-            cette balise n&apos;est pas chargée, aucun cookie publicitaire n&apos;est déposé et aucune donnée
-            n&apos;est envoyée à Google. Votre choix est conservé dans votre navigateur et
-            peut être modifié à tout moment via le lien « Gérer mes cookies » en bas de chaque page.
+            Avec votre accord distinct pour chaque finalité, JRENOV utilise les outils de Google Ireland Ltd :
+            Google Ads pour mesurer les demandes issues des publicités et, si activé, Google Analytics 4 pour
+            mesurer la fréquentation, la navigation et les interactions utiles (clics sur le téléphone, formulaires).
+            Ces outils peuvent déposer des cookies et transmettre des informations de navigation à Google.
+            Aucun de ces deux traceurs n&apos;est chargé avant votre choix positif pour la finalité concernée.
+            Les données personnelles saisies dans les formulaires ne sont jamais envoyées à Google Analytics 4.
+            Si vous acceptez les cookies publicitaires, Google Ads peut recevoir les coordonnées utiles
+            au suivi avancé des conversions, traitées par hachage, conformément à la fonctionnalité activée.
+            Vous pouvez accepter la mesure d&apos;audience et refuser la publicité, ou inversement.
+            Votre choix est stocké dans votre navigateur et modifiable via « Gérer mes cookies »
+            en bas du site.
           </p>
         </section>
 

@@ -1,4 +1,5 @@
 import { track } from "@vercel/analytics";
+import { trackGA4Event } from "@/lib/google-analytics";
 
 /**
  * Événements de conversion suivis dans Vercel Web Analytics.
@@ -42,6 +43,8 @@ export function trackEvent(name: ConversionEvent, properties: EventProperties = 
   try {
     track(name, safe);
   } catch {
-    // L'analytics ne doit jamais casser l'interface.
+    // Vercel Analytics ne doit jamais casser l'interface.
   }
+  // Deuxième destination, consentie indépendamment ; aucune donnée personnelle.
+  trackGA4Event(name, safe);
 }

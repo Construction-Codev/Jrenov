@@ -7,35 +7,14 @@ import { FormGuardFields, useFormGuard } from "@/components/forms/FormGuard";
 import { trackEvent } from "@/lib/analytics";
 import { readSubmissionId, trackLeadConversion } from "@/lib/google-ads";
 
-export function isCallbackHours(date: Date): boolean {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/Paris", weekday: "short",
-    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
-  }).formatToParts(date);
-  const day = parts.find((p) => p.type === "weekday")?.value;
-  const hour = Number(parts.find((p) => p.type === "hour")?.value);
-  return day !== "Sun" && Number.isFinite(hour) && hour >= 8 && hour < 19;
-}
-
-function useCallbackHours(): boolean | null {
-  const [opened, setOpened] = useState<boolean | null>(null);
-  useEffect(() => {
-    const refresh = () => setOpened(isCallbackHours(new Date()));
-    refresh();
-    const timer = setInterval(refresh, 60_000);
-    return () => clearInterval(timer);
-  }, []);
-  return opened;
-}
-
-function CallbackHeading({ open }: { open: boolean | null }) {
-  return <>JRENOV vous rappelle {open === null ? "rapidement" : open ? "immédiatement" : "dès l'ouverture"}</>;
+/** Disponibilité de rappel confirmée par l'entreprise : tous les jours et à toute heure. */
+function CallbackHeading() {
+  return <>JRENOV vous rappelle 24 h/24, 7 j/7</>;
 }
 
 export function CallbackRequestForm() {
   const id = useId();
   const guard = useFormGuard();
-  const open = useCallbackHours();
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,7 +36,7 @@ export function CallbackRequestForm() {
           email: values.get("email") || "",
           ville: "",
           sujet: "rappel",
-          message: "Demande de rappel depuis le site JRENOV. Merci de rappeler ce prospect dès que possible pendant les horaires d'ouverture.",
+          message: "Demande de rappel 24 h/24, 7 j/7 depuis le site JRENOV. Merci de recontacter ce prospect dès que possible.",
           ...(await guard.getGuardPayload(form)),
         }),
       });
@@ -85,7 +64,7 @@ export function CallbackRequestForm() {
     return <div role="status" className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center text-emerald-900">
       <CheckCircle2 className="mx-auto mb-2 h-8 w-8" aria-hidden="true" />
       <strong>Demande reçue !</strong>
-      <p className="mt-2 text-sm">{open ? "JRENOV vous rappelle dès que possible." : "JRENOV vous rappelle dès la prochaine ouverture."}</p>
+      <p className="mt-2 text-sm">JRENOV vous rappelle 24 h/24, 7 j/7.</p>
     </div>;
   }
 
@@ -112,30 +91,47 @@ export function CallbackRequestForm() {
       {sending ? "Envoi en cours…" : "Demander mon rappel gratuit"}
     </button>
     <p className="text-center text-xs text-slate-600">
-      {open === null ? "Rappel selon nos horaires." : open ? "Rappel immédiat pendant les horaires d'ouverture." : "Rappel dès l'ouverture (lundi-samedi, 8h-19h)."}
+      Rappel disponible 24 h/24, 7 j/7.
       {" "}Vos coordonnées servent à traiter votre demande et à vous envoyer une confirmation si vous renseignez votre email.
     </p>
   </form>;
 }
 
 export function CallbackHomeSection() {
-  const open = useCallbackHours();
   return <section aria-labelledby="callback-home-title" className="border-y border-slate-200 bg-white px-4 py-10 sm:px-6">
     <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-2">
       <div className="space-y-3">
         <p className="text-sm font-extrabold uppercase tracking-wider text-amber-700">Rappel gratuit</p>
-        <h2 id="callback-home-title" className="text-3xl font-black text-slate-950"><CallbackHeading open={open} /></h2>
+        <h2 id="callback-home-title" className="text-3xl font-black text-slate-950"><CallbackHeading /></h2>
         <p className="text-slate-700">Un problème de toiture ? Laissez seulement votre nom et votre téléphone. Un couvreur vous recontacte gratuitement.</p>
-        <p className="text-sm text-slate-600">Rappel immédiat du lundi au samedi, de 8h à 19h.</p>
+        <p className="text-sm text-slate-600">Rappel 24 h/24, 7 j/7, y compris la nuit et le week-end.</p>
       </div>
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm"><CallbackRequestForm /></div>
     </div>
   </section>;
 }
 
+/** Réponse rapide sur les pages services sans détour par le formulaire détaillé. */
+export function CallbackServiceSection({ title, description }: { title: string; description: string }) {
+  return (
+    <section aria-label="Demande de rappel" className="border-b border-slate-200 bg-amber-50 px-4 py-8 sm:px-6">
+      <div className="mx-auto grid max-w-5xl items-center gap-6 md:grid-cols-2">
+        <div className="space-y-3">
+          <p className="text-sm font-extrabold uppercase tracking-wider text-amber-800">Un contact plus simple</p>
+          <h2 className="text-2xl font-black text-slate-950 sm:text-3xl">{title}</h2>
+          <p className="text-slate-700">{description}</p>
+          <p className="text-sm text-slate-600">Rappel disponible 24 h/24, 7 j/7. Votre nom et votre numéro suffisent.</p>
+        </div>
+        <div className="rounded-2xl border border-amber-200 bg-white p-5 shadow-sm">
+          <CallbackRequestForm />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CallbackDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
-  const opened = useCallbackHours();
   useEffect(() => {
     if (!open) return;
     const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -151,7 +147,7 @@ export function CallbackDialog({ open, onClose }: { open: boolean; onClose: () =
       className="max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
-          <h2 id="callback-dialog-title" className="text-xl font-extrabold text-slate-950"><CallbackHeading open={opened} /></h2>
+          <h2 id="callback-dialog-title" className="text-xl font-extrabold text-slate-950"><CallbackHeading /></h2>
           <p className="mt-1 text-sm text-slate-600">Seulement deux informations pour être rappelé gratuitement.</p>
         </div>
         <button type="button" aria-label="Fermer" ref={closeRef} onClick={onClose} className="rounded-lg p-2 text-slate-700 hover:bg-slate-100">

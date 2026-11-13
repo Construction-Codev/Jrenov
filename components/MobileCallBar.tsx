@@ -38,7 +38,7 @@ export default function MobileCallBar() {
           className="flex items-center justify-center gap-1.5 h-12 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
         >
           <PhoneCall className="w-4 h-4" aria-hidden="true" />
-          <span>Me rappeler</span>
+          <span>Rappel 24h/24</span>
         </button>
       </div>
     </div>
