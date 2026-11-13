@@ -63,7 +63,14 @@ export default function GoogleTag() {
     }
 
     if (allowAnalytics && GA4_MEASUREMENT_ID) {
-      const location = window.location.href;
+      // Ne jamais transmettre de paramètres libres susceptibles de contenir des données personnelles.
+      const url = new URL(window.location.href);
+      const allowedParams = new Set(["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "gbraid", "wbraid"]);
+      for (const key of [...url.searchParams.keys()]) {
+        if (!allowedParams.has(key)) url.searchParams.delete(key);
+      }
+      url.hash = "";
+      const location = url.toString();
       // Page vue initiale et changements de routes Next.js, sans doublon.
       if (lastPage.current !== location) {
         window.gtag("event", "page_view", {
