@@ -72,7 +72,7 @@ export function CallbackRequestForm() {
       trackEvent("callback_request");
       // Une demande de rappel reçue est un lead confirmé, comme un formulaire.
       // On utilise la conversion existante pour éviter deux actions Google Ads.
-      trackLeadConversion(id);
+      trackLeadConversion(id, { phone: values.get("telephone") });
     } catch {
       setError("Erreur réseau. Merci de réessayer.");
       guard.renew(form);

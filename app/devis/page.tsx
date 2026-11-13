@@ -50,7 +50,7 @@ export default function DevisPage() {
         trackEvent("quote_form_submit");
         const submissionId = await readSubmissionId(response);
         setSubmitted(true);
-        trackLeadConversion(submissionId);
+        trackLeadConversion(submissionId, { email: formData.email, phone: formData.telephone });
       } else {
         const errorData = await response.json().catch(() => ({}));
         setErrorMessage(

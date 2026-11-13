@@ -9,7 +9,11 @@ import { getAdsConsent } from "@/lib/consent";
  *   confirmant l'envoi réel de la demande ;
  * - clic téléphone : trackPhoneConversion(), appelée par la délégation de clics
  *   de components/AnalyticsEvents.tsx sur un vrai clic d'un lien « tel: ».
- * Aucune donnée personnelle n'est transmise (ni numéro, ni contenu de formulaire).
+ *
+ * Suivi avancé des conversions : pour « Website lead » uniquement, et seulement si le
+ * visiteur a accepté les cookies publicitaires, l'e-mail et le téléphone saisis sont
+ * passés à gtag (`user_data`), qui les hache (SHA-256) dans le navigateur avant envoi.
+ * Rien d'autre du formulaire n'est transmis ; le clic téléphone n'envoie aucune donnée.
  */
 export const GOOGLE_ADS_ID = "AW-18401022050";
 export const LEAD_CONVERSION_SEND_TO = "AW-18401022050/3zwjCM7KnZcdEOKgpcZE";
@@ -29,6 +33,43 @@ declare global {
   }
 }
 
+/** Coordonnées saisies dans le formulaire, utilisées pour le suivi avancé des conversions. */
+export type LeadUserData = { email?: unknown; phone?: unknown };
+
+/** E-mail en minuscules sans espaces, ou null s'il n'a pas la forme d'une adresse. */
+export function normalizeEmail(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const email = value.trim().toLowerCase();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : null;
+}
+
+/**
+ * Numéro au format E.164 attendu par Google (« 06 12 34 56 78 » → « +33612345678 »).
+ * Un numéro sans indicatif est considéré comme français. Retourne null s'il est inexploitable.
+ */
+export function normalizePhoneE164(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  let digits = value.replace(/[^\d+]/g, "");
+  if (digits.startsWith("00")) digits = `+${digits.slice(2)}`;
+  if (!digits.startsWith("+")) {
+    if (/^0\d{9}$/.test(digits)) digits = `+33${digits.slice(1)}`;
+    else if (/^33\d{9}$/.test(digits)) digits = `+${digits}`;
+    else return null;
+  }
+  // « +33 (0)6… » : le 0 après l'indicatif français n'appartient pas au numéro
+  digits = digits.replace(/^\+330(\d{9})$/, "+33$1");
+  return /^\+[1-9]\d{7,14}$/.test(digits) ? digits : null;
+}
+
+/** Données transmises à gtag pour le suivi avancé, ou null si rien d'exploitable. */
+export function buildUserData(userData?: LeadUserData): { email?: string; phone_number?: string } | null {
+  if (!userData) return null;
+  const email = normalizeEmail(userData.email);
+  const phone = normalizePhoneE164(userData.phone);
+  if (!email && !phone) return null;
+  return { ...(email ? { email } : {}), ...(phone ? { phone_number: phone } : {}) };
+}
+
 /** Soumissions déjà comptabilisées dans cet onglet (protection anti-doublon). */
 const trackedSubmissions = new Set<string>();
 
@@ -38,9 +79,12 @@ const trackedSubmissions = new Set<string>();
  * sans lui (honeypot, réponse inattendue), rien n'est envoyé. Il sert aussi de
  * transaction_id pour que Google dédoublonne de son côté.
  *
+ * `userData` (e-mail, téléphone du formulaire) alimente le suivi avancé des conversions :
+ * il n'est transmis qu'après le contrôle du consentement, juste avant la conversion.
+ *
  * Ne lève jamais : absence de gtag, refus de consentement ou bloqueur sont ignorés.
  */
-export function trackLeadConversion(submissionId: unknown): boolean {
+export function trackLeadConversion(submissionId: unknown, userData?: LeadUserData): boolean {
   try {
     if (typeof submissionId !== "string" || submissionId === "") return false;
     if (typeof window === "undefined") return false;
@@ -49,6 +93,8 @@ export function trackLeadConversion(submissionId: unknown): boolean {
     if (typeof window.gtag !== "function") return false;
 
     trackedSubmissions.add(submissionId);
+    const enhanced = buildUserData(userData);
+    if (enhanced) window.gtag("set", "user_data", enhanced);
     window.gtag("event", "conversion", {
       send_to: LEAD_CONVERSION_SEND_TO,
       transaction_id: submissionId,

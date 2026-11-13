@@ -25,7 +25,21 @@ La conversion est déclenchée par `/contact` et `/devis` uniquement quand l'API
 **avec** un `submissionId`, c'est-à-dire après l'envoi effectif de l'email. Le faux succès du
 honeypot ne contient pas d'identifiant : il n'est jamais comptabilisé. Le `submissionId` est
 transmis en `transaction_id` (dédoublonnage côté Google) et mémorisé dans l'onglet (pas de
-double déclenchement côté navigateur). Aucune donnée saisie n'est envoyée à Google.
+double déclenchement côté navigateur).
+
+### Suivi avancé des conversions
+
+Pour « Website lead », `trackLeadConversion(submissionId, { email, phone })` passe l'e-mail et le
+téléphone du formulaire à `gtag('set', 'user_data', …)` juste avant la conversion. gtag les hache
+(SHA-256) dans le navigateur ; Google ne reçoit que l'empreinte. Conditions :
+
+- uniquement après le contrôle du consentement (`granted`) : sans acceptation, rien n'est transmis ;
+- e-mail normalisé (minuscules), téléphone converti en E.164 (`06 12 34 56 78` → `+33612345678`) ;
+  une valeur inexploitable est simplement omise ;
+- le reste du formulaire (nom, ville, message) n'est jamais transmis ;
+- le clic téléphone n'envoie aucune donnée.
+
+Les mentions légales (section « 7. Cookies ») décrivent cette transmission.
 
 Jamais de conversion : à l'ouverture des pages, au clic sur Envoyer, en cas d'erreur de
 validation ou serveur, sur les clics téléphone/e-mail (ceux-ci ont leur propre conversion, voir plus bas). Absence de gtag, refus ou bloqueur
@@ -64,7 +78,7 @@ Rien n'est déclenché au chargement d'une page ni sur un clic `mailto:`.
 
 ## Consentement
 
-`components/ConsentBanner.tsx` (bandeau compact en bas d’écran, monté dans `app/layout.tsx`) s'affiche tant qu'aucun choix n'est
+`components/ConsentBanner.tsx` (bandeau bien visible en bas d’écran : liseré, titre, grands boutons ; monté dans `app/layout.tsx`) s'affiche tant qu'aucun choix n'est
 enregistré. « Accepter » et « Refuser » ont le même style ; ils appellent `setAdsConsent(true)` et
 `setAdsConsent(false)`. Le choix est mémorisé (`localStorage`, clé `jrenov-consent-ads`). Le bouton
 « Gérer mes cookies » du pied de page (`components/ManageCookiesButton.tsx`) rouvre la bannière via
