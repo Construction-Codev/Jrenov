@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Phone, FileText } from "lucide-react";
+import Image from "next/image";
 import { BUSINESS, PHONE_HREF } from "@/lib/site";
 
 const videos = [
@@ -17,6 +18,7 @@ const ROTATION_MS = 8000; // Réduit à 8s pour plus de dynamisme
 const WARMUP_DELAY_MS = 2000; // Délai avant de précharger la vidéo suivante
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+const MOBILE_QUERY = "(max-width: 767px)";
 
 function subscribeReducedMotion(callback: () => void) {
   const mql = window.matchMedia(REDUCED_MOTION_QUERY);
@@ -32,12 +34,29 @@ function usePrefersReducedMotion() {
   );
 }
 
+function subscribeMobile(callback: () => void) {
+  const mql = window.matchMedia(MOBILE_QUERY);
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function useMobileScreen() {
+  // Server and hydration: prefer a lightweight static poster until the browser size is known.
+  return useSyncExternalStore(
+    subscribeMobile,
+    () => window.matchMedia(MOBILE_QUERY).matches,
+    () => true
+  );
+}
+
 export default function HeroBanner() {
   const [currentVideo, setCurrentVideo] = useState(0);
   // Vidéos autorisées à se charger : seule la première au départ, les suivantes à la demande
   const [loadedVideos, setLoadedVideos] = useState<number[]>([0]);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const reducedMotion = usePrefersReducedMotion();
+  const mobileScreen = useMobileScreen();
+  const staticHero = reducedMotion || mobileScreen;
 
   // Fonction pour mettre en pause toutes les vidéos sauf l'active
   const syncVideos = useCallback((activeIdx: number) => {
@@ -56,7 +75,7 @@ export default function HeroBanner() {
   // Cycle de changement de vidéo
   useEffect(() => {
     // Animations réduites : aucune lecture ni rotation, le poster reste affiché
-    if (reducedMotion || window.matchMedia(REDUCED_MOTION_QUERY).matches) {
+    if (staticHero) {
       videoRefs.current.forEach((video) => video?.pause());
       return;
     }
@@ -82,23 +101,36 @@ export default function HeroBanner() {
       clearTimeout(warmup);
       clearInterval(interval);
     };
-  }, [currentVideo, reducedMotion, syncVideos]);
+  }, [currentVideo, staticHero, syncVideos]);
 
   return (
     <section className="relative w-full aspect-[16/10] md:aspect-video min-h-[550px] flex items-center justify-center overflow-hidden bg-slate-950">
       
-      {/* Background Videos avec Fondu */}
+      {/* Sur mobile ou en animations réduites : poster statique, aucune vidéo téléchargée. */}
+      {staticHero && (
+        <Image
+          src={POSTER}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="absolute inset-0 object-cover"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Les vidéos ne reçoivent un src que sur grand écran sans préférence de mouvement réduit. */}
       {videos.map((src, index) => (
         <video
           key={src}
           ref={(el) => { videoRefs.current[index] = el; }}
           // Sans src, aucune requête réseau : la vidéo n'est chargée que lorsqu'elle va être affichée
-          src={loadedVideos.includes(index) ? src : undefined}
+          src={!staticHero && loadedVideos.includes(index) ? src : undefined}
           poster={index === 0 ? POSTER : undefined}
           muted
           loop
           playsInline
-          preload={index === 0 ? "metadata" : "auto"}
+          preload={staticHero ? "none" : index === 0 ? "metadata" : "auto"}
           aria-hidden="true"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
             index === currentVideo ? "opacity-100" : "opacity-0"
