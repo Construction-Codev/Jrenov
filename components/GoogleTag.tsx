@@ -9,6 +9,7 @@ import {
 } from "@/lib/consent";
 import { GOOGLE_ADS_ID } from "@/lib/google-ads";
 import { GA4_MEASUREMENT_ID } from "@/lib/google-analytics";
+import { queueGoogleTagCommand } from "@/lib/google-tag-queue";
 
 /**
  * Google Ads et GA4 partagent UNE SEULE bibliothèque gtag.js.
@@ -31,7 +32,7 @@ export default function GoogleTag() {
     if (!shouldLoad) return;
 
     window.dataLayer ??= [];
-    window.gtag ??= (...args: unknown[]) => { window.dataLayer?.push(args); };
+    window.gtag ??= queueGoogleTagCommand;
 
     if (!initialized.current) {
       // Baseline « refus » avant toute configuration du tag.
