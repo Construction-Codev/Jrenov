@@ -133,6 +133,29 @@ export function CallbackHomeSection() {
   </section>;
 }
 
+/** Réponse rapide sur les pages services sans détour par le formulaire détaillé. */
+export function CallbackServiceSection({ title, description }: { title: string; description: string }) {
+  const open = useCallbackHours();
+  return (
+    <section aria-label="Demande de rappel" className="border-b border-slate-200 bg-amber-50 px-4 py-8 sm:px-6">
+      <div className="mx-auto grid max-w-5xl items-center gap-6 md:grid-cols-2">
+        <div className="space-y-3">
+          <p className="text-sm font-extrabold uppercase tracking-wider text-amber-800">Un contact plus simple</p>
+          <h2 className="text-2xl font-black text-slate-950 sm:text-3xl">{title}</h2>
+          <p className="text-slate-700">{description}</p>
+          <p className="text-sm text-slate-600">
+            {open === null ? "Rappel pendant nos horaires." : open ? "Rappel dès que possible pendant les horaires d'ouverture." : "Rappel dès la prochaine ouverture."}
+            {" "}Votre nom et votre numéro suffisent.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-amber-200 bg-white p-5 shadow-sm">
+          <CallbackRequestForm />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CallbackDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const opened = useCallbackHours();
