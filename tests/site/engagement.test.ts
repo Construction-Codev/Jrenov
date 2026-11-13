@@ -19,6 +19,8 @@ describe("parcours d'engagement mobile et demandes de rappel", () => {
     const callback = source("components/CallbackRequest.tsx");
     const devis = source("app/devis/page.tsx");
     expect(callback).toContain("export function CallbackServiceSection");
+    expect(callback).toContain("JRENOV vous rappelle 24 h/24, 7 j/7");
+    expect(callback).not.toContain("8h-19h");
     expect(callback).toContain("<CallbackRequestForm />");
     expect(callback).toContain('trackEvent("callback_request")');
     expect(callback).toContain('trackLeadConversion(id,');
