@@ -15,7 +15,9 @@ const videos = [
 // Première image exacte de banner1.mp4 : affichée pendant le chargement (et seule si animations réduites)
 const POSTER = "/banner1-poster.jpg";
 const ROTATION_MS = 8000; // Réduit à 8s pour plus de dynamisme
-// Précharger la vidéo suivante peu avant la transition (et non dès la 2e seconde).\n// Évite le téléchargement simultané de deux vidéos de ~2,6 Mo au premier affichage.\nconst WARMUP_DELAY_MS = 6500;
+// Précharger la vidéo suivante peu avant la transition (et non dès la 2e seconde).
+// Évite le téléchargement simultané de deux vidéos de ~2,6 Mo au premier affichage.
+const WARMUP_DELAY_MS = 6500;
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const MOBILE_QUERY = "(max-width: 767px)";
